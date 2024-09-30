@@ -1,13 +1,14 @@
 # color_scales_affect
 
-This is the repository containing experiment code for the color scales affect project.
+Test - this is a minor change
 
 ### Emotion Concepts
-* Calm
-* Exciting
-* Positive
-* Negative
-* Serious
-* Playful
-* Trustworthy
-* Disturbing
+
+- Calm
+- Exciting
+- Positive
+- Negative
+- Serious
+- Playful
+- Trustworthy
+- Disturbing
