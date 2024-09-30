@@ -1,6 +1,6 @@
 # color_scales_affect
 
-Test - this is a minor change
+This repository contains the experiment for the color scales affect study.
 
 ### Emotion Concepts
 
