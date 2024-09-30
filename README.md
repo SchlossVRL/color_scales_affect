@@ -4,9 +4,9 @@ This repository contains the experiment for the color scales affect study.
 
 ### Emotion Concepts
 
-- Calm
+- Random Word
 - Exciting
-- Positive
+- Random Word 2
 - Negative
 - Serious
 - Playful
