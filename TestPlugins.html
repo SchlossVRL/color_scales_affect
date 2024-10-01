@@ -8,6 +8,7 @@
 
     <script src="jsPsych/jspsych-image-slider-response_InstrMAS.js"></script>
     <script src="jsPsych/plugin-image-slider-response.js"></script>
+    <script src="jsPsych/plugin-html-slider-response.js"></script>
     <script src="jsPsych/jspsych-image-slider-responseKM.js"></script>
     <script src="jsPsych/plugin-html-button-response.js"></script>
     <script src="jsPsych/plugin-html-keyboard-response.js"></script>
@@ -16,6 +17,7 @@
     <script src="jsPsych/plugin-fullscreen.js"></script>
     <script src="jsPsych/plugin-preload.js"></script>
     <script src="UW71.js"></script>
+    <script src = "imagePaths.js"></script>
     <link href="jsPsych/jspsych.css" rel="stylesheet" type="text/css">
     <link href="jsPsych/jspsychMAS.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
@@ -29,7 +31,6 @@
     <script>
 
         var jsPsych = initJsPsych();
-        var timeline0 = [];
         var timeline = [];
 
         // Set background color to gray //
@@ -54,9 +55,14 @@
 
         };
 
+        // make a list of all the values in the dict 'maps'
+        var image_paths = Object.values(maps);
+        // append the string 'patches71.png' to the list
+        image_paths.push('patches71.png');
+        console.log(image_paths);
         var preload = {
             type: jsPsychPreload,
-            images: ['patches71.png']
+            images: image_paths
         };
 
         timeline.push(preload);
@@ -70,12 +76,12 @@
                 '<p> Once you click that button, it will not be possible to restart the experiment.',
             choices: ['Begin Experiment']
         }
-        timeline.push(initial_screen);
+        // timeline.push(initial_screen);
 
-        timeline.push({
-            type: jsPsychFullscreen,
-            fullscreen_mode: true,
-        })
+        // timeline.push({
+        //     type: jsPsychFullscreen,
+        //     fullscreen_mode: true,
+        // })
 
         // MTURK VERSION
         var consentSign = {
@@ -122,7 +128,7 @@
             button_label: "Start Experiment",
         };
 
-        timeline.push(consentSign);
+        // timeline.push(consentSign);
 
         // Overview instructions of experiment
         var overview_instructions = {
@@ -131,7 +137,7 @@
                 '<p> It will take about 40 minutes to complete both parts.',
             choices: ['Continue']
         }
-        timeline.push(overview_instructions);
+        // timeline.push(overview_instructions);
 
         var age_lang_demo = {
             type: jsPsychSurveyText,
@@ -145,7 +151,7 @@
             button_label: "Done",
             randomize_question_order: false
         }
-        timeline.push(age_lang_demo);
+        // timeline.push(age_lang_demo);
 
         // Consent and demo Completion
         var demo_completion = {
@@ -155,11 +161,13 @@
             choices: [' ']
         };
 
-        timeline.push(demo_completion);
+        // timeline.push(demo_completion);
 
 
-        var concept_list = Object.keys(concept_dict); // Get the keys of the concept_dict
-        var exemplars = concept_dict[concept_list[0]]; // Change this to select the desired key
+        // var concept_list = Object.keys(affect_dict); // get the list of affect terms
+        // var exemplars = concept_dict[concept_list[0]]; // Change this to select the desired key
+        var exemplars = affect_list
+        console.log(exemplars)
 
         var instructions = {
             type: jsPsychImageSliderResponseInstrMAS,
@@ -178,13 +186,14 @@
             start: 0,
             min: -200,
             max: 200,
-            button_label: "Start"
+            button_label: "Start",
+            post_trial_gap: 1000
         }
-        timeline.push(instructions);
+        // timeline.push(instructions);
 
         for (i = 0; i < exemplars.length; i++) {
 
-            var color_order = jsPsych.randomization.sampleWithoutReplacement(_.range(Object.keys(uw_71).length), 71);
+            var color_order = jsPsych.randomization.sampleWithoutReplacement(_.range(Object.keys(maps).length), Object.keys(maps).length);
 
             var block_break0 = {
                 type: jsPsychHtmlButtonResponse,
@@ -194,57 +203,79 @@
             };
             timeline.push(block_break0);
 
-            for (j = 0; j < Object.keys(uw_71).length; j++) {
+            for (j = 0; j < Object.keys(maps).length; j++) {
 
 
 
-                let this_col = fullColorHex(uw_71[color_order[j]]['r'], uw_71[color_order[j]]['g'], uw_71[color_order[j]]['b']);
+                // let this_col = fullColorHex(uw_71[color_order[j]]['r'], uw_71[color_order[j]]['g'], uw_71[color_order[j]]['b']);
+                this_map = maps[color_order[j]];
                 // Define concept based on current exemplar
                 var concept = exemplars[i];
 
 
                 // Ratings trial // 
+                // var rating_trial = {
+                //     type: jsPsychImageSliderResponseMAS,
+                //     data: {
+                //         color_rgb: this_col,
+                //         concept: concept,
+                //         time_finished: Date.now(),
+                //         color_index: color_order[j]
+                //     },
+                //     stimulus: '',
+
+                //     // Use the on_load function to dynamically inject the div into the DOM
+                //     on_load: function () {
+                //         var div = document.createElement('div');
+                //         div.style.height = '100px';
+                //         div.style.width = '100px';
+                //         div.style.backgroundColor = this_col;
+                //         div.style.border = '1px solid black';
+                //         div.style.margin = '0 auto'; // Center the square
+                //         div.style.display = 'block'; // Make it block-level
+                //         document.querySelector('#jspsych-content').prepend(div);  // Insert the div before the slider
+                //     },
+
+
+                //     stimulus_height: 80,
+                //     //stimulus_width: 100,
+                //     maintain_aspect_ratio: true,
+                //     labels: ['Not at all', 'Very Much'],
+                //     response_ends_trial: true,
+                //     slider_width: 400,
+                //     //prompt: exemplars[i],
+                //     prompt: `<br><div style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">${exemplars[i]}</div>`, // Display the concept above the slider
+                //     require_movement: true,
+                //     post_trial_gap: 300,
+                //     //prompt_location: "above",
+                //     step: 1,
+                //     start: 0,
+                //     min: -200,
+                //     max: 200
+                // };
                 var rating_trial = {
-                    type: jsPsychImageSliderResponseMAS,
-                    data: {
-                        color_rgb: this_col,
-                        concept: concept,
-                        time_finished: Date.now(),
-                        color_index: color_order[j]
-                    },
-                    //stimulus: '<div style= "height:100px;width:100px;border:0px solid powderblue;display: inline-block;background:#' + this_col + '"></div>',
-                    //stimulus: `<div style="height:100px; width:100px; background-color:${this_col}; border:1px solid black;"></div>`,
-                    stimulus: '',
-
-                    // Use the on_load function to dynamically inject the div into the DOM
-                    on_load: function () {
-                        var div = document.createElement('div');
-                        div.style.height = '100px';
-                        div.style.width = '100px';
-                        div.style.backgroundColor = this_col;
-                        div.style.border = '1px solid black';
-                        div.style.margin = '0 auto'; // Center the square
-                        div.style.display = 'block'; // Make it block-level
-                        document.querySelector('#jspsych-content').prepend(div);  // Insert the div before the slider
-                    },
-
-
-                    stimulus_height: 80,
-                    //stimulus_width: 100,
-                    maintain_aspect_ratio: true,
+                    type: jsPsychHtmlSliderResponse,
+                    stimulus: `<div style="width:500px;">
+                            <p style="font-size:30px; font-weight:bold;"
+                            >${concept}</p>
+                            <div style="width:240px; margin: auto;">
+                                <img src="${this_map}" alt="img">
+                            </div>
+                        </div>`,
                     labels: ['Not at all', 'Very Much'],
-                    response_ends_trial: true,
-                    slider_width: 400,
-                    //prompt: exemplars[i],
-                    prompt: `<br><div style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">${exemplars[i]}</div>`, // Display the concept above the slider
-                    require_movement: true,
-                    post_trial_gap: 1000,
-                    //prompt_location: "above",
+                    // slider_width: 500,
+                    require_movement: false,
                     step: 1,
-                    start: 0,
+                    slider_start: 0,
                     min: -200,
-                    max: 200
+                    max: 200,
+                    data:{
+                        image_path:this_map,
+                        concept:concept
+                    }
+
                 };
+
                 timeline.push(rating_trial);
             }
 
