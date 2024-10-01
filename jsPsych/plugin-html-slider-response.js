@@ -101,7 +101,7 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
         trial(display_element, trial) {
             // half of the thumb width value from jspsych.css, used to adjust the label positions
             var half_thumb_width = 7.5;
-            var html = '<div id="jspsych-html-slider-response-wrapper" style="margin: 100px 0px;">';
+            var html = '<div id="jspsych-html-slider-response-wrapper" style="margin: 50px 0px;">';
             html += '<div id="jspsych-html-slider-response-stimulus">' + trial.stimulus + "</div>";
             html +=
                 '<div class="jspsych-html-slider-response-container" style="position:relative; margin: 0 auto 3em auto; ';
@@ -159,12 +159,13 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 html += trial.prompt;
             }
             // add submit button
-            html +=
-                '<button id="jspsych-html-slider-response-next" class="jspsych-btn" ' +
-                (trial.require_movement ? "disabled" : "") +
-                ">" +
-                trial.button_label +
-                "</button>";
+            // html +=
+            //     '<button id="jspsych-html-slider-response-next" class="jspsych-btn" ' +
+            //     (trial.require_movement ? "disabled" : "") +
+            //     'style = "width:250px; height: 180px; font-size: 30px;",'+
+            //     ">" +
+            //     trial.button_label +
+            //     "</button>";
             display_element.innerHTML = html;
             var response = {
                 rt: null,
@@ -198,7 +199,8 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 this.jsPsych.finishTrial(trialdata);
             };
             display_element
-                .querySelector("#jspsych-html-slider-response-next")
+                // .querySelector("#jspsych-html-slider-response-next")
+                .querySelector("#jspsych-html-slider-response-response")
                 .addEventListener("click", () => {
                     // measure response time
                     var endTime = performance.now();
