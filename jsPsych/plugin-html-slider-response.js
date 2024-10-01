@@ -113,6 +113,11 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
             }
             html += '">';
 
+
+            // Add a wrapper div for the slider and clickable area
+            html += '<div class="slider-wrapper" style="position: relative; padding: 20px 0;">';
+
+
             // Add vertical lines
             html += '<div class="slider-lines" style="position: absolute; width: 99.5%; height: 20px; display: flex; justify-content: space-between; pointer-events: none; bottom: 6px; left:3px; z-index: -1;">';
             html += '<div class="line" style="width: 3px; height: 25px; background-color: white;"></div>';
@@ -132,6 +137,9 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 '" step="' +
                 trial.step +
                 '" id="jspsych-html-slider-response-response"></input>';
+            // Close the wrapper div
+            html += '</div>';
+
             html += "<div>";
             for (var j = 0; j < trial.labels.length; j++) {
                 var label_width_perc = 100 / (trial.labels.length - 1);
@@ -185,6 +193,53 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                     .querySelector("#jspsych-html-slider-response-response")
                     .addEventListener("change", enable_button);
             }
+            // Add click event listener to the wrapper
+            let sliderWrapper = display_element.querySelector('.slider-wrapper');
+            // let slider = display_element.querySelector('#jspsych-html-slider-response-response');
+
+            // Function to update slider value and position
+            const updateSlider = (clickX) => {
+                const rect = sliderWrapper.getBoundingClientRect();
+                const clickPosition = ((clickX - rect.left) / rect.width)*400;
+                // const newValue = Math.round(clickPosition * (trial.max - trial.min) + trial.min);
+                const newValue = Math.round(clickPosition-200);
+                // const clampedNewValue = Math.min(Math.max(newValue, trial.min), trial.max);
+
+                // console.log(rect.left);
+                // console.log(rect.width);
+               
+
+                // Update slider value
+                // slider.value = clampedNewValue;
+                // console.log(slider.value);
+
+                // // Trigger input event for immediate visual update
+                // const inputEvent = new Event('input', { bubbles: true });
+                // slider.dispatchEvent(inputEvent);
+                return newValue;
+            };
+
+            sliderWrapper.addEventListener('click', (e) => {
+                // Update slider and get new value
+                const newValue = updateSlider(e.clientX);
+                let slider = display_element.querySelector('#jspsych-html-slider-response-response');
+                console.log('slider val',slider.value)
+                slider.value = newValue;
+                console.log('slider val',slider.value)
+                // Record the response
+
+                response.response = newValue;
+                response.rt = Math.round(performance.now() - startTime);
+
+                // If response ends trial, finish it
+                if (trial.response_ends_trial) {
+                    setTimeout(end_trial, 50); 
+                }
+            });
+
+
+
+
             const end_trial = () => {
                 this.jsPsych.pluginAPI.clearAllTimeouts();
                 // save data
@@ -205,6 +260,7 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                     // measure response time
                     var endTime = performance.now();
                     response.rt = Math.round(endTime - startTime);
+                    console.log('slid val',display_element.querySelector("#jspsych-html-slider-response-response").valueAsNumber)
                     response.response = display_element.querySelector("#jspsych-html-slider-response-response").valueAsNumber;
                     if (trial.response_ends_trial) {
                         end_trial();
@@ -268,3 +324,4 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
     return HtmlSliderResponsePlugin;
 
 })(jsPsychModule);
+
