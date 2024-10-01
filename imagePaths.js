@@ -1,7 +1,5 @@
 
 var affect_list = ["calm", "exciting", "positive", "negative", "serious", "playful", "trustworthy", "disturbing"]
-
-
 var maps = {
   "0": "images/gray_h149_v612.png",
   "1": "images/gray_h148_v607.png",

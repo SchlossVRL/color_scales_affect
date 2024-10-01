@@ -16,7 +16,7 @@
     <script src="jsPsych/plugin-survey-text.js"></script>
     <script src="jsPsych/plugin-fullscreen.js"></script>
     <script src="jsPsych/plugin-preload.js"></script>
-    <script src="UW71.js"></script>
+    <!-- <script src="UW71.js"></script> -->
     <script src = "imagePaths.js"></script>
     <link href="jsPsych/jspsych.css" rel="stylesheet" type="text/css">
     <link href="jsPsych/jspsychMAS.css" rel="stylesheet" type="text/css">
@@ -60,6 +60,7 @@
         // append the string 'patches71.png' to the list
         image_paths.push('patches71.png');
         console.log(image_paths);
+        console.log(affect_list);
         var preload = {
             type: jsPsychPreload,
             images: image_paths
@@ -166,8 +167,8 @@
 
         // var concept_list = Object.keys(affect_dict); // get the list of affect terms
         // var exemplars = concept_dict[concept_list[0]]; // Change this to select the desired key
-        var exemplars = affect_list
-        console.log(exemplars)
+        affect_list
+        console.log(affect_list)
 
         var instructions = {
             type: jsPsychImageSliderResponseInstrMAS,
@@ -175,7 +176,7 @@
             //maintain_aspect_ratio: true,
             stimulus_height: 450,
             labels: ['Not at all', 'Very Much'],
-            concepts: exemplars,
+            concepts: affect_list,
             response_ends_trial: true,
             slider_width: 400,
             prompt1: "<div style ='text-align:left; font-size:100%; line-height:30px;'>During this experiment you will be asked to rate how much you associate colors with different concepts.<br>" + "Below, you can see each of the colors you will be asked to rate. Next to the colors is the list of concepts.<br>You will be asked to rate how much you associate each color with each concept on a scale from 'not at all' to 'very much' like the one below.</div>",
@@ -191,14 +192,14 @@
         }
         // timeline.push(instructions);
 
-        for (i = 0; i < exemplars.length; i++) {
+        for (i = 0; i < affect_list.length; i++) {
 
             var color_order = jsPsych.randomization.sampleWithoutReplacement(_.range(Object.keys(maps).length), Object.keys(maps).length);
 
             var block_break0 = {
                 type: jsPsychHtmlButtonResponse,
                 stimulus: "<p>In this block of trials, you will be asked to rate how much you associate each color with:</p > " +
-                    "<p style = 'font-size:150%; font-weight: bold'>" + exemplars[i] + "</p><br></br>",
+                    "<p style = 'font-size:150%; font-weight: bold'>" + affect_list[i] + "</p><br></br>",
                 choices: ['Continue'],
             };
             timeline.push(block_break0);
@@ -210,7 +211,7 @@
                 // let this_col = fullColorHex(uw_71[color_order[j]]['r'], uw_71[color_order[j]]['g'], uw_71[color_order[j]]['b']);
                 this_map = maps[color_order[j]];
                 // Define concept based on current exemplar
-                var concept = exemplars[i];
+                var concept = affect_list[i];
 
 
                 // Ratings trial // 
@@ -241,7 +242,7 @@
                 //     //stimulus_width: 100,
                 //     maintain_aspect_ratio: true,
                 //     labels: ['Not at all', 'Very Much'],
-                //     response_ends_trial: true,
+                //     response_ends_trial: tr due,
                 //     slider_width: 400,
                 //     //prompt: exemplars[i],
                 //     prompt: `<br><div style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">${exemplars[i]}</div>`, // Display the concept above the slider
@@ -281,7 +282,7 @@
 
             // Block break//
 
-            if (i == exemplars.length - 1) {
+            if (i == affect_list.length - 1) {
                 var block_break = {
                     type: jsPsychHtmlButtonResponse,
                     stimulus: "<p>Great Job! You're done rating all concepts!<br></br></p>",
@@ -289,10 +290,10 @@
                 };
                 timeline.push(block_break)
 
-            } else if (i < exemplars.length) {
+            } else if (i < affect_list.length) {
                 var block_break = {
                     type: jsPsychHtmlButtonResponse,
-                    stimulus: "<p>Great Job! You've finished block " + (i + 1) + ".<br></br> You have " + (exemplars.length - (i + 1)) + " block(s) left to go.<br></br></p>",
+                    stimulus: "<p>Great Job! You've finished block " + (i + 1) + ".<br></br> You have " + (affect_list.length - (i + 1)) + " block(s) left to go.<br></br></p>",
                     choices: ['Next'],
                 };
                 timeline.push(block_break)
