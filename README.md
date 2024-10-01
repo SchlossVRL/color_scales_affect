@@ -12,3 +12,5 @@ This repository contains the experiment for the color scales affect study.
 - Playful
 - Trustworthy
 - Disturbing
+
+## Currently in Dev :construction:
