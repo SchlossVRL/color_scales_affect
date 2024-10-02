@@ -446,6 +446,18 @@
 }
 
 /* thumb */
+.jspsych-display-element input[type=range]::-webkit-slider-thumb {
+border: 1px solid #666;
+height: 18px;
+width: 18px;
+border-radius: 100%;
+background: black;
+cursor: pointer;
+-webkit-appearance: none;
+margin-top: -6.5px;
+}
+
+
 .jspsych-slider::-webkit-slider-thumb {
   border: 1px solid #666;
   height: 24px;
@@ -512,4 +524,13 @@
 /* Control appearance of jsPsych.data.displayData() */
 #jspsych-data-display {
   text-align: left;
+}
+
+
+.jspsych-image-slider-response-sliderColor {
+  -webkit-appearance: none;
+  height: 5px; 
+  background-color: black;
+  outline: none;
+  z-index: 1;
 }
