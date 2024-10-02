@@ -129,7 +129,7 @@
             button_label: "Start Experiment",
         };
 
-        timeline.push(consentSign);
+        // timeline.push(consentSign);
 
         // Overview instructions of experiment
         var overview_instructions = {
@@ -162,7 +162,7 @@
             choices: [' ']
         };
 
-        // timeline.push(demo_completion);
+        timeline.push(demo_completion);
 
 
         // var concept_list = Object.keys(affect_dict); // get the list of affect terms
@@ -193,6 +193,107 @@
         // timeline.push(instructions);
         console.log(affect_list)
         affect_list = jsPsych.randomization.shuffle(affect_list);
+        for (i = 0; i<4;i++){
+            let practice_concept  = affect_list[0];
+            let task
+            if (i==0){
+                 task = "Please move the slider all the way to the <br> right endpoint of the scale"
+            }
+            else if (i==1){
+                 task = "Please move the slider all the way to the <br> left endpoint of the scale"
+            }
+            else if (i==2){
+                 task = "Please move the slider halfway between the center and right endpoint of the scale"
+            }
+            else if (i==3){
+                 task = "Please move the slider halfway between the center and left endpoint of the scale"
+            }
+            var rating_trial = {
+                    type: jsPsychHtmlSliderResponse,
+                    stimulus: `<div style="width:500px;">
+                            <p style="font-size:25px;">${task}</p>
+                            <p style="font-size:50px; font-weight:bold;"
+                            >${practice_concept}</p>
+                            <div style="width:240px; margin: auto;">
+                                <img src="${maps[i]}" alt="img">
+                            </div>
+                        </div>`,
+                    labels: ['Not at all', 'Very Much'],
+                    // slider_width: 500,
+                    require_movement: false,
+                    step: 1,
+                    slider_start: 0,
+                    min: -200,
+                    max: 200,
+                    response_ends_trial: true,
+                    post_trial_gap: 500,
+                    data:{
+                        image_path:maps[i],
+                        concept:practice_concept,
+                        practiceTrial:true,
+                        practiceTrialNum:i
+                    },
+                    on_finish: function(data){
+                        var slider_response = data.response;
+                        var trialNum = data.practiceTrialNum;
+                        let upperLimit;
+                        let lowerLimit;
+                        if(trialNum==0){
+                            upperLimit = 220;
+                            lowerLimit = 180;
+                        }
+                        else if(trialNum==1){
+                            upperLimit = -180;
+                            lowerLimit = -220;
+                        }
+                        else if(trialNum==2){
+                            upperLimit = 110;
+                            lowerLimit = 80;
+                        }
+                        else if(trialNum==3){
+                            upperLimit = -80;
+                            lowerLimit = -110;
+                        }
+                        console.log(slider_response)
+                        console.log(upperLimit, lowerLimit)
+                        if(slider_response<= upperLimit && slider_response>=lowerLimit){
+                            data.correct = true;
+                        }
+                        else{
+                            data.correct = false;
+                        }
+                    }
+
+                };
+                var rating_feedback = {
+                    type: jsPsychHtmlButtonResponse,
+                    stimulus: function(){
+                        var last_resp_correct = jsPsych.data.getLastTrialData().values()[0].correct; 
+                        if (last_resp_correct) {
+                        return  "<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>"
+                    } else {
+                        return "<p align='center'><b>Not quite!</b> The slider was not placed near the instructed located. Click on 'Continue' to try again. </p>" 
+                    }},
+                    choices: ['Next']
+                    };
+
+                var comp1_loop = {
+                    timeline: [rating_trial, rating_feedback], 
+                    loop_function: function(data){ 
+                    console.log('data: ', data.values());
+                    if (data.values()[0].correct == true) {   
+                    return false; 
+                    } else { 
+                    return true;
+                    }}
+                    };
+                timeline.push(comp1_loop);
+                // timeline.push(rating_trial);
+
+
+        }
+
+
 
         for (i = 0; i < affect_list.length; i++) {
 

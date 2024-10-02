@@ -135,7 +135,7 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
             // Close the wrapper div
             html += '</div>';
              // Add vertical lines
-             html += '<div class="slider-lines" style="position: absolute; width: 99.5%; height: 20px; display: flex; justify-content: space-between; pointer-events: none; bottom: 26px; left:3px; z-index: 2;">';
+             html += '<div class="slider-lines" style="position: absolute; width: 100%; height: 20px; display: flex; justify-content: space-between; pointer-events: none; bottom: 26px; left:2px; z-index: 2;">';
              html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
              html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
              html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
@@ -204,19 +204,6 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 const clickPosition = ((clickX - rect.left) / rect.width) * 400;
                 // const newValue = Math.round(clickPosition * (trial.max - trial.min) + trial.min);
                 const newValue = Math.round(clickPosition - 200);
-                // const clampedNewValue = Math.min(Math.max(newValue, trial.min), trial.max);
-
-                // console.log(rect.left);
-                // console.log(rect.width);
-
-
-                // Update slider value
-                // slider.value = clampedNewValue;
-                // console.log(slider.value);
-
-                // // Trigger input event for immediate visual update
-                // const inputEvent = new Event('input', { bubbles: true });
-                // slider.dispatchEvent(inputEvent);
                 slider.value = newValue;
                 const parent = slider.parentNode;
                 parent.removeChild(slider);
@@ -247,7 +234,14 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 // Add a mouseup event listener to stop tracking when mouse is released
                 const onMouseUp = () => {
                     response.response = clickPos;
+                    if(response.response < -200){
+                        response.response = -200;
+                    }
+                    if(response.response > 200){
+                        response.response = 200;
+                    }
                     response.rt = Math.round(performance.now() - startTime);
+                    console.log('clickpos is',clickPos)
     
                     // If response ends trial, finish it
                     if (trial.response_ends_trial) {
@@ -261,18 +255,6 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 document.addEventListener('mouseup',
                     onMouseUp);
             });
-
-            // sliderWrapper.addEventListener('mouseup', (e) => {
-            //     response.response = clickPos;
-            //     response.rt = Math.round(performance.now() - startTime);
-
-            //     // If response ends trial, finish it
-            //     if (trial.response_ends_trial) {
-            //         // Introduce a delay (e.g., 10 milliseconds)
-            //         setTimeout(end_trial, 10);
-            //     }
-            // });
-
 
 
 
