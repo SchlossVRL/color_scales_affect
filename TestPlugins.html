@@ -19,7 +19,8 @@
     <!-- <script src="UW71.js"></script> -->
     <script src="imagePaths.js"></script>
     <link href="jsPsych/jspsych.css" rel="stylesheet" type="text/css">
-    <link href="jsPsych/jspsychMAS.css" rel="stylesheet" type="text/css">
+    <!-- <link href="jsPsych/jspsychMAS.css" rel="stylesheet" type="text/css"> -->
+    <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
 
 </head>
@@ -32,6 +33,11 @@
 
         var jsPsych = initJsPsych();
         var timeline = [];
+
+
+        const subject_id = jsPsych.randomization.randomID(10);
+        const filename = `${subject_id}.csv`;
+            
 
         // Set background color to gray //
         document.body.style.backgroundColor = "rgb(128,128,128)"
@@ -378,6 +384,15 @@
             }
 
         }
+
+        const save_data = {
+                type: jsPsychPipe,
+                action: "save",
+                experiment_id: "JlkVdBCimxOA",
+                filename: filename,
+                data_string: ()=>jsPsych.data.get().csv()
+              };
+        timeline.push(save_data);
 
         jsPsych.run(timeline);
 
