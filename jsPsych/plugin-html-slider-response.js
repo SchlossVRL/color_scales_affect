@@ -84,6 +84,11 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 pretty_name: "Response ends trial",
                 default: true,
             },
+            include_button: {
+                type: jspsych.ParameterType.BOOL,
+                pretty_name: "Does the slider include a button",
+                default: false,
+            },
         },
     };
     /**
@@ -118,7 +123,7 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
             html += '<div class="slider-wrapper" style="position: relative; padding: 20px 0;">';
 
 
-           
+
 
 
 
@@ -134,12 +139,12 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 '" id="jspsych-html-slider-response-response"></input>';
             // Close the wrapper div
             html += '</div>';
-             // Add vertical lines
-             html += '<div class="slider-lines" style="position: absolute; width: 100%; height: 20px; display: flex; justify-content: space-between; pointer-events: none; bottom: 26px; left:2px; z-index: 2;">';
-             html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
-             html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
-             html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
-             html += '</div>';
+            // Add vertical lines
+            html += '<div class="slider-lines" style="position: absolute; width: 100%; height: 20px; display: flex; justify-content: space-between; pointer-events: none; bottom: 26px; left:2px; z-index: 2;">';
+            html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
+            html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
+            html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
+            html += '</div>';
 
             html += "<div>";
             for (var j = 0; j < trial.labels.length; j++) {
@@ -167,14 +172,17 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
             if (trial.prompt !== null) {
                 html += trial.prompt;
             }
-            // add submit button
-            // html +=
-            //     '<button id="jspsych-html-slider-response-next" class="jspsych-btn" ' +
-            //     (trial.require_movement ? "disabled" : "") +
-            //     'style = "width:250px; height: 180px; font-size: 30px;",'+
-            //     ">" +
-            //     trial.button_label +
-            //     "</button>";
+            if (trial.include_button == true) {
+                // add submit button
+                html +=
+                    '<button id="jspsych-html-slider-response-next" class="jspsych-btn" ' +
+                    (trial.require_movement ? "disabled" : "") +
+                    'style = "width:100px; height: 50px; font-size: 20px;",' +
+                    ">" +
+                    trial.button_label +
+                    "</button>";
+            }
+
             display_element.innerHTML = html;
             var response = {
                 rt: null,
@@ -234,15 +242,15 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 // Add a mouseup event listener to stop tracking when mouse is released
                 const onMouseUp = () => {
                     response.response = clickPos;
-                    if(response.response < -200){
+                    if (response.response < -200) {
                         response.response = -200;
                     }
-                    if(response.response > 200){
+                    if (response.response > 200) {
                         response.response = 200;
                     }
                     response.rt = Math.round(performance.now() - startTime);
-                    console.log('clickpos is',clickPos)
-    
+                    console.log('clickpos is', clickPos)
+
                     // If response ends trial, finish it
                     if (trial.response_ends_trial) {
                         // Introduce a delay (e.g., 10 milliseconds)
@@ -272,7 +280,6 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 this.jsPsych.finishTrial(trialdata);
             };
             display_element
-                // .querySelector("#jspsych-html-slider-response-next")
                 .querySelector("#jspsych-html-slider-response-response")
                 .addEventListener("click", () => {
                     // measure response time
@@ -292,12 +299,25 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                     display_element.querySelector("#jspsych-html-slider-response-stimulus").style.visibility = "hidden";
                 }, trial.stimulus_duration);
             }
+            //end trial if button is pressed
+            display_element
+                .querySelector("#jspsych-html-slider-response-next")
+                .addEventListener("click", () => {
+                    // measure response time
+                    var endTime = performance.now();
+                    response.rt = Math.round(endTime - startTime);
+                    end_trial();
+                });
             // end trial if trial_duration is set
             if (trial.trial_duration !== null) {
                 this.jsPsych.pluginAPI.setTimeout(end_trial, trial.trial_duration);
             }
             var startTime = performance.now();
         }
+
+
+
+
         simulate(trial, simulation_mode, simulation_options, load_callback) {
             if (simulation_mode == "data-only") {
                 load_callback();

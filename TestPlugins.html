@@ -17,7 +17,7 @@
     <script src="jsPsych/plugin-fullscreen.js"></script>
     <script src="jsPsych/plugin-preload.js"></script>
     <!-- <script src="UW71.js"></script> -->
-    <script src = "imagePaths.js"></script>
+    <script src="imagePaths.js"></script>
     <link href="jsPsych/jspsych.css" rel="stylesheet" type="text/css">
     <link href="jsPsych/jspsychMAS.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
@@ -36,24 +36,8 @@
         // Set background color to gray //
         document.body.style.backgroundColor = "rgb(128,128,128)"
 
-        //Converts single channel to hex
-        var rgbToHex = function (rgb) {
-            var hex = Number(rgb).toString(16);
-            if (hex.length < 2) {
-                hex = "0" + hex;
-            }
-            return hex;
-        };
 
-        //Converts all 3 channels to hex
-        var fullColorHex = function (r, g, b) {
-            var red = rgbToHex(Math.round(255 * r));
-            var green = rgbToHex(Math.round(255 * g));
-            var blue = rgbToHex(Math.round(255 * b));
-            //return red + green + blue;
-            return `#${red}${green}${blue}`;
 
-        };
 
         // make a list of all the values in the dict 'maps'
         var image_paths = Object.values(maps);
@@ -84,7 +68,6 @@
         //     fullscreen_mode: true,
         // })
 
-        // MTURK VERSION
         var consentSign = {
             type: jsPsychSurveyMultiSelect,
             questions: [
@@ -135,7 +118,7 @@
         var overview_instructions = {
             type: jsPsychHtmlButtonResponse,
             stimulus: 'Welcome! <p> This experiment involves two parts: demographic information, followed by the experimental task.' +
-                '<p> It will take about 40 minutes to complete both parts.',
+                '<p> It will take about 25 minutes to complete both parts.',
             choices: ['Continue']
         }
         // timeline.push(overview_instructions);
@@ -158,59 +141,90 @@
         var demo_completion = {
             type: jsPsychHtmlKeyboardResponse,
             stimulus: "<p>Great job!</p> You have completed the consent process and answered the demographic questions." +
-                "<p> Press the spacebar to continue to the first experimental task. </p>",
+                "<p> Press the spacebar to continue to instructions for the experiment. </p>",
             choices: [' ']
         };
 
         timeline.push(demo_completion);
-
-
-        // var concept_list = Object.keys(affect_dict); // get the list of affect terms
-        // var exemplars = concept_dict[concept_list[0]]; // Change this to select the desired key
-        affect_list
-        console.log(affect_list)
-
         var instructions = {
-            type: jsPsychImageSliderResponseInstrMAS,
-            stimulus: "patches71.png",
-            //maintain_aspect_ratio: true,
-            stimulus_height: 450,
+            type: jsPsychHtmlSliderResponse,
+            stimulus: `
+            <div style='text-align:left; font-size:20px; line-height:25px; width: 1200px;'>
+                During this experiment you will be asked to rate how much you associate maps with\
+    different concepts.<br> Below, you can see some examples of the maps you will be asked to rate. Next to the maps
+    is the list of concepts.<br>You will be asked\
+    to rate how much you associate each map with each concept on a scale from 'not at all' to 'very much' like the
+    one below. <br><br>
+    Now, please look at the list of concepts and maps. For each concept, think about the map you associate 'very
+    much' with the concept.<br> \
+    When you see that color during the experiment, please rate it near the 'very much' endpoint of the
+    scale.<br>Now, please think about which map you associate 'not at all' \
+    with each concept. When you see that color during the experiment, please rate it near the 'not at all' endpoint
+    of the scale.<br>
+    Please use the full range of the scale. That is, if a color is somewhat associated with the concept, you would
+    click partway between the middle point and right side of the scale.\
+    You will be asked to rate each map for a given concept before moving on to the next concept.<br><br>Press the
+    'Continue' button when you're ready to begin four practice trials.\
+    <br><br>
+</div>
+
+<div style="width: 500px; margin: 0 auto;">
+    <div style="text-align: right; width: 240px; float: left;">
+        <p style="font-size:25px; line-height:18px;">${affect_list[0]}</p>
+        <p style="font-size:25px; line-height:18px;">${affect_list[1]}</p>
+        <p style="font-size:25px;line-height:18px;">${affect_list[2]}</p>
+        <p style="font-size:25px;line-height:18px;">${affect_list[3]}</p>
+        <p style="font-size:25px;line-height:18px;">${affect_list[4]}</p>
+        <p style="font-size:25px;line-height:18px;">${affect_list[5]}</p>
+        <p style="font-size:25px;line-height:18px;">${affect_list[6]}</p>
+        <p style="font-size:25px;line-height:18px;">${affect_list[7]}</p>
+    </div>
+    <div style="width: 240px; float: right;">
+        <img src="patches71.png" alt="img" style="max-height:300px">
+    </div>
+    <div style="clear: both;"></div>
+</div>
+            `,
             labels: ['Not at all', 'Very Much'],
-            concepts: affect_list,
-            response_ends_trial: true,
-            slider_width: 400,
-            prompt1: "<div style ='text-align:left; font-size:100%; line-height:30px;'>During this experiment you will be asked to rate how much you associate colors with different concepts.<br>" + "Below, you can see each of the colors you will be asked to rate. Next to the colors is the list of concepts.<br>You will be asked to rate how much you associate each color with each concept on a scale from 'not at all' to 'very much' like the one below.</div>",
-            prompt2: "<div style ='text-align:left; font-size:100%; line-height:30px;'>Now, please look at the list of concepts and colors. For each concept, think about the color you associate 'very much' with the concept. When you see that color during the experiment, please rate it near the 'very much' endpoint of the scale.<br><br>Now, please think about which color you associate 'not at all' with each concept. When you see that color during the experiment, please rate it near the 'not at all' endpoint of the scale.<br><br>Please use the full range of the scale. That is, if a color is somewhat associated with the concept, you would click partway between the middle point and right side of the scale. You will be asked to rate each color for a given concept before moving on to the next concept.<br><br>Press the 'Start' button when you're ready to begin.<br><br></div>",
-            require_movement: false,
             require_movement: false,
             step: 1,
-            start: 0,
+            slider_start: 0,
             min: -200,
             max: 200,
-            button_label: "Start",
-            post_trial_gap: 1000
+            response_ends_trial: false,
+            include_button: true,
+            data: {
+                image_path: 'patches71.png',
+                practiceTrial: true,
+            },
+            slider_width: 500
+
         }
-        // timeline.push(instructions);
+
+
+        
+   
+        timeline.push(instructions);
         console.log(affect_list)
         affect_list = jsPsych.randomization.shuffle(affect_list);
-        for (i = 0; i<4;i++){
-            let practice_concept  = affect_list[0];
+        for (i = 0; i < 4; i++) {
+            let practice_concept = affect_list[0];
             let task
-            if (i==0){
-                 task = "Please move the slider all the way to the <br> right endpoint of the scale"
+            if (i == 0) {
+                task = "Please move the slider all the way to the <br> right endpoint of the scale"
             }
-            else if (i==1){
-                 task = "Please move the slider all the way to the <br> left endpoint of the scale"
+            else if (i == 1) {
+                task = "Please move the slider all the way to the <br> left endpoint of the scale"
             }
-            else if (i==2){
-                 task = "Please move the slider halfway between the center and right endpoint of the scale"
+            else if (i == 2) {
+                task = "Please move the slider halfway between the center and right endpoint of the scale"
             }
-            else if (i==3){
-                 task = "Please move the slider halfway between the center and left endpoint of the scale"
+            else if (i == 3) {
+                task = "Please move the slider halfway between the center and left endpoint of the scale"
             }
             var rating_trial = {
-                    type: jsPsychHtmlSliderResponse,
-                    stimulus: `<div style="width:500px;">
+                type: jsPsychHtmlSliderResponse,
+                stimulus: `<div style="width:500px;">
                             <p style="font-size:25px;">${task}</p>
                             <p style="font-size:50px; font-weight:bold;"
                             >${practice_concept}</p>
@@ -218,77 +232,78 @@
                                 <img src="${maps[i]}" alt="img">
                             </div>
                         </div>`,
-                    labels: ['Not at all', 'Very Much'],
-                    // slider_width: 500,
-                    require_movement: false,
-                    step: 1,
-                    slider_start: 0,
-                    min: -200,
-                    max: 200,
-                    response_ends_trial: true,
-                    post_trial_gap: 500,
-                    data:{
-                        image_path:maps[i],
-                        concept:practice_concept,
-                        practiceTrial:true,
-                        practiceTrialNum:i
-                    },
-                    on_finish: function(data){
-                        var slider_response = data.response;
-                        var trialNum = data.practiceTrialNum;
-                        let upperLimit;
-                        let lowerLimit;
-                        if(trialNum==0){
-                            upperLimit = 220;
-                            lowerLimit = 180;
-                        }
-                        else if(trialNum==1){
-                            upperLimit = -180;
-                            lowerLimit = -220;
-                        }
-                        else if(trialNum==2){
-                            upperLimit = 110;
-                            lowerLimit = 80;
-                        }
-                        else if(trialNum==3){
-                            upperLimit = -80;
-                            lowerLimit = -110;
-                        }
-                        console.log(slider_response)
-                        console.log(upperLimit, lowerLimit)
-                        if(slider_response<= upperLimit && slider_response>=lowerLimit){
-                            data.correct = true;
-                        }
-                        else{
-                            data.correct = false;
-                        }
+                labels: ['Not at all', 'Very Much'],
+                // slider_width: 500,
+                require_movement: false,
+                step: 1,
+                slider_start: 0,
+                min: -200,
+                max: 200,
+                response_ends_trial: true,
+                post_trial_gap: 500,
+                data: {
+                    image_path: maps[i],
+                    concept: practice_concept,
+                    practiceTrial: true,
+                    practiceTrialNum: i
+                },
+                on_finish: function (data) {
+                    var slider_response = data.response;
+                    var trialNum = data.practiceTrialNum;
+                    let upperLimit;
+                    let lowerLimit;
+                    if (trialNum == 0) {
+                        upperLimit = 220;
+                        lowerLimit = 180;
                     }
+                    else if (trialNum == 1) {
+                        upperLimit = -180;
+                        lowerLimit = -220;
+                    }
+                    else if (trialNum == 2) {
+                        upperLimit = 110;
+                        lowerLimit = 80;
+                    }
+                    else if (trialNum == 3) {
+                        upperLimit = -80;
+                        lowerLimit = -110;
+                    }
+                    console.log(slider_response)
+                    console.log(upperLimit, lowerLimit)
+                    if (slider_response <= upperLimit && slider_response >= lowerLimit) {
+                        data.correct = true;
+                    }
+                    else {
+                        data.correct = false;
+                    }
+                }
 
-                };
-                var rating_feedback = {
-                    type: jsPsychHtmlButtonResponse,
-                    stimulus: function(){
-                        var last_resp_correct = jsPsych.data.getLastTrialData().values()[0].correct; 
-                        if (last_resp_correct) {
-                        return  "<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>"
+            };
+            var rating_feedback = {
+                type: jsPsychHtmlButtonResponse,
+                stimulus: function () {
+                    var last_resp_correct = jsPsych.data.getLastTrialData().values()[0].correct;
+                    if (last_resp_correct) {
+                        return "<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>"
                     } else {
-                        return "<p align='center'><b>Not quite!</b> The slider was not placed near the instructed located. Click on 'Continue' to try again. </p>" 
-                    }},
-                    choices: ['Next']
-                    };
+                        return "<p align='center'><b>Not quite!</b> The slider was not placed near the instructed located. Click on 'Continue' to try again. </p>"
+                    }
+                },
+                choices: ['Next']
+            };
 
-                var comp1_loop = {
-                    timeline: [rating_trial, rating_feedback], 
-                    loop_function: function(data){ 
+            var comp1_loop = {
+                timeline: [rating_trial, rating_feedback],
+                loop_function: function (data) {
                     console.log('data: ', data.values());
-                    if (data.values()[0].correct == true) {   
-                    return false; 
-                    } else { 
-                    return true;
-                    }}
-                    };
-                timeline.push(comp1_loop);
-                // timeline.push(rating_trial);
+                    if (data.values()[0].correct == true) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            };
+            timeline.push(comp1_loop);
 
 
         }
@@ -301,7 +316,7 @@
 
             var block_break0 = {
                 type: jsPsychHtmlButtonResponse,
-                stimulus: "<p>In this block of trials, you will be asked to rate how much you associate each color with:</p > " +
+                stimulus: "<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > " +
                     "<p style = 'font-size:150%; font-weight: bold'>" + affect_list[i] + "</p><br></br>",
                 choices: ['Continue'],
             };
@@ -309,54 +324,9 @@
 
             for (j = 0; j < Object.keys(maps).length; j++) {
 
-
-
-                // let this_col = fullColorHex(uw_71[color_order[j]]['r'], uw_71[color_order[j]]['g'], uw_71[color_order[j]]['b']);
                 this_map = maps[color_order[j]];
                 // Define concept based on current exemplar
                 var concept = affect_list[i];
-
-
-                // Ratings trial // 
-                // var rating_trial = {
-                //     type: jsPsychImageSliderResponseMAS,
-                //     data: {
-                //         color_rgb: this_col,
-                //         concept: concept,
-                //         time_finished: Date.now(),
-                //         color_index: color_order[j]
-                //     },
-                //     stimulus: '',
-
-                //     // Use the on_load function to dynamically inject the div into the DOM
-                //     on_load: function () {
-                //         var div = document.createElement('div');
-                //         div.style.height = '100px';
-                //         div.style.width = '100px';
-                //         div.style.backgroundColor = this_col;
-                //         div.style.border = '1px solid black';
-                //         div.style.margin = '0 auto'; // Center the square
-                //         div.style.display = 'block'; // Make it block-level
-                //         document.querySelector('#jspsych-content').prepend(div);  // Insert the div before the slider
-                //     },
-
-
-                //     stimulus_height: 80,
-                //     //stimulus_width: 100,
-                //     maintain_aspect_ratio: true,
-                //     labels: ['Not at all', 'Very Much'],
-                //     response_ends_trial: tr due,
-                //     slider_width: 400,
-                //     //prompt: exemplars[i],
-                //     prompt: `<br><div style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">${exemplars[i]}</div>`, // Display the concept above the slider
-                //     require_movement: true,
-                //     post_trial_gap: 300,
-                //     //prompt_location: "above",
-                //     step: 1,
-                //     start: 0,
-                //     min: -200,
-                //     max: 200
-                // };
                 var rating_trial = {
                     type: jsPsychHtmlSliderResponse,
                     stimulus: `<div style="width:500px;">
@@ -367,7 +337,7 @@
                             </div>
                         </div>`,
                     labels: ['Not at all', 'Very Much'],
-                    // slider_width: 500,
+                    slider_width: 500,
                     require_movement: false,
                     step: 1,
                     slider_start: 0,
@@ -375,17 +345,15 @@
                     max: 200,
                     response_ends_trial: true,
                     post_trial_gap: 500,
-                    data:{
-                        image_path:this_map,
-                        concept:concept
+                    data: {
+                        image_path: this_map,
+                        concept: concept
                     }
 
                 };
 
                 timeline.push(rating_trial);
             }
-
-            // Block break//
 
             if (i == affect_list.length - 1) {
                 var block_break = {
