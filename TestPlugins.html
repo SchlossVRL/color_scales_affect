@@ -34,7 +34,7 @@
         var timeline = [];
 
         // Set background color to gray //
-        document.body.style.backgroundColor = "rgb(89.05,89.05,89.05)"
+        document.body.style.backgroundColor = "rgb(128,128,128)"
 
         //Converts single channel to hex
         var rgbToHex = function (rgb) {
@@ -129,7 +129,7 @@
             button_label: "Start Experiment",
         };
 
-        // timeline.push(consentSign);
+        timeline.push(consentSign);
 
         // Overview instructions of experiment
         var overview_instructions = {
@@ -191,6 +191,8 @@
             post_trial_gap: 1000
         }
         // timeline.push(instructions);
+        console.log(affect_list)
+        affect_list = jsPsych.randomization.shuffle(affect_list);
 
         for (i = 0; i < affect_list.length; i++) {
 
@@ -257,7 +259,7 @@
                 var rating_trial = {
                     type: jsPsychHtmlSliderResponse,
                     stimulus: `<div style="width:500px;">
-                            <p style="font-size:30px; font-weight:bold;"
+                            <p style="font-size:50px; font-weight:bold;"
                             >${concept}</p>
                             <div style="width:240px; margin: auto;">
                                 <img src="${this_map}" alt="img">
@@ -271,6 +273,7 @@
                     min: -200,
                     max: 200,
                     response_ends_trial: true,
+                    post_trial_gap: 500,
                     data:{
                         image_path:this_map,
                         concept:concept

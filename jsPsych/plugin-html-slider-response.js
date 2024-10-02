@@ -118,12 +118,7 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
             html += '<div class="slider-wrapper" style="position: relative; padding: 20px 0;">';
 
 
-            // Add vertical lines
-            html += '<div class="slider-lines" style="position: absolute; width: 99.5%; height: 20px; display: flex; justify-content: space-between; pointer-events: none; bottom: 26px; left:3px; z-index: -1;">';
-            html += '<div class="line" style="width: 3px; height: 25px; background-color: white;"></div>';
-            html += '<div class="line" style="width: 3px; height: 25px; background-color: white;"></div>';
-            html += '<div class="line" style="width: 3px; height: 25px; background-color: white;"></div>';
-            html += '</div>';
+           
 
 
 
@@ -139,6 +134,12 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 '" id="jspsych-html-slider-response-response"></input>';
             // Close the wrapper div
             html += '</div>';
+             // Add vertical lines
+             html += '<div class="slider-lines" style="position: absolute; width: 99.5%; height: 20px; display: flex; justify-content: space-between; pointer-events: none; bottom: 26px; left:3px; z-index: 2;">';
+             html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
+             html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
+             html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
+             html += '</div>';
 
             html += "<div>";
             for (var j = 0; j < trial.labels.length; j++) {
@@ -157,7 +158,7 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                     "px); text-align: center; width: " +
                     label_width_perc +
                     '%;">';
-                html += '<span style="text-align: center; font-size: 80%;">' + trial.labels[j] + "</span>";
+                html += '<span style="text-align: center; font-size: 150%;">' + trial.labels[j] + "</span>";
                 html += "</div>";
             }
             html += "</div>";
