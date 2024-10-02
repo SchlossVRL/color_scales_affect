@@ -202,8 +202,8 @@
         }
 
 
-        
-   
+
+
         timeline.push(instructions);
         console.log(affect_list)
         affect_list = jsPsych.randomization.shuffle(affect_list);
@@ -304,9 +304,14 @@
                 }
             };
             timeline.push(comp1_loop);
-
-
         }
+
+        var practice_complete = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: "<p>Great job! You've completed the practice trials. Now you will begin the main task.</p>",
+            choices: ['Continue']
+        };
+        timeline.push(practice_complete);
 
 
 
