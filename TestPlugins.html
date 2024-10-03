@@ -53,6 +53,9 @@
             type: jsPsychPreload,
             images: image_paths
         };
+        jsPsych.data.addProperties({
+            subject_id: subject_id
+        });
 
         timeline.push(preload);
 
