@@ -6,7 +6,7 @@ editor: visual
 
 ```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "dplyr","grid","png","cowplot","magick", "ggimage")
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr")
 
 
 ```
@@ -50,7 +50,7 @@ nrow(ratings_trials_exp)
 ratings_trials_exp$response<- as.numeric(ratings_trials_exp$response)
 ratings_trials_exp$response<- (ratings_trials_exp$response + 200)/400
 ratings_trial_grouped<- ratings_trials_exp %>% group_by(image_path, concept) %>%summarise(mean_rating = mean(response)) 
-library(dplyr)
+
 ratings_trials_grouped_wide<-ratings_trial_grouped %>%
   pivot_wider(names_from = concept, values_from = mean_rating)
 
