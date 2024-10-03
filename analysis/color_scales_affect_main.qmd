@@ -6,9 +6,13 @@ editor: visual
 
 ```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "dplyr","grid","png","cowplot","magick")
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "dplyr","grid","png","cowplot","magick", "ggimage")
 
-# Function to install and load packages
+
+```
+
+```{r}
+
 install_and_load_packages <- function(packages) {
   for(package in packages) {
     if(!require(package, character.only = TRUE)) {
@@ -24,5 +28,64 @@ install_and_load_packages(packages)
 ```
 
 ```{r}
+current_dir<- getwd()
+current_dir
 
+data_dir <-paste0(current_dir,'/../data/')
+data_dir
+
+data_files <-list.files(path = data_dir, full.names = TRUE, pattern="*.csv")
+data_files
+
+df_list <- lapply(data_files, read.csv)
+
+experiment_data_raw<- bind_rows(df_list)
+
+ratings_trials<- experiment_data_raw %>% filter(trial_type== 'html-slider-response')
+
+ratings_trials_exp<- ratings_trials %>% filter(practiceTrial != 'true')
+
+nrow(ratings_trials_exp)
+
+ratings_trials_exp$response<- as.numeric(ratings_trials_exp$response)
+ratings_trials_exp$response<- (ratings_trials_exp$response + 200)/400
+ratings_trial_grouped<- ratings_trials_exp %>% group_by(image_path, concept) %>%summarise(mean_rating = mean(response)) 
+library(dplyr)
+ratings_trials_grouped_wide<-ratings_trial_grouped %>%
+  pivot_wider(names_from = concept, values_from = mean_rating)
+
+
+```
+
+``` r
+{r}
+2+2
+```
+
+```{r}
+pc <- prcomp(ratings_trials_grouped_wide[,-1],
+             center = TRUE,
+            scale. = TRUE)
+attributes(pc)
+print(pc)
+```
+
+```{r}
+load_image_path<-function(path){
+  return(paste0(current_dir,'/../',path))
+}
+image_paths<- sapply(ratings_trials_grouped_wide$image_path,load_image_path)
+plot_df <- data.frame(
+  PC1 = pc$x[, 1],
+  PC2 = pc$x[, 2],
+  image = image_paths
+)
+plot_df
+ggplot(plot_df, aes(x = PC1, y = PC2)) +
+  geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
+  theme_minimal() +
+  theme(axis.title = element_blank(),  # Optional: hide axis labels
+        axis.text = element_blank(),
+        axis.ticks = element_blank())
+ggsave('pcaplot.pdf', height=13, width=13,units = "in", dpi = 300)
 ```
