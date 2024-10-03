@@ -1,0 +1,28 @@
+---
+title: "color_scales_affect"
+format: html
+editor: visual
+---
+
+```{r}
+# List of packages
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "dplyr","grid","png","cowplot","magick")
+
+# Function to install and load packages
+install_and_load_packages <- function(packages) {
+  for(package in packages) {
+    if(!require(package, character.only = TRUE)) {
+      install.packages(package, dependencies = TRUE)
+      library(package, character.only = TRUE)
+    }
+  }
+}
+
+# Call the function with the list of packages
+install_and_load_packages(packages)
+
+```
+
+```{r}
+
+```
