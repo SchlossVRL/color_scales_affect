@@ -210,11 +210,22 @@
             slider_width: 500
 
         }
+//removed } below; used to be };
+    ;
+
+//instructions on how the slider may be moved
+timeline.push(instructions);
+var slider_instructions = {
+type: jsPsychHtmlButtonResponse,
+stimulus: 'The slider may be moved in different ways.' +
+    '<p> The slider can be moved by clicking at the specific spot on the scale. After unclicking, you will move on to the next trial.</p>'+
+    '<p> The slider can also be moved by clicking and holding, and then moving the slider along the scale. After unclicking, you will move on to the next trial. '+
+    '<p> Please press continue to move on to the practice trials.' ,
+choices: ['Continue']
+}
 
 
-
-
-        timeline.push(instructions);
+        timeline.push(slider_instructions);
         console.log(affect_list)
         affect_list = jsPsych.randomization.shuffle(affect_list);
         for (i = 0; i < 4; i++) {
@@ -289,6 +300,8 @@
                 }
 
             };
+
+
             var rating_feedback = {
                 type: jsPsychHtmlButtonResponse,
                 stimulus: function () {
