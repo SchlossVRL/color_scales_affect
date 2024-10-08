@@ -177,7 +177,7 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
                 html +=
                     '<button id="jspsych-html-slider-response-next" class="jspsych-btn" ' +
                     (trial.require_movement ? "disabled" : "") +
-                    'style = "width:100px; height: 50px; font-size: 20px;",' +
+                    'style = "width:120px; height: 50px; font-size: 20px;",' +
                     ">" +
                     trial.button_label +
                     "</button>";
