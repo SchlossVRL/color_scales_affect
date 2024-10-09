@@ -217,10 +217,9 @@
         timeline.push(instructions);
         var slider_instructions = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: 'The slider may be moved in different ways.' +
-            '<p> The slider can be moved by clicking at the specific spot on the scale. After unclicking, you will move on to the next trial.</p>'+
-            '<p> The slider can also be moved by clicking and holding, and then moving the slider along the scale. After unclicking, you will move on to the next trial. '+
-            '<p> Please press continue to move on to the practice trials.' ,
+        stimulus: 'To move the slider, click and drag to the location of the scale where you would like to make your rating and then let go. When you let go of the slider, your response will be recorded and the next trial will begin.' +
+            '<p> Before you begin the experiment, there will be four training trials to practice using the scale. '+
+            '<p> When you are ready to start the training trials, please click Continue.' ,
         choices: ['Continue']
         }
 
@@ -402,6 +401,17 @@
 
         }
 
+//spot for debrief
+     /*   timeline.push(instructions);
+        var debrief_script = {
+        type: jsPsychHtmlButtonResponse,
+        stimulus: 'The slider may be moved in different ways.' +
+            '<p> The slider can be moved by clicking at the specific spot on the scale. After unclicking, you will move on to the next trial.</p>'+
+            '<p> The slider can also be moved by clicking and holding, and then moving the slider along the scale. After unclicking, you will move on to the next trial. '+
+            '<p> Please press continue to move on to the practice trials.' ,
+        choices: ['Continue']
+        }
+*/
         const save_data = {
                 type: jsPsychPipe,
                 action: "save",
