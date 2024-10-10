@@ -46,7 +46,7 @@
         // make a list of all the values in the dict 'maps'
         var image_paths = Object.values(maps);
         // append the string 'patches71.png' to the list
-        image_paths.push('patches71.png');
+        image_paths.push('maps_anchoring.png');
         console.log(image_paths);
         console.log(affect_list);
         var preload = {
@@ -176,7 +176,7 @@
 </div>
 
 <div style="width: 500px; margin: 0 auto;">
-    <div style="text-align: right; width: 240px; float: left;">
+    <div style="text-align: left; width: 200px; float: left;">
         <p style="font-size:25px; line-height:18px;">${affect_list[0]}</p>
         <p style="font-size:25px; line-height:18px;">${affect_list[1]}</p>
         <p style="font-size:25px;line-height:18px;">${affect_list[2]}</p>
@@ -186,8 +186,10 @@
         <p style="font-size:25px;line-height:18px;">${affect_list[6]}</p>
         <p style="font-size:25px;line-height:18px;">${affect_list[7]}</p>
     </div>
-    <div style="width: 240px; float: right; padding-top:15px">
-        <img src="patches71.png" alt="img" style="max-height:300px">
+    <div style="width: 200px; float: right; padding-top:15px; padding-right:40px">
+        <br>
+        <br>
+        <img src="maps_anchoring.png" alt="img" style="max-width:500px">
     </div>
     <div style="clear: both;"></div>
 </div>
@@ -201,7 +203,7 @@
             response_ends_trial: false,
             include_button: true,
             data: {
-                image_path: 'patches71.png',
+                image_path: 'maps_anchoring.png',
                 practiceTrial: true,
             },
             slider_width: 500
