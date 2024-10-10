@@ -140,7 +140,7 @@ var jsPsychHtmlSliderResponse = (function (jspsych) {
             // Close the wrapper div
             html += '</div>';
             // Add vertical lines
-            html += '<div class="slider-lines" style="position: absolute; width: 100%; height: 20px; display: flex; justify-content: space-between; pointer-events: none; bottom: 26px; left:2px; z-index: 2;">';
+            html += '<div class="slider-lines" style="position: absolute; width: 100%; height: 20px; display: flex; justify-content: space-between; pointer-events: none; bottom: 24px; left:2px; z-index: 2;">';
             html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
             html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';
             html += '<div class="line" style="width: 3px; height: 25px; background-color: black;"></div>';

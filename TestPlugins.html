@@ -171,7 +171,7 @@
     Please use the full range of the scale. That is, if a map is somewhat associated with the concept, you would
     click partway between the middle point and right side of the scale.\
     You will be asked to rate each map for a given concept before moving on to the next concept.<br><br>Press the
-    'Continue' button when you're ready to begin four practice trials.\
+    'Continue' button for instructions on how to use the slider.\
     <br><br>
 </div>
 
@@ -216,9 +216,9 @@
         timeline.push(instructions);
         var slider_instructions = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: 'To move the slider, click and drag to the location of the scale where you would like to make your rating and then let go. When you let go of the slider, your response will be recorded and the next trial will begin.' +
-            '<p> Before you begin the experiment, there will be four training trials to practice using the scale. '+
-            '<p> When you are ready to start the training trials, please click Continue.' ,
+        stimulus: `<div style="width:800px;"><p style="text-align:left">To move the slider, click and drag your cursor to the location of the scale where you would like to make your rating and then let go. When you let go of the slider, your response will be recorded and the next trial will begin. <br>
+            Before you begin the experiment, there will be four training trials for you to practice using the scale. <br>
+             When you are ready to start the training trials, please click "Continue".</p><br></div>`,
         choices: ['Continue']
         }
 
