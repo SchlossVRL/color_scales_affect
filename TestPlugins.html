@@ -119,7 +119,7 @@
             button_label: "Start Experiment",
         };
 
-        timeline.push(consentSign);
+        // timeline.push(consentSign);
 
         // Overview instructions of experiment
         var overview_instructions = {
@@ -152,7 +152,7 @@
             choices: [' ']
         };
 
-        timeline.push(demo_completion);
+        // timeline.push(demo_completion);
         var instructions = {
             type: jsPsychHtmlSliderResponse,
             stimulus: `
@@ -223,7 +223,7 @@
         }
 
 
-        timeline.push(slider_instructions);
+        // timeline.push(slider_instructions);
         console.log(affect_list)
         affect_list = jsPsych.randomization.shuffle(affect_list);
         for (i = 0; i < 4; i++) {
@@ -329,7 +329,7 @@
             stimulus: "<p>Great job! You've completed the practice trials. Now you will begin the main task.</p>",
             choices: ['Continue']
         };
-        timeline.push(practice_complete);
+        // timeline.push(practice_complete);
 
 
 
@@ -343,7 +343,7 @@
                     "<p style = 'font-size:150%; font-weight: bold'>" + affect_list[i] + "</p><br></br>",
                 choices: ['Continue'],
             };
-            timeline.push(block_break0);
+            // timeline.push(block_break0);
 
             for (j = 0; j < Object.keys(maps).length; j++) {
 
@@ -375,7 +375,7 @@
 
                 };
 
-                timeline.push(rating_trial);
+                // timeline.push(rating_trial);
             }
 
             if (i == affect_list.length - 1) {
@@ -384,7 +384,7 @@
                     stimulus: "<p>Great Job! You're done rating all concepts!<br></br></p>",
                     choices: ['Next'],
                 };
-                timeline.push(block_break)
+                // timeline.push(block_break)
 
             } else if (i < affect_list.length) {
                 var block_break = {
@@ -392,26 +392,10 @@
                     stimulus: "<p>Great Job! You've finished block " + (i + 1) + ".<br></br> You have " + (affect_list.length - (i + 1)) + " block(s) left to go.<br></br></p>",
                     choices: ['Next'],
                 };
-                timeline.push(block_break)
+                // timeline.push(block_break)
             }
 
         }
-
-//spot for debrief
-     /* 
-        var debrief_script = {
-        type: jsPsychHtmlButtonResponse,
-        stimulus: 'Great job! You have finished the experiment.' +
-            '<p> The goal of this experiment is to determine what factors influence the associations between emotions and maps. In this experiment, you rated how much you associated emotions with different maps.</p>'+
-            '<p> Participants were randomly assigned to each of the eight emotions for each trial. All participants viewed each of the eight emotions with all 44 maps. '+
-            '<p> Please do not inform other potential participants of the hypotheses in our experiment' +
-            '<p> Credit for your participation will be appear on SONA in the next few days.'+
-            '<p> Thank you for participating! You may now close this window.',
-       // choices: ['Continue']
-        }
-
-        timeline.push(debrief_script);
-*/
         const save_data = {
                 type: jsPsychPipe,
                 action: "save",
@@ -420,6 +404,21 @@
                 data_string: ()=>jsPsych.data.get().csv()
               };
         timeline.push(save_data);
+
+//spot for debrief
+
+        var debrief_script = {
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: '<div style="width:800px">Great job! You have finished the experiment.' +
+            '<p> The goal of this experiment is to determine what factors influence the associations between emotions and maps.</p>'+
+            '<p> Please do not inform other potential participants of the hypotheses in our experiment' +
+            '<p> Credit for your participation will be appear on SONA in the next few days.'+
+            '<p> Thank you for participating! You may now close this window.</div>',
+       choices: ['NO_KEYS']
+        }
+
+        timeline.push(debrief_script);
+        
 
         jsPsych.run(timeline);
 
