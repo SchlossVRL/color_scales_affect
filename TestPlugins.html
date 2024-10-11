@@ -411,6 +411,11 @@
         }
 
         timeline.push(debrief_script);
+
+        timeline.push({
+             type: jsPsychFullscreen,
+             fullscreen_mode: false,
+         })
         
 
         jsPsych.run(timeline);
