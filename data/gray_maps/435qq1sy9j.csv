@@ -1,0 +1,2549 @@
+"success","timeout","failed_images","failed_audio","failed_video","trial_type","trial_index","time_elapsed","internal_node_id","subject_id","rt","stimulus","response","question_order","slider_start","image_path","practiceTrial","practiceTrialNum","correct","concept"
+"true","false","[]","[]","[]","preload","0","1742","0.0-0.0","435qq1sy9j","","","","","","","","","",""
+"","","","","","html-button-response","1","11666","0.0-1.0","435qq1sy9j","9922","Welcome to our experiment!<p>At the bottom of this screen, you will see a button that says ""Begin Experiment"".<br>Please only click that button when you are ready to complete the 25 minute experiment in one sitting.</p><p> Once you click that button, it will not be possible to restart the experiment.","0","","","","","","",""
+"true","","","","","fullscreen","2","15314","0.0-2.0","435qq1sy9j","2645","","","","","","","","",""
+"","","","","","survey-multi-select","3","69420","0.0-3.0","435qq1sy9j","54101","","{""Consent"":[""<strong>I consent</strong>""]}","[0]","","","","","",""
+"","","","","","html-button-response","4","71328","0.0-4.0","435qq1sy9j","1903","Welcome! <p> This experiment involves two parts: demographic information, followed by the experimental task.<p> It will take about 25 minutes to complete both parts.","0","","","","","","",""
+"","","","","","survey-text","5","84946","0.0-5.0","435qq1sy9j","13610","","{""Age"":""19"",""Gender"":""Female"",""Race/ethnicity"":""Asian"",""Languages"":""English""}","","","","","","",""
+"","","","","","html-slider-response","6","159279","0.0-6.0","435qq1sy9j","74331","
+            <div style='text-align:left; font-size:20px; line-height:25px; width: 1200px;'>
+                During this experiment you will be asked to rate how much you associate maps with    different concepts.<br> Below, you can see some examples of the maps you will be asked to rate. Next to the maps
+    is the list of concepts.<br>You will be asked    to rate how much you associate each map with each concept on a scale from 'not at all' to 'very much' like the
+    one below. <br><br>
+    Now, please look at the list of concepts and maps. For each concept, think about the map you associate 'very
+    much' with the concept.<br>     When you see that map during the experiment, please rate it near the 'very much' endpoint of the
+    scale.<br>Now, please think about which map you associate 'not at all'     with each concept. When you see that map during the experiment, please rate it near the 'not at all' endpoint
+    of the scale.<br>
+    Please use the full range of the scale. That is, if a map is somewhat associated with the concept, you would
+    click partway between the middle point and right side of the scale.    You will be asked to rate each map for a given concept before moving on to the next concept.<br><br>Press the
+    'Continue' button for instructions on how to use the slider.    <br><br>
+</div>
+
+<div style=""width: 500px; margin: 0 auto;"">
+    <div style=""text-align: left; width: 200px; float: left;"">
+        <p style=""font-size:25px; line-height:18px;"">calm</p>
+        <p style=""font-size:25px; line-height:18px;"">exciting</p>
+        <p style=""font-size:25px;line-height:18px;"">positive</p>
+        <p style=""font-size:25px;line-height:18px;"">negative</p>
+        <p style=""font-size:25px;line-height:18px;"">serious</p>
+        <p style=""font-size:25px;line-height:18px;"">playful</p>
+        <p style=""font-size:25px;line-height:18px;"">trustworthy</p>
+        <p style=""font-size:25px;line-height:18px;"">disturbing</p>
+    </div>
+    <div style=""width: 200px; float: right; padding-top:15px; padding-right:40px"">
+        <br>
+        <br>
+        <img src=""maps_anchoring.png"" alt=""img"" style=""max-width:500px"">
+    </div>
+    <div style=""clear: both;""></div>
+</div>
+            ","0","","0","maps_anchoring.png","true","","",""
+"","","","","","html-button-response","7","169892","0.0-7.0","435qq1sy9j","10611","<div style=""width:800px;""><p style=""text-align:left"">To move the slider, click and drag your cursor to the location of the scale where you would like to make your rating and then let go. When you let go of the slider, your response will be recorded and the next trial will begin. <br>
+            We are interested in your initial impressions of each map for the given concept, so please go with your first intuition. <br>
+            Before you begin the experiment, there will be four training trials for you to practice using the scale. <br>
+             When you are ready to start the training trials, please click ""Continue"".</p><br></div>","0","","","","","","",""
+"","","","","","html-slider-response","8","173717","0.0-8.0-0.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:25px;"">Please move the slider all the way to the <br> right endpoint of the scale</p>
+
+                            </div>
+                        </div>","200","","0","","true","0","true",""
+"","","","","","html-button-response","9","175282","0.0-8.0-1.0","435qq1sy9j","1063","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","",""
+"","","","","","html-slider-response","10","176886","0.0-9.0-0.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:25px;"">Please move the slider all the way to the <br> left endpoint of the scale</p>
+
+                            </div>
+                        </div>","-188","","0","","true","1","true",""
+"","","","","","html-button-response","11","178299","0.0-9.0-1.0","435qq1sy9j","910","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","",""
+"","","","","","html-slider-response","12","181969","0.0-10.0-0.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:25px;"">Please move the slider halfway between the center and right endpoint of the scale</p>
+
+                            </div>
+                        </div>","104","","0","","true","2","true",""
+"","","","","","html-button-response","13","183229","0.0-10.0-1.0","435qq1sy9j","758","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","",""
+"","","","","","html-slider-response","14","184100","0.0-11.0-0.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:25px;"">Please move the slider halfway between the center and left endpoint of the scale</p>
+
+                            </div>
+                        </div>","-91","","0","","true","3","true",""
+"","","","","","html-button-response","15","185288","0.0-11.0-1.0","435qq1sy9j","686","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","",""
+"","","","","","html-button-response","16","186615","0.0-12.0","435qq1sy9j","1325","<p>Great job! You've completed the practice trials. Now you will begin the main task.</p>","0","","","","","","",""
+"","","","","","html-button-response","17","191063","0.0-13.0","435qq1sy9j","4446","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>trustworthy</p><br></br>","0","","","","","","",""
+"","","","","","html-slider-response","18","194316","0.0-14.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","198","","0","images/gray_07.png","","","","trustworthy"
+"","","","","","html-slider-response","19","197605","0.0-15.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_01.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-58","","0","images/gray_01.png","","","","trustworthy"
+"","","","","","html-slider-response","20","202285","0.0-16.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","46","","0","images/gray_15.png","","","","trustworthy"
+"","","","","","html-slider-response","21","204248","0.0-17.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_34.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-123","","0","images/gray_34.png","","","","trustworthy"
+"","","","","","html-slider-response","22","206613","0.0-18.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_25.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-186","","0","images/gray_25.png","","","","trustworthy"
+"","","","","","html-slider-response","23","208535","0.0-19.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_19.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","80","","0","images/gray_19.png","","","","trustworthy"
+"","","","","","html-slider-response","24","212451","0.0-20.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","27","","0","images/gray_12.png","","","","trustworthy"
+"","","","","","html-slider-response","25","214977","0.0-21.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_31.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","122","","0","images/gray_31.png","","","","trustworthy"
+"","","","","","html-slider-response","26","217044","0.0-22.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_32.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","177","","0","images/gray_32.png","","","","trustworthy"
+"","","","","","html-slider-response","27","219021","0.0-23.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-86","","0","images/gray_05.png","","","","trustworthy"
+"","","","","","html-slider-response","28","221065","0.0-24.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_03.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-48","","0","images/gray_03.png","","","","trustworthy"
+"","","","","","html-slider-response","29","223630","0.0-25.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_08.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-46","","0","images/gray_08.png","","","","trustworthy"
+"","","","","","html-slider-response","30","225288","0.0-26.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-54","","0","images/gray_41.png","","","","trustworthy"
+"","","","","","html-slider-response","31","227492","0.0-27.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_29.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","86","","0","images/gray_29.png","","","","trustworthy"
+"","","","","","html-slider-response","32","229437","0.0-28.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-42","","0","images/gray_13.png","","","","trustworthy"
+"","","","","","html-slider-response","33","230910","0.0-29.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_17.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","88","","0","images/gray_17.png","","","","trustworthy"
+"","","","","","html-slider-response","34","234150","0.0-30.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","182","","0","images/gray_26.png","","","","trustworthy"
+"","","","","","html-slider-response","35","235873","0.0-31.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-116","","0","images/gray_28.png","","","","trustworthy"
+"","","","","","html-slider-response","36","237538","0.0-32.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-186","","0","images/gray_37.png","","","","trustworthy"
+"","","","","","html-slider-response","37","240288","0.0-33.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_14.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-186","","0","images/gray_14.png","","","","trustworthy"
+"","","","","","html-slider-response","38","242648","0.0-34.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_21.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-186","","0","images/gray_21.png","","","","trustworthy"
+"","","","","","html-slider-response","39","244875","0.0-35.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","181","","0","images/gray_10.png","","","","trustworthy"
+"","","","","","html-slider-response","40","246828","0.0-36.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_04.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","186","","0","images/gray_04.png","","","","trustworthy"
+"","","","","","html-slider-response","41","248888","0.0-37.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_24.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-171","","0","images/gray_24.png","","","","trustworthy"
+"","","","","","html-slider-response","42","250287","0.0-38.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_42.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","158","","0","images/gray_42.png","","","","trustworthy"
+"","","","","","html-slider-response","43","256037","0.0-39.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_06.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-105","","0","images/gray_06.png","","","","trustworthy"
+"","","","","","html-slider-response","44","257910","0.0-40.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_40.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-110","","0","images/gray_40.png","","","","trustworthy"
+"","","","","","html-slider-response","45","259920","0.0-41.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","126","","0","images/gray_30.png","","","","trustworthy"
+"","","","","","html-slider-response","46","261916","0.0-42.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_18.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","179","","0","images/gray_18.png","","","","trustworthy"
+"","","","","","html-slider-response","47","263765","0.0-43.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_39.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-174","","0","images/gray_39.png","","","","trustworthy"
+"","","","","","html-slider-response","48","268696","0.0-44.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_35.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-83","","0","images/gray_35.png","","","","trustworthy"
+"","","","","","html-slider-response","49","270184","0.0-45.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_16.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-83","","0","images/gray_16.png","","","","trustworthy"
+"","","","","","html-slider-response","50","271670","0.0-46.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-98","","0","images/gray_23.png","","","","trustworthy"
+"","","","","","html-slider-response","51","273426","0.0-47.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_20.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-97","","0","images/gray_20.png","","","","trustworthy"
+"","","","","","html-slider-response","52","275974","0.0-48.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_36.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","143","","0","images/gray_36.png","","","","trustworthy"
+"","","","","","html-slider-response","53","277760","0.0-49.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","169","","0","images/gray_27.png","","","","trustworthy"
+"","","","","","html-slider-response","54","279490","0.0-50.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","198","","0","images/gray_44.png","","","","trustworthy"
+"","","","","","html-slider-response","55","281032","0.0-51.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_22.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-94","","0","images/gray_22.png","","","","trustworthy"
+"","","","","","html-slider-response","56","282866","0.0-52.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_09.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_09.png","","","","trustworthy"
+"","","","","","html-slider-response","57","284652","0.0-53.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_11.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-182","","0","images/gray_11.png","","","","trustworthy"
+"","","","","","html-slider-response","58","286903","0.0-54.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_38.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-191","","0","images/gray_38.png","","","","trustworthy"
+"","","","","","html-slider-response","59","288801","0.0-55.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-189","","0","images/gray_02.png","","","","trustworthy"
+"","","","","","html-slider-response","60","289983","0.0-56.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_43.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-188","","0","images/gray_43.png","","","","trustworthy"
+"","","","","","html-slider-response","61","292042","0.0-57.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","186","","0","images/gray_33.png","","","","trustworthy"
+"","","","","","html-button-response","62","295143","0.0-58.0","435qq1sy9j","2597","<p>Great Job! You've finished block 1.<br></br> You have 7 block(s) left to go.<br></br></p>","0","","","","","","",""
+"","","","","","html-button-response","63","296237","0.0-59.0","435qq1sy9j","1092","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>positive</p><br></br>","0","","","","","","",""
+"","","","","","html-slider-response","64","298065","0.0-60.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-190","","0","images/gray_28.png","","","","positive"
+"","","","","","html-slider-response","65","299706","0.0-61.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_04.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-176","","0","images/gray_04.png","","","","positive"
+"","","","","","html-slider-response","66","301370","0.0-62.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_24.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-186","","0","images/gray_24.png","","","","positive"
+"","","","","","html-slider-response","67","303212","0.0-63.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_18.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","152","","0","images/gray_18.png","","","","positive"
+"","","","","","html-slider-response","68","304708","0.0-64.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_34.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-157","","0","images/gray_34.png","","","","positive"
+"","","","","","html-slider-response","69","306751","0.0-65.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-165","","0","images/gray_13.png","","","","positive"
+"","","","","","html-slider-response","70","308287","0.0-66.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_39.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-173","","0","images/gray_39.png","","","","positive"
+"","","","","","html-slider-response","71","309872","0.0-67.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_42.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-173","","0","images/gray_42.png","","","","positive"
+"","","","","","html-slider-response","72","311826","0.0-68.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_11.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","188","","0","images/gray_11.png","","","","positive"
+"","","","","","html-slider-response","73","313658","0.0-69.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_19.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","179","","0","images/gray_19.png","","","","positive"
+"","","","","","html-slider-response","74","315244","0.0-70.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-184","","0","images/gray_37.png","","","","positive"
+"","","","","","html-slider-response","75","317061","0.0-71.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_43.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-170","","0","images/gray_43.png","","","","positive"
+"","","","","","html-slider-response","76","318966","0.0-72.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_32.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-182","","0","images/gray_32.png","","","","positive"
+"","","","","","html-slider-response","77","320833","0.0-73.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_09.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","184","","0","images/gray_09.png","","","","positive"
+"","","","","","html-slider-response","78","326335","0.0-74.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_36.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_36.png","","","","positive"
+"","","","","","html-slider-response","79","328315","0.0-75.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_40.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-166","","0","images/gray_40.png","","","","positive"
+"","","","","","html-slider-response","80","330164","0.0-76.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","193","","0","images/gray_30.png","","","","positive"
+"","","","","","html-slider-response","81","332206","0.0-77.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_20.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","194","","0","images/gray_20.png","","","","positive"
+"","","","","","html-slider-response","82","334354","0.0-78.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-183","","0","images/gray_27.png","","","","positive"
+"","","","","","html-slider-response","83","335954","0.0-79.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-182","","0","images/gray_33.png","","","","positive"
+"","","","","","html-slider-response","84","337418","0.0-80.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_38.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-169","","0","images/gray_38.png","","","","positive"
+"","","","","","html-slider-response","85","339574","0.0-81.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-185","","0","images/gray_05.png","","","","positive"
+"","","","","","html-slider-response","86","340699","0.0-82.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-180","","0","images/gray_02.png","","","","positive"
+"","","","","","html-slider-response","87","342027","0.0-83.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/gray_10.png","","","","positive"
+"","","","","","html-slider-response","88","344013","0.0-84.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_17.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-182","","0","images/gray_17.png","","","","positive"
+"","","","","","html-slider-response","89","345879","0.0-85.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-192","","0","images/gray_23.png","","","","positive"
+"","","","","","html-slider-response","90","347190","0.0-86.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-158","","0","images/gray_15.png","","","","positive"
+"","","","","","html-slider-response","91","348413","0.0-87.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_25.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-158","","0","images/gray_25.png","","","","positive"
+"","","","","","html-slider-response","92","349384","0.0-88.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_06.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-158","","0","images/gray_06.png","","","","positive"
+"","","","","","html-slider-response","93","350584","0.0-89.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_35.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-158","","0","images/gray_35.png","","","","positive"
+"","","","","","html-slider-response","94","351911","0.0-90.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-158","","0","images/gray_41.png","","","","positive"
+"","","","","","html-slider-response","95","352957","0.0-91.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-158","","0","images/gray_44.png","","","","positive"
+"","","","","","html-slider-response","96","354815","0.0-92.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","185","","0","images/gray_07.png","","","","positive"
+"","","","","","html-slider-response","97","356632","0.0-93.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_31.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","186","","0","images/gray_31.png","","","","positive"
+"","","","","","html-slider-response","98","358787","0.0-94.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/gray_26.png","","","","positive"
+"","","","","","html-slider-response","99","359961","0.0-95.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-174","","0","images/gray_12.png","","","","positive"
+"","","","","","html-slider-response","100","362253","0.0-96.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_29.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","195","","0","images/gray_29.png","","","","positive"
+"","","","","","html-slider-response","101","363942","0.0-97.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_21.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/gray_21.png","","","","positive"
+"","","","","","html-slider-response","102","365358","0.0-98.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_16.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-143","","0","images/gray_16.png","","","","positive"
+"","","","","","html-slider-response","103","367256","0.0-99.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_03.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-188","","0","images/gray_03.png","","","","positive"
+"","","","","","html-slider-response","104","369242","0.0-100.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_14.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","194","","0","images/gray_14.png","","","","positive"
+"","","","","","html-slider-response","105","371840","0.0-101.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_08.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-161","","0","images/gray_08.png","","","","positive"
+"","","","","","html-slider-response","106","374123","0.0-102.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_22.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-169","","0","images/gray_22.png","","","","positive"
+"","","","","","html-slider-response","107","375202","0.0-103.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_01.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-173","","0","images/gray_01.png","","","","positive"
+"","","","","","html-button-response","108","380702","0.0-104.0","435qq1sy9j","4997","<p>Great Job! You've finished block 2.<br></br> You have 6 block(s) left to go.<br></br></p>","0","","","","","","",""
+"","","","","","html-button-response","109","384144","0.0-105.0","435qq1sy9j","3441","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>exciting</p><br></br>","0","","","","","","",""
+"","","","","","html-slider-response","110","385442","0.0-106.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_16.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","182","","0","images/gray_16.png","","","","exciting"
+"","","","","","html-slider-response","111","387170","0.0-107.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_14.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/gray_14.png","","","","exciting"
+"","","","","","html-slider-response","112","388691","0.0-108.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-179","","0","images/gray_12.png","","","","exciting"
+"","","","","","html-slider-response","113","390895","0.0-109.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-193","","0","images/gray_44.png","","","","exciting"
+"","","","","","html-slider-response","114","392206","0.0-110.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_06.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-132","","0","images/gray_06.png","","","","exciting"
+"","","","","","html-slider-response","115","393348","0.0-111.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_29.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-129","","0","images/gray_29.png","","","","exciting"
+"","","","","","html-slider-response","116","395036","0.0-112.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_04.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-135","","0","images/gray_04.png","","","","exciting"
+"","","","","","html-slider-response","117","396315","0.0-113.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_32.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-82","","0","images/gray_32.png","","","","exciting"
+"","","","","","html-slider-response","118","397537","0.0-114.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_25.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-125","","0","images/gray_25.png","","","","exciting"
+"","","","","","html-slider-response","119","398654","0.0-115.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_22.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-125","","0","images/gray_22.png","","","","exciting"
+"","","","","","html-slider-response","120","400304","0.0-116.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_31.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/gray_31.png","","","","exciting"
+"","","","","","html-slider-response","121","402024","0.0-117.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","160","","0","images/gray_30.png","","","","exciting"
+"","","","","","html-slider-response","122","403972","0.0-118.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_43.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-126","","0","images/gray_43.png","","","","exciting"
+"","","","","","html-slider-response","123","405709","0.0-119.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_21.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","179","","0","images/gray_21.png","","","","exciting"
+"","","","","","html-slider-response","124","407028","0.0-120.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_39.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-159","","0","images/gray_39.png","","","","exciting"
+"","","","","","html-slider-response","125","408242","0.0-121.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","186","","0","images/gray_27.png","","","","exciting"
+"","","","","","html-slider-response","126","409706","0.0-122.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-153","","0","images/gray_26.png","","","","exciting"
+"","","","","","html-slider-response","127","410767","0.0-123.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_38.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-170","","0","images/gray_38.png","","","","exciting"
+"","","","","","html-slider-response","128","412006","0.0-124.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-163","","0","images/gray_05.png","","","","exciting"
+"","","","","","html-slider-response","129","413139","0.0-125.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-163","","0","images/gray_07.png","","","","exciting"
+"","","","","","html-slider-response","130","414346","0.0-126.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-163","","0","images/gray_33.png","","","","exciting"
+"","","","","","html-slider-response","131","416903","0.0-127.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/gray_23.png","","","","exciting"
+"","","","","","html-slider-response","132","418447","0.0-128.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_40.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-157","","0","images/gray_40.png","","","","exciting"
+"","","","","","html-slider-response","133","420329","0.0-129.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_36.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","185","","0","images/gray_36.png","","","","exciting"
+"","","","","","html-slider-response","134","421679","0.0-130.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_35.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_35.png","","","","exciting"
+"","","","","","html-slider-response","135","423136","0.0-131.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_18.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_18.png","","","","exciting"
+"","","","","","html-slider-response","136","424415","0.0-132.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_01.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_01.png","","","","exciting"
+"","","","","","html-slider-response","137","425855","0.0-133.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_20.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_20.png","","","","exciting"
+"","","","","","html-slider-response","138","427206","0.0-134.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_19.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-177","","0","images/gray_19.png","","","","exciting"
+"","","","","","html-slider-response","139","428557","0.0-135.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_08.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-177","","0","images/gray_08.png","","","","exciting"
+"","","","","","html-slider-response","140","429698","0.0-136.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-177","","0","images/gray_10.png","","","","exciting"
+"","","","","","html-slider-response","141","430736","0.0-137.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_03.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-176","","0","images/gray_03.png","","","","exciting"
+"","","","","","html-slider-response","142","431733","0.0-138.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_11.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-176","","0","images/gray_11.png","","","","exciting"
+"","","","","","html-slider-response","143","432980","0.0-139.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-176","","0","images/gray_13.png","","","","exciting"
+"","","","","","html-slider-response","144","434178","0.0-140.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-174","","0","images/gray_28.png","","","","exciting"
+"","","","","","html-slider-response","145","435320","0.0-141.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_41.png","","","","exciting"
+"","","","","","html-slider-response","146","437137","0.0-142.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_17.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","178","","0","images/gray_17.png","","","","exciting"
+"","","","","","html-slider-response","147","438561","0.0-143.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_24.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-146","","0","images/gray_24.png","","","","exciting"
+"","","","","","html-slider-response","148","439687","0.0-144.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_34.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-142","","0","images/gray_34.png","","","","exciting"
+"","","","","","html-slider-response","149","442463","0.0-145.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-135","","0","images/gray_15.png","","","","exciting"
+"","","","","","html-slider-response","150","443661","0.0-146.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_42.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-134","","0","images/gray_42.png","","","","exciting"
+"","","","","","html-slider-response","151","444833","0.0-147.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_37.png","","","","exciting"
+"","","","","","html-slider-response","152","447191","0.0-148.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_09.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","191","","0","images/gray_09.png","","","","exciting"
+"","","","","","html-slider-response","153","449055","0.0-149.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-170","","0","images/gray_02.png","","","","exciting"
+"","","","","","html-button-response","154","453340","0.0-150.0","435qq1sy9j","3782","<p>Great Job! You've finished block 3.<br></br> You have 5 block(s) left to go.<br></br></p>","0","","","","","","",""
+"","","","","","html-button-response","155","458365","0.0-151.0","435qq1sy9j","5023","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>negative</p><br></br>","0","","","","","","",""
+"","","","","","html-slider-response","156","459671","0.0-152.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_40.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","199","","0","images/gray_40.png","","","","negative"
+"","","","","","html-slider-response","157","461070","0.0-153.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_36.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-135","","0","images/gray_36.png","","","","negative"
+"","","","","","html-slider-response","158","462896","0.0-154.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_18.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-182","","0","images/gray_18.png","","","","negative"
+"","","","","","html-slider-response","159","465782","0.0-155.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_08.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/gray_08.png","","","","negative"
+"","","","","","html-slider-response","160","467753","0.0-156.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_16.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","170","","0","images/gray_16.png","","","","negative"
+"","","","","","html-slider-response","161","469731","0.0-157.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_39.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-169","","0","images/gray_39.png","","","","negative"
+"","","","","","html-slider-response","162","471983","0.0-158.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_06.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-131","","0","images/gray_06.png","","","","negative"
+"","","","","","html-slider-response","163","473334","0.0-159.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-46","","0","images/gray_10.png","","","","negative"
+"","","","","","html-slider-response","164","474830","0.0-160.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_21.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-109","","0","images/gray_21.png","","","","negative"
+"","","","","","html-slider-response","165","476929","0.0-161.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","183","","0","images/gray_07.png","","","","negative"
+"","","","","","html-slider-response","166","478441","0.0-162.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_01.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-193","","0","images/gray_01.png","","","","negative"
+"","","","","","html-slider-response","167","481890","0.0-163.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","118","","0","images/gray_41.png","","","","negative"
+"","","","","","html-slider-response","168","483604","0.0-164.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_11.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-180","","0","images/gray_11.png","","","","negative"
+"","","","","","html-slider-response","169","485977","0.0-165.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_17.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-155","","0","images/gray_17.png","","","","negative"
+"","","","","","html-slider-response","170","487915","0.0-166.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_09.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","199","","0","images/gray_09.png","","","","negative"
+"","","","","","html-slider-response","171","489555","0.0-167.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","161","","0","images/gray_23.png","","","","negative"
+"","","","","","html-slider-response","172","490924","0.0-168.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","174","","0","images/gray_12.png","","","","negative"
+"","","","","","html-slider-response","173","492146","0.0-169.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","174","","0","images/gray_02.png","","","","negative"
+"","","","","","html-slider-response","174","493513","0.0-170.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_03.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","174","","0","images/gray_03.png","","","","negative"
+"","","","","","html-slider-response","175","495137","0.0-171.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-136","","0","images/gray_30.png","","","","negative"
+"","","","","","html-slider-response","176","497389","0.0-172.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_04.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","196","","0","images/gray_04.png","","","","negative"
+"","","","","","html-slider-response","177","499239","0.0-173.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_38.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","87","","0","images/gray_38.png","","","","negative"
+"","","","","","html-slider-response","178","501024","0.0-174.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_35.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-136","","0","images/gray_35.png","","","","negative"
+"","","","","","html-slider-response","179","502706","0.0-175.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_34.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-108","","0","images/gray_34.png","","","","negative"
+"","","","","","html-slider-response","180","504282","0.0-176.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_43.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-117","","0","images/gray_43.png","","","","negative"
+"","","","","","html-slider-response","181","506985","0.0-177.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_14.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-175","","0","images/gray_14.png","","","","negative"
+"","","","","","html-slider-response","182","508432","0.0-178.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_22.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","182","","0","images/gray_22.png","","","","negative"
+"","","","","","html-slider-response","183","509655","0.0-179.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","146","","0","images/gray_15.png","","","","negative"
+"","","","","","html-slider-response","184","510725","0.0-180.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_42.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","146","","0","images/gray_42.png","","","","negative"
+"","","","","","html-slider-response","185","511843","0.0-181.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","146","","0","images/gray_28.png","","","","negative"
+"","","","","","html-slider-response","186","513427","0.0-182.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","146","","0","images/gray_44.png","","","","negative"
+"","","","","","html-slider-response","187","515380","0.0-183.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_20.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","146","","0","images/gray_20.png","","","","negative"
+"","","","","","html-slider-response","188","518814","0.0-184.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_19.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","146","","0","images/gray_19.png","","","","negative"
+"","","","","","html-slider-response","189","520525","0.0-185.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","26","","0","images/gray_26.png","","","","negative"
+"","","","","","html-slider-response","190","524095","0.0-186.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_32.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-57","","0","images/gray_32.png","","","","negative"
+"","","","","","html-slider-response","191","525944","0.0-187.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","135","","0","images/gray_05.png","","","","negative"
+"","","","","","html-slider-response","192","528647","0.0-188.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-52","","0","images/gray_37.png","","","","negative"
+"","","","","","html-slider-response","193","529991","0.0-189.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-56","","0","images/gray_27.png","","","","negative"
+"","","","","","html-slider-response","194","531406","0.0-190.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_31.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-33","","0","images/gray_31.png","","","","negative"
+"","","","","","html-slider-response","195","533264","0.0-191.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-149","","0","images/gray_33.png","","","","negative"
+"","","","","","html-slider-response","196","535531","0.0-192.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_29.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-191","","0","images/gray_29.png","","","","negative"
+"","","","","","html-slider-response","197","537879","0.0-193.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","155","","0","images/gray_13.png","","","","negative"
+"","","","","","html-slider-response","198","539544","0.0-194.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_25.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","174","","0","images/gray_25.png","","","","negative"
+"","","","","","html-slider-response","199","540670","0.0-195.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_24.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","174","","0","images/gray_24.png","","","","negative"
+"","","","","","html-button-response","200","545086","0.0-196.0","435qq1sy9j","3914","<p>Great Job! You've finished block 4.<br></br> You have 4 block(s) left to go.<br></br></p>","0","","","","","","",""
+"","","","","","html-button-response","201","546124","0.0-197.0","435qq1sy9j","1036","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>playful</p><br></br>","0","","","","","","",""
+"","","","","","html-slider-response","202","548644","0.0-198.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_09.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","155","","0","images/gray_09.png","","","","playful"
+"","","","","","html-slider-response","203","550501","0.0-199.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_42.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-173","","0","images/gray_42.png","","","","playful"
+"","","","","","html-slider-response","204","552230","0.0-200.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_20.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","157","","0","images/gray_20.png","","","","playful"
+"","","","","","html-slider-response","205","553509","0.0-201.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_31.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","157","","0","images/gray_31.png","","","","playful"
+"","","","","","html-slider-response","206","555278","0.0-202.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/gray_05.png","","","","playful"
+"","","","","","html-slider-response","207","557312","0.0-203.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-182","","0","images/gray_41.png","","","","playful"
+"","","","","","html-slider-response","208","558791","0.0-204.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-182","","0","images/gray_23.png","","","","playful"
+"","","","","","html-slider-response","209","568577","0.0-205.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","145","","0","images/gray_37.png","","","","playful"
+"","","","","","html-slider-response","210","570258","0.0-206.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_18.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","182","","0","images/gray_18.png","","","","playful"
+"","","","","","html-slider-response","211","572582","0.0-207.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_08.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-158","","0","images/gray_08.png","","","","playful"
+"","","","","","html-slider-response","212","575231","0.0-208.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_01.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-159","","0","images/gray_01.png","","","","playful"
+"","","","","","html-slider-response","213","576501","0.0-209.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_36.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-145","","0","images/gray_36.png","","","","playful"
+"","","","","","html-slider-response","214","578463","0.0-210.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","194","","0","images/gray_27.png","","","","playful"
+"","","","","","html-slider-response","215","581777","0.0-211.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_06.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-155","","0","images/gray_06.png","","","","playful"
+"","","","","","html-slider-response","216","583811","0.0-212.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-134","","0","images/gray_30.png","","","","playful"
+"","","","","","html-slider-response","217","585091","0.0-213.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-131","","0","images/gray_44.png","","","","playful"
+"","","","","","html-slider-response","218","586361","0.0-214.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_24.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-132","","0","images/gray_24.png","","","","playful"
+"","","","","","html-slider-response","219","589231","0.0-215.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_19.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-132","","0","images/gray_19.png","","","","playful"
+"","","","","","html-slider-response","220","591082","0.0-216.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_11.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-127","","0","images/gray_11.png","","","","playful"
+"","","","","","html-slider-response","221","592192","0.0-217.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-127","","0","images/gray_26.png","","","","playful"
+"","","","","","html-slider-response","222","593253","0.0-218.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-127","","0","images/gray_10.png","","","","playful"
+"","","","","","html-slider-response","223","594314","0.0-219.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_35.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-127","","0","images/gray_35.png","","","","playful"
+"","","","","","html-slider-response","224","595553","0.0-220.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-127","","0","images/gray_02.png","","","","playful"
+"","","","","","html-slider-response","225","596817","0.0-221.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-127","","0","images/gray_07.png","","","","playful"
+"","","","","","html-slider-response","226","608597","0.0-222.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_03.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-144","","0","images/gray_03.png","","","","playful"
+"","","","","","html-slider-response","227","610447","0.0-223.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_21.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","191","","0","images/gray_21.png","","","","playful"
+"","","","","","html-slider-response","228","612185","0.0-224.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_14.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","197","","0","images/gray_14.png","","","","playful"
+"","","","","","html-slider-response","229","614051","0.0-225.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-129","","0","images/gray_15.png","","","","playful"
+"","","","","","html-slider-response","230","615298","0.0-226.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_38.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-129","","0","images/gray_38.png","","","","playful"
+"","","","","","html-slider-response","231","616473","0.0-227.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_22.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-129","","0","images/gray_22.png","","","","playful"
+"","","","","","html-slider-response","232","617799","0.0-228.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-129","","0","images/gray_28.png","","","","playful"
+"","","","","","html-slider-response","233","620422","0.0-229.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_16.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-172","","0","images/gray_16.png","","","","playful"
+"","","","","","html-slider-response","234","622271","0.0-230.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_25.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-163","","0","images/gray_25.png","","","","playful"
+"","","","","","html-slider-response","235","626051","0.0-231.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_40.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/gray_40.png","","","","playful"
+"","","","","","html-slider-response","236","632542","0.0-232.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_17.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/gray_17.png","","","","playful"
+"","","","","","html-slider-response","237","633852","0.0-233.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/gray_12.png","","","","playful"
+"","","","","","html-slider-response","238","635388","0.0-234.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_34.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/gray_34.png","","","","playful"
+"","","","","","html-slider-response","239","636804","0.0-235.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_43.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/gray_43.png","","","","playful"
+"","","","","","html-slider-response","240","638357","0.0-236.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-157","","0","images/gray_13.png","","","","playful"
+"","","","","","html-slider-response","241","639683","0.0-237.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_32.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-157","","0","images/gray_32.png","","","","playful"
+"","","","","","html-slider-response","242","640914","0.0-238.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-157","","0","images/gray_33.png","","","","playful"
+"","","","","","html-slider-response","243","643109","0.0-239.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_29.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","162","","0","images/gray_29.png","","","","playful"
+"","","","","","html-slider-response","244","644516","0.0-240.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_04.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-160","","0","images/gray_04.png","","","","playful"
+"","","","","","html-slider-response","245","646519","0.0-241.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_39.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-171","","0","images/gray_39.png","","","","playful"
+"","","","","","html-button-response","246","649726","0.0-242.0","435qq1sy9j","2703","<p>Great Job! You've finished block 5.<br></br> You have 3 block(s) left to go.<br></br></p>","0","","","","","","",""
+"","","","","","html-button-response","247","651060","0.0-243.0","435qq1sy9j","1333","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>disturbing</p><br></br>","0","","","","","","",""
+"","","","","","html-slider-response","248","652809","0.0-244.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","198","","0","images/gray_07.png","","","","disturbing"
+"","","","","","html-slider-response","249","654729","0.0-245.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_18.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/gray_18.png","","","","disturbing"
+"","","","","","html-slider-response","250","656436","0.0-246.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_42.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/gray_42.png","","","","disturbing"
+"","","","","","html-slider-response","251","657570","0.0-247.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/gray_12.png","","","","disturbing"
+"","","","","","html-slider-response","252","659885","0.0-248.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_38.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_38.png","","","","disturbing"
+"","","","","","html-slider-response","253","661253","0.0-249.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_35.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","162","","0","images/gray_35.png","","","","disturbing"
+"","","","","","html-slider-response","254","663537","0.0-250.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_21.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-152","","0","images/gray_21.png","","","","disturbing"
+"","","","","","html-slider-response","255","665338","0.0-251.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","144","","0","images/gray_28.png","","","","disturbing"
+"","","","","","html-slider-response","256","667076","0.0-252.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_16.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","124","","0","images/gray_16.png","","","","disturbing"
+"","","","","","html-slider-response","257","668636","0.0-253.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","184","","0","images/gray_27.png","","","","disturbing"
+"","","","","","html-slider-response","258","670397","0.0-254.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_04.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-123","","0","images/gray_04.png","","","","disturbing"
+"","","","","","html-slider-response","259","672030","0.0-255.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_19.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/gray_19.png","","","","disturbing"
+"","","","","","html-slider-response","260","673469","0.0-256.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","175","","0","images/gray_41.png","","","","disturbing"
+"","","","","","html-slider-response","261","675375","0.0-257.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","187","","0","images/gray_23.png","","","","disturbing"
+"","","","","","html-slider-response","262","677184","0.0-258.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_06.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","176","","0","images/gray_06.png","","","","disturbing"
+"","","","","","html-slider-response","263","678383","0.0-259.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","173","","0","images/gray_44.png","","","","disturbing"
+"","","","","","html-slider-response","264","679694","0.0-260.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","173","","0","images/gray_13.png","","","","disturbing"
+"","","","","","html-slider-response","265","680860","0.0-261.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","173","","0","images/gray_02.png","","","","disturbing"
+"","","","","","html-slider-response","266","682580","0.0-262.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_29.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-161","","0","images/gray_29.png","","","","disturbing"
+"","","","","","html-slider-response","267","684407","0.0-263.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_22.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-98","","0","images/gray_22.png","","","","disturbing"
+"","","","","","html-slider-response","268","686619","0.0-264.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_39.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-167","","0","images/gray_39.png","","","","disturbing"
+"","","","","","html-slider-response","269","687954","0.0-265.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-147","","0","images/gray_15.png","","","","disturbing"
+"","","","","","html-slider-response","270","689233","0.0-266.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_34.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-146","","0","images/gray_34.png","","","","disturbing"
+"","","","","","html-slider-response","271","691123","0.0-267.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_14.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-120","","0","images/gray_14.png","","","","disturbing"
+"","","","","","html-slider-response","272","692297","0.0-268.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_09.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-119","","0","images/gray_09.png","","","","disturbing"
+"","","","","","html-slider-response","273","697183","0.0-269.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_17.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","153","","0","images/gray_17.png","","","","disturbing"
+"","","","","","html-slider-response","274","701192","0.0-270.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","164","","0","images/gray_26.png","","","","disturbing"
+"","","","","","html-slider-response","275","702350","0.0-271.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","158","","0","images/gray_37.png","","","","disturbing"
+"","","","","","html-slider-response","276","703870","0.0-272.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","170","","0","images/gray_05.png","","","","disturbing"
+"","","","","","html-slider-response","277","705689","0.0-273.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_36.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-157","","0","images/gray_36.png","","","","disturbing"
+"","","","","","html-slider-response","278","706838","0.0-274.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_01.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-135","","0","images/gray_01.png","","","","disturbing"
+"","","","","","html-slider-response","279","707876","0.0-275.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_40.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-168","","0","images/gray_40.png","","","","disturbing"
+"","","","","","html-slider-response","280","708946","0.0-276.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_43.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-129","","0","images/gray_43.png","","","","disturbing"
+"","","","","","html-slider-response","281","709886","0.0-277.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_03.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-130","","0","images/gray_03.png","","","","disturbing"
+"","","","","","html-slider-response","282","711230","0.0-278.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_32.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","85","","0","images/gray_32.png","","","","disturbing"
+"","","","","","html-slider-response","283","712179","0.0-279.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_11.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-118","","0","images/gray_11.png","","","","disturbing"
+"","","","","","html-slider-response","284","713247","0.0-280.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_31.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","164","","0","images/gray_31.png","","","","disturbing"
+"","","","","","html-slider-response","285","714245","0.0-281.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_24.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/gray_24.png","","","","disturbing"
+"","","","","","html-slider-response","286","715274","0.0-282.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_08.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","94","","0","images/gray_08.png","","","","disturbing"
+"","","","","","html-slider-response","287","716201","0.0-283.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-37","","0","images/gray_30.png","","","","disturbing"
+"","","","","","html-slider-response","288","717117","0.0-284.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_20.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","162","","0","images/gray_20.png","","","","disturbing"
+"","","","","","html-slider-response","289","718025","0.0-285.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_25.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-107","","0","images/gray_25.png","","","","disturbing"
+"","","","","","html-slider-response","290","718951","0.0-286.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","136","","0","images/gray_33.png","","","","disturbing"
+"","","","","","html-slider-response","291","719779","0.0-287.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-110","","0","images/gray_10.png","","","","disturbing"
+"","","","","","html-button-response","292","721698","0.0-288.0","435qq1sy9j","1417","<p>Great Job! You've finished block 6.<br></br> You have 2 block(s) left to go.<br></br></p>","0","","","","","","",""
+"","","","","","html-button-response","293","722510","0.0-289.0","435qq1sy9j","810","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>serious</p><br></br>","0","","","","","","",""
+"","","","","","html-slider-response","294","723365","0.0-290.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_22.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","167","","0","images/gray_22.png","","","","serious"
+"","","","","","html-slider-response","295","724475","0.0-291.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_35.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","161","","0","images/gray_35.png","","","","serious"
+"","","","","","html-slider-response","296","725143","0.0-292.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","162","","0","images/gray_07.png","","","","serious"
+"","","","","","html-slider-response","297","726099","0.0-293.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-120","","0","images/gray_15.png","","","","serious"
+"","","","","","html-slider-response","298","727009","0.0-294.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","129","","0","images/gray_44.png","","","","serious"
+"","","","","","html-slider-response","299","727837","0.0-295.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","129","","0","images/gray_05.png","","","","serious"
+"","","","","","html-slider-response","300","728954","0.0-296.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_11.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-125","","0","images/gray_11.png","","","","serious"
+"","","","","","html-slider-response","301","730000","0.0-297.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_36.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-94","","0","images/gray_36.png","","","","serious"
+"","","","","","html-slider-response","302","730893","0.0-298.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_18.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","82","","0","images/gray_18.png","","","","serious"
+"","","","","","html-slider-response","303","731633","0.0-299.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-74","","0","images/gray_27.png","","","","serious"
+"","","","","","html-slider-response","304","732638","0.0-300.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_42.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","167","","0","images/gray_42.png","","","","serious"
+"","","","","","html-slider-response","305","734142","0.0-301.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-150","","0","images/gray_30.png","","","","serious"
+"","","","","","html-slider-response","306","735268","0.0-302.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_04.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","52","","0","images/gray_04.png","","","","serious"
+"","","","","","html-slider-response","307","736216","0.0-303.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-83","","0","images/gray_13.png","","","","serious"
+"","","","","","html-slider-response","308","737013","0.0-304.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_01.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-83","","0","images/gray_01.png","","","","serious"
+"","","","","","html-slider-response","309","737866","0.0-305.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_38.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-83","","0","images/gray_38.png","","","","serious"
+"","","","","","html-slider-response","310","739353","0.0-306.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_14.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-83","","0","images/gray_14.png","","","","serious"
+"","","","","","html-slider-response","311","740856","0.0-307.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","169","","0","images/gray_10.png","","","","serious"
+"","","","","","html-slider-response","312","742474","0.0-308.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_16.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","185","","0","images/gray_16.png","","","","serious"
+"","","","","","html-slider-response","313","743366","0.0-309.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","185","","0","images/gray_37.png","","","","serious"
+"","","","","","html-slider-response","314","744493","0.0-310.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_34.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","185","","0","images/gray_34.png","","","","serious"
+"","","","","","html-slider-response","315","746655","0.0-311.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","156","","0","images/gray_26.png","","","","serious"
+"","","","","","html-slider-response","316","747603","0.0-312.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","156","","0","images/gray_02.png","","","","serious"
+"","","","","","html-slider-response","317","749454","0.0-313.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_21.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","173","","0","images/gray_21.png","","","","serious"
+"","","","","","html-slider-response","318","750620","0.0-314.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_09.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-184","","0","images/gray_09.png","","","","serious"
+"","","","","","html-slider-response","319","752437","0.0-315.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_43.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-168","","0","images/gray_43.png","","","","serious"
+"","","","","","html-slider-response","320","753362","0.0-316.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_19.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-168","","0","images/gray_19.png","","","","serious"
+"","","","","","html-slider-response","321","754761","0.0-317.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_03.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/gray_03.png","","","","serious"
+"","","","","","html-slider-response","322","756836","0.0-318.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","182","","0","images/gray_23.png","","","","serious"
+"","","","","","html-slider-response","323","757962","0.0-319.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_29.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","177","","0","images/gray_29.png","","","","serious"
+"","","","","","html-slider-response","324","759626","0.0-320.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_39.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-143","","0","images/gray_39.png","","","","serious"
+"","","","","","html-slider-response","325","761533","0.0-321.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-113","","0","images/gray_41.png","","","","serious"
+"","","","","","html-slider-response","326","762739","0.0-322.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_12.png","","","","serious"
+"","","","","","html-slider-response","327","763792","0.0-323.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_08.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-150","","0","images/gray_08.png","","","","serious"
+"","","","","","html-slider-response","328","764975","0.0-324.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_32.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-137","","0","images/gray_32.png","","","","serious"
+"","","","","","html-slider-response","329","765956","0.0-325.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_06.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-137","","0","images/gray_06.png","","","","serious"
+"","","","","","html-slider-response","330","766977","0.0-326.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_25.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","58","","0","images/gray_25.png","","","","serious"
+"","","","","","html-slider-response","331","768433","0.0-327.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_20.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-113","","0","images/gray_20.png","","","","serious"
+"","","","","","html-slider-response","332","770330","0.0-328.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","199","","0","images/gray_33.png","","","","serious"
+"","","","","","html-slider-response","333","772502","0.0-329.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","197","","0","images/gray_28.png","","","","serious"
+"","","","","","html-slider-response","334","773749","0.0-330.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_40.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","197","","0","images/gray_40.png","","","","serious"
+"","","","","","html-slider-response","335","775116","0.0-331.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_31.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-189","","0","images/gray_31.png","","","","serious"
+"","","","","","html-slider-response","336","776546","0.0-332.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_17.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/gray_17.png","","","","serious"
+"","","","","","html-slider-response","337","778269","0.0-333.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_24.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-154","","0","images/gray_24.png","","","","serious"
+"","","","","","html-button-response","338","779584","0.0-334.0","435qq1sy9j","813","<p>Great Job! You've finished block 7.<br></br> You have 1 block(s) left to go.<br></br></p>","0","","","","","","",""
+"","","","","","html-button-response","339","780147","0.0-335.0","435qq1sy9j","561","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>calm</p><br></br>","0","","","","","","",""
+"","","","","","html-slider-response","340","781564","0.0-336.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-141","","0","images/gray_44.png","","","","calm"
+"","","","","","html-slider-response","341","782563","0.0-337.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_01.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-173","","0","images/gray_01.png","","","","calm"
+"","","","","","html-slider-response","342","784573","0.0-338.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_40.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","198","","0","images/gray_40.png","","","","calm"
+"","","","","","html-slider-response","343","786366","0.0-339.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_09.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","195","","0","images/gray_09.png","","","","calm"
+"","","","","","html-slider-response","344","787782","0.0-340.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_42.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","195","","0","images/gray_42.png","","","","calm"
+"","","","","","html-slider-response","345","789542","0.0-341.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-156","","0","images/gray_30.png","","","","calm"
+"","","","","","html-slider-response","346","791191","0.0-342.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_24.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","192","","0","images/gray_24.png","","","","calm"
+"","","","","","html-slider-response","347","793410","0.0-343.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_38.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","199","","0","images/gray_38.png","","","","calm"
+"","","","","","html-slider-response","348","795428","0.0-344.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_34.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-172","","0","images/gray_34.png","","","","calm"
+"","","","","","html-slider-response","349","797560","0.0-345.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_11.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-154","","0","images/gray_11.png","","","","calm"
+"","","","","","html-slider-response","350","798822","0.0-346.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-188","","0","images/gray_28.png","","","","calm"
+"","","","","","html-slider-response","351","800004","0.0-347.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_22.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-188","","0","images/gray_22.png","","","","calm"
+"","","","","","html-slider-response","352","801322","0.0-348.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-189","","0","images/gray_05.png","","","","calm"
+"","","","","","html-slider-response","353","802675","0.0-349.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_14.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-189","","0","images/gray_14.png","","","","calm"
+"","","","","","html-slider-response","354","804806","0.0-350.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_43.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-172","","0","images/gray_43.png","","","","calm"
+"","","","","","html-slider-response","355","805674","0.0-351.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_18.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-188","","0","images/gray_18.png","","","","calm"
+"","","","","","html-slider-response","356","807443","0.0-352.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-129","","0","images/gray_33.png","","","","calm"
+"","","","","","html-slider-response","357","808634","0.0-353.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/gray_10.png","","","","calm"
+"","","","","","html-slider-response","358","809669","0.0-354.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_20.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-190","","0","images/gray_20.png","","","","calm"
+"","","","","","html-slider-response","359","811334","0.0-355.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_07.png","","","","calm"
+"","","","","","html-slider-response","360","812485","0.0-356.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_17.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-183","","0","images/gray_17.png","","","","calm"
+"","","","","","html-slider-response","361","814849","0.0-357.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_31.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/gray_31.png","","","","calm"
+"","","","","","html-slider-response","362","816665","0.0-358.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_06.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","194","","0","images/gray_06.png","","","","calm"
+"","","","","","html-slider-response","363","818742","0.0-359.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_29.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","182","","0","images/gray_29.png","","","","calm"
+"","","","","","html-slider-response","364","820471","0.0-360.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_04.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-153","","0","images/gray_04.png","","","","calm"
+"","","","","","html-slider-response","365","821982","0.0-361.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_13.png","","","","calm"
+"","","","","","html-slider-response","366","823349","0.0-362.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_02.png","","","","calm"
+"","","","","","html-slider-response","367","824757","0.0-363.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_12.png","","","","calm"
+"","","","","","html-slider-response","368","826776","0.0-364.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_19.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","160","","0","images/gray_19.png","","","","calm"
+"","","","","","html-slider-response","369","828784","0.0-365.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_36.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","193","","0","images/gray_36.png","","","","calm"
+"","","","","","html-slider-response","370","830119","0.0-366.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-174","","0","images/gray_15.png","","","","calm"
+"","","","","","html-slider-response","371","831367","0.0-367.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_39.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-157","","0","images/gray_39.png","","","","calm"
+"","","","","","html-slider-response","372","832364","0.0-368.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/gray_26.png","","","","calm"
+"","","","","","html-slider-response","373","833514","0.0-369.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_32.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-175","","0","images/gray_32.png","","","","calm"
+"","","","","","html-slider-response","374","834502","0.0-370.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_03.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-167","","0","images/gray_03.png","","","","calm"
+"","","","","","html-slider-response","375","835847","0.0-371.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-168","","0","images/gray_27.png","","","","calm"
+"","","","","","html-slider-response","376","836997","0.0-372.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_35.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-175","","0","images/gray_35.png","","","","calm"
+"","","","","","html-slider-response","377","838266","0.0-373.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_21.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","162","","0","images/gray_21.png","","","","calm"
+"","","","","","html-slider-response","378","839530","0.0-374.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-153","","0","images/gray_41.png","","","","calm"
+"","","","","","html-slider-response","379","840551","0.0-375.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","142","","0","images/gray_37.png","","","","calm"
+"","","","","","html-slider-response","380","841589","0.0-376.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_25.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","141","","0","images/gray_25.png","","","","calm"
+"","","","","","html-slider-response","381","843003","0.0-377.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_08.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-142","","0","images/gray_08.png","","","","calm"
+"","","","","","html-slider-response","382","844347","0.0-378.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_16.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-180","","0","images/gray_16.png","","","","calm"
+"","","","","","html-slider-response","383","845745","0.0-379.0","435qq1sy9j","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/gray_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","174","","0","images/gray_23.png","","","","calm"
+"","","","","","html-button-response","384","847239","0.0-380.0","435qq1sy9j","992","<p>Great Job! You're done rating all concepts!<br></br></p>","0","","","","","","",""
