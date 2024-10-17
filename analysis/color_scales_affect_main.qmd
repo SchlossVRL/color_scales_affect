@@ -31,7 +31,7 @@ install_and_load_packages(packages)
 
 ## Gray Maps
 
-### Preprocessing 
+### Preprocessing
 
 ```{r}
 current_dir<- getwd()
@@ -63,7 +63,64 @@ ratings_trials_grouped_wide<-ratings_trial_grouped %>%
 
 ratings_trials_grouped_wide
 
+
+
+
 ```
+
+### This bit below checks for the consistency of ratings across different sample sizes to help us determine the number of participants
+
+```{r}
+concepts<- list()
+r_values<- list()
+iters<- list()
+sample_sizes<- list()
+unique_subject_ids <- unique(ratings_trials_exp$subject_id)
+for(sample_size in c(10,20,30,40,50,60,80)){
+  for(iter in 1:20){
+  sample1_ids<-sample(unique_subject_ids, size = sample_size, replace = TRUE)
+  sample2_ids<-sample(unique_subject_ids, size = sample_size, replace = TRUE)
+  
+  sample1<- ratings_trials_exp%>%filter(subject_id%in%sample1_ids)
+  sample2<- ratings_trials_exp%>%filter(subject_id%in%sample2_ids)
+  
+  sample1_grouped<- sample1 %>% group_by(image_path, concept) %>%summarise(mean_rating = mean(response)) 
+  sample1_grouped_wide<-sample1_grouped %>%
+    pivot_wider(names_from = concept, values_from = mean_rating)
+  
+  
+    sample2_grouped<- sample2 %>% group_by(image_path, concept) %>%summarise(mean_rating = mean(response)) 
+  sample2_grouped_wide<-sample2_grouped %>%
+    pivot_wider(names_from = concept, values_from = mean_rating)
+  
+  r_value<- cor(unlist(sample2_grouped_wide[,-1]), unlist(sample1_grouped_wide[,-1]))
+  r_values<- append(r_values, r_value)
+  sample_sizes<- append(sample_sizes, sample_size)
+  iters<- append(iters, iter)
+
+  }
+}
+
+
+
+sim_df <- data.frame(cbind(unlist(iters), unlist(sample_sizes), unlist(r_values)))
+colnames(sim_df)<-c('iters','sample_sizes','r_values')
+sim_df$r_values<- as.numeric(sim_df$r_values)
+mean_sim_df <- sim_df %>%
+  group_by(sample_sizes) %>%
+  summarize(mean_r_values = mean(r_values), .groups = 'drop')
+
+ggplot(mean_sim_df, aes(x = sample_sizes, y = mean_r_values)) +
+  geom_line() +
+  geom_point() +  # Optional: to show points on the lines
+  labs(title = "Mean R-values by Concept and Sample Size",
+       x = "Sample Sizes",
+       y = "Mean R-values",
+       color = "Concept") 
+
+```
+
+Looks like around 50 should give us the enough stability in associations
 
 ### Plotting the mean associations
 
@@ -110,7 +167,7 @@ Commenting out this code for now, but we can run if we want. Takes a while to pl
 
 ```
 
-### PCA
+### PCA analysis
 
 ```{r}
 pc <- prcomp(ratings_trials_grouped_wide[,-1],
@@ -160,15 +217,28 @@ ggplot(eigenvalues_df, aes(x = Component, y = Eigenvalue)) +
   scale_x_continuous(breaks = 1:6) +
   labs(title = "singular value of the First 6 Principal Components",
        x = "Principal Component",
-       y = "Eigenvalue") +
+       y = "Singular Value") +
   theme_minimal()
 ```
 
+For selecting best maps, compute correlation matrix and for each map compute the mean correlation and pick the 16 with the highest means
+
 ```{r}
-ratings_trials_grouped_wide
+
+### add a new column with just the map number
+ratings_trials_grouped_wide$annot<- sapply(ratings_trials_grouped_wide$image_path, function(x){return(strsplit(x, split="_")[[1]][2])})
+ratings_trials_grouped_wide$annot<- sapply(ratings_trials_grouped_wide$annot, function(x){return(strsplit(x, split=".png")[[1]][1])})
+
+### oct 16 exlusions
+rtgw<- ratings_trials_grouped_wide%>%filter(!annot%in%c('25','19','14','40','01','35','09','39','18','31','29','21','43','24','38','06','34'
+))
 
 
-df_transposed <- ratings_trials_grouped_wide %>%
+
+ # rtgw <- ratings_trials_grouped_wide %>% select(-annot)
+ rtgw <- rtgw %>% select(-annot)
+
+df_transposed <- rtgw %>%
   pivot_longer(cols = -image_path, names_to = "variable", values_to = "value") %>%
   pivot_wider(names_from = image_path, values_from = value)
 
@@ -179,9 +249,35 @@ df_transposed <- column_to_rownames(df_transposed, var = "variable")
 
 ```{r}
 correlation_matrix<-cor(df_transposed)
+
+min_cors<- numeric()
+mean_cors<-numeric()
+filenames<- list()
+for(i in 1:nrow(correlation_matrix)){
+  this_min_cor<- min(correlation_matrix[i,])
+  this_mean_cor<- mean(correlation_matrix[i,])
+  this_filename<- rownames(correlation_matrix)[i]
+  
+  min_cors<- append(min_cors,this_min_cor)
+  mean_cors<- append(mean_cors,this_mean_cor)
+  filenames<- append(filenames, this_filename)
+  
+  
+  
+}
+
+cor_df<- data.frame(cbind(filenames, min_cors,mean_cors))
+cor_df$min_cors<- as.numeric(cor_df$min_cors)
+cor_df$mean_cors<- as.numeric(cor_df$mean_cors)
+cor_df_sorted <- cor_df %>% arrange(desc(mean_cors))
+
+write.csv(correlation_matrix, file = "correlation_matrix_tmp.csv", row.names = TRUE)
+
+correlation_matrix_sub<- correlation_matrix[rownames(correlation_matrix)%in%sapply(c('33','41','23','12','02','27','26','05','28','13','30','10','37','15','44','07'), function(x){return(paste0('images/gray_',x))})]
+
 # Print the correlation matrix
-ggcorrplot(correlation_matrix, title = 'correlation between each map',ggtheme = ggplot2::theme_gray,)
-ggsave('corplot.png', 
+ggcorrplot(correlation_matrix, title = 'correlation between each map',ggtheme = ggplot2::theme_gray, hc.order = TRUE)
+ggsave('corplot_10_16.pdf', 
        height=13, 
        width=13,
        units = "in", 
@@ -190,7 +286,10 @@ ggsave('corplot.png',
 ```
 
 ```{r}
+View(cor_df_sorted)
+```
 
+```{r}
 
 
 load_image_path<-function(path){
@@ -200,17 +299,78 @@ image_paths<- sapply(ratings_trials_grouped_wide$image_path,load_image_path)
 plot_df <- data.frame(
   PC1 = pc$x[, 1],
   PC2 = pc$x[, 2],
+  PC3 = pc$x[, 3],
   image = image_paths,
   filename = sapply(ratings_trials_grouped_wide$image_path, function(x){return(strsplit(x,split = '/')[[1]][2])})  # Add filenames for annotation
 )
-plot_df
+
+plot_df$annot<- sapply(plot_df$filename, function(x){return(strsplit(x, split="_")[[1]][2])})
+plot_df$annot<- sapply(plot_df$annot, function(x){return(strsplit(x, split=".png")[[1]][1])})
+
+# oct 16 subsets
+plot_df<- plot_df%>%filter(annot%in%c('33','41','23','12','02','27','26','05','28','13','30','10','37','15','44','07'))
+
+
 ggplot(plot_df, aes(x = PC1, y = PC2)) +
   geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
-  geom_text(aes(label = filename), vjust = -1, hjust = 1, size = 3, color='red') +  # Annotate with filenames
-  theme_minimal() +
-  theme_minimal() +
+  geom_text(aes(label = annot), vjust = -1, hjust = 1, size = 5, color='cyan') +  # Annotate with filenames
+  theme_grey() +
   theme(axis.title = element_blank(),  # Optional: hide axis labels
         axis.text = element_blank(),
         axis.ticks = element_blank())
-ggsave('pcaplot_gray_maps.pdf', height=13, width=13,units = "in", dpi = 300)
+
+
+
+# ggsave('pcaplot_gray_maps_1_2_all_maps_10_16.png', height=13, width=13,units = "in", dpi = 300)
+ggsave('pcaplot_gray_maps_1_2_sub_maps_10_16.png', height=13, width=13,units = "in", dpi = 300)
+
+```
+
+```{r}
+
+ggplot(plot_df, aes(x = PC2, y = PC3)) +
+  geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
+  geom_text(aes(label = annot), vjust = -1, hjust = 1, size = 5, color='cyan') +  # Annotate with filenames
+  theme_grey() +
+  theme(axis.title = element_blank(),  # Optional: hide axis labels
+        axis.text = element_blank(),
+        axis.ticks = element_blank())
+
+# ggsave('pcaplot_gray_maps_2_3_10_16.png', height=13, width=13,units = "in", dpi = 300)
+ggsave('pcaplot_gray_maps_2_3_sub_maps_10_16.png', height=13, width=13,units = "in", dpi = 300)
+```
+
+```{r}
+
+ggplot(plot_df, aes(x = PC1, y = PC3)) +
+  geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
+  geom_text(aes(label = annot), vjust = -1, hjust = 1, size = 5, color='cyan') +  # Annotate with filenames
+  theme_grey() +
+  theme(axis.title = element_blank(),  # Optional: hide axis labels
+        axis.text = element_blank(),
+        axis.ticks = element_blank())
+
+ggsave('pcaplot_gray_maps_1_3_10_16.png', height=13, width=13,units = "in", dpi = 300)
+```
+
+```{r}
+
+# Step 1: Extract the order of the `concept` values in the first facet
+first_facet <- ratings_trial_grouped %>% filter(annot == '02')  # Assuming '02' is the first facet
+ordered_concepts <- first_facet %>% arrange(desc(mean_rating)) %>% pull(concept)
+
+# Step 2: Apply this order to the entire dataset
+ratings_trial_grouped$concept <- factor(ratings_trial_grouped$concept, levels = ordered_concepts)
+
+# Step 3: Plot the data using the ordered `concept` values
+p <- ggplot(ratings_trial_grouped, aes(x = concept, y = mean_rating)) +
+  geom_bar(stat='identity') +
+  facet_wrap(~annot, scales = "free_x", ncol = 4) +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(y = "Mean Rating") +
+  scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, .1)))
+
+p
+ggsave('subset_map_ratings.png', plot = p, dpi = 300, height = 10, width = 13)
 ```
