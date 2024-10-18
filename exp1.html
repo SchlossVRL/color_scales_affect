@@ -408,6 +408,7 @@
                                 image_path: this_map,
                                 concept: concept,
                                 repetition: repetition,
+                                map_id:  this_map.match(/\d{2}(?=\.png)/)[0], //extracts the map id from the image path
                                 hue: im2cond_dict[this_map]['hue'],
                                 lightness: im2cond_dict[this_map]['lightness'],
                                 saturation: im2cond_dict[this_map]['saturation'],
