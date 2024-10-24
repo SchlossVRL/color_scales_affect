@@ -1,0 +1,1895 @@
+"success","timeout","failed_images","failed_audio","failed_video","trial_type","trial_index","time_elapsed","internal_node_id","subject_id","condition_num","rt","stimulus","response","question_order","slider_start","image_path","practiceTrial","practiceTrialNum","correct","concept","repetition","map_id","hue","lightness","saturation","ishihara_plate","correct_response"
+"true","false","[]","[]","[]","preload","0","1798","0.0-0.0","tao94vvgd5","15","","","","","","","","","","","","","","","","",""
+"","","","","","html-button-response","1","13245","0.0-1.0","tao94vvgd5","15","11444","Welcome to our experiment!<p>At the bottom of this screen, you will see a button that says ""Begin Experiment"".<br>Please only click that button when you are ready to complete the 25 minute experiment in one sitting.</p><p> Once you click that button, it will not be possible to restart the experiment.","0","","","","","","","","","","","","","",""
+"true","","","","","fullscreen","2","15649","0.0-2.0","tao94vvgd5","15","1337","","","","","","","","","","","","","","","",""
+"","","","","","survey-multi-select","3","48812","0.0-3.0","tao94vvgd5","15","33154","","{""Consent"":[""<strong>I consent</strong>""]}","[0]","","","","","","","","","","","","",""
+"","","","","","html-button-response","4","53773","0.0-4.0","tao94vvgd5","15","4957","Welcome! <p> This experiment involves two parts: demographic information, followed by the experimental task.<p> It will take about 25 minutes to complete both parts.","0","","","","","","","","","","","","","",""
+"","","","","","survey-text","5","73621","0.0-5.0","tao94vvgd5","15","19806","","{""Age"":""19"",""Gender"":""female"",""Race/ethnicity"":""white"",""Languages"":""english and some spanish\n""}","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","6","173500","0.0-6.0","tao94vvgd5","15","99874","
+                            <div style='text-align:left; font-size:20px; line-height:25px; width: 1400px;'>
+                                During this experiment you will be asked to rate how much you associate maps with                    different concepts.<br> Below, you can see some examples of the maps you will be asked to rate. Next to the maps
+                    is the list of concepts.<br>You will be asked                    to rate how much you associate each map with each concept on a scale from 'not at all' to 'very much' like the
+                    one below. <br><br>
+                    Now, please look at the list of concepts and maps. For each concept, think about the map you associate 'very
+                    much' with the concept.<br>                     When you see that map during the experiment, please rate it near the 'very much' endpoint of the
+                    scale.<br>Now, please think about which map you associate 'not at all'                     with each concept. When you see that map during the experiment, please rate it near the 'not at all' endpoint
+                    of the scale.<br>
+                    Please use the full range of the scale. That is, if a map is somewhat associated with the concept, you would
+                    click partway between the middle point and right side of the scale.                    You will be asked to rate each map for a given concept before moving on to the next concept.<br><br>Press the
+                    'Continue' button for instructions on how to use the slider.                    <br><br>
+                </div>
+
+                <div style=""width: 500px; margin: 0 auto;"">
+                    <!-- Centered text paragraphs -->
+                    <div style=""text-align: center; width: 500px;"">
+                        <p style=""font-size:25px; line-height:18px;"">calm</p>
+                        <p style=""font-size:25px; line-height:18px;"">exciting</p>
+                        <p style=""font-size:25px;line-height:18px;"">positive</p>
+                        <p style=""font-size:25px;line-height:18px;"">negative</p>
+                        <p style=""font-size:25px;line-height:18px;"">serious</p>
+                        <p style=""font-size:25px;line-height:18px;"">playful</p>
+                        <p style=""font-size:25px;line-height:18px;"">trustworthy</p>
+                        <p style=""font-size:25px;line-height:18px;"">disturbing</p>
+                    </div>
+
+                    <!-- Grid section -->
+                   <div style=""display: flex; justify-content: center; padding-top: 15px;"">
+                    <div style=""display: grid; grid-template-columns: repeat(8, 80px); grid-gap: 5px; width: auto;"">
+                        <img src=""images/Y_D_U_41.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_D_S_37.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_L_S_23.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_L_U_12.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_L_S_44.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_D_U_28.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_L_U_02.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_D_S_27.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_L_S_10.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_L_S_30.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_D_S_13.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_L_U_26.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_D_U_07.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_L_U_33.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_D_S_05.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_D_U_15.png"" alt=""map"" style=""width: 100%;"">
+                    </div>
+                </div>
+
+                    <!-- Clear floats -->
+                    <div style=""clear: both;""></div>
+                </div>
+                            ","0","","0","maps_anchoring.png","true","","","","","","","","","",""
+"","","","","","html-button-response","7","187083","0.0-7.0","tao94vvgd5","15","13581","<div style=""width:800px;""><p style=""text-align:left"">To move the slider, click and drag your cursor to the location of the scale where you would like to make your rating and then let go. When you let go of the slider, your response will be recorded and the next trial will begin. <br>
+                    We are interested in your initial impressions of each map for the given concept, so please go with your first intuition. <br>
+                    Before you begin the experiment, there will be four training trials for you to practice using the scale. <br>
+                     When you are ready to start the training trials, please click ""Continue"".</p><br></div>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","8","190472","0.0-8.0-0.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                                    <p style=""font-size:25px;"">Please move the slider all the way to the <br> right endpoint of the scale</p>
+
+                                    </div>
+                                </div>","200","","0","","true","0","true","","","","","","","",""
+"","","","","","html-button-response","9","192238","0.0-8.0-1.0","tao94vvgd5","15","1246","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","10","193934","0.0-9.0-0.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                                    <p style=""font-size:25px;"">Please move the slider all the way to the <br> left endpoint of the scale</p>
+
+                                    </div>
+                                </div>","-200","","0","","true","1","true","","","","","","","",""
+"","","","","","html-button-response","11","195274","0.0-9.0-1.0","tao94vvgd5","15","835","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","12","200627","0.0-10.0-0.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                                    <p style=""font-size:25px;"">Please move the slider halfway between the center and right endpoint of the scale</p>
+
+                                    </div>
+                                </div>","108","","0","","true","2","true","","","","","","","",""
+"","","","","","html-button-response","13","201799","0.0-10.0-1.0","tao94vvgd5","15","658","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","14","204385","0.0-11.0-0.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                                    <p style=""font-size:25px;"">Please move the slider halfway between the center and left endpoint of the scale</p>
+
+                                    </div>
+                                </div>","-104","","0","","true","3","true","","","","","","","",""
+"","","","","","html-button-response","15","205549","0.0-11.0-1.0","tao94vvgd5","15","648","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","16","207493","0.0-12.0","tao94vvgd5","15","1941","<p>Great job! You've completed the practice trials. Now you will begin the main task.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","17","212998","0.0-13.0","tao94vvgd5","15","5503","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>negative</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","18","217673","0.0-14.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-42","","0","images/G_D_S_13.png","","","","negative","2","13","G","D","S","",""
+"","","","","","html-slider-response","19","220834","0.0-15.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","136","","0","images/Y_D_U_41.png","","","","negative","1","41","Y","D","U","",""
+"","","","","","html-slider-response","20","223100","0.0-16.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/R_L_S_44.png","","","","negative","2","44","R","L","S","",""
+"","","","","","html-slider-response","21","225964","0.0-17.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-164","","0","images/R_D_S_05.png","","","","negative","2","05","R","D","S","",""
+"","","","","","html-slider-response","22","228164","0.0-18.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_L_S_23.png","","","","negative","1","23","B","L","S","",""
+"","","","","","html-slider-response","23","230180","0.0-19.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_L_U_26.png","","","","negative","1","26","B","L","U","",""
+"","","","","","html-slider-response","24","232143","0.0-20.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/G_L_S_10.png","","","","negative","2","10","G","L","S","",""
+"","","","","","html-slider-response","25","235991","0.0-21.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","159","","0","images/Y_D_S_37.png","","","","negative","2","37","Y","D","S","",""
+"","","","","","html-slider-response","26","239700","0.0-22.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","50","","0","images/R_D_U_07.png","","","","negative","1","07","R","D","U","",""
+"","","","","","html-slider-response","27","243313","0.0-23.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-6","","0","images/G_D_S_13.png","","","","negative","1","13","G","D","S","",""
+"","","","","","html-slider-response","28","246678","0.0-24.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-172","","0","images/R_L_U_02.png","","","","negative","2","02","R","L","U","",""
+"","","","","","html-slider-response","29","248787","0.0-25.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-56","","0","images/Y_L_U_33.png","","","","negative","2","33","Y","L","U","",""
+"","","","","","html-slider-response","30","250996","0.0-26.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-18","","0","images/G_D_U_15.png","","","","negative","2","15","G","D","U","",""
+"","","","","","html-slider-response","31","252885","0.0-27.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_D_S_27.png","","","","negative","2","27","B","D","S","",""
+"","","","","","html-slider-response","32","255553","0.0-28.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/R_L_U_02.png","","","","negative","1","02","R","L","U","",""
+"","","","","","html-slider-response","33","258165","0.0-29.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/G_L_U_12.png","","","","negative","2","12","G","L","U","",""
+"","","","","","html-slider-response","34","261213","0.0-30.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/G_L_S_10.png","","","","negative","1","10","G","L","S","",""
+"","","","","","html-slider-response","35","263199","0.0-31.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","95","","0","images/Y_D_S_37.png","","","","negative","1","37","Y","D","S","",""
+"","","","","","html-slider-response","36","265218","0.0-32.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","29","","0","images/R_D_U_07.png","","","","negative","2","07","R","D","U","",""
+"","","","","","html-slider-response","37","266965","0.0-33.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/Y_D_U_41.png","","","","negative","2","41","Y","D","U","",""
+"","","","","","html-slider-response","38","268618","0.0-34.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_L_U_26.png","","","","negative","2","26","B","L","U","",""
+"","","","","","html-slider-response","39","273609","0.0-35.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-18","","0","images/G_D_U_15.png","","","","negative","1","15","G","D","U","",""
+"","","","","","html-slider-response","40","275438","0.0-36.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-32","","0","images/Y_L_U_33.png","","","","negative","1","33","Y","L","U","",""
+"","","","","","html-slider-response","41","278591","0.0-37.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-18","","0","images/B_D_U_28.png","","","","negative","1","28","B","D","U","",""
+"","","","","","html-slider-response","42","280258","0.0-38.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-57","","0","images/G_L_U_12.png","","","","negative","1","12","G","L","U","",""
+"","","","","","html-slider-response","43","282093","0.0-39.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_L_S_23.png","","","","negative","2","23","B","L","S","",""
+"","","","","","html-slider-response","44","284505","0.0-40.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/R_L_S_44.png","","","","negative","1","44","R","L","S","",""
+"","","","","","html-slider-response","45","288383","0.0-41.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","20","","0","images/B_D_U_28.png","","","","negative","2","28","B","D","U","",""
+"","","","","","html-slider-response","46","290652","0.0-42.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_D_S_27.png","","","","negative","1","27","B","D","S","",""
+"","","","","","html-slider-response","47","293852","0.0-43.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","32","","0","images/Y_L_S_30.png","","","","negative","2","30","Y","L","S","",""
+"","","","","","html-slider-response","48","296856","0.0-44.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-75","","0","images/R_D_S_05.png","","","","negative","1","05","R","D","S","",""
+"","","","","","html-slider-response","49","297780","0.0-45.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","37","","0","images/Y_L_S_30.png","","","","negative","1","30","Y","L","S","",""
+"","","","","","html-button-response","50","300412","0.0-46.0","tao94vvgd5","15","2121","<p>Great Job! You've finished block 1.<br></br> You have 7 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","51","302298","0.0-47.0","tao94vvgd5","15","1883","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>trustworthy</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","52","304668","0.0-48.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","171","","0","images/Y_D_U_41.png","","","","trustworthy","2","41","Y","D","U","",""
+"","","","","","html-slider-response","53","309845","0.0-49.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_D_S_27.png","","","","trustworthy","1","27","B","D","S","",""
+"","","","","","html-slider-response","54","313521","0.0-50.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-86","","0","images/Y_D_S_37.png","","","","trustworthy","2","37","Y","D","S","",""
+"","","","","","html-slider-response","55","318543","0.0-51.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","66","","0","images/R_L_U_02.png","","","","trustworthy","1","02","R","L","U","",""
+"","","","","","html-slider-response","56","320482","0.0-52.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_L_S_23.png","","","","trustworthy","1","23","B","L","S","",""
+"","","","","","html-slider-response","57","322778","0.0-53.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","126","","0","images/R_L_U_02.png","","","","trustworthy","2","02","R","L","U","",""
+"","","","","","html-slider-response","58","326035","0.0-54.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-40","","0","images/Y_L_S_30.png","","","","trustworthy","1","30","Y","L","S","",""
+"","","","","","html-slider-response","59","335550","0.0-55.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","113","","0","images/G_L_U_12.png","","","","trustworthy","1","12","G","L","U","",""
+"","","","","","html-slider-response","60","342652","0.0-56.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-57","","0","images/Y_L_U_33.png","","","","trustworthy","2","33","Y","L","U","",""
+"","","","","","html-slider-response","61","344877","0.0-57.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","80","","0","images/B_L_U_26.png","","","","trustworthy","2","26","B","L","U","",""
+"","","","","","html-slider-response","62","347550","0.0-58.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-46","","0","images/R_D_S_05.png","","","","trustworthy","1","05","R","D","S","",""
+"","","","","","html-slider-response","63","352266","0.0-59.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","155","","0","images/R_L_S_44.png","","","","trustworthy","1","44","R","L","S","",""
+"","","","","","html-slider-response","64","355562","0.0-60.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-16","","0","images/R_D_U_07.png","","","","trustworthy","1","07","R","D","U","",""
+"","","","","","html-slider-response","65","359107","0.0-61.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","48","","0","images/B_D_U_28.png","","","","trustworthy","1","28","B","D","U","",""
+"","","","","","html-slider-response","66","361044","0.0-62.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-25","","0","images/Y_L_U_33.png","","","","trustworthy","1","33","Y","L","U","",""
+"","","","","","html-slider-response","67","363446","0.0-63.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","36","","0","images/B_D_U_28.png","","","","trustworthy","2","28","B","D","U","",""
+"","","","","","html-slider-response","68","368077","0.0-64.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","74","","0","images/R_D_S_05.png","","","","trustworthy","2","05","R","D","S","",""
+"","","","","","html-slider-response","69","370406","0.0-65.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/R_L_S_44.png","","","","trustworthy","2","44","R","L","S","",""
+"","","","","","html-slider-response","70","372212","0.0-66.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_L_S_23.png","","","","trustworthy","2","23","B","L","S","",""
+"","","","","","html-slider-response","71","374113","0.0-67.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","34","","0","images/G_D_S_13.png","","","","trustworthy","1","13","G","D","S","",""
+"","","","","","html-slider-response","72","376099","0.0-68.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-17","","0","images/G_D_U_15.png","","","","trustworthy","2","15","G","D","U","",""
+"","","","","","html-slider-response","73","378471","0.0-69.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-162","","0","images/Y_D_S_37.png","","","","trustworthy","1","37","Y","D","S","",""
+"","","","","","html-slider-response","74","380270","0.0-70.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_D_S_27.png","","","","trustworthy","2","27","B","D","S","",""
+"","","","","","html-slider-response","75","382518","0.0-71.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-32","","0","images/R_D_U_07.png","","","","trustworthy","2","07","R","D","U","",""
+"","","","","","html-slider-response","76","389959","0.0-72.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","24","","0","images/G_D_U_15.png","","","","trustworthy","1","15","G","D","U","",""
+"","","","","","html-slider-response","77","392109","0.0-73.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","97","","0","images/G_L_S_10.png","","","","trustworthy","1","10","G","L","S","",""
+"","","","","","html-slider-response","78","394656","0.0-74.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","185","","0","images/B_L_U_26.png","","","","trustworthy","1","26","B","L","U","",""
+"","","","","","html-slider-response","79","398377","0.0-75.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-72","","0","images/G_D_S_13.png","","","","trustworthy","2","13","G","D","S","",""
+"","","","","","html-slider-response","80","400208","0.0-76.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","69","","0","images/G_L_S_10.png","","","","trustworthy","2","10","G","L","S","",""
+"","","","","","html-slider-response","81","402116","0.0-77.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","86","","0","images/G_L_U_12.png","","","","trustworthy","2","12","G","L","U","",""
+"","","","","","html-slider-response","82","403842","0.0-78.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-112","","0","images/Y_D_U_41.png","","","","trustworthy","1","41","Y","D","U","",""
+"","","","","","html-slider-response","83","405614","0.0-79.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >trustworthy</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-27","","0","images/Y_L_S_30.png","","","","trustworthy","2","30","Y","L","S","",""
+"","","","","","html-button-response","84","418835","0.0-80.0","tao94vvgd5","15","12715","<p>Great Job! You've finished block 2.<br></br> You have 6 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","85","420004","0.0-81.0","tao94vvgd5","15","1167","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>disturbing</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","86","421942","0.0-82.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/R_L_S_44.png","","","","disturbing","2","44","R","L","S","",""
+"","","","","","html-slider-response","87","423644","0.0-83.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/G_L_U_12.png","","","","disturbing","1","12","G","L","U","",""
+"","","","","","html-slider-response","88","425677","0.0-84.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","22","","0","images/Y_L_U_33.png","","","","disturbing","1","33","Y","L","U","",""
+"","","","","","html-slider-response","89","427588","0.0-85.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_L_U_26.png","","","","disturbing","2","26","B","L","U","",""
+"","","","","","html-slider-response","90","429302","0.0-86.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","87","","0","images/G_D_S_13.png","","","","disturbing","2","13","G","D","S","",""
+"","","","","","html-slider-response","91","431499","0.0-87.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","13","","0","images/R_D_S_05.png","","","","disturbing","2","05","R","D","S","",""
+"","","","","","html-slider-response","92","434408","0.0-88.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_D_S_27.png","","","","disturbing","1","27","B","D","S","",""
+"","","","","","html-slider-response","93","437440","0.0-89.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","172","","0","images/R_D_U_07.png","","","","disturbing","2","07","R","D","U","",""
+"","","","","","html-slider-response","94","439525","0.0-90.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","42","","0","images/Y_L_U_33.png","","","","disturbing","2","33","Y","L","U","",""
+"","","","","","html-slider-response","95","441218","0.0-91.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","68","","0","images/Y_L_S_30.png","","","","disturbing","2","30","Y","L","S","",""
+"","","","","","html-slider-response","96","443249","0.0-92.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-38","","0","images/B_D_U_28.png","","","","disturbing","1","28","B","D","U","",""
+"","","","","","html-slider-response","97","445208","0.0-93.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-84","","0","images/R_L_U_02.png","","","","disturbing","1","02","R","L","U","",""
+"","","","","","html-slider-response","98","447038","0.0-94.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-105","","0","images/R_D_S_05.png","","","","disturbing","1","05","R","D","S","",""
+"","","","","","html-slider-response","99","449276","0.0-95.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-68","","0","images/G_D_U_15.png","","","","disturbing","2","15","G","D","U","",""
+"","","","","","html-slider-response","100","451631","0.0-96.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-164","","0","images/G_L_U_12.png","","","","disturbing","2","12","G","L","U","",""
+"","","","","","html-slider-response","101","454233","0.0-97.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-187","","0","images/B_L_U_26.png","","","","disturbing","1","26","B","L","U","",""
+"","","","","","html-slider-response","102","456048","0.0-98.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-64","","0","images/B_D_U_28.png","","","","disturbing","2","28","B","D","U","",""
+"","","","","","html-slider-response","103","458407","0.0-99.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/G_D_S_13.png","","","","disturbing","1","13","G","D","S","",""
+"","","","","","html-slider-response","104","460448","0.0-100.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/Y_D_S_37.png","","","","disturbing","2","37","Y","D","S","",""
+"","","","","","html-slider-response","105","462639","0.0-101.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-66","","0","images/G_L_S_10.png","","","","disturbing","1","10","G","L","S","",""
+"","","","","","html-slider-response","106","464504","0.0-102.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_L_S_23.png","","","","disturbing","2","23","B","L","S","",""
+"","","","","","html-slider-response","107","469236","0.0-103.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/Y_D_U_41.png","","","","disturbing","1","41","Y","D","U","",""
+"","","","","","html-slider-response","108","475827","0.0-104.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-64","","0","images/R_L_U_02.png","","","","disturbing","2","02","R","L","U","",""
+"","","","","","html-slider-response","109","479132","0.0-105.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-130","","0","images/G_L_S_10.png","","","","disturbing","2","10","G","L","S","",""
+"","","","","","html-slider-response","110","481720","0.0-106.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-188","","0","images/B_L_S_23.png","","","","disturbing","1","23","B","L","S","",""
+"","","","","","html-slider-response","111","484585","0.0-107.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","146","","0","images/R_D_U_07.png","","","","disturbing","1","07","R","D","U","",""
+"","","","","","html-slider-response","112","486873","0.0-108.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","193","","0","images/Y_D_S_37.png","","","","disturbing","1","37","Y","D","S","",""
+"","","","","","html-slider-response","113","488816","0.0-109.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","25","","0","images/Y_L_S_30.png","","","","disturbing","1","30","Y","L","S","",""
+"","","","","","html-slider-response","114","490752","0.0-110.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","12","","0","images/G_D_U_15.png","","","","disturbing","1","15","G","D","U","",""
+"","","","","","html-slider-response","115","493374","0.0-111.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","146","","0","images/Y_D_U_41.png","","","","disturbing","2","41","Y","D","U","",""
+"","","","","","html-slider-response","116","495457","0.0-112.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-169","","0","images/B_D_S_27.png","","","","disturbing","2","27","B","D","S","",""
+"","","","","","html-slider-response","117","497535","0.0-113.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >disturbing</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-190","","0","images/R_L_S_44.png","","","","disturbing","1","44","R","L","S","",""
+"","","","","","html-button-response","118","503253","0.0-114.0","tao94vvgd5","15","5212","<p>Great Job! You've finished block 3.<br></br> You have 5 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","119","504342","0.0-115.0","tao94vvgd5","15","1088","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>playful</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","120","505837","0.0-116.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-132","","0","images/B_L_U_26.png","","","","playful","1","26","B","L","U","",""
+"","","","","","html-slider-response","121","508395","0.0-117.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-23","","0","images/G_D_S_13.png","","","","playful","1","13","G","D","S","",""
+"","","","","","html-slider-response","122","512741","0.0-118.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","38","","0","images/R_L_U_02.png","","","","playful","1","02","R","L","U","",""
+"","","","","","html-slider-response","123","514968","0.0-119.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","191","","0","images/G_L_U_12.png","","","","playful","1","12","G","L","U","",""
+"","","","","","html-slider-response","124","516517","0.0-120.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","192","","0","images/B_L_S_23.png","","","","playful","1","23","B","L","S","",""
+"","","","","","html-slider-response","125","518389","0.0-121.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-62","","0","images/G_D_U_15.png","","","","playful","1","15","G","D","U","",""
+"","","","","","html-slider-response","126","520051","0.0-122.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_U_41.png","","","","playful","2","41","Y","D","U","",""
+"","","","","","html-slider-response","127","522296","0.0-123.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","33","","0","images/B_D_U_28.png","","","","playful","2","28","B","D","U","",""
+"","","","","","html-slider-response","128","523928","0.0-124.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/G_L_S_10.png","","","","playful","2","10","G","L","S","",""
+"","","","","","html-slider-response","129","526294","0.0-125.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-180","","0","images/Y_D_S_37.png","","","","playful","1","37","Y","D","S","",""
+"","","","","","html-slider-response","130","529614","0.0-126.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-35","","0","images/R_D_U_07.png","","","","playful","1","07","R","D","U","",""
+"","","","","","html-slider-response","131","531258","0.0-127.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/G_L_U_12.png","","","","playful","2","12","G","L","U","",""
+"","","","","","html-slider-response","132","533321","0.0-128.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","54","","0","images/R_D_S_05.png","","","","playful","1","05","R","D","S","",""
+"","","","","","html-slider-response","133","535347","0.0-129.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/R_L_S_44.png","","","","playful","1","44","R","L","S","",""
+"","","","","","html-slider-response","134","536944","0.0-130.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-70","","0","images/R_D_U_07.png","","","","playful","2","07","R","D","U","",""
+"","","","","","html-slider-response","135","538957","0.0-131.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","196","","0","images/B_D_S_27.png","","","","playful","1","27","B","D","S","",""
+"","","","","","html-slider-response","136","540909","0.0-132.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","19","","0","images/Y_L_U_33.png","","","","playful","1","33","Y","L","U","",""
+"","","","","","html-slider-response","137","542561","0.0-133.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/G_L_S_10.png","","","","playful","1","10","G","L","S","",""
+"","","","","","html-slider-response","138","544350","0.0-134.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","38","","0","images/Y_L_U_33.png","","","","playful","2","33","Y","L","U","",""
+"","","","","","html-slider-response","139","546020","0.0-135.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_L_U_26.png","","","","playful","2","26","B","L","U","",""
+"","","","","","html-slider-response","140","550405","0.0-136.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-54","","0","images/G_D_U_15.png","","","","playful","2","15","G","D","U","",""
+"","","","","","html-slider-response","141","552378","0.0-137.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","34","","0","images/B_D_U_28.png","","","","playful","1","28","B","D","U","",""
+"","","","","","html-slider-response","142","555007","0.0-138.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","177","","0","images/R_L_U_02.png","","","","playful","2","02","R","L","U","",""
+"","","","","","html-slider-response","143","557315","0.0-139.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","24","","0","images/G_D_S_13.png","","","","playful","2","13","G","D","S","",""
+"","","","","","html-slider-response","144","558923","0.0-140.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/R_L_S_44.png","","","","playful","2","44","R","L","S","",""
+"","","","","","html-slider-response","145","560944","0.0-141.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_L_S_23.png","","","","playful","2","23","B","L","S","",""
+"","","","","","html-slider-response","146","564777","0.0-142.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","23","","0","images/Y_L_S_30.png","","","","playful","2","30","Y","L","S","",""
+"","","","","","html-slider-response","147","566380","0.0-143.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_D_S_27.png","","","","playful","2","27","B","D","S","",""
+"","","","","","html-slider-response","148","568370","0.0-144.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/Y_D_U_41.png","","","","playful","1","41","Y","D","U","",""
+"","","","","","html-slider-response","149","574062","0.0-145.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","34","","0","images/R_D_S_05.png","","","","playful","2","05","R","D","S","",""
+"","","","","","html-slider-response","150","576234","0.0-146.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-194","","0","images/Y_D_S_37.png","","","","playful","2","37","Y","D","S","",""
+"","","","","","html-slider-response","151","578121","0.0-147.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >playful</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-36","","0","images/Y_L_S_30.png","","","","playful","1","30","Y","L","S","",""
+"","","","","","html-button-response","152","582367","0.0-148.0","tao94vvgd5","15","3741","<p>Great Job! You've finished block 4.<br></br> You have 4 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","153","583484","0.0-149.0","tao94vvgd5","15","1114","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>positive</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","154","584984","0.0-150.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","193","","0","images/G_L_U_12.png","","","","positive","2","12","G","L","U","",""
+"","","","","","html-slider-response","155","587910","0.0-151.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_D_S_27.png","","","","positive","2","27","B","D","S","",""
+"","","","","","html-slider-response","156","589974","0.0-152.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","42","","0","images/G_D_U_15.png","","","","positive","2","15","G","D","U","",""
+"","","","","","html-slider-response","157","591873","0.0-153.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-34","","0","images/Y_L_S_30.png","","","","positive","2","30","Y","L","S","",""
+"","","","","","html-slider-response","158","593984","0.0-154.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","46","","0","images/B_D_U_28.png","","","","positive","2","28","B","D","U","",""
+"","","","","","html-slider-response","159","595747","0.0-155.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-163","","0","images/Y_D_S_37.png","","","","positive","1","37","Y","D","S","",""
+"","","","","","html-slider-response","160","597746","0.0-156.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","128","","0","images/B_L_U_26.png","","","","positive","2","26","B","L","U","",""
+"","","","","","html-slider-response","161","599570","0.0-157.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","169","","0","images/R_L_U_02.png","","","","positive","1","02","R","L","U","",""
+"","","","","","html-slider-response","162","601586","0.0-158.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-193","","0","images/Y_D_U_41.png","","","","positive","2","41","Y","D","U","",""
+"","","","","","html-slider-response","163","604099","0.0-159.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-31","","0","images/Y_L_S_30.png","","","","positive","1","30","Y","L","S","",""
+"","","","","","html-slider-response","164","606286","0.0-160.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-168","","0","images/Y_D_S_37.png","","","","positive","2","37","Y","D","S","",""
+"","","","","","html-slider-response","165","608184","0.0-161.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/R_L_S_44.png","","","","positive","1","44","R","L","S","",""
+"","","","","","html-slider-response","166","609935","0.0-162.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/G_L_S_10.png","","","","positive","2","10","G","L","S","",""
+"","","","","","html-slider-response","167","612196","0.0-163.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","29","","0","images/R_L_U_02.png","","","","positive","2","02","R","L","U","",""
+"","","","","","html-slider-response","168","615058","0.0-164.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-21","","0","images/G_D_U_15.png","","","","positive","1","15","G","D","U","",""
+"","","","","","html-slider-response","169","617292","0.0-165.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","20","","0","images/Y_L_U_33.png","","","","positive","2","33","Y","L","U","",""
+"","","","","","html-slider-response","170","618956","0.0-166.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/G_L_S_10.png","","","","positive","1","10","G","L","S","",""
+"","","","","","html-slider-response","171","621162","0.0-167.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/R_D_S_05.png","","","","positive","2","05","R","D","S","",""
+"","","","","","html-slider-response","172","625042","0.0-168.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-36","","0","images/G_D_S_13.png","","","","positive","2","13","G","D","S","",""
+"","","","","","html-slider-response","173","626763","0.0-169.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_L_S_23.png","","","","positive","2","23","B","L","S","",""
+"","","","","","html-slider-response","174","628930","0.0-170.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/G_L_U_12.png","","","","positive","1","12","G","L","U","",""
+"","","","","","html-slider-response","175","631060","0.0-171.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-194","","0","images/Y_D_U_41.png","","","","positive","1","41","Y","D","U","",""
+"","","","","","html-slider-response","176","632974","0.0-172.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_L_S_23.png","","","","positive","1","23","B","L","S","",""
+"","","","","","html-slider-response","177","635058","0.0-173.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/R_L_S_44.png","","","","positive","2","44","R","L","S","",""
+"","","","","","html-slider-response","178","638521","0.0-174.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-58","","0","images/R_D_U_07.png","","","","positive","1","07","R","D","U","",""
+"","","","","","html-slider-response","179","640460","0.0-175.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","34","","0","images/R_D_S_05.png","","","","positive","1","05","R","D","S","",""
+"","","","","","html-slider-response","180","642496","0.0-176.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-46","","0","images/G_D_S_13.png","","","","positive","1","13","G","D","S","",""
+"","","","","","html-slider-response","181","644701","0.0-177.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_D_S_27.png","","","","positive","1","27","B","D","S","",""
+"","","","","","html-slider-response","182","647503","0.0-178.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","117","","0","images/B_L_U_26.png","","","","positive","1","26","B","L","U","",""
+"","","","","","html-slider-response","183","649583","0.0-179.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","38","","0","images/B_D_U_28.png","","","","positive","1","28","B","D","U","",""
+"","","","","","html-slider-response","184","651601","0.0-180.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","10","","0","images/Y_L_U_33.png","","","","positive","1","33","Y","L","U","",""
+"","","","","","html-slider-response","185","653429","0.0-181.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-27","","0","images/R_D_U_07.png","","","","positive","2","07","R","D","U","",""
+"","","","","","html-button-response","186","655412","0.0-182.0","tao94vvgd5","15","1477","<p>Great Job! You've finished block 5.<br></br> You have 3 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","187","656271","0.0-183.0","tao94vvgd5","15","856","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>calm</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","188","659640","0.0-184.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","48","","0","images/G_D_U_15.png","","","","calm","1","15","G","D","U","",""
+"","","","","","html-slider-response","189","662001","0.0-185.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_L_S_30.png","","","","calm","1","30","Y","L","S","",""
+"","","","","","html-slider-response","190","664096","0.0-186.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","48","","0","images/B_D_S_27.png","","","","calm","2","27","B","D","S","",""
+"","","","","","html-slider-response","191","667883","0.0-187.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","15","","0","images/G_D_U_15.png","","","","calm","2","15","G","D","U","",""
+"","","","","","html-slider-response","192","670111","0.0-188.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_D_U_28.png","","","","calm","2","28","B","D","U","",""
+"","","","","","html-slider-response","193","672873","0.0-189.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","20","","0","images/R_L_U_02.png","","","","calm","1","02","R","L","U","",""
+"","","","","","html-slider-response","194","675394","0.0-190.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-36","","0","images/R_D_U_07.png","","","","calm","1","07","R","D","U","",""
+"","","","","","html-slider-response","195","679477","0.0-191.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_D_U_28.png","","","","calm","1","28","B","D","U","",""
+"","","","","","html-slider-response","196","681256","0.0-192.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-34","","0","images/Y_L_S_30.png","","","","calm","2","30","Y","L","S","",""
+"","","","","","html-slider-response","197","685484","0.0-193.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","142","","0","images/G_L_S_10.png","","","","calm","1","10","G","L","S","",""
+"","","","","","html-slider-response","198","688531","0.0-194.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-158","","0","images/Y_D_U_41.png","","","","calm","2","41","Y","D","U","",""
+"","","","","","html-slider-response","199","690969","0.0-195.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","44","","0","images/G_D_S_13.png","","","","calm","1","13","G","D","S","",""
+"","","","","","html-slider-response","200","694073","0.0-196.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","19","","0","images/Y_L_U_33.png","","","","calm","1","33","Y","L","U","",""
+"","","","","","html-slider-response","201","695941","0.0-197.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","199","","0","images/B_D_S_27.png","","","","calm","1","27","B","D","S","",""
+"","","","","","html-slider-response","202","698875","0.0-198.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","75","","0","images/R_L_S_44.png","","","","calm","2","44","R","L","S","",""
+"","","","","","html-slider-response","203","700713","0.0-199.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-174","","0","images/Y_D_S_37.png","","","","calm","1","37","Y","D","S","",""
+"","","","","","html-slider-response","204","703641","0.0-200.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-24","","0","images/G_D_S_13.png","","","","calm","2","13","G","D","S","",""
+"","","","","","html-slider-response","205","705504","0.0-201.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","24","","0","images/Y_L_U_33.png","","","","calm","2","33","Y","L","U","",""
+"","","","","","html-slider-response","206","707256","0.0-202.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-49","","0","images/R_D_U_07.png","","","","calm","2","07","R","D","U","",""
+"","","","","","html-slider-response","207","710863","0.0-203.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","196","","0","images/B_L_S_23.png","","","","calm","1","23","B","L","S","",""
+"","","","","","html-slider-response","208","712912","0.0-204.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","116","","0","images/R_L_S_44.png","","","","calm","1","44","R","L","S","",""
+"","","","","","html-slider-response","209","715709","0.0-205.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","152","","0","images/R_D_S_05.png","","","","calm","2","05","R","D","S","",""
+"","","","","","html-slider-response","210","723836","0.0-206.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","85","","0","images/R_L_U_02.png","","","","calm","2","02","R","L","U","",""
+"","","","","","html-slider-response","211","729450","0.0-207.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","158","","0","images/G_L_U_12.png","","","","calm","2","12","G","L","U","",""
+"","","","","","html-slider-response","212","731194","0.0-208.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","188","","0","images/B_L_U_26.png","","","","calm","2","26","B","L","U","",""
+"","","","","","html-slider-response","213","733640","0.0-209.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-160","","0","images/Y_D_U_41.png","","","","calm","1","41","Y","D","U","",""
+"","","","","","html-slider-response","214","736061","0.0-210.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-190","","0","images/Y_D_S_37.png","","","","calm","2","37","Y","D","S","",""
+"","","","","","html-slider-response","215","738919","0.0-211.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","188","","0","images/B_L_S_23.png","","","","calm","2","23","B","L","S","",""
+"","","","","","html-slider-response","216","740843","0.0-212.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","152","","0","images/B_L_U_26.png","","","","calm","1","26","B","L","U","",""
+"","","","","","html-slider-response","217","743638","0.0-213.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","100","","0","images/R_D_S_05.png","","","","calm","1","05","R","D","S","",""
+"","","","","","html-slider-response","218","747316","0.0-214.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","122","","0","images/G_L_S_10.png","","","","calm","2","10","G","L","S","",""
+"","","","","","html-slider-response","219","750251","0.0-215.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","104","","0","images/G_L_U_12.png","","","","calm","1","12","G","L","U","",""
+"","","","","","html-button-response","220","752004","0.0-216.0","tao94vvgd5","15","1240","<p>Great Job! You've finished block 6.<br></br> You have 2 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","221","754204","0.0-217.0","tao94vvgd5","15","2199","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>exciting</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","222","760584","0.0-218.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","61","","0","images/R_D_S_05.png","","","","exciting","2","05","R","D","S","",""
+"","","","","","html-slider-response","223","763850","0.0-219.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-77","","0","images/G_D_S_13.png","","","","exciting","2","13","G","D","S","",""
+"","","","","","html-slider-response","224","766306","0.0-220.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/B_L_S_23.png","","","","exciting","1","23","B","L","S","",""
+"","","","","","html-slider-response","225","768256","0.0-221.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_S_37.png","","","","exciting","2","37","Y","D","S","",""
+"","","","","","html-slider-response","226","770025","0.0-222.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/R_L_S_44.png","","","","exciting","1","44","R","L","S","",""
+"","","","","","html-slider-response","227","773914","0.0-223.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-46","","0","images/B_D_U_28.png","","","","exciting","1","28","B","D","U","",""
+"","","","","","html-slider-response","228","775666","0.0-224.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_L_S_23.png","","","","exciting","2","23","B","L","S","",""
+"","","","","","html-slider-response","229","783179","0.0-225.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-44","","0","images/G_D_S_13.png","","","","exciting","1","13","G","D","S","",""
+"","","","","","html-slider-response","230","784736","0.0-226.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_S_37.png","","","","exciting","1","37","Y","D","S","",""
+"","","","","","html-slider-response","231","787719","0.0-227.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","54","","0","images/R_L_U_02.png","","","","exciting","1","02","R","L","U","",""
+"","","","","","html-slider-response","232","790267","0.0-228.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-37","","0","images/Y_L_S_30.png","","","","exciting","2","30","Y","L","S","",""
+"","","","","","html-slider-response","233","792277","0.0-229.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-146","","0","images/G_D_U_15.png","","","","exciting","2","15","G","D","U","",""
+"","","","","","html-slider-response","234","794450","0.0-230.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","89","","0","images/R_L_U_02.png","","","","exciting","2","02","R","L","U","",""
+"","","","","","html-slider-response","235","796290","0.0-231.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_U_41.png","","","","exciting","2","41","Y","D","U","",""
+"","","","","","html-slider-response","236","798456","0.0-232.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/G_L_S_10.png","","","","exciting","1","10","G","L","S","",""
+"","","","","","html-slider-response","237","800358","0.0-233.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","44","","0","images/G_D_U_15.png","","","","exciting","1","15","G","D","U","",""
+"","","","","","html-slider-response","238","801929","0.0-234.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_L_U_26.png","","","","exciting","2","26","B","L","U","",""
+"","","","","","html-slider-response","239","803922","0.0-235.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","87","","0","images/B_D_U_28.png","","","","exciting","2","28","B","D","U","",""
+"","","","","","html-slider-response","240","805385","0.0-236.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/R_L_S_44.png","","","","exciting","2","44","R","L","S","",""
+"","","","","","html-slider-response","241","807175","0.0-237.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/G_L_U_12.png","","","","exciting","1","12","G","L","U","",""
+"","","","","","html-slider-response","242","808876","0.0-238.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-67","","0","images/R_D_U_07.png","","","","exciting","1","07","R","D","U","",""
+"","","","","","html-slider-response","243","849829","0.0-239.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-50","","0","images/R_D_U_07.png","","","","exciting","2","07","R","D","U","",""
+"","","","","","html-slider-response","244","895692","0.0-240.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-197","","0","images/Y_D_U_41.png","","","","exciting","1","41","Y","D","U","",""
+"","","","","","html-slider-response","245","897834","0.0-241.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/G_L_U_12.png","","","","exciting","2","12","G","L","U","",""
+"","","","","","html-slider-response","246","901733","0.0-242.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","53","","0","images/Y_L_U_33.png","","","","exciting","2","33","Y","L","U","",""
+"","","","","","html-slider-response","247","903663","0.0-243.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","187","","0","images/G_L_S_10.png","","","","exciting","2","10","G","L","S","",""
+"","","","","","html-slider-response","248","905373","0.0-244.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_D_S_27.png","","","","exciting","1","27","B","D","S","",""
+"","","","","","html-slider-response","249","910580","0.0-245.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/R_D_S_05.png","","","","exciting","1","05","R","D","S","",""
+"","","","","","html-slider-response","250","917242","0.0-246.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","164","","0","images/B_L_U_26.png","","","","exciting","1","26","B","L","U","",""
+"","","","","","html-slider-response","251","919100","0.0-247.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/B_D_S_27.png","","","","exciting","2","27","B","D","S","",""
+"","","","","","html-slider-response","252","920959","0.0-248.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","13","","0","images/Y_L_U_33.png","","","","exciting","1","33","Y","L","U","",""
+"","","","","","html-slider-response","253","922890","0.0-249.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >exciting</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-40","","0","images/Y_L_S_30.png","","","","exciting","1","30","Y","L","S","",""
+"","","","","","html-button-response","254","925087","0.0-250.0","tao94vvgd5","15","1690","<p>Great Job! You've finished block 7.<br></br> You have 1 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","255","926354","0.0-251.0","tao94vvgd5","15","1263","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>serious</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","256","928251","0.0-252.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-137","","0","images/B_L_S_23.png","","","","serious","1","23","B","L","S","",""
+"","","","","","html-slider-response","257","929953","0.0-253.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-158","","0","images/R_L_S_44.png","","","","serious","1","44","R","L","S","",""
+"","","","","","html-slider-response","258","932194","0.0-254.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","110","","0","images/G_D_U_15.png","","","","serious","1","15","G","D","U","",""
+"","","","","","html-slider-response","259","934463","0.0-255.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","22","","0","images/Y_L_U_33.png","","","","serious","1","33","Y","L","U","",""
+"","","","","","html-slider-response","260","936825","0.0-256.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_15.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","81","","0","images/G_D_U_15.png","","","","serious","2","15","G","D","U","",""
+"","","","","","html-slider-response","261","941194","0.0-257.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-38","","0","images/R_D_S_05.png","","","","serious","2","05","R","D","S","",""
+"","","","","","html-slider-response","262","943506","0.0-258.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","165","","0","images/R_D_U_07.png","","","","serious","2","07","R","D","U","",""
+"","","","","","html-slider-response","263","945224","0.0-259.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","62","","0","images/G_D_S_13.png","","","","serious","1","13","G","D","S","",""
+"","","","","","html-slider-response","264","946926","0.0-260.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-76","","0","images/G_L_S_10.png","","","","serious","2","10","G","L","S","",""
+"","","","","","html-slider-response","265","952842","0.0-261.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-90","","0","images/B_L_U_26.png","","","","serious","2","26","B","L","U","",""
+"","","","","","html-slider-response","266","954613","0.0-262.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_33.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","30","","0","images/Y_L_U_33.png","","","","serious","2","33","Y","L","U","",""
+"","","","","","html-slider-response","267","956201","0.0-263.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-43","","0","images/G_L_U_12.png","","","","serious","2","12","G","L","U","",""
+"","","","","","html-slider-response","268","957918","0.0-264.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_23.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-178","","0","images/B_L_S_23.png","","","","serious","2","23","B","L","S","",""
+"","","","","","html-slider-response","269","959902","0.0-265.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/Y_D_U_41.png","","","","serious","2","41","Y","D","U","",""
+"","","","","","html-slider-response","270","961870","0.0-266.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_44.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/R_L_S_44.png","","","","serious","2","44","R","L","S","",""
+"","","","","","html-slider-response","271","963976","0.0-267.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_05.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-42","","0","images/R_D_S_05.png","","","","serious","1","05","R","D","S","",""
+"","","","","","html-slider-response","272","965608","0.0-268.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_12.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-92","","0","images/G_L_U_12.png","","","","serious","1","12","G","L","U","",""
+"","","","","","html-slider-response","273","967857","0.0-269.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_07.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","157","","0","images/R_D_U_07.png","","","","serious","1","07","R","D","U","",""
+"","","","","","html-slider-response","274","972072","0.0-270.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","25","","0","images/B_D_U_28.png","","","","serious","2","28","B","D","U","",""
+"","","","","","html-slider-response","275","974856","0.0-271.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_28.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","47","","0","images/B_D_U_28.png","","","","serious","1","28","B","D","U","",""
+"","","","","","html-slider-response","276","976486","0.0-272.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/Y_D_S_37.png","","","","serious","1","37","Y","D","S","",""
+"","","","","","html-slider-response","277","978330","0.0-273.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","141","","0","images/Y_L_S_30.png","","","","serious","2","30","Y","L","S","",""
+"","","","","","html-slider-response","278","980024","0.0-274.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_10.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","40","","0","images/G_L_S_10.png","","","","serious","1","10","G","L","S","",""
+"","","","","","html-slider-response","279","981548","0.0-275.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_41.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/Y_D_U_41.png","","","","serious","1","41","Y","D","U","",""
+"","","","","","html-slider-response","280","983839","0.0-276.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_37.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","200","","0","images/Y_D_S_37.png","","","","serious","2","37","Y","D","S","",""
+"","","","","","html-slider-response","281","985634","0.0-277.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_30.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","52","","0","images/Y_L_S_30.png","","","","serious","1","30","Y","L","S","",""
+"","","","","","html-slider-response","282","989436","0.0-278.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-60","","0","images/R_L_U_02.png","","","","serious","2","02","R","L","U","",""
+"","","","","","html-slider-response","283","991181","0.0-279.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_13.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","46","","0","images/G_D_S_13.png","","","","serious","2","13","G","D","S","",""
+"","","","","","html-slider-response","284","992800","0.0-280.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_02.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-69","","0","images/R_L_U_02.png","","","","serious","1","02","R","L","U","",""
+"","","","","","html-slider-response","285","995344","0.0-281.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_26.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-184","","0","images/B_L_U_26.png","","","","serious","1","26","B","L","U","",""
+"","","","","","html-slider-response","286","996885","0.0-282.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_D_S_27.png","","","","serious","1","27","B","D","S","",""
+"","","","","","html-slider-response","287","998883","0.0-283.0","tao94vvgd5","15","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >serious</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_27.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_D_S_27.png","","","","serious","2","27","B","D","S","",""
+"","","","","","html-button-response","288","1000580","0.0-284.0","tao94vvgd5","15","1188","<p>Great Job! You're done rating all concepts!<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-keyboard-response","289","1014228","0.0-285.0","tao94vvgd5","15","13646","<p>Good job! You have finished the task. Next, you will see an image on the screen.<br>If you see a number in the image, please carefully type that number in the box.</p><p>If you do not see a number in the image, please type 'None' in the box.<br>This part of the experiment will take about 2 minutes.</p><p>Please press the left or right arrow keys to begin.</p>","arrowleft","","","","","","","","","","","","","",""
+"","","","","","survey-html-form","290","1018407","0.0-286.0","tao94vvgd5","15","3671","","{""number"":""12""}","","","","","","","","","","","","","0","12"
+"","","","","","survey-html-form","291","1022341","0.0-287.0","tao94vvgd5","15","3674","","{""number"":""35""}","","","","","","","","","","","","","9","35"
+"","","","","","survey-html-form","292","1029502","0.0-288.0","tao94vvgd5","15","6894","","{""number"":""29""}","","","","","","","","","","","","","3","29"
+"","","","","","survey-html-form","293","1033450","0.0-289.0","tao94vvgd5","15","3679","","{""number"":""96""}","","","","","","","","","","","","","10","96"
+"","","","","","survey-html-form","294","1037553","0.0-290.0","tao94vvgd5","15","3845","","{""number"":""2""}","","","","","","","","","","","","","7","2"
+"","","","","","survey-html-form","295","1040881","0.0-291.0","tao94vvgd5","15","3069","","{""number"":""5""}","","","","","","","","","","","","","2","5"
+"","","","","","survey-html-form","296","1044506","0.0-292.0","tao94vvgd5","15","3359","","{""number"":""45""}","","","","","","","","","","","","","6","45"
+"","","","","","survey-html-form","297","1048419","0.0-293.0","tao94vvgd5","15","3658","","{""number"":""74""}","","","","","","","","","","","","","4","74"
+"","","","","","survey-html-form","298","1052397","0.0-294.0","tao94vvgd5","15","3714","","{""number"":""7""}","","","","","","","","","","","","","5","7"
+"","","","","","survey-html-form","299","1056425","0.0-295.0","tao94vvgd5","15","3766","","{""number"":""16""}","","","","","","","","","","","","","8","16"
+"","","","","","survey-html-form","300","1060607","0.0-296.0","tao94vvgd5","15","3925","","{""number"":""8""}","","","","","","","","","","","","","1","8"
+"","","","","","survey-multi-choice","301","1069132","0.0-297.0","tao94vvgd5","15","8268","","{""colorDifficulty"":""No"",""colorBlind"":""No"",""device"":""Computer""}","[0,1,2]","","","","","","","","","","","","",""
