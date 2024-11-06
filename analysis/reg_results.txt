@@ -1,0 +1,57 @@
+esults for ‘emotion 1’ above
+Coefficients:
+                              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                    0.53459    0.01475  36.249 3.16e-09 ***
+RG_numeric                     0.01171    0.02086   0.561 0.591986    
+BY_numeric                     0.13227    0.02086   6.342 0.000388 ***
+lightness_numeric              0.13263    0.01475   8.993 4.29e-05 ***
+saturation_numeric             0.05687    0.01475   3.856 0.006245 ** 
+RG_numeric:lightness_numeric  -0.02868    0.02086  -1.375 0.211452    
+RG_numeric:saturation_numeric  0.02743    0.02086   1.315 0.229948    
+BY_numeric:lightness_numeric  -0.02281    0.02086  -1.094 0.310358    
+BY_numeric:saturation_numeric  0.03317    0.02086   1.590 0.155824    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ‘ ’ 1
+
+Residual standard error: 0.05899 on 7 degrees of freedom
+Multiple R-squared:  0.9535,	Adjusted R-squared:  0.9004 
+F-statistic: 17.95 on 8 and 7 DF,  p-value: 0.0005196
+---------------------
+Results for ‘emotion 2’
+
+Coefficients:
+                               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                    0.513182   0.010127  50.676 3.05e-10 ***
+RG_numeric                    -0.041040   0.014321  -2.866  0.02414 *  
+BY_numeric                     0.123083   0.014321   8.594 5.75e-05 ***
+lightness_numeric              0.049022   0.010127   4.841  0.00188 ** 
+saturation_numeric             0.005983   0.010127   0.591  0.57324    
+RG_numeric:lightness_numeric  -0.008506   0.014321  -0.594  0.57124    
+RG_numeric:saturation_numeric -0.005317   0.014321  -0.371  0.72140    
+BY_numeric:lightness_numeric  -0.014529   0.014321  -1.014  0.34412    
+BY_numeric:saturation_numeric  0.028577   0.014321   1.995  0.08620 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ‘ ’ 1
+
+Residual standard error: 0.04051 on 7 degrees of freedom
+Multiple R-squared:  0.9409,	Adjusted R-squared:  0.8733 
+F-statistic: 13.92 on 8 and 7 DF,  p-value: 0.001172
+---------------------
+Results for ‘emotion 3’
+Coefficients:
+                               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                    0.464779   0.011208  41.470 1.24e-09 ***
+RG_numeric                     0.001960   0.015850   0.124 0.905079    
+BY_numeric                    -0.102487   0.015850  -6.466 0.000345 ***
+lightness_numeric             -0.110911   0.011208  -9.896 2.29e-05 ***
+saturation_numeric            -0.040156   0.011208  -3.583 0.008941 ** 
+RG_numeric:lightness_numeric   0.008968   0.015850   0.566 0.589192    
+RG_numeric:saturation_numeric -0.017689   0.015850  -1.116 0.301257    
+BY_numeric:lightness_numeric   0.016169   0.015850   1.020 0.341635    
+BY_numeric:saturation_numeric -0.018385   0.015850  -1.160 0.284094    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ‘ ’ 1
+
+Residual standard error: 0.04483 on 7 degrees of freedom
+Multiple R-squared:  0.9572,	Adjusted R-squared:  0.9083 
+F-statistic: 19.57 on 8 and 7 DF,  p-value: 0.000393
