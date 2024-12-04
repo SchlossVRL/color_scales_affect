@@ -61,7 +61,7 @@
             // Set of maps we've chosen
             const map_ids = ['2', '5', '7', '10', '12', '13', '15', '23', '26', '27', '28', '30', '33', '37', '41', '44']
 
-            const condition_num = await jsPsychPipe.getCondition("V7FW1gwxGHQz");
+            const condition_num = await jsPsychPipe.getCondition("42jLRvs25kwc");
             // const condition_num = 14;
 
             const color_scale_assignment = latinSquareArray[condition_num];
@@ -573,14 +573,14 @@
             timeline.push(colorvision);
 
 
-            // const save_data = {
-            //     type: jsPsychPipe,
-            //     action: "save",
-            //     experiment_id: "V7FW1gwxGHQz",
-            //     filename: filename,
-            //     data_string: () => jsPsych.data.get().csv()
-            // };
-            // timeline.push(save_data);
+            const save_data = {
+                type: jsPsychPipe,
+                action: "save",
+                experiment_id: "42jLRvs25kwc",
+                filename: filename,
+                data_string: () => jsPsych.data.get().csv()
+            };
+            timeline.push(save_data);
 
             //spot for debrief
 
