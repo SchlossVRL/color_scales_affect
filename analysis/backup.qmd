@@ -1,0 +1,141 @@
+---
+title: "color_scales_affect"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+```{r}
+# List of packages
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "dplyr","grid","png","cowplot","magick")
+
+# Function to install and load packages
+install_and_load_packages <- function(packages) {
+  for(package in packages) {
+    if(!require(package, character.only = TRUE)) {
+      install.packages(package, dependencies = TRUE)
+      library(package, character.only = TRUE)
+    }
+  }
+}
+
+# Call the function with the list of packages
+install_and_load_packages(packages)
+
+```
+
+```{r}
+current_dir <-getwd()
+data_dir <-paste0(current_dir,'/../data/')
+data_files<- list.files(path = data_dir, full.names = TRUE, pattern = "*.csv")
+
+
+
+df<- read.csv('../data/vyfz5q5v2p.csv')
+rtrials<- df%>%filter(trial_type=='html-slider-response')
+rtrials<- rtrials%>%filter(practiceTrial=='false')
+length(unique(rtrials$image_path))
+
+data_files
+
+df_list <- lapply(data_files, read.csv)
+experiment_data_raw <- bind_rows(df_list) 
+
+ratings_trials_all <- experiment_data_raw %>% filter(trial_type=='html-slider-response')
+ratings_trials_exp <- ratings_trials_all%>%filter(practiceTrial !='true')
+
+```
+
+You can add options to executable code like this
+
+```{r}
+ratings_trials_exp$response<- as.numeric(ratings_trials_exp$response)
+ratings_trials_exp$response_scaled <- (ratings_trials_exp$response+200)/400
+ratings_trials_mean<- ratings_trials_exp%>%group_by(concept, image_path)%>%summarize(mean_rating = mean(response_scaled))
+ratings_trials_mean
+
+### 
+```
+
+```{r}
+# Function to read image and convert to grob
+load_image <- function(path) {
+  path<- paste0(current_dir,'/../',path)
+  img <- readPNG(path)
+  rasterGrob(img, interpolate = TRUE)
+}
+
+ratings_trials_mean$x_position <- as.numeric(factor(ratings_trials_mean$image_path))
+# Assuming your data is in a dataframe called 'df'
+# If not, create it from the provided data
+
+# Create the plot
+p <- ggplot(ratings_trials_mean, aes(x = x_position, y = mean_rating)) +
+  geom_bar(stat='identity') +
+  facet_wrap(~concept, scales = "free_x", ncol = 2) +
+  # theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+   theme(axis.text.x =element_blank(),
+        axis.title.x = element_blank()) +
+  labs(y = "Mean Rating") +scale_y_continuous(limits = c(0, NA),expand = expansion(mult = c(0, .1)))
+
+# Function to add images to the plot
+add_images <- function(p, data) {
+  image_height <- .2 # Adjust this value to change the height of the images
+  p + annotation_custom(load_image(data$image_path),
+                        xmin = data$x_position - 0.5,
+                        xmax = data$x_position + 0.5,
+                        ymin = -image_height, ymax = .24)
+}
+
+# Apply the function to each data point
+for (i in 1:nrow(ratings_trials_mean)) {
+  p <- add_images(p, ratings_trials_mean[i, ])
+}
+
+
+
+# y_range <- range(ratings_trials_mean$mean_rating)
+# y_padding <- diff(y_range) * 0.1  # Add 10% padding
+# p <- p + coord_cartesian(ylim = c(y_range[1] - y_padding, y_range[2]))
+ggsave("plot_with_images.pdf", plot = p, width = 8, height = 12, units = "in", dpi = 300)
+
+
+```
+
+```{r}
+pimage
+```
+
+```{r}
+# for(concept in unique(ratings_trials_mean$concept)){
+# df = ratings_trials_mean%>%filter(concept==concept)
+# p <- ggplot(df, aes(x = x_position, y = mean_rating)) +
+#   geom_bar(stat='identity') +
+#   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+#         axis.title.x = element_blank()) +
+#   labs(y = "Mean Rating")
+# # Start with the axis_canvas object
+# pimage <- axis_canvas(p, axis = 'x')
+# load_image_path<-function(path){
+#   return(paste0(current_dir,'/../',path))
+# }
+# image_paths<- unlist(lapply(df$image_path,load_image_path))
+# # Loop through each image and add it to the canvas
+# for (i in seq_along(image_paths)) {
+#   pimage <- pimage + draw_image(image_paths[i], x = df$x_position[i], scale = 0.5)
+# }
+# ggdraw(insert_xaxis_grob(p, pimage))
+# # Save the plot as a PDF
+# ggsave(paste0("plot_with_image_ticks_",concept,".pdf"), plot = p, width = 12, height = 8, units = "in", dpi = 300)
+# 
+# # Optionally, also display the plot in the viewer
+# dev.new()
+# print(p)}
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
