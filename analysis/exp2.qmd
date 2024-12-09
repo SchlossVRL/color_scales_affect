@@ -306,5 +306,19 @@ summary(m1)
 ```
 
 ```{r}
+d<- ratings_trial_grouped%>%filter(concept=='negative')
+m1<-lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric), data =d)
+summary(m1)
+```
 
+```{r}
+d<- ratings_trial_grouped%>%filter(concept=='calm')
+m1<-lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric), data =d)
+summary(m1)
+```
+
+```{r}
+d<- ratings_trial_grouped%>%filter(concept=='startling')
+m1<-lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric), data =d)
+summary(m1)
 ```
