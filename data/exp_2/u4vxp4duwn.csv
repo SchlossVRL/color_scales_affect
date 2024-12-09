@@ -1,0 +1,1883 @@
+"success","timeout","failed_images","failed_audio","failed_video","trial_type","trial_index","time_elapsed","internal_node_id","subject_id","condition_num","rt","stimulus","response","question_order","slider_start","image_path","practiceTrial","practiceTrialNum","correct","concept","repetition","hue","lightness","saturation","shift","ishihara_plate","correct_response"
+"true","false","[]","[]","[]","preload","0","400","0.0-0.0","u4vxp4duwn","1","","","","","","","","","","","","","","","","",""
+"","","","","","html-button-response","1","1704","0.0-1.0","u4vxp4duwn","1","1302","Welcome to our experiment!<p>At the bottom of this screen, you will see a button that says ""Begin Experiment"".<br>Please only click that button when you are ready to complete the 25 minute experiment in one sitting.</p><p> Once you click that button, it will not be possible to restart the experiment.","0","","","","","","","","","","","","","",""
+"true","","","","","fullscreen","2","4357","0.0-2.0","u4vxp4duwn","1","1650","","","","","","","","","","","","","","","",""
+"","","","","","survey-multi-select","3","28323","0.0-3.0","u4vxp4duwn","1","23962","","{""Consent"":[""<strong>I consent</strong>""]}","[0]","","","","","","","","","","","","",""
+"","","","","","html-button-response","4","29726","0.0-4.0","u4vxp4duwn","1","1402","Welcome! <p> This experiment involves two parts: demographic information, followed by the experimental task.<p> It will take about 25 minutes to complete both parts.","0","","","","","","","","","","","","","",""
+"","","","","","survey-text","5","44160","0.0-5.0","u4vxp4duwn","1","14427","","{""Age"":""19"",""Gender"":""FEMALE"",""Race/ethnicity"":""NATIVE AMERICAN"",""Languages"":""English""}","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","6","118505","0.0-6.0","u4vxp4duwn","1","74341","
+                            <div style='text-align:left; font-size:20px; line-height:25px; width: 1400px;'>
+                                During this experiment you will be asked to rate how much you associate maps with                    different concepts.<br> Below, you can see some examples of the maps you will be asked to rate. Next to the maps
+                    is the list of concepts.<br>You will be asked                    to rate how much you associate each map with each concept on a scale from 'not at all' to 'very much' like the
+                    one below. <br><br>
+                    Now, please look at the list of concepts and maps. For each concept, think about the map you associate 'very
+                    much' with the concept.<br>                     When you see that map during the experiment, please rate it near the 'very much' endpoint of the
+                    scale.<br>Now, please think about which map you associate 'not at all'                     with each concept. When you see that map during the experiment, please rate it near the 'not at all' endpoint
+                    of the scale.<br>
+                    Please use the full range of the scale. That is, if a map is somewhat associated with the concept, you would
+                    click partway between the middle point and right side of the scale.                    You will be asked to rate each map for a given concept before moving on to the next concept.<br><br>Press the
+                    'Continue' button for instructions on how to use the slider.                    <br><br>
+                </div>
+
+                <div style=""width: 500px; margin: 0 auto;"">
+                    <!-- Centered text paragraphs -->
+                    <div style=""text-align: center; width: 500px;"">
+                        <p style=""font-size:25px; line-height:18px;"">calm</p>
+                        <p style=""font-size:25px; line-height:18px;"">positive</p>
+                        <p style=""font-size:25px;line-height:18px;"">negative</p>
+                        <p style=""font-size:25px;line-height:18px;"">startling</p>
+                    </div>
+
+                    <!-- Grid section -->
+                   <div style=""display: flex; justify-content: center; padding-top: 15px;"">
+                    <div style=""display: grid; grid-template-columns: repeat(8, 80px); grid-gap: 5px; width: auto;"">
+                        <img src=""images/G_D_U_26_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_L_S_27_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_D_U_33_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_D_U_12_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_D_U_26_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_D_U_2_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_D_U_12_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_L_U_7_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_D_S_44_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_D_S_23_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_L_S_5_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_L_S_37_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_D_S_10_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_L_S_13_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_L_S_37_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_L_S_13_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_L_U_15_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_D_S_44_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_D_S_30_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_D_S_23_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_L_U_7_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_L_U_41_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_L_U_41_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_L_S_27_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_L_S_5_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_D_U_33_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/G_L_U_15_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/Y_D_U_2_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_L_U_28_lightshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_L_U_28_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/B_D_S_30_darkshift.png"" alt=""map"" style=""width: 100%;""><img src=""images/R_D_S_10_lightshift.png"" alt=""map"" style=""width: 100%;"">
+                    </div>
+                </div>
+
+                    <!-- Clear floats -->
+                    <div style=""clear: both;""></div>
+                </div>
+                            ","0","","0","maps_anchoring.png","true","","","","","","","","","",""
+"","","","","","html-button-response","7","123104","0.0-7.0","u4vxp4duwn","1","4598","<div style=""width:800px;""><p style=""text-align:left"">To move the slider, click and drag your cursor to the location of the scale where you would like to make your rating and then let go. When you let go of the slider, your response will be recorded and the next trial will begin. <br>
+                    We are interested in your initial impressions of each map for the given concept, so please go with your first intuition. <br>
+                    Before you begin the experiment, there will be four training trials for you to practice using the scale. <br>
+                     When you are ready to start the training trials, please click ""Continue"".</p><br></div>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","8","127924","0.0-8.0-0.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                                    <p style=""font-size:25px;"">Please move the slider all the way to the <br> right endpoint of the scale</p>
+
+                                    </div>
+                                </div>","200","","0","","true","0","true","","","","","","","",""
+"","","","","","html-button-response","9","129484","0.0-8.0-1.0","u4vxp4duwn","1","1056","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","10","130724","0.0-9.0-0.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                                    <p style=""font-size:25px;"">Please move the slider all the way to the <br> left endpoint of the scale</p>
+
+                                    </div>
+                                </div>","-200","","0","","true","1","true","","","","","","","",""
+"","","","","","html-button-response","11","132237","0.0-9.0-1.0","u4vxp4duwn","1","1010","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","12","137127","0.0-10.0-0.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                                    <p style=""font-size:25px;"">Please move the slider halfway between the center and right endpoint of the scale</p>
+
+                                    </div>
+                                </div>","106","","0","","true","2","true","","","","","","","",""
+"","","","","","html-button-response","13","138573","0.0-10.0-1.0","u4vxp4duwn","1","944","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","14","140521","0.0-11.0-0.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                                    <p style=""font-size:25px;"">Please move the slider halfway between the center and left endpoint of the scale</p>
+
+                                    </div>
+                                </div>","-106","","0","","true","3","true","","","","","","","",""
+"","","","","","html-button-response","15","141882","0.0-11.0-1.0","u4vxp4duwn","1","859","<p align='center'><b>Good job!</b> Click on 'Continue' to proceed.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","16","142908","0.0-12.0","u4vxp4duwn","1","1025","<p>Great job! You've completed the practice trials. Now you will begin the main task.</p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","17","147007","0.0-13.0","u4vxp4duwn","1","4098","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>calm</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","18","151415","0.0-14.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","47","","0","images/Y_D_S_44_darkshift.png","","","","calm","2","Y","D","S","darkshift","",""
+"","","","","","html-slider-response","19","154825","0.0-15.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","117","","0","images/B_L_S_27_darkshift.png","","","","calm","1","B","L","S","darkshift","",""
+"","","","","","html-slider-response","20","157175","0.0-16.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","139","","0","images/G_D_S_23_darkshift.png","","","","calm","1","G","D","S","darkshift","",""
+"","","","","","html-slider-response","21","161003","0.0-17.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-37","","0","images/B_L_S_27_lightshift.png","","","","calm","2","B","L","S","lightshift","",""
+"","","","","","html-slider-response","22","163193","0.0-18.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-97","","0","images/R_D_U_12_lightshift.png","","","","calm","1","R","D","U","lightshift","",""
+"","","","","","html-slider-response","23","165299","0.0-19.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","138","","0","images/G_D_S_23_darkshift.png","","","","calm","2","G","D","S","darkshift","",""
+"","","","","","html-slider-response","24","168570","0.0-20.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","104","","0","images/G_L_U_15_darkshift.png","","","","calm","2","G","L","U","darkshift","",""
+"","","","","","html-slider-response","25","170942","0.0-21.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-113","","0","images/R_L_S_5_lightshift.png","","","","calm","1","R","L","S","lightshift","",""
+"","","","","","html-slider-response","26","172610","0.0-22.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-65","","0","images/R_L_U_7_darkshift.png","","","","calm","2","R","L","U","darkshift","",""
+"","","","","","html-slider-response","27","174347","0.0-23.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","59","","0","images/B_D_S_30_darkshift.png","","","","calm","1","B","D","S","darkshift","",""
+"","","","","","html-slider-response","28","176287","0.0-24.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-22","","0","images/G_D_U_26_lightshift.png","","","","calm","1","G","D","U","lightshift","",""
+"","","","","","html-slider-response","29","179042","0.0-25.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","39","","0","images/B_D_S_30_lightshift.png","","","","calm","1","B","D","S","lightshift","",""
+"","","","","","html-slider-response","30","181706","0.0-26.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-42","","0","images/G_L_S_13_lightshift.png","","","","calm","2","G","L","S","lightshift","",""
+"","","","","","html-slider-response","31","183547","0.0-27.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-82","","0","images/R_D_S_10_darkshift.png","","","","calm","1","R","D","S","darkshift","",""
+"","","","","","html-slider-response","32","185702","0.0-28.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-11","","0","images/G_L_U_15_lightshift.png","","","","calm","2","G","L","U","lightshift","",""
+"","","","","","html-slider-response","33","187676","0.0-29.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-114","","0","images/R_D_S_10_lightshift.png","","","","calm","1","R","D","S","lightshift","",""
+"","","","","","html-slider-response","34","190159","0.0-30.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-150","","0","images/B_D_U_33_lightshift.png","","","","calm","2","B","D","U","lightshift","",""
+"","","","","","html-slider-response","35","193123","0.0-31.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-114","","0","images/G_D_U_26_darkshift.png","","","","calm","1","G","D","U","darkshift","",""
+"","","","","","html-slider-response","36","194965","0.0-32.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_U_2_lightshift.png","","","","calm","1","Y","D","U","lightshift","",""
+"","","","","","html-slider-response","37","197107","0.0-33.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","31","","0","images/B_D_U_33_darkshift.png","","","","calm","2","B","D","U","darkshift","",""
+"","","","","","html-slider-response","38","198876","0.0-34.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-38","","0","images/G_D_U_26_lightshift.png","","","","calm","2","G","D","U","lightshift","",""
+"","","","","","html-slider-response","39","200797","0.0-35.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-78","","0","images/R_D_U_12_darkshift.png","","","","calm","2","R","D","U","darkshift","",""
+"","","","","","html-slider-response","40","203134","0.0-36.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-130","","0","images/R_L_S_5_lightshift.png","","","","calm","2","R","L","S","lightshift","",""
+"","","","","","html-slider-response","41","204972","0.0-37.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_S_44_lightshift.png","","","","calm","2","Y","D","S","lightshift","",""
+"","","","","","html-slider-response","42","206856","0.0-38.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_L_U_41_lightshift.png","","","","calm","1","Y","L","U","lightshift","",""
+"","","","","","html-slider-response","43","208617","0.0-39.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","48","","0","images/G_D_S_23_lightshift.png","","","","calm","2","G","D","S","lightshift","",""
+"","","","","","html-slider-response","44","211208","0.0-40.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","21","","0","images/R_L_U_7_lightshift.png","","","","calm","2","R","L","U","lightshift","",""
+"","","","","","html-slider-response","45","213583","0.0-41.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-27","","0","images/R_D_U_12_lightshift.png","","","","calm","2","R","D","U","lightshift","",""
+"","","","","","html-slider-response","46","215922","0.0-42.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","58","","0","images/B_D_S_30_lightshift.png","","","","calm","2","B","D","S","lightshift","",""
+"","","","","","html-slider-response","47","217440","0.0-43.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-51","","0","images/Y_D_S_44_lightshift.png","","","","calm","1","Y","D","S","lightshift","",""
+"","","","","","html-slider-response","48","219019","0.0-44.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-91","","0","images/Y_L_S_37_lightshift.png","","","","calm","1","Y","L","S","lightshift","",""
+"","","","","","html-slider-response","49","220492","0.0-45.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-81","","0","images/R_D_U_12_darkshift.png","","","","calm","1","R","D","U","darkshift","",""
+"","","","","","html-slider-response","50","222288","0.0-46.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-45","","0","images/R_L_S_5_darkshift.png","","","","calm","2","R","L","S","darkshift","",""
+"","","","","","html-slider-response","51","224361","0.0-47.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_U_2_darkshift.png","","","","calm","1","Y","D","U","darkshift","",""
+"","","","","","html-slider-response","52","226093","0.0-48.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_S_44_darkshift.png","","","","calm","1","Y","D","S","darkshift","",""
+"","","","","","html-slider-response","53","227968","0.0-49.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","67","","0","images/G_D_S_23_lightshift.png","","","","calm","1","G","D","S","lightshift","",""
+"","","","","","html-slider-response","54","230329","0.0-50.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-64","","0","images/Y_L_S_37_darkshift.png","","","","calm","2","Y","L","S","darkshift","",""
+"","","","","","html-slider-response","55","231975","0.0-51.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-115","","0","images/Y_D_U_2_lightshift.png","","","","calm","2","Y","D","U","lightshift","",""
+"","","","","","html-slider-response","56","233751","0.0-52.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","102","","0","images/B_L_S_27_darkshift.png","","","","calm","2","B","L","S","darkshift","",""
+"","","","","","html-slider-response","57","235235","0.0-53.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-68","","0","images/R_L_S_5_darkshift.png","","","","calm","1","R","L","S","darkshift","",""
+"","","","","","html-slider-response","58","237008","0.0-54.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-95","","0","images/G_L_U_15_lightshift.png","","","","calm","1","G","L","U","lightshift","",""
+"","","","","","html-slider-response","59","238622","0.0-55.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","63","","0","images/G_L_S_13_lightshift.png","","","","calm","1","G","L","S","lightshift","",""
+"","","","","","html-slider-response","60","241061","0.0-56.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","144","","0","images/B_L_U_28_darkshift.png","","","","calm","1","B","L","U","darkshift","",""
+"","","","","","html-slider-response","61","242921","0.0-57.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-86","","0","images/B_D_U_33_lightshift.png","","","","calm","1","B","D","U","lightshift","",""
+"","","","","","html-slider-response","62","244274","0.0-58.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_L_U_41_lightshift.png","","","","calm","2","Y","L","U","lightshift","",""
+"","","","","","html-slider-response","63","245852","0.0-59.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","24","","0","images/B_D_U_33_darkshift.png","","","","calm","1","B","D","U","darkshift","",""
+"","","","","","html-slider-response","64","247373","0.0-60.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_U_2_darkshift.png","","","","calm","2","Y","D","U","darkshift","",""
+"","","","","","html-slider-response","65","249122","0.0-61.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_L_U_41_darkshift.png","","","","calm","1","Y","L","U","darkshift","",""
+"","","","","","html-slider-response","66","250810","0.0-62.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_L_S_37_lightshift.png","","","","calm","2","Y","L","S","lightshift","",""
+"","","","","","html-slider-response","67","252633","0.0-63.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","16","","0","images/G_L_S_13_darkshift.png","","","","calm","1","G","L","S","darkshift","",""
+"","","","","","html-slider-response","68","255417","0.0-64.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","195","","0","images/B_L_U_28_darkshift.png","","","","calm","2","B","L","U","darkshift","",""
+"","","","","","html-slider-response","69","257485","0.0-65.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","94","","0","images/G_L_S_13_darkshift.png","","","","calm","2","G","L","S","darkshift","",""
+"","","","","","html-slider-response","70","259237","0.0-66.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_L_U_28_lightshift.png","","","","calm","2","B","L","U","lightshift","",""
+"","","","","","html-slider-response","71","260752","0.0-67.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-92","","0","images/R_L_U_7_darkshift.png","","","","calm","1","R","L","U","darkshift","",""
+"","","","","","html-slider-response","72","262951","0.0-68.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-33","","0","images/G_D_U_26_darkshift.png","","","","calm","2","G","D","U","darkshift","",""
+"","","","","","html-slider-response","73","264597","0.0-69.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","40","","0","images/B_L_S_27_lightshift.png","","","","calm","1","B","L","S","lightshift","",""
+"","","","","","html-slider-response","74","266051","0.0-70.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","58","","0","images/G_L_U_15_darkshift.png","","","","calm","1","G","L","U","darkshift","",""
+"","","","","","html-slider-response","75","267600","0.0-71.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_L_S_37_darkshift.png","","","","calm","1","Y","L","S","darkshift","",""
+"","","","","","html-slider-response","76","269072","0.0-72.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-80","","0","images/R_L_U_7_lightshift.png","","","","calm","1","R","L","U","lightshift","",""
+"","","","","","html-slider-response","77","272031","0.0-73.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-56","","0","images/R_D_S_10_darkshift.png","","","","calm","2","R","D","S","darkshift","",""
+"","","","","","html-slider-response","78","273802","0.0-74.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","75","","0","images/B_D_S_30_darkshift.png","","","","calm","2","B","D","S","darkshift","",""
+"","","","","","html-slider-response","79","275680","0.0-75.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-88","","0","images/R_D_S_10_lightshift.png","","","","calm","2","R","D","S","lightshift","",""
+"","","","","","html-slider-response","80","277260","0.0-76.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-88","","0","images/B_L_U_28_lightshift.png","","","","calm","1","B","L","U","lightshift","",""
+"","","","","","html-slider-response","81","278983","0.0-77.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >calm</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-97","","0","images/Y_L_U_41_darkshift.png","","","","calm","2","Y","L","U","darkshift","",""
+"","","","","","html-button-response","82","282134","0.0-78.0","u4vxp4duwn","1","2650","<p>Great Job! You've finished block 1.<br></br> You have 3 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","83","283430","0.0-79.0","u4vxp4duwn","1","1295","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>positive</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","84","285359","0.0-80.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-53","","0","images/B_L_S_27_lightshift.png","","","","positive","2","B","L","S","lightshift","",""
+"","","","","","html-slider-response","85","286895","0.0-81.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","22","","0","images/G_L_S_13_darkshift.png","","","","positive","1","G","L","S","darkshift","",""
+"","","","","","html-slider-response","86","288923","0.0-82.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-140","","0","images/B_L_U_28_lightshift.png","","","","positive","2","B","L","U","lightshift","",""
+"","","","","","html-slider-response","87","291702","0.0-83.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-53","","0","images/G_D_S_23_darkshift.png","","","","positive","2","G","D","S","darkshift","",""
+"","","","","","html-slider-response","88","293893","0.0-84.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","27","","0","images/Y_L_S_37_darkshift.png","","","","positive","1","Y","L","S","darkshift","",""
+"","","","","","html-slider-response","89","296603","0.0-85.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-38","","0","images/G_L_U_15_lightshift.png","","","","positive","2","G","L","U","lightshift","",""
+"","","","","","html-slider-response","90","298167","0.0-86.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-47","","0","images/Y_L_U_41_lightshift.png","","","","positive","2","Y","L","U","lightshift","",""
+"","","","","","html-slider-response","91","300100","0.0-87.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-77","","0","images/R_D_U_12_lightshift.png","","","","positive","1","R","D","U","lightshift","",""
+"","","","","","html-slider-response","92","301431","0.0-88.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-86","","0","images/R_D_U_12_lightshift.png","","","","positive","2","R","D","U","lightshift","",""
+"","","","","","html-slider-response","93","302795","0.0-89.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-98","","0","images/G_L_U_15_lightshift.png","","","","positive","1","G","L","U","lightshift","",""
+"","","","","","html-slider-response","94","304593","0.0-90.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","28","","0","images/R_L_S_5_lightshift.png","","","","positive","1","R","L","S","lightshift","",""
+"","","","","","html-slider-response","95","306078","0.0-91.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-129","","0","images/Y_D_U_2_darkshift.png","","","","positive","2","Y","D","U","darkshift","",""
+"","","","","","html-slider-response","96","307606","0.0-92.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/B_D_U_33_lightshift.png","","","","positive","2","B","D","U","lightshift","",""
+"","","","","","html-slider-response","97","309386","0.0-93.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-46","","0","images/G_D_S_23_lightshift.png","","","","positive","1","G","D","S","lightshift","",""
+"","","","","","html-slider-response","98","310917","0.0-94.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-58","","0","images/G_D_U_26_lightshift.png","","","","positive","2","G","D","U","lightshift","",""
+"","","","","","html-slider-response","99","312293","0.0-95.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-74","","0","images/B_D_U_33_lightshift.png","","","","positive","1","B","D","U","lightshift","",""
+"","","","","","html-slider-response","100","313586","0.0-96.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-38","","0","images/G_D_U_26_darkshift.png","","","","positive","1","G","D","U","darkshift","",""
+"","","","","","html-slider-response","101","314865","0.0-97.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-45","","0","images/Y_D_U_2_lightshift.png","","","","positive","1","Y","D","U","lightshift","",""
+"","","","","","html-slider-response","102","316054","0.0-98.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-91","","0","images/G_D_U_26_darkshift.png","","","","positive","2","G","D","U","darkshift","",""
+"","","","","","html-slider-response","103","317187","0.0-99.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-72","","0","images/G_L_S_13_lightshift.png","","","","positive","1","G","L","S","lightshift","",""
+"","","","","","html-slider-response","104","318822","0.0-100.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","58","","0","images/R_L_S_5_darkshift.png","","","","positive","2","R","L","S","darkshift","",""
+"","","","","","html-slider-response","105","321516","0.0-101.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","97","","0","images/R_L_U_7_darkshift.png","","","","positive","1","R","L","U","darkshift","",""
+"","","","","","html-slider-response","106","322914","0.0-102.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-74","","0","images/Y_L_U_41_lightshift.png","","","","positive","1","Y","L","U","lightshift","",""
+"","","","","","html-slider-response","107","324667","0.0-103.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-93","","0","images/B_D_S_30_lightshift.png","","","","positive","1","B","D","S","lightshift","",""
+"","","","","","html-slider-response","108","326516","0.0-104.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","68","","0","images/R_D_S_10_darkshift.png","","","","positive","1","R","D","S","darkshift","",""
+"","","","","","html-slider-response","109","327813","0.0-105.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-66","","0","images/G_L_S_13_lightshift.png","","","","positive","2","G","L","S","lightshift","",""
+"","","","","","html-slider-response","110","329216","0.0-106.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-191","","0","images/Y_D_S_44_darkshift.png","","","","positive","1","Y","D","S","darkshift","",""
+"","","","","","html-slider-response","111","331676","0.0-107.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-20","","0","images/B_L_S_27_darkshift.png","","","","positive","1","B","L","S","darkshift","",""
+"","","","","","html-slider-response","112","333061","0.0-108.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-37","","0","images/B_D_U_33_darkshift.png","","","","positive","2","B","D","U","darkshift","",""
+"","","","","","html-slider-response","113","334789","0.0-109.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","90","","0","images/Y_L_S_37_lightshift.png","","","","positive","2","Y","L","S","lightshift","",""
+"","","","","","html-slider-response","114","336101","0.0-110.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-33","","0","images/B_D_U_33_darkshift.png","","","","positive","1","B","D","U","darkshift","",""
+"","","","","","html-slider-response","115","337532","0.0-111.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","119","","0","images/Y_L_U_41_darkshift.png","","","","positive","2","Y","L","U","darkshift","",""
+"","","","","","html-slider-response","116","338862","0.0-112.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-53","","0","images/B_D_S_30_darkshift.png","","","","positive","2","B","D","S","darkshift","",""
+"","","","","","html-slider-response","117","340364","0.0-113.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","48","","0","images/R_L_U_7_darkshift.png","","","","positive","2","R","L","U","darkshift","",""
+"","","","","","html-slider-response","118","341619","0.0-114.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","50","","0","images/R_L_S_5_lightshift.png","","","","positive","2","R","L","S","lightshift","",""
+"","","","","","html-slider-response","119","343083","0.0-115.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_U_2_darkshift.png","","","","positive","1","Y","D","U","darkshift","",""
+"","","","","","html-slider-response","120","344721","0.0-116.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-70","","0","images/G_D_U_26_lightshift.png","","","","positive","1","G","D","U","lightshift","",""
+"","","","","","html-slider-response","121","346082","0.0-117.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","46","","0","images/Y_L_S_37_darkshift.png","","","","positive","2","Y","L","S","darkshift","",""
+"","","","","","html-slider-response","122","347339","0.0-118.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-80","","0","images/B_L_U_28_lightshift.png","","","","positive","1","B","L","U","lightshift","",""
+"","","","","","html-slider-response","123","348314","0.0-119.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-110","","0","images/R_D_S_10_lightshift.png","","","","positive","2","R","D","S","lightshift","",""
+"","","","","","html-slider-response","124","350401","0.0-120.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","66","","0","images/Y_D_S_44_lightshift.png","","","","positive","1","Y","D","S","lightshift","",""
+"","","","","","html-slider-response","125","352216","0.0-121.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-66","","0","images/G_L_U_15_darkshift.png","","","","positive","2","G","L","U","darkshift","",""
+"","","","","","html-slider-response","126","354290","0.0-122.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-200","","0","images/Y_D_S_44_darkshift.png","","","","positive","2","Y","D","S","darkshift","",""
+"","","","","","html-slider-response","127","355995","0.0-123.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","130","","0","images/Y_L_S_37_lightshift.png","","","","positive","1","Y","L","S","lightshift","",""
+"","","","","","html-slider-response","128","357674","0.0-124.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","110","","0","images/R_D_S_10_lightshift.png","","","","positive","1","R","D","S","lightshift","",""
+"","","","","","html-slider-response","129","359372","0.0-125.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-22","","0","images/G_L_S_13_darkshift.png","","","","positive","2","G","L","S","darkshift","",""
+"","","","","","html-slider-response","130","361159","0.0-126.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-22","","0","images/G_D_S_23_lightshift.png","","","","positive","2","G","D","S","lightshift","",""
+"","","","","","html-slider-response","131","363468","0.0-127.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","99","","0","images/R_L_S_5_darkshift.png","","","","positive","1","R","L","S","darkshift","",""
+"","","","","","html-slider-response","132","365041","0.0-128.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","118","","0","images/Y_D_S_44_lightshift.png","","","","positive","2","Y","D","S","lightshift","",""
+"","","","","","html-slider-response","133","367022","0.0-129.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-9","","0","images/G_L_U_15_darkshift.png","","","","positive","1","G","L","U","darkshift","",""
+"","","","","","html-slider-response","134","368435","0.0-130.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","68","","0","images/R_D_S_10_darkshift.png","","","","positive","2","R","D","S","darkshift","",""
+"","","","","","html-slider-response","135","369609","0.0-131.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-10","","0","images/B_L_S_27_lightshift.png","","","","positive","1","B","L","S","lightshift","",""
+"","","","","","html-slider-response","136","371123","0.0-132.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","65","","0","images/R_L_U_7_lightshift.png","","","","positive","1","R","L","U","lightshift","",""
+"","","","","","html-slider-response","137","373386","0.0-133.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-94","","0","images/R_D_U_12_darkshift.png","","","","positive","2","R","D","U","darkshift","",""
+"","","","","","html-slider-response","138","375459","0.0-134.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","10","","0","images/B_L_U_28_darkshift.png","","","","positive","2","B","L","U","darkshift","",""
+"","","","","","html-slider-response","139","376676","0.0-135.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","14","","0","images/B_L_U_28_darkshift.png","","","","positive","1","B","L","U","darkshift","",""
+"","","","","","html-slider-response","140","378238","0.0-136.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","22","","0","images/R_D_U_12_darkshift.png","","","","positive","1","R","D","U","darkshift","",""
+"","","","","","html-slider-response","141","379979","0.0-137.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-58","","0","images/G_D_S_23_darkshift.png","","","","positive","1","G","D","S","darkshift","",""
+"","","","","","html-slider-response","142","381374","0.0-138.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-40","","0","images/B_D_S_30_lightshift.png","","","","positive","2","B","D","S","lightshift","",""
+"","","","","","html-slider-response","143","383623","0.0-139.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-157","","0","images/Y_D_U_2_lightshift.png","","","","positive","2","Y","D","U","lightshift","",""
+"","","","","","html-slider-response","144","384956","0.0-140.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","36","","0","images/R_L_U_7_lightshift.png","","","","positive","2","R","L","U","lightshift","",""
+"","","","","","html-slider-response","145","386205","0.0-141.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-25","","0","images/B_D_S_30_darkshift.png","","","","positive","1","B","D","S","darkshift","",""
+"","","","","","html-slider-response","146","387816","0.0-142.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","22","","0","images/B_L_S_27_darkshift.png","","","","positive","2","B","L","S","darkshift","",""
+"","","","","","html-slider-response","147","389313","0.0-143.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >positive</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","70","","0","images/Y_L_U_41_darkshift.png","","","","positive","1","Y","L","U","darkshift","",""
+"","","","","","html-button-response","148","390887","0.0-144.0","u4vxp4duwn","1","1072","<p>Great Job! You've finished block 2.<br></br> You have 2 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","149","391820","0.0-145.0","u4vxp4duwn","1","932","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>startling</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","150","393311","0.0-146.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","26","","0","images/B_L_S_27_lightshift.png","","","","startling","2","B","L","S","lightshift","",""
+"","","","","","html-slider-response","151","395443","0.0-147.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-23","","0","images/R_L_S_5_darkshift.png","","","","startling","1","R","L","S","darkshift","",""
+"","","","","","html-slider-response","152","397490","0.0-148.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","90","","0","images/Y_D_U_2_darkshift.png","","","","startling","2","Y","D","U","darkshift","",""
+"","","","","","html-slider-response","153","399171","0.0-149.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","128","","0","images/B_L_U_28_lightshift.png","","","","startling","1","B","L","U","lightshift","",""
+"","","","","","html-slider-response","154","401989","0.0-150.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-9","","0","images/B_D_S_30_lightshift.png","","","","startling","2","B","D","S","lightshift","",""
+"","","","","","html-slider-response","155","403552","0.0-151.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-26","","0","images/R_L_S_5_lightshift.png","","","","startling","1","R","L","S","lightshift","",""
+"","","","","","html-slider-response","156","405223","0.0-152.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","136","","0","images/Y_D_S_44_darkshift.png","","","","startling","2","Y","D","S","darkshift","",""
+"","","","","","html-slider-response","157","406961","0.0-153.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-12","","0","images/G_L_S_13_lightshift.png","","","","startling","2","G","L","S","lightshift","",""
+"","","","","","html-slider-response","158","408808","0.0-154.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","63","","0","images/B_D_U_33_darkshift.png","","","","startling","1","B","D","U","darkshift","",""
+"","","","","","html-slider-response","159","410223","0.0-155.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","34","","0","images/G_L_U_15_darkshift.png","","","","startling","2","G","L","U","darkshift","",""
+"","","","","","html-slider-response","160","411517","0.0-156.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","50","","0","images/G_D_S_23_lightshift.png","","","","startling","2","G","D","S","lightshift","",""
+"","","","","","html-slider-response","161","412579","0.0-157.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","50","","0","images/G_D_U_26_lightshift.png","","","","startling","2","G","D","U","lightshift","",""
+"","","","","","html-slider-response","162","413972","0.0-158.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","69","","0","images/R_D_U_12_lightshift.png","","","","startling","1","R","D","U","lightshift","",""
+"","","","","","html-slider-response","163","415486","0.0-159.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","74","","0","images/G_D_S_23_darkshift.png","","","","startling","2","G","D","S","darkshift","",""
+"","","","","","html-slider-response","164","417198","0.0-160.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-34","","0","images/Y_L_S_37_darkshift.png","","","","startling","2","Y","L","S","darkshift","",""
+"","","","","","html-slider-response","165","418940","0.0-161.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-52","","0","images/B_L_S_27_darkshift.png","","","","startling","1","B","L","S","darkshift","",""
+"","","","","","html-slider-response","166","420548","0.0-162.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","27","","0","images/G_D_U_26_darkshift.png","","","","startling","1","G","D","U","darkshift","",""
+"","","","","","html-slider-response","167","422278","0.0-163.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-86","","0","images/Y_L_S_37_lightshift.png","","","","startling","1","Y","L","S","lightshift","",""
+"","","","","","html-slider-response","168","423724","0.0-164.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","76","","0","images/Y_D_U_2_lightshift.png","","","","startling","1","Y","D","U","lightshift","",""
+"","","","","","html-slider-response","169","425283","0.0-165.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","53","","0","images/R_L_U_7_darkshift.png","","","","startling","2","R","L","U","darkshift","",""
+"","","","","","html-slider-response","170","426634","0.0-166.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","118","","0","images/G_L_U_15_lightshift.png","","","","startling","2","G","L","U","lightshift","",""
+"","","","","","html-slider-response","171","428269","0.0-167.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","191","","0","images/Y_D_S_44_darkshift.png","","","","startling","1","Y","D","S","darkshift","",""
+"","","","","","html-slider-response","172","429687","0.0-168.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","147","","0","images/Y_D_S_44_lightshift.png","","","","startling","2","Y","D","S","lightshift","",""
+"","","","","","html-slider-response","173","431488","0.0-169.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-109","","0","images/Y_L_S_37_lightshift.png","","","","startling","2","Y","L","S","lightshift","",""
+"","","","","","html-slider-response","174","437696","0.0-170.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","59","","0","images/B_D_U_33_darkshift.png","","","","startling","2","B","D","U","darkshift","",""
+"","","","","","html-slider-response","175","439369","0.0-171.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-27","","0","images/G_L_S_13_darkshift.png","","","","startling","2","G","L","S","darkshift","",""
+"","","","","","html-slider-response","176","441247","0.0-172.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-34","","0","images/G_L_S_13_darkshift.png","","","","startling","1","G","L","S","darkshift","",""
+"","","","","","html-slider-response","177","454614","0.0-173.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-34","","0","images/R_L_S_5_lightshift.png","","","","startling","2","R","L","S","lightshift","",""
+"","","","","","html-slider-response","178","456752","0.0-174.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","26","","0","images/Y_L_U_41_darkshift.png","","","","startling","1","Y","L","U","darkshift","",""
+"","","","","","html-slider-response","179","458265","0.0-175.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-78","","0","images/B_L_U_28_darkshift.png","","","","startling","1","B","L","U","darkshift","",""
+"","","","","","html-slider-response","180","460122","0.0-176.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-25","","0","images/R_L_U_7_lightshift.png","","","","startling","1","R","L","U","lightshift","",""
+"","","","","","html-slider-response","181","461947","0.0-177.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","138","","0","images/R_D_U_12_darkshift.png","","","","startling","1","R","D","U","darkshift","",""
+"","","","","","html-slider-response","182","469446","0.0-178.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-30","","0","images/G_L_U_15_darkshift.png","","","","startling","1","G","L","U","darkshift","",""
+"","","","","","html-slider-response","183","471203","0.0-179.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","115","","0","images/G_D_U_26_lightshift.png","","","","startling","1","G","D","U","lightshift","",""
+"","","","","","html-slider-response","184","472384","0.0-180.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","130","","0","images/G_L_U_15_lightshift.png","","","","startling","1","G","L","U","lightshift","",""
+"","","","","","html-slider-response","185","474029","0.0-181.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","169","","0","images/Y_D_U_2_lightshift.png","","","","startling","2","Y","D","U","lightshift","",""
+"","","","","","html-slider-response","186","475324","0.0-182.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","195","","0","images/G_D_U_26_darkshift.png","","","","startling","2","G","D","U","darkshift","",""
+"","","","","","html-slider-response","187","476944","0.0-183.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-58","","0","images/B_L_S_27_darkshift.png","","","","startling","2","B","L","S","darkshift","",""
+"","","","","","html-slider-response","188","490153","0.0-184.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","139","","0","images/R_D_U_12_lightshift.png","","","","startling","2","R","D","U","lightshift","",""
+"","","","","","html-slider-response","189","492960","0.0-185.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","102","","0","images/R_D_S_10_darkshift.png","","","","startling","1","R","D","S","darkshift","",""
+"","","","","","html-slider-response","190","494521","0.0-186.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-46","","0","images/G_D_S_23_lightshift.png","","","","startling","1","G","D","S","lightshift","",""
+"","","","","","html-slider-response","191","496247","0.0-187.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-82","","0","images/B_L_U_28_darkshift.png","","","","startling","2","B","L","U","darkshift","",""
+"","","","","","html-slider-response","192","498437","0.0-188.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-72","","0","images/G_L_S_13_lightshift.png","","","","startling","1","G","L","S","lightshift","",""
+"","","","","","html-slider-response","193","500269","0.0-189.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","171","","0","images/Y_D_S_44_lightshift.png","","","","startling","1","Y","D","S","lightshift","",""
+"","","","","","html-slider-response","194","501464","0.0-190.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","137","","0","images/R_D_U_12_darkshift.png","","","","startling","2","R","D","U","darkshift","",""
+"","","","","","html-slider-response","195","502749","0.0-191.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","139","","0","images/Y_L_U_41_lightshift.png","","","","startling","1","Y","L","U","lightshift","",""
+"","","","","","html-slider-response","196","504046","0.0-192.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","151","","0","images/Y_L_U_41_lightshift.png","","","","startling","2","Y","L","U","lightshift","",""
+"","","","","","html-slider-response","197","506065","0.0-193.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-38","","0","images/R_L_S_5_darkshift.png","","","","startling","2","R","L","S","darkshift","",""
+"","","","","","html-slider-response","198","508092","0.0-194.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","22","","0","images/B_D_S_30_lightshift.png","","","","startling","1","B","D","S","lightshift","",""
+"","","","","","html-slider-response","199","509649","0.0-195.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","56","","0","images/B_L_U_28_lightshift.png","","","","startling","2","B","L","U","lightshift","",""
+"","","","","","html-slider-response","200","510837","0.0-196.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","92","","0","images/B_D_U_33_lightshift.png","","","","startling","2","B","D","U","lightshift","",""
+"","","","","","html-slider-response","201","512468","0.0-197.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-10","","0","images/R_D_S_10_lightshift.png","","","","startling","2","R","D","S","lightshift","",""
+"","","","","","html-slider-response","202","514119","0.0-198.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-62","","0","images/B_D_S_30_darkshift.png","","","","startling","1","B","D","S","darkshift","",""
+"","","","","","html-slider-response","203","515789","0.0-199.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","190","","0","images/Y_D_U_2_darkshift.png","","","","startling","1","Y","D","U","darkshift","",""
+"","","","","","html-slider-response","204","517063","0.0-200.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","157","","0","images/Y_L_U_41_darkshift.png","","","","startling","2","Y","L","U","darkshift","",""
+"","","","","","html-slider-response","205","518122","0.0-201.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","125","","0","images/Y_L_S_37_darkshift.png","","","","startling","1","Y","L","S","darkshift","",""
+"","","","","","html-slider-response","206","519949","0.0-202.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-18","","0","images/R_D_S_10_lightshift.png","","","","startling","1","R","D","S","lightshift","",""
+"","","","","","html-slider-response","207","521475","0.0-203.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","42","","0","images/R_L_U_7_darkshift.png","","","","startling","1","R","L","U","darkshift","",""
+"","","","","","html-slider-response","208","522629","0.0-204.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","67","","0","images/B_L_S_27_lightshift.png","","","","startling","1","B","L","S","lightshift","",""
+"","","","","","html-slider-response","209","523807","0.0-205.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","74","","0","images/B_D_U_33_lightshift.png","","","","startling","1","B","D","U","lightshift","",""
+"","","","","","html-slider-response","210","525645","0.0-206.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","40","","0","images/R_D_S_10_darkshift.png","","","","startling","2","R","D","S","darkshift","",""
+"","","","","","html-slider-response","211","527599","0.0-207.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-22","","0","images/B_D_S_30_darkshift.png","","","","startling","2","B","D","S","darkshift","",""
+"","","","","","html-slider-response","212","529112","0.0-208.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","80","","0","images/R_L_U_7_lightshift.png","","","","startling","2","R","L","U","lightshift","",""
+"","","","","","html-slider-response","213","531139","0.0-209.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >startling</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-7","","0","images/G_D_S_23_darkshift.png","","","","startling","1","G","D","S","darkshift","",""
+"","","","","","html-button-response","214","532634","0.0-210.0","u4vxp4duwn","1","993","<p>Great Job! You've finished block 3.<br></br> You have 1 block(s) left to go.<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-button-response","215","533494","0.0-211.0","u4vxp4duwn","1","859","<p>In this block of trials, you will be asked to rate how much you associate each map with:</p > <p style = 'font-size:150%; font-weight: bold'>negative</p><br></br>","0","","","","","","","","","","","","","",""
+"","","","","","html-slider-response","216","535042","0.0-212.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","43","","0","images/R_L_U_7_darkshift.png","","","","negative","2","R","L","U","darkshift","",""
+"","","","","","html-slider-response","217","537614","0.0-213.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-10","","0","images/B_D_S_30_darkshift.png","","","","negative","1","B","D","S","darkshift","",""
+"","","","","","html-slider-response","218","540075","0.0-214.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","113","","0","images/Y_D_U_2_lightshift.png","","","","negative","2","Y","D","U","lightshift","",""
+"","","","","","html-slider-response","219","541917","0.0-215.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","29","","0","images/B_D_S_30_lightshift.png","","","","negative","2","B","D","S","lightshift","",""
+"","","","","","html-slider-response","220","543570","0.0-216.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","69","","0","images/Y_L_U_41_lightshift.png","","","","negative","2","Y","L","U","lightshift","",""
+"","","","","","html-slider-response","221","545014","0.0-217.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-46","","0","images/R_D_S_10_darkshift.png","","","","negative","1","R","D","S","darkshift","",""
+"","","","","","html-slider-response","222","546917","0.0-218.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-49","","0","images/R_L_S_5_darkshift.png","","","","negative","2","R","L","S","darkshift","",""
+"","","","","","html-slider-response","223","548345","0.0-219.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-32","","0","images/B_L_S_27_darkshift.png","","","","negative","2","B","L","S","darkshift","",""
+"","","","","","html-slider-response","224","549709","0.0-220.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","83","","0","images/Y_D_S_44_lightshift.png","","","","negative","2","Y","D","S","lightshift","",""
+"","","","","","html-slider-response","225","550909","0.0-221.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","83","","0","images/G_D_U_26_darkshift.png","","","","negative","2","G","D","U","darkshift","",""
+"","","","","","html-slider-response","226","552174","0.0-222.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","90","","0","images/G_D_S_23_lightshift.png","","","","negative","2","G","D","S","lightshift","",""
+"","","","","","html-slider-response","227","553308","0.0-223.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","70","","0","images/B_L_S_27_lightshift.png","","","","negative","2","B","L","S","lightshift","",""
+"","","","","","html-slider-response","228","554901","0.0-224.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","23","","0","images/G_L_S_13_darkshift.png","","","","negative","1","G","L","S","darkshift","",""
+"","","","","","html-slider-response","229","556358","0.0-225.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-50","","0","images/R_L_S_5_darkshift.png","","","","negative","1","R","L","S","darkshift","",""
+"","","","","","html-slider-response","230","557787","0.0-226.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-36","","0","images/Y_L_S_37_lightshift.png","","","","negative","2","Y","L","S","lightshift","",""
+"","","","","","html-slider-response","231","559471","0.0-227.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","11","","0","images/G_D_S_23_darkshift.png","","","","negative","2","G","D","S","darkshift","",""
+"","","","","","html-slider-response","232","560951","0.0-228.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","27","","0","images/G_L_U_15_darkshift.png","","","","negative","2","G","L","U","darkshift","",""
+"","","","","","html-slider-response","233","562510","0.0-229.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-55","","0","images/Y_L_S_37_lightshift.png","","","","negative","1","Y","L","S","lightshift","",""
+"","","","","","html-slider-response","234","564234","0.0-230.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","119","","0","images/R_D_U_12_darkshift.png","","","","negative","2","R","D","U","darkshift","",""
+"","","","","","html-slider-response","235","565530","0.0-231.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","148","","0","images/Y_D_U_2_lightshift.png","","","","negative","1","Y","D","U","lightshift","",""
+"","","","","","html-slider-response","236","566918","0.0-232.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","155","","0","images/Y_D_U_2_darkshift.png","","","","negative","1","Y","D","U","darkshift","",""
+"","","","","","html-slider-response","237","568439","0.0-233.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-110","","0","images/R_L_S_5_lightshift.png","","","","negative","2","R","L","S","lightshift","",""
+"","","","","","html-slider-response","238","569989","0.0-234.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","24","","0","images/B_D_U_33_darkshift.png","","","","negative","2","B","D","U","darkshift","",""
+"","","","","","html-slider-response","239","571868","0.0-235.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-58","","0","images/R_L_U_7_lightshift.png","","","","negative","1","R","L","U","lightshift","",""
+"","","","","","html-slider-response","240","573581","0.0-236.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-59","","0","images/G_L_S_13_lightshift.png","","","","negative","1","G","L","S","lightshift","",""
+"","","","","","html-slider-response","241","575362","0.0-237.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","13","","0","images/Y_D_S_44_lightshift.png","","","","negative","1","Y","D","S","lightshift","",""
+"","","","","","html-slider-response","242","576468","0.0-238.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","21","","0","images/Y_L_U_41_lightshift.png","","","","negative","1","Y","L","U","lightshift","",""
+"","","","","","html-slider-response","243","578194","0.0-239.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-19","","0","images/G_L_S_13_darkshift.png","","","","negative","2","G","L","S","darkshift","",""
+"","","","","","html-slider-response","244","579765","0.0-240.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-20","","0","images/R_D_S_10_lightshift.png","","","","negative","1","R","D","S","lightshift","",""
+"","","","","","html-slider-response","245","581427","0.0-241.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-14","","0","images/B_L_S_27_darkshift.png","","","","negative","1","B","L","S","darkshift","",""
+"","","","","","html-slider-response","246","582668","0.0-242.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","62","","0","images/G_D_S_23_darkshift.png","","","","negative","1","G","D","S","darkshift","",""
+"","","","","","html-slider-response","247","583876","0.0-243.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_S_27_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","102","","0","images/B_L_S_27_lightshift.png","","","","negative","1","B","L","S","lightshift","",""
+"","","","","","html-slider-response","248","585057","0.0-244.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","134","","0","images/G_L_U_15_darkshift.png","","","","negative","1","G","L","U","darkshift","",""
+"","","","","","html-slider-response","249","587299","0.0-245.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","98","","0","images/G_L_U_15_lightshift.png","","","","negative","1","G","L","U","lightshift","",""
+"","","","","","html-slider-response","250","588678","0.0-246.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-41","","0","images/Y_L_U_41_darkshift.png","","","","negative","2","Y","L","U","darkshift","",""
+"","","","","","html-slider-response","251","590013","0.0-247.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-78","","0","images/Y_L_S_37_darkshift.png","","","","negative","2","Y","L","S","darkshift","",""
+"","","","","","html-slider-response","252","591425","0.0-248.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_S_13_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-27","","0","images/G_L_S_13_lightshift.png","","","","negative","2","G","L","S","lightshift","",""
+"","","","","","html-slider-response","253","593153","0.0-249.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","32","","0","images/B_L_U_28_lightshift.png","","","","negative","2","B","L","U","lightshift","",""
+"","","","","","html-slider-response","254","594527","0.0-250.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-33","","0","images/B_D_S_30_lightshift.png","","","","negative","1","B","D","S","lightshift","",""
+"","","","","","html-slider-response","255","595826","0.0-251.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-45","","0","images/B_L_U_28_darkshift.png","","","","negative","2","B","L","U","darkshift","",""
+"","","","","","html-slider-response","256","597308","0.0-252.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-50","","0","images/R_L_U_7_darkshift.png","","","","negative","1","R","L","U","darkshift","",""
+"","","","","","html-slider-response","257","599650","0.0-253.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_U_2_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","198","","0","images/Y_D_U_2_darkshift.png","","","","negative","2","Y","D","U","darkshift","",""
+"","","","","","html-slider-response","258","601576","0.0-254.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","86","","0","images/B_L_U_28_lightshift.png","","","","negative","1","B","L","U","lightshift","",""
+"","","","","","html-slider-response","259","603358","0.0-255.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_S_37_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-43","","0","images/Y_L_S_37_darkshift.png","","","","negative","1","Y","L","S","darkshift","",""
+"","","","","","html-slider-response","260","604814","0.0-256.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_S_30_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","35","","0","images/B_D_S_30_darkshift.png","","","","negative","2","B","D","S","darkshift","",""
+"","","","","","html-slider-response","261","606428","0.0-257.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","78","","0","images/R_D_U_12_lightshift.png","","","","negative","1","R","D","U","lightshift","",""
+"","","","","","html-slider-response","262","607520","0.0-258.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","78","","0","images/R_D_U_12_darkshift.png","","","","negative","1","R","D","U","darkshift","",""
+"","","","","","html-slider-response","263","608611","0.0-259.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","100","","0","images/G_D_U_26_lightshift.png","","","","negative","1","G","D","U","lightshift","",""
+"","","","","","html-slider-response","264","609811","0.0-260.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","134","","0","images/G_D_U_26_darkshift.png","","","","negative","1","G","D","U","darkshift","",""
+"","","","","","html-slider-response","265","611074","0.0-261.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","163","","0","images/Y_D_S_44_darkshift.png","","","","negative","1","Y","D","S","darkshift","",""
+"","","","","","html-slider-response","266","612655","0.0-262.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_D_S_44_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","198","","0","images/Y_D_S_44_darkshift.png","","","","negative","2","Y","D","S","darkshift","",""
+"","","","","","html-slider-response","267","615458","0.0-263.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","143","","0","images/B_D_U_33_darkshift.png","","","","negative","1","B","D","U","darkshift","",""
+"","","","","","html-slider-response","268","616985","0.0-264.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_U_7_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-30","","0","images/R_L_U_7_lightshift.png","","","","negative","2","R","L","U","lightshift","",""
+"","","","","","html-slider-response","269","618632","0.0-265.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","153","","0","images/B_D_U_33_lightshift.png","","","","negative","2","B","D","U","lightshift","",""
+"","","","","","html-slider-response","270","620708","0.0-266.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_L_U_28_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-52","","0","images/B_L_U_28_darkshift.png","","","","negative","1","B","L","U","darkshift","",""
+"","","","","","html-slider-response","271","622133","0.0-267.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-100","","0","images/R_D_S_10_lightshift.png","","","","negative","2","R","D","S","lightshift","",""
+"","","","","","html-slider-response","272","623943","0.0-268.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/B_D_U_33_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","135","","0","images/B_D_U_33_lightshift.png","","","","negative","1","B","D","U","lightshift","",""
+"","","","","","html-slider-response","273","625092","0.0-269.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_U_12_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","118","","0","images/R_D_U_12_lightshift.png","","","","negative","2","R","D","U","lightshift","",""
+"","","","","","html-slider-response","274","626171","0.0-270.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/Y_L_U_41_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","106","","0","images/Y_L_U_41_darkshift.png","","","","negative","1","Y","L","U","darkshift","",""
+"","","","","","html-slider-response","275","627965","0.0-271.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_L_U_15_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","67","","0","images/G_L_U_15_lightshift.png","","","","negative","2","G","L","U","lightshift","",""
+"","","","","","html-slider-response","276","629824","0.0-272.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_S_23_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","28","","0","images/G_D_S_23_lightshift.png","","","","negative","1","G","D","S","lightshift","",""
+"","","","","","html-slider-response","277","631748","0.0-273.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_D_S_10_darkshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","60","","0","images/R_D_S_10_darkshift.png","","","","negative","2","R","D","S","darkshift","",""
+"","","","","","html-slider-response","278","633482","0.0-274.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/R_L_S_5_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","-118","","0","images/R_L_S_5_lightshift.png","","","","negative","1","R","L","S","lightshift","",""
+"","","","","","html-slider-response","279","635077","0.0-275.0","u4vxp4duwn","1","NaN","<div style=""width:500px;"">
+                            <p style=""font-size:50px; font-weight:bold;""
+                            >negative</p>
+                            <div style=""width:240px; margin: auto;"">
+                                <img src=""images/G_D_U_26_lightshift.png"" style= ""width:200px""alt=""img"">
+                            </div>
+                        </div>","126","","0","images/G_D_U_26_lightshift.png","","","","negative","2","G","D","U","lightshift","",""
+"","","","","","html-button-response","280","636467","0.0-276.0","u4vxp4duwn","1","887","<p>Great Job! You're done rating all concepts!<br></br></p>","0","","","","","","","","","","","","","",""
+"","","","","","html-keyboard-response","281","645341","0.0-277.0","u4vxp4duwn","1","8873","<p>Good job! You have finished the task. Next, you will see an image on the screen.<br>If you see a number in the image, please carefully type that number in the box.</p><p>If you do not see a number in the image, please type 'None' in the box.<br>This part of the experiment will take about 2 minutes.</p><p>Please press the left or right arrow keys to begin.</p>","arrowright","","","","","","","","","","","","","",""
+"","","","","","survey-html-form","282","649376","0.0-278.0","u4vxp4duwn","1","3532","","{""number"":""12""}","","","","","","","","","","","","","0","12"
+"","","","","","survey-html-form","283","654648","0.0-279.0","u4vxp4duwn","1","5020","","{""number"":""5""}","","","","","","","","","","","","","2","5"
+"","","","","","survey-html-form","284","657888","0.0-280.0","u4vxp4duwn","1","2987","","{""number"":""35""}","","","","","","","","","","","","","9","35"
+"","","","","","survey-html-form","285","660442","0.0-281.0","u4vxp4duwn","1","2302","","{""number"":""2""}","","","","","","","","","","","","","7","2"
+"","","","","","survey-html-form","286","663718","0.0-282.0","u4vxp4duwn","1","3023","","{""number"":""29""}","","","","","","","","","","","","","3","29"
+"","","","","","survey-html-form","287","666437","0.0-283.0","u4vxp4duwn","1","2467","","{""number"":""96""}","","","","","","","","","","","","","10","96"
+"","","","","","survey-html-form","288","670434","0.0-284.0","u4vxp4duwn","1","3744","","{""number"":""16""}","","","","","","","","","","","","","8","16"
+"","","","","","survey-html-form","289","672750","0.0-285.0","u4vxp4duwn","1","2064","","{""number"":""45""}","","","","","","","","","","","","","6","45"
+"","","","","","survey-html-form","290","674627","0.0-286.0","u4vxp4duwn","1","1624","","{""number"":""7""}","","","","","","","","","","","","","5","7"
+"","","","","","survey-html-form","291","676729","0.0-287.0","u4vxp4duwn","1","1849","","{""number"":""74""}","","","","","","","","","","","","","4","74"
+"","","","","","survey-html-form","292","678467","0.0-288.0","u4vxp4duwn","1","1486","","{""number"":""8""}","","","","","","","","","","","","","1","8"
+"","","","","","survey-multi-choice","293","685213","0.0-289.0","u4vxp4duwn","1","6492","","{""colorDifficulty"":""No"",""colorBlind"":""No"",""device"":""Computer""}","[0,1,2]","","","","","","","","","","","","",""
