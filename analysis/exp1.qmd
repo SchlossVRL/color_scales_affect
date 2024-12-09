@@ -39,10 +39,15 @@ df_list <- lapply(data_files, read.csv)
 
 experiment_data_raw<- bind_rows(df_list)
 
+### these are the ids for which we have 3 subjects per condition, so we exclude the last person
+exclude_sub_ids<- c('r57soqz0pg', 'ov4c0zd1oe', 'pttv2mynsh')
+
 
 ratings_trials<- experiment_data_raw %>% filter(trial_type== 'html-slider-response')
 
 ratings_trials_exp<- ratings_trials %>% filter(practiceTrial != 'true')
+ratings_trials_exp<-ratings_trials_exp%>%filter(!subject_id%in%exclude_sub_ids)
+
 
 
 # check for color vision
@@ -67,12 +72,17 @@ ratings_trials_grouped_wide
 
 subject_counts <- ratings_trials_exp %>%
   group_by(condition_num) %>%
-  summarise(count = n_distinct(subject_id))
+  summarize(count = n_distinct(subject_id))
 
 print(subject_counts)
+
 ```
 
-### 
+### Demographics
+
+```{r}
+
+```
 
 ### Plotting associations
 
@@ -105,24 +115,24 @@ ggsave('exp1_mean_ratings.png', plot = p, dpi = 300, height = 10, width = 13)
 ```
 
 ```{r}
-
-my_colors = c("cyan","black")
-ratings_trial_grouped$lightness
-
-ratings_trial_grouped$lightness <- factor(ratings_trial_grouped$lightness, levels = c("L","D"))
-
-p <- ggplot(ratings_trial_grouped, aes(x = saturation, y = mean_rating, group = lightness, color = lightness)) +
-  geom_line() +
-  facet_grid(concept ~ hue, scales = "free_x") +
-  theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-  labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1)))+
-  scale_color_manual(values=my_colors) 
-
-p
-
-ggsave('exp1_lineplots.png', plot = p, dpi = 300, height = 10, width = 8)
+# 
+# my_colors = c("cyan","black")
+# ratings_trial_grouped$lightness
+# 
+# ratings_trial_grouped$lightness <- factor(ratings_trial_grouped$lightness, levels = c("L","D"))
+# 
+# p <- ggplot(ratings_trial_grouped, aes(x = saturation, y = mean_rating, group = lightness, color = lightness)) +
+#   geom_line() +
+#   facet_grid(concept ~ hue, scales = "free_x") +
+#   theme(axis.title.x = element_blank(),
+#         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+#   labs(y = "Mean Rating") +
+#   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1)))+
+#   scale_color_manual(values=my_colors) 
+# 
+# p
+# 
+# ggsave('exp1_lineplots.png', plot = p, dpi = 300, height = 10, width = 8)
 
 
 
@@ -162,7 +172,7 @@ p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = lightsa
   scale_shape_manual(name="Lightness/Saturation",values = c(21, 22, 23, 24))
 
 p
-ggsave('facet_emotion_ratings.png', dpi=300, height = 8, width=5,plot=p)
+ggsave('facet_emotion_ratings.pdf', dpi=300, height = 8, width=5,plot=p)
 
 
 ```
@@ -195,15 +205,15 @@ variance_df_maps <- data.frame(
 
 # Create the plot
 # Create the plot with all x-axis ticks
-ggplot(variance_df, aes(x = Component, y = CumulativeVariance)) +
-  geom_line() +
-  geom_point() +
-  scale_x_continuous(breaks = 1:6) +
-  labs(title = "Cumulative Proportion of Variance Explained for Emotion PCA",
-       x = "Principal Component",
-       y = "Cumulative Proportion of Variance") +
-  theme_minimal()
-
+# ggplot(variance_df_emotion, aes(x = Component, y = CumulativeVariance)) +
+#   geom_line() +
+#   geom_point() +
+#   scale_x_continuous(breaks = 1:6) +
+#   labs(title = "Cumulative Proportion of Variance Explained for Emotion PCA",
+#        x = "Principal Component",
+#        y = "Cumulative Proportion of Variance") +
+#   theme_minimal()
+# 
 
 # Extract the eigenvalues (squared singular values)
 eigenvalues_emotions <- pc_object_emotions$sdev
@@ -281,6 +291,10 @@ ggsave('emotion_PCA.png', plot = p, dpi = 300, height = 10, width = 10)
 ```
 
 ```{r}
+write.csv(plot_df, file="../data/affect_words_pcs.csv")
+```
+
+```{r}
 
 
 load_image_path<-function(path){
@@ -319,13 +333,6 @@ ggsave('colored_map_PCA.png', plot = p, dpi = 300, height = 10, width = 10)
 
 clusters <- stats::hclust(stats::dist(t(ratings_trials_grouped_wide[,4:ncol(ratings_trials_grouped_wide)])))
 
-hclust(dist(t(ratings_trials_grouped_wide[,4:ncol(ratings_trials_grouped_wide)])))
-
-
-
-hclust(dist(t(ratings_trials_grouped_wide[,4:ncol(ratings_trials_grouped_wide)])))
-
-plot(hclust(dist(t(ratings_trials_grouped_wide[,4:ncol(ratings_trials_grouped_wide)]))))
 
 plot(clusters)
 
@@ -353,9 +360,27 @@ ratings_trial_grouped <- ratings_trial_grouped %>%
 
 ratings_trial_grouped_clustered_emotions<-ratings_trial_grouped%>%group_by(clustered_emotion, condition, hue, saturation, lightness, lightsat)%>%summarize(mean_rating = mean(mean_rating))
 
+# 
+# p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rating, group = lightsat)) +
+#   geom_line(aes(colour = lightsat),size=1) +
+#   geom_point(aes(shape = lightsat, fill = hue), color = "black") +
+#   facet_wrap(~clustered_emotion, scales = "free_x", nrow=4) +
+#   theme(axis.title.x = element_blank(),
+#         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+#   labs(y = "Mean Rating") +
+#   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
+#   # For the lines: apply grey scale
+#   scale_colour_grey(name = "Lightness/Saturation") +
+#   # For the points: apply custom colors
+#   scale_fill_manual(values = hue_colors, guide="none" ) +
+#   # Use filled shapes for the points
+#   scale_shape_manual(name="Lightness/Saturation",values = c(21, 22, 23, 24))
+
 
 p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rating, group = lightsat)) +
-  geom_line(aes(colour = lightsat),size=1) +
+  geom_line(aes(colour = factor(-lightness_numeric), 
+                linetype = factor(-saturation_numeric)),  # Add linetype aesthetic
+                size = 1) +
   geom_point(aes(shape = lightsat, fill = hue), color = "black") +
   facet_wrap(~clustered_emotion, scales = "free_x", nrow=4) +
   theme(axis.title.x = element_blank(),
@@ -365,12 +390,25 @@ p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rati
   # For the lines: apply grey scale
   scale_colour_grey(name = "Lightness/Saturation") +
   # For the points: apply custom colors
-  scale_fill_manual(values = hue_colors, guide="none" ) +
+  scale_fill_manual(values = hue_colors, guide="none") +
   # Use filled shapes for the points
-  scale_shape_manual(name="Lightness/Saturation",values = c(21, 22, 23, 24))
+  scale_shape_manual(name="Lightness/Saturation", values = c(21, 22, 23, 24)) +
+  # Add scale for line types
+  scale_linetype_discrete(name = "Saturation")
 
 p
-ggsave('facet_clustered_emotion_ratings.png', dpi=300, height = 8, width=5,plot=p)
+ggsave('facet_clustered_emotion_ratings.pdf', dpi=300, height = 8, width=5,plot=p)
+
+```
+
+```{r}
+em1_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion1')%>%pull(mean_rating)
+em3_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion3')%>%pull(mean_rating)
+em2_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion2')%>%pull(mean_rating)
+
+cor(em1_mean_ratings,em3_mean_ratings)
+cor(em1_mean_ratings,em2_mean_ratings)
+cor(em3_mean_ratings,em2_mean_ratings)
 
 ```
 
@@ -407,43 +445,131 @@ emotion1_df_grouped<-ratings_trial_grouped_clustered_emotions%>%filter(clustered
 emotion2_df_grouped<-ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion2')
 emotion3_df_grouped<-ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion3')
 
-emotion1_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric+saturation_numeric), data =emotion1_df_grouped )
+emotion1_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric), data =emotion1_df_grouped )
 summary(emotion1_lm)
 
 
-emotion2_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric+saturation_numeric), data =emotion2_df_grouped )
+emotion2_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric), data =emotion2_df_grouped )
 summary(emotion2_lm)
 
 
 
-emotion3_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric+saturation_numeric), data =emotion3_df_grouped )
+emotion3_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric), data =emotion3_df_grouped )
 summary(emotion3_lm)
 
 ```
 
 ```{r}
+shift_to_zero <- function(x, power = 4) {
+  x^power  # Values > 0.5 drop more quickly towards 0
+}
+
+shift_to_one <- function(x, power = 4) {
+  # 1 - (1-x)^power  # Values < 0.5 rise more quickly towards 1
+  x^(1/power)
+}
+
+
+# Function to skew towards left endpoint (a)
+skew_left <- function(x, a = 0, b = 1, power = 4) {
+  # Input validation
+  if(any(x < a | x > b)) stop("All values must be between a and b")
+  if(power <= 0) stop("Power must be positive")
+  
+  # Transform to skew towards a
+  (x - a)^power / (b - a)^(power-1) + a
+}
+
+# Function to skew towards right endpoint (b)
+skew_right <- function(x, a = 0, b = 1, power = 4) {
+  # Input validation
+  if(any(x < a | x > b)) stop("All values must be between a and b")
+  if(power <= 0) stop("Power must be positive")
+  
+  # Transform to skew towards b
+  b - ((b - x)^power / (b - a)^(power-1))
+}
+
+min_max_normalize <- function(row) {
+  (row - min(row)) / (max(row) - min(row))
+}
+
+
+```
+
+```{r}
+
 library(data.table)
+
+
 # input table of map values (one row per map)
 map_df <- fread(file = '../data/map_values_V2.csv', header = F, data.table = F)
 color.scale.hex <- c('#eb7cb3', '#da578f', '#cf2975', '#c80062', '#be004f', '#ad003d', '#92002b', '#73001c', '#55000a')
 
-example_map<- map_df[1,]
 
-v <- as.numeric(example_map)
-m <- matrix(data = v, nrow = 1000, ncol = 1000)
-mr <- apply(m, 1, rev)
-mrt <- t(mr)
+map_df_vals <- map_df[,2:ncol(map_df)]
 
+map_df_vals_normed<- t(apply(map_df_vals, 1, min_max_normalize))
+map_df_vals_lightshift <- t(apply(map_df_vals_normed,1,skew_left))
+map_df_vals_darkshift <- t(apply(map_df_vals_normed,1,skew_right))
+# Convert the result back to a dataframe
+map_df_vals_lightshift <- as.data.frame(map_df_vals_lightshift)
+map_df_vals_darkshift <- as.data.frame(map_df_vals_darkshift)
+
+
+map_df_vals_lightshift <- as.data.frame(cbind(map_df[,1],map_df_vals_lightshift))
+colnames(map_df_vals_lightshift)[1] <- "V1"
+
+map_df_vals_darkshift <- as.data.frame(cbind(map_df[,1],map_df_vals_darkshift))
+colnames(map_df_vals_darkshift)[1] <- "V1"
+
+
+data.table::fwrite(map_df_vals_lightshift,'../data/map_values_V2_lightshift.csv')
+data.table::fwrite(map_df_vals_darkshift,'../data/map_values_V2_darkshift.csv')
+
+
+
+
+
+# example_map<- map_df[1,]
+# 
+# v <- as.numeric(example_map)
+# m <- matrix(data = v, nrow = 1000, ncol = 1000)
+# mr <- apply(m, 1, rev)
+# mrt <- t(mr)
+
+
+```
+
+```{r}
+
+
+power = 10
 
 # Plot the matrix
-image(mrt, main = "Matrix Plot", xlab = "Columns", ylab = "Rows")
+# image(mrt, main = "Matrix Plot", xlab = "Columns", ylab = "Rows")
+
+
+# 
+# tmp<-runif(1000000,0,1)
+# tmp <- rep(.25, 250000)
+# tmp <- c(tmp, rep(.75, 250000), rep(.5, 250000), rep(1, 250000))
+# mrt <- matrix(tmp, nrow = 1000, ncol = 1000, byrow = FALSE)
+
+ mrt <- (mrt-min(mrt))/(max(mrt)-min(mrt))
+ mrt <- (lapply(mrt, function(x) ifelse(x == 1, x-0.01, x)))
+ mrt <- unlist(lapply(mrt, function(x) ifelse(x == 0, x+0.01, x)))
+ 
+ mrt<- matrix(mrt, nrow = 1000, ncol = 1000, byrow = FALSE)
+
 
 
 # Flatten the matrix into a vector
 matrix_values <- as.vector(mrt)
 
+
 # Create a histogram of the matrix's values
-hist(matrix_values, main = "Histogram of Matrix Values", xlab = "Values", ylab = "Frequency", col = "blue")
+hist(matrix_values, main = "Histogram of Matrix Values", xlab = "Values", ylab = "Frequency", col = "blue",breaks = seq(from=0, to=1, by =.1))
 
 png(filename = 'base.png', width = 1000, height = 1000, units = 'px')
 par(mar = c(0, 0, 0, 0))
@@ -451,7 +577,13 @@ image(mrt, axes = F, asp = 1, useRaster = T, col = color.scale.hex)
 dev.off()
 
 
-mrt_exp <- exp(mrt/10)
+
+
+# mrt_exp <- exp(mrt/10)
+mrt_exp<-skew_left(mrt,power=power)
+# mrt_exp<- (mrt_exp-min(mrt_exp))/(max(mrt_exp)-min(mrt_exp))
+
+# mrt_exp <- exp(mrt/10)
 
 # mrt_exp <-10^mrt
 
@@ -459,32 +591,93 @@ mrt_exp <- exp(mrt/10)
 matrix_values <- as.vector(mrt_exp)
 
 # Create a histogram of the matrix's values
-hist(matrix_values, main = "Histogram of Exp Matrix Values", xlab = "Values", ylab = "Frequency", col = "blue")
+hist(matrix_values, main = paste0("Histogram of Dark Shift Values @ ",power), xlab = "Values", ylab = "Frequency", col = "blue",breaks = seq(from=0, to=1, by=.1))
+
+
+
 
 # Plot the matrix
-# image(mrt_exp, main = "Matrix Plot", xlab = "Columns", ylab = "Rows" )
+image(mrt_exp, main = "Matrix Plot", xlab = "Columns", ylab = "Rows" )
 
-png(filename = 'exponential_transform.png', width = 1000, height = 1000, units = 'px')
+
+png(filename = paste0('lightshift_power',power,'.png'), width = 1000, height = 1000, units = 'px')
 par(mar = c(0, 0, 0, 0))
 image(mrt_exp, axes = F, asp = 1, useRaster = T, col = color.scale.hex)
 dev.off()
 
 
+# mrt_adj <- unlist(lapply(mrt, function(x) ifelse(x == 0, 0.000000000001, x)))
+# mrt_adj<- matrix(mrt_adj, nrow = 1000, ncol = 1000, byrow = FALSE)
 
-mrt_log <- log(mrt/10)
+
+mrt_log<- skew_right(mrt,power=power)
+# mrt_log <- log(mrt_adj/100)
+# mrt_log<- (mrt_log-min(mrt_log))/(max(mrt_log)-min(mrt_log))
+# mrt_log <- log(mrt/10)
 
 
 matrix_values <- as.vector(mrt_log)
 
 # Create a histogram of the matrix's values
-hist(matrix_values, main = "Histogram of Log Matrix Values", xlab = "Values", ylab = "Frequency", col = "blue")
+hist(matrix_values, main = paste0("Histogram of Light Shift Values @ ", power), xlab = "Values", ylab = "Frequency", col = "blue",breaks = seq(from=0, to=1, by=.1))
 
 # Plot the matrix
-# image(mrt_exp, main = "Matrix Plot", xlab = "Columns", ylab = "Rows" )
+image(mrt_exp, main = "Matrix Plot", xlab = "Columns", ylab = "Rows" )
 
-png(filename = 'log_transform.png', width = 1000, height = 1000, units = 'px')
+
+
+
+png(filename = paste0('darkshift_power',power,'.png'), width = 1000, height = 1000, units = 'px')
 par(mar = c(0, 0, 0, 0))
 image(mrt_log, axes = F, asp = 1, useRaster = T, col = color.scale.hex)
 dev.off()
 
+```
+
+```{r}
+library(tidyverse)
+# Function to create and transform uniform distributions
+create_skewed_distributions <- function(n = 1000, a = 0, b = 1, power = 2) {
+  # Generate uniform distribution
+  uniform_dist <- runif(n, a, b)
+  
+  # Transform to skew towards a (left)
+  left_skewed <- (uniform_dist - a)^power / (b - a)^(power-1) + a
+  
+  # Transform to skew towards b (right)
+  right_skewed <- b - ((b - uniform_dist)^power / (b - a)^(power-1))
+  
+  # Create data frame for plotting
+  plot_data <- data.frame(
+    value = c(uniform_dist, left_skewed, right_skewed),
+    distribution = factor(rep(c("Uniform", "Skewed towards a", "Skewed towards b"), 
+                            each = n))
+  )
+  
+  return(plot_data)
+}
+
+# Generate data
+set.seed(123)
+plot_data <- create_skewed_distributions(n = 10000, a = 0, b = 1, power = 3)
+
+# Create density plots
+ggplot(plot_data, aes(x = value, fill = distribution)) +
+  geom_density(alpha = 0.5) +
+  theme_minimal() +
+  labs(title = "Comparison of Original and Transformed Distributions",
+       x = "Value",
+       y = "Density") +
+  scale_fill_manual(values = c("grey", "blue", "red")) +
+  theme(legend.position = "bottom")
+
+# Create histograms
+ggplot(plot_data, aes(x = value, fill = distribution)) +
+  geom_histogram(position = "identity", alpha = 0.5, bins = 50) +
+  theme_minimal() +
+  labs(title = "Histogram of Original and Transformed Distributions",
+       x = "Value",
+       y = "Count") +
+  scale_fill_manual(values = c("grey", "blue", "red")) +
+  theme(legend.position = "bottom")
 ```
