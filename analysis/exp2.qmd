@@ -4,13 +4,15 @@ format: html
 editor: visual
 ---
 
-## 
-
 ### Load packages
 
 ```{r}
+
+```
+
+```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot")
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","sjPlot")
 
 
 ```
@@ -338,8 +340,8 @@ ratings_trials_exp <-
       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
     ),
     lightness_numeric = case_when(
-      lightness == 'L' ~ -1,
-      lightness == 'D' ~ 1,
+      lightness == 'L' ~ 1,
+      lightness == 'D' ~ -1,
       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
     ),
     RG_numeric = case_when(
@@ -355,8 +357,8 @@ ratings_trials_exp <-
       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
     ),
     shift_numeric = case_when(
-      shift == 'darkshift' ~ 1,
-      shift == 'lightshift' ~ -1,
+      shift == 'darkshift' ~ -1,
+      shift == 'lightshift' ~ 1,
       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
     ),
   )
@@ -369,7 +371,7 @@ ctrl <- lmerControl(optimizer="bobyqa", optCtrl=list(maxfun=5e5))
 d<- ratings_trials_exp%>%filter(concept=='positive')
 m_positive<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
-summary(m_positive)
+tab_model(m_positive,p.val = "kr", show.df = TRUE,file='positive_lmer_results.html')
 ```
 
 ```{r}
@@ -378,7 +380,7 @@ d<- ratings_trials_exp%>%filter(concept=='negative')
 
 m_negative<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
-summary(m_negative)
+tab_model(m_negative,p.val = "kr", show.df = TRUE,file='negative_lmer_results.html')
 ```
 
 ```{r}
@@ -386,7 +388,7 @@ d<- ratings_trials_exp%>%filter(concept=='calm')
 
 m_calm<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
-summary(m_calm)
+tab_model(m_calm,p.val = "kr", show.df = TRUE,file='calm_lmer_results.html')
 ```
 
 ```{r}
@@ -394,5 +396,62 @@ d<- ratings_trials_exp%>%filter(concept=='startling')
 
 m_startling<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
-summary(m_startling)
+tab_model(m_startling,p.val = "kr", show.df = TRUE,file='startling_lmer_results.html')
+```
+
+```{r}
+d<- ratings_trials_exp%>%filter(concept=='positive')
+d %>%
+  mutate(
+    lightness_numeric = case_when(
+      lightness_numeric == -1 ~ "dark",
+      lightness_numeric == 1 ~ "light",
+      TRUE ~ as.character(lightness_numeric)
+    ),
+    saturation_numeric = case_when(
+      saturation_numeric == -1 ~ "unsaturated",
+      saturation_numeric == 1 ~ "saturated",
+      TRUE ~ as.character(saturation_numeric)
+    ),
+    shift_numeric = case_when(
+      shift_numeric == -1 ~ "darkshift",
+      shift_numeric == 1 ~ "lightshift",
+      TRUE ~ as.character(shift_numeric)
+    )
+  ) %>%
+  group_by(lightness_numeric, saturation_numeric, shift_numeric) %>%
+  summarize(
+    mean_rating = mean(response),
+    se_rating = sd(response) / sqrt(n())
+  ) %>%
+  ggplot(aes(
+    x = factor(lightness_numeric, levels = c("dark", "light")),
+    y = mean_rating,
+    color = factor(shift_numeric, levels = c("darkshift", "lightshift")),
+    group = shift_numeric
+  )) +
+  geom_line(position = position_dodge(0.5)) +
+  geom_point(size = 3, position = position_dodge(0.5)) +
+  geom_errorbar(aes(
+    ymin = mean_rating - se_rating,
+    ymax = mean_rating + se_rating
+  ),
+  position = position_dodge(0.5),
+  width = 0.2
+  ) +
+  facet_wrap(~factor(saturation_numeric, levels = c("unsaturated", "saturated"))) +
+  labs(
+    title='Positive',
+    x = "Lightness",
+    y = "Mean Rating",
+    color = "Shift"
+  ) +
+  theme_minimal()
+
+
+
+```
+
+```{r}
+
 ```
