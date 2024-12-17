@@ -322,3 +322,77 @@ d<- ratings_trial_grouped%>%filter(concept=='startling')
 m1<-lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric), data =d)
 summary(m1)
 ```
+
+## Mixed Effects Models
+
+```{r}
+
+
+
+ratings_trials_exp <- 
+  ratings_trials_exp %>% 
+  mutate(
+    saturation_numeric = case_when(
+      saturation == 'S' ~ 1,
+      saturation == 'U' ~ -1,
+      TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+    ),
+    lightness_numeric = case_when(
+      lightness == 'L' ~ -1,
+      lightness == 'D' ~ 1,
+      TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+    ),
+    RG_numeric = case_when(
+      hue == 'R' ~ 1,
+      hue == 'G' ~ -1,
+      hue %in% c('B', 'Y') ~ 0,
+      TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+    ),
+    BY_numeric = case_when(
+      hue == 'B' ~ 1,
+      hue == 'Y' ~ -1,
+      hue %in% c('R', 'G') ~ 0,
+      TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+    ),
+    shift_numeric = case_when(
+      shift == 'darkshift' ~ 1,
+      shift == 'lightshift' ~ -1,
+      TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+    ),
+  )
+```
+
+```{r}
+
+ctrl <- lmerControl(optimizer="bobyqa", optCtrl=list(maxfun=5e5))
+
+d<- ratings_trials_exp%>%filter(concept=='positive')
+m_positive<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
+
+summary(m_positive)
+```
+
+```{r}
+
+d<- ratings_trials_exp%>%filter(concept=='negative')
+
+m_negative<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
+
+summary(m_negative)
+```
+
+```{r}
+d<- ratings_trials_exp%>%filter(concept=='calm')
+
+m_calm<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
+
+summary(m_calm)
+```
+
+```{r}
+d<- ratings_trials_exp%>%filter(concept=='startling')
+
+m_startling<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
+
+summary(m_startling)
+```
