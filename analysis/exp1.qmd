@@ -26,31 +26,41 @@ install_and_load_packages(packages)
 ### Preprocessing
 
 ```{r}
-current_dir<- getwd()
-current_dir
+### set the analysis dir as current_dir
+analysis_dir<- getwd()
 
-data_dir <-paste0(current_dir,'/../data/exp_1')
+data_dir <-paste0(analysis_dir,'/../data/exp_1')
+### if data_dir doesn't exist create it
+if (!dir.exists(data_dir)) {
+  dir.create(data_dir)
+}
+
+plot_dir <- paste0(analysis_dir,'/../plots')
+### if plot_dir doesn't exist create it
+if (!dir.exists(plot_dir)) {
+  dir.create(plot_dir)
+}
+
 data_files <-list.files(path = data_dir, full.names = TRUE, pattern="*.csv")
 print(paste0('we have data from ',length(data_files),' participants'))
 
 
 
 df_list <- lapply(data_files, read.csv)
-
+exclude_sub_ids<- c('r57soqz0pg', 'ov4c0zd1oe', 'pttv2mynsh')
 experiment_data_raw<- bind_rows(df_list)
+experiment_data_raw<-experiment_data_raw%>%filter(!subject_id%in%exclude_sub_ids)
 
 ### these are the ids for which we have 3 subjects per condition, so we exclude the last person
-exclude_sub_ids<- c('r57soqz0pg', 'ov4c0zd1oe', 'pttv2mynsh')
+
 
 
 ratings_trials<- experiment_data_raw %>% filter(trial_type== 'html-slider-response')
 
 ratings_trials_exp<- ratings_trials %>% filter(practiceTrial != 'true')
-ratings_trials_exp<-ratings_trials_exp%>%filter(!subject_id%in%exclude_sub_ids)
 
 
 
-# check for color vision
 
 ratings_trials_exp$response<- as.numeric(ratings_trials_exp$response)
 ratings_trials_exp$response<- (ratings_trials_exp$response + 200)/400
@@ -78,69 +88,24 @@ print(subject_counts)
 
 ```
 
+```{r}
+# check for color vision
+ishihara_trials <-experiment_data_raw %>% filter(trial_type== 'survey-html-form')
+### for the ishihara_trials get the values from the 'response' column it will have strings like "{\"number\":\"45\"}"  which i want you to convert to 45 by extracting the number and making it a number and then compare it to correct_response for the same row. Make a new column called 'correct'
+
+ishihara_trials <- ishihara_trials %>%
+  mutate(
+    extracted_number = as.numeric(str_extract(response, "\\d+")),  # Extract the number and convert to numeric
+    ishihara_correct = (extracted_number == correct_response)               # Compare to correct_response
+  )
+
+ishihara_trials%>%group_by(subject_id)%>%summarize(mean_ishihara = mean(ishihara_correct))
+
+```
+
 ### Demographics
 
 ```{r}
-
-```
-
-### Plotting associations
-
-```{r}
-
-tmp_colors <- c("#00197b", "#001035", "#0074fe", "#006ea9",  "#00524a", "#002821","#15ffe2",  "#00a59c",  "#55000a", "#680024", "#de0065", "#e26087", "#4c4c00", "#4d4920","#e5da48",  "#9c9245")
-
-ratings_trial_grouped$condition<- paste(ratings_trial_grouped$hue, ratings_trial_grouped$lightness,ratings_trial_grouped$saturation,  sep = "_")
-
-# Step 1: Extract the order of the `concept` values in the first facet
-first_facet <- ratings_trial_grouped %>% filter(condition == 'B_D_S')  # Assuming '02' is the first facet
-ordered_concepts <- first_facet %>% arrange(desc(mean_rating)) %>% pull(concept)
-
-# Step 2: Apply this order to the entire dataset
-ratings_trial_grouped$concept <- factor(ratings_trial_grouped$concept, levels = ordered_concepts)
-
-# Step 3: Plot the data using the ordered `concept` values
-p <- ggplot(ratings_trial_grouped, aes(x = concept, y = mean_rating,fill = condition)) +
-  geom_bar(stat='identity') +
-  facet_wrap(~condition, scales = "free_x", ncol = 4) +
-  theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-  labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, .1)))+
-   scale_fill_manual(values = tmp_colors)
-
-p
-ggsave('exp1_mean_ratings.png', plot = p, dpi = 300, height = 10, width = 13)
-
-```
-
-```{r}
-# 
-# my_colors = c("cyan","black")
-# ratings_trial_grouped$lightness
-# 
-# ratings_trial_grouped$lightness <- factor(ratings_trial_grouped$lightness, levels = c("L","D"))
-# 
-# p <- ggplot(ratings_trial_grouped, aes(x = saturation, y = mean_rating, group = lightness, color = lightness)) +
-#   geom_line() +
-#   facet_grid(concept ~ hue, scales = "free_x") +
-#   theme(axis.title.x = element_blank(),
-#         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-#   labs(y = "Mean Rating") +
-#   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1)))+
-#   scale_color_manual(values=my_colors) 
-# 
-# p
-# 
-# ggsave('exp1_lineplots.png', plot = p, dpi = 300, height = 10, width = 8)
-
-
-
-```
-
-```{r}
-
-ratings_trial_grouped
 
 ```
 
@@ -154,21 +119,9 @@ ratings_trial_grouped$lightsat<-paste(ratings_trial_grouped$lightness, ratings_t
 ratings_trial_grouped$light_sat_hue<-paste(ratings_trial_grouped$lightsat, ratings_trial_grouped$hue, sep = "_")
 ratings_trial_grouped$hue<- factor(ratings_trial_grouped$hue, levels = c("R","Y","G","B"))
 ratings_trial_grouped$light_sat_hue<-factor(ratings_trial_grouped$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
-# 
-# p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = lightsat)) +
-#   geom_point(aes(shape=lightsat, color=hue))+
-#   geom_line(aes(color=lightsat)) +
-#   facet_wrap(~concept, scales = "free_x") +
-#   theme(axis.title.x = element_blank(),
-#         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-#   labs(y = "Mean Rating") +
-#   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1)))+
-#   scale_colour_grey()+
-#   scale_fill_discrete(hue_colors)
-
 
 p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = lightsat)) +
-  geom_line(aes(colour = lightness,linetype = saturation),size=.5) +
+  geom_line(aes(colour = lightness,linetype = saturation),linewidth=.5) +
   geom_point(aes(shape = lightsat, fill = light_sat_hue), color = "black") +
   facet_wrap(~concept, scales = "free_x", nrow=4) +
   theme(axis.title.x = element_blank(),
@@ -181,11 +134,11 @@ p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = lightsa
   # For the points: apply custom colors
   scale_fill_manual(values = condition_colors, guide="none" ) +
   # Use filled shapes for the points
-  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23))
+  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23))+
+  theme_classic()
 
 p
-ggsave('facet_emotion_ratings.pdf', dpi=300, height = 8, width=5,plot=p)
-
+ggsave(paste0(plot_dir,'/exp1_facet_emotion_ratings.pdf'), dpi=300, height = 8, width=5,plot=p)
 
 ```
 
@@ -214,18 +167,6 @@ variance_df_maps <- data.frame(
   Component = 1:8,
   CumulativeVariance = cumulative_variance_maps
 )
-
-# Create the plot
-# Create the plot with all x-axis ticks
-# ggplot(variance_df_emotion, aes(x = Component, y = CumulativeVariance)) +
-#   geom_line() +
-#   geom_point() +
-#   scale_x_continuous(breaks = 1:6) +
-#   labs(title = "Cumulative Proportion of Variance Explained for Emotion PCA",
-#        x = "Principal Component",
-#        y = "Cumulative Proportion of Variance") +
-#   theme_minimal()
-# 
 
 # Extract the eigenvalues (squared singular values)
 eigenvalues_emotions <- pc_object_emotions$sdev
@@ -261,7 +202,6 @@ ggplot(eigenvalues_df, aes(x = Component, y = eigenvalues_emotions)) +
 ```
 
 ```{r}
-ratings_trials_grouped_wide
 
 df_transposed <- ratings_trials_grouped_wide %>%
   pivot_longer(cols = -c(hue,saturation, lightness), names_to = "variable", values_to = "value") %>%
@@ -270,12 +210,14 @@ df_transposed <- ratings_trials_grouped_wide %>%
 correlation_matrix<-cor(df_transposed[,-c(1,2,3)])
 
 
-ggcorrplot(correlation_matrix, title = 'correlation between each emotion',ggtheme = ggplot2::theme_gray, hc.order = TRUE)
-# ggsave('corplot_10_16.pdf', 
-#        height=13, 
-#        width=13,
-#        units = "in", 
-#        dpi = 300)
+ggcorrplot(correlation_matrix, title = 'correlation between each emotion',
+           ggtheme = ggplot2::theme_gray, 
+           hc.order = TRUE)
+ggsave(paste0(plot_dir,'/exp1_emotion_correlations.pdf'),
+       height=6,
+       width=6,
+       units = "in",
+       dpi = 300)
 
 ```
 
@@ -290,27 +232,33 @@ rownames(plot_df)<- seq(1,8)
 
 p <- ggplot(plot_df, aes(x = PC2, y = PC1)) + 
   geom_point(color = 'black') +
-  geom_text(aes(label = emotion), vjust = 1, hjust = 2, size = 5, color = 'black') +  # Annotate with filenames
+  geom_text(aes(label = emotion), vjust = 1, hjust = 1, size = 5, color = 'black') +  # Annotate with filenames
   geom_hline(yintercept = 0, linetype = "dashed", color = "red") +  # Horizontal line at y=0
   geom_vline(xintercept = 0, linetype = "dashed", color = "red") +  # Vertical line at x=
   scale_y_continuous(limits = c(-6, 6)) +
   scale_x_continuous(limits = c(-6, 6))+
   labs(x = "PC2", y="PC1")+
-  theme_grey()
+  theme_classic()+
+  theme(axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15) )
+
+  
+  
+
 
 p
-ggsave('emotion_PCA.png', plot = p, dpi = 300, height = 10, width = 10)
+ggsave(paste0(plot_dir,'/exp1_emotion_PCA.pdf'), plot = p, dpi = 300, height = 8, width = 8)
 ```
 
 ```{r}
-write.csv(plot_df, file="../data/affect_words_pcs.csv")
+write.csv(data_dir, file="../data/exp1_affect_words_pcs.csv")
 ```
 
 ```{r}
 
 
 load_image_path<-function(path){
-  return(paste0(current_dir,'/../images/',path,'_02.png'))
+  return(paste0(analysis_dir,'/../images/',path,'_02.png'))
 }
 
 
@@ -332,10 +280,14 @@ p <- ggplot(plot_df, aes(x = PC2, y = PC1)) +
   scale_y_continuous(limits = c(-6, 6)) +
   scale_x_continuous(limits = c(-6, 6))+
   labs(x = "PC1", y="PC2")+
-  theme_grey()
+  theme_classic()+
+  theme(axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15) )
+
+  
 
 p
-ggsave('colored_map_PCA.png', plot = p, dpi = 300, height = 10, width = 10)
+ggsave(paste0(plot_dir,'/exp1_colored_map_PCA.pdf'), plot = p, dpi = 300, height = 8, width = 8)
 
 ```
 
@@ -349,15 +301,20 @@ clusters <- stats::hclust(stats::dist(t(ratings_trials_grouped_wide[,4:ncol(rati
 plot(clusters)
 
 
+  
+
+
 ```
 
 ```{r}
-
-
 ratings_trials_grouped_wide <- ratings_trials_grouped_wide %>%
   mutate(calm_trustworthy = (calm + trustworthy) / 2, positive_exciting_playful = (positive+exciting+playful)/3, serious_disturbing_negative = (serious+disturbing+negative)/3)
 
 
+```
+
+```{r}
+ratings_trial_grouped
 ```
 
 ```{r}
@@ -370,30 +327,15 @@ ratings_trial_grouped <- ratings_trial_grouped %>%
     TRUE ~ NA_character_  # Default case if none of the conditions match
   ))
 
-ratings_trial_grouped_clustered_emotions<-ratings_trial_grouped%>%group_by(clustered_emotion, condition, hue, saturation, lightness, lightsat)%>%summarize(mean_rating = mean(mean_rating))
+ratings_trial_grouped_clustered_emotions<-ratings_trial_grouped%>%group_by(clustered_emotion, hue, saturation, lightness, lightsat,light_sat_hue)%>%summarize(mean_rating = mean(mean_rating))
 
-# 
-# p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rating, group = lightsat)) +
-#   geom_line(aes(colour = lightsat),size=1) +
-#   geom_point(aes(shape = lightsat, fill = hue), color = "black") +
-#   facet_wrap(~clustered_emotion, scales = "free_x", nrow=4) +
-#   theme(axis.title.x = element_blank(),
-#         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-#   labs(y = "Mean Rating") +
-#   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
-#   # For the lines: apply grey scale
-#   scale_colour_grey(name = "Lightness/Saturation") +
-#   # For the points: apply custom colors
-#   scale_fill_manual(values = hue_colors, guide="none" ) +
-#   # Use filled shapes for the points
-#   scale_shape_manual(name="Lightness/Saturation",values = c(21, 22, 23, 24))
 
 
 p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rating, group = lightsat)) +
-  geom_line(aes(colour = factor(-lightness_numeric), 
-                linetype = factor(-saturation_numeric)),  # Add linetype aesthetic
-                size = 1) +
-  geom_point(aes(shape = lightsat, fill = hue), color = "black") +
+  geom_line(aes(colour = factor(lightness), 
+                linetype = factor(saturation)),  # Add linetype aesthetic
+                linewidth = .5) +
+  geom_point(aes(shape = lightsat, fill = light_sat_hue), color = "black") +
   facet_wrap(~clustered_emotion, scales = "free_x", nrow=4) +
   theme(axis.title.x = element_blank(),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
@@ -402,14 +344,15 @@ p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rati
   # For the lines: apply grey scale
   scale_colour_grey(name = "Lightness/Saturation") +
   # For the points: apply custom colors
-  scale_fill_manual(values = hue_colors, guide="none") +
-  # Use filled shapes for the points
-  scale_shape_manual(name="Lightness/Saturation", values = c(21, 22, 23, 24)) +
+  scale_fill_manual(values = condition_colors, guide="none") +
   # Add scale for line types
-  scale_linetype_discrete(name = "Saturation")
+  scale_linetype_discrete(name = "Saturation")+
+  # Use filled shapes for the points
+  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23))+
+  theme_classic()
 
 p
-ggsave('facet_clustered_emotion_ratings.pdf', dpi=300, height = 8, width=5,plot=p)
+ggsave(paste0(plot_dir,'/exp1_facet_clustered_emotion_ratings.pdf'), dpi=300, height = 6, width=3.8,plot=p)
 
 ```
 
@@ -470,6 +413,8 @@ emotion3_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturat
 summary(emotion3_lm)
 
 ```
+
+## Generating Shifted Maps
 
 ```{r}
 shift_to_zero <- function(x, power = 4) {
@@ -539,16 +484,6 @@ colnames(map_df_vals_darkshift)[1] <- "V1"
 data.table::fwrite(map_df_vals_lightshift,'../data/map_values_V2_lightshift.csv')
 data.table::fwrite(map_df_vals_darkshift,'../data/map_values_V2_darkshift.csv')
 
-
-
-
-
-# example_map<- map_df[1,]
-# 
-# v <- as.numeric(example_map)
-# m <- matrix(data = v, nrow = 1000, ncol = 1000)
-# mr <- apply(m, 1, rev)
-# mrt <- t(mr)
 
 
 ```
