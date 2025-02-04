@@ -140,9 +140,20 @@ ggsave('exp1_mean_ratings.png', plot = p, dpi = 300, height = 10, width = 13)
 
 ```{r}
 
+ratings_trial_grouped
+
+```
+
+```{r}
+
 hue_colors<-c('#fc0303','#f2eb0c','#00e357','#032cfc')
+
+condition_colors = c("#005ddf","#00b3ff","#00588d","#3baeea","#00675b","#00c6b1","#005f5a","#00b9b0","#be004f","#ff31a3","#8d2449","#ef7f9c","#3f3c00","#beb600","#3e3b04","#bbb379")
+
 ratings_trial_grouped$lightsat<-paste(ratings_trial_grouped$lightness, ratings_trial_grouped$saturation, sep = "_")
+ratings_trial_grouped$light_sat_hue<-paste(ratings_trial_grouped$lightsat, ratings_trial_grouped$hue, sep = "_")
 ratings_trial_grouped$hue<- factor(ratings_trial_grouped$hue, levels = c("R","Y","G","B"))
+ratings_trial_grouped$light_sat_hue<-factor(ratings_trial_grouped$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
 # 
 # p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = lightsat)) +
 #   geom_point(aes(shape=lightsat, color=hue))+
@@ -157,19 +168,20 @@ ratings_trial_grouped$hue<- factor(ratings_trial_grouped$hue, levels = c("R","Y"
 
 
 p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = lightsat)) +
-  geom_line(aes(colour = lightsat),size=1) +
-  geom_point(aes(shape = lightsat, fill = hue), color = "black") +
+  geom_line(aes(colour = lightness,linetype = saturation),size=.5) +
+  geom_point(aes(shape = lightsat, fill = light_sat_hue), color = "black") +
   facet_wrap(~concept, scales = "free_x", nrow=4) +
   theme(axis.title.x = element_blank(),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   labs(y = "Mean Rating") +
   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
   # For the lines: apply grey scale
-  scale_colour_grey(name = "Lightness/Saturation") +
+  # scale_colour_grey(name = "Lightness/Saturation") +
+  scale_colour_manual(name = "Lightness", values =c("D"='black', "L"='#bdbdbd')) +
   # For the points: apply custom colors
-  scale_fill_manual(values = hue_colors, guide="none" ) +
+  scale_fill_manual(values = condition_colors, guide="none" ) +
   # Use filled shapes for the points
-  scale_shape_manual(name="Lightness/Saturation",values = c(21, 22, 23, 24))
+  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23))
 
 p
 ggsave('facet_emotion_ratings.pdf', dpi=300, height = 8, width=5,plot=p)
