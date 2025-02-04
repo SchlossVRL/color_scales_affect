@@ -123,20 +123,21 @@ ratings_trial_grouped$light_sat_hue<-factor(ratings_trial_grouped$light_sat_hue,
 p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = lightsat)) +
   geom_line(aes(colour = lightness,linetype = saturation),linewidth=.5) +
   geom_point(aes(shape = lightsat, fill = light_sat_hue), color = "black") +
-  facet_wrap(~concept, scales = "free_x", nrow=4) +
-  theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
-         panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
-    strip.background = element_rect(colour = "black", fill = "white"))  # Add background to facet labels +
+  facet_wrap(~concept, scales = "free", nrow=4) + # Add background to facet labels 
   labs(y = "Mean Rating") +
   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
   # For the lines: apply grey scale
   # scale_colour_grey(name = "Lightness/Saturation") +
-  scale_colour_manual(name = "Lightness", values =c("D"='black', "L"='#bdbdbd')) +
-  # For the points: apply custom colors
-  scale_fill_manual(values = condition_colors, guide="none" ) +
+  scale_colour_manual(name = "Lightness", values =c("D"='black', "L"='#bdbdbd'),guide="none") +
+  scale_linetype(guide="none")+
+  scale_fill_manual(values = condition_colors, guide="none") +
   # Use filled shapes for the points
-  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23))+
+  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23),guide="none")+
+  theme(axis.title.x = element_blank(),
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+    # Add spines for all facets
+    panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
+    strip.background = element_rect(colour = "black", fill = "white"))+
   theme_classic()
 
 p
@@ -342,21 +343,21 @@ p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rati
   theme(axis.title.x = element_blank(),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
          panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
-    strip.background = element_rect(colour = "black", fill = "white"))  # Add background to facet labels +
+    strip.background = element_rect(colour = "black", fill = "white"))+  # Add background to facet labels +
   labs(y = "Mean Rating") +
   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
   # For the lines: apply grey scale
-  scale_colour_grey(name = "Lightness/Saturation") +
+  scale_colour_grey(name = "Lightness/Saturation", guide="none") +
   # For the points: apply custom colors
-  scale_fill_manual(values = condition_colors, guide="none") +
+  scale_fill_manual(values = condition_colors, guide="none",) +
   # Add scale for line types
-  scale_linetype_discrete(name = "Saturation")+
+  scale_linetype_discrete(name = "Saturation", guide="none")+
   # Use filled shapes for the points
-  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23))+
+  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23), guide="none")+
   theme_classic()
 
 p
-ggsave(paste0(plot_dir,'/exp1_facet_clustered_emotion_ratings.pdf'), dpi=300, height = 6, width=3.8,plot=p)
+ggsave(paste0(plot_dir,'/exp1_facet_clustered_emotion_ratings.pdf'), dpi=300, height = 6, width=2.8,plot=p)
 
 ```
 

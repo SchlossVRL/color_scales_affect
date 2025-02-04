@@ -35,13 +35,23 @@ install_and_load_packages(packages)
 
 ### Preprocessing
 
-### 
-
 ```{r}
-current_dir<- getwd()
-current_dir
+### set the analysis dir as current_dir
+analysis_dir<- getwd()
 
-data_dir <-paste0(current_dir,'/../data/exp_2')
+data_dir <-paste0(analysis_dir,'/../data/exp_1')
+### if data_dir doesn't exist create it
+if (!dir.exists(data_dir)) {
+  dir.create(data_dir)
+}
+
+plot_dir <- paste0(analysis_dir,'/../plots')
+### if plot_dir doesn't exist create it
+if (!dir.exists(plot_dir)) {
+  dir.create(plot_dir)
+}
+
+data_dir <-paste0(analysis_dir,'/../data/exp_2')
 data_files <-list.files(path = data_dir, full.names = TRUE, pattern="*.csv")
 print(paste0('we have data from ',length(data_files),' participants'))
 
@@ -93,8 +103,6 @@ print(subject_counts)
 ### 
 
 ```{r}
-ratings_trials_grouped_wide
-
 
 pc_object_emotions<-  prcomp(t(ratings_trials_grouped_wide[,-c(1,2,3,4)]),
              center = TRUE,
@@ -125,16 +133,19 @@ p <- ggplot(plot_df, aes(x = PC2, y = PC1)) +
   scale_y_continuous(limits = c(-6, 6)) +
   scale_x_continuous(limits = c(-6, 6))+
   labs(x = "PC2", y="PC1")+
-  theme_grey()
+  theme_classic()+
+  theme(axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15) )
+
 
 p
-
+ggsave(paste0(plot_dir,'/exp2_emotion_PCA.pdf'), plot = p, dpi = 300, height = 8, width = 8)
 ```
 
 ```{r}
 load_image_path<-function(path){
   shift <- strsplit(path,"_")[[1]][4]
-  fname <- paste0(current_dir,'/../images/',strsplit(path,"_")[[1]][1],"_",strsplit(path,"_")[[1]][2],"_",strsplit(path,"_")[[1]][3],"_2_",shift,".png")
+  fname <- paste0(analysis_dir,'/../images/',strsplit(path,"_")[[1]][1],"_",strsplit(path,"_")[[1]][2],"_",strsplit(path,"_")[[1]][3],"_2_",shift,".png")
   return(fname)
 }
 
@@ -157,11 +168,15 @@ p <- ggplot(plot_df, aes(x = PC2, y = PC1)) +
   scale_y_continuous(limits = c(-6, 6)) +
   scale_x_continuous(limits = c(-6, 6))+
   labs(x = "PC1", y="PC2")+
-  theme_grey()
+  theme_classic()+
+  theme(axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15) )
+
+  
 
 p
 
-ggsave('exp2_mapPCA.pdf', dpi=300, height = 7, width=7,plot=p)
+ggsave(paste0(plot_dir,'exp2_colored_map_PCA.pdf'), dpi=300, height = 7, width=7,plot=p)
 ```
 
 ```{r}
@@ -200,107 +215,53 @@ ratings_trial_grouped <-
 ```
 
 ```{r}
+ratings_trial_grouped
+```
+
+```{r}
 
   
-  
-  hue_colors<-c('#fc0303','#f2eb0c','#00e357','#032cfc',"white")
-  ratings_trial_grouped$lightsat<-paste(ratings_trial_grouped$lightness, ratings_trial_grouped$saturation, sep = "_")
-  ratings_trial_grouped$hue<- factor(ratings_trial_grouped$hue, levels = c("R","Y","G","B"))
-  
-  # 
- 
+
+hue_colors<-c('#fc0303','#f2eb0c','#00e357','#032cfc',"white")
+
+condition_colors = c("#005ddf","#00b3ff","#00588d","#3baeea","#00675b","#00c6b1","#005f5a","#00b9b0","#be004f","#ff31a3","#8d2449","#ef7f9c","#3f3c00","#beb600","#3e3b04","#bbb379")
+
+ratings_trial_grouped$lightsat<-paste(ratings_trial_grouped$lightness, ratings_trial_grouped$saturation, sep = "_")
+ratings_trial_grouped$hue<- factor(ratings_trial_grouped$hue, levels = c("R","Y","G","B"))
+ratings_trial_grouped$light_sat_hue<-paste(ratings_trial_grouped$lightsat, ratings_trial_grouped$hue, sep = "_")
+ratings_trial_grouped$light_sat_hue<-factor(ratings_trial_grouped$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
+
+# 
+
 p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = interaction(lightsat, shift), shape = factor(shift))) +
-    geom_line(aes(colour = factor(lightness_numeric, levels=c(1,-1)),
-                  linetype = factor(saturation_numeric,levels=c(1,-1))),
-                size = 1) +
-    geom_point(aes(fill =hue)) +
-    facet_grid(shift ~ concept, scales = "free_x") +  # Changed from facet_wrap to facet_grid
-    theme(axis.title.x = element_blank(),
-          axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-    labs(y = "Mean Rating") +
-    scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
-    scale_colour_grey(name = "Lightness/Saturation", guide="none") +
-    scale_fill_manual(values = hue_colors, guide="none") +
-    scale_shape_manual(name="Lightness/Saturation", values = c(21, 22, 23, 24), guide= "none") +
-    scale_linetype_discrete(name = "Saturation", guide="none")
-# p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating)) +
-#   geom_line(aes(colour = factor(lightness_numeric, levels=c(1,-1)),
-#                 linetype = factor(saturation_numeric,levels=c(1,-1)),
-#                 group = interaction(lightsat, shift)),
-#                 size = 1) +
-#   geom_point(aes(fill = hue,  # Modify fill based on shift
-#        shape = factor(shift))) +
-#   facet_wrap(~concept, scales = "free_x", nrow=4) +
-#   theme(axis.title.x = element_blank(),
-#         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-#   labs(y = "Mean Rating") +
-#   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
-#   scale_colour_grey(name = "Lightness/Saturation") +
-#   scale_fill_manual(values = c(hue_colors), guide="none") +  # Add white to the color scale
-#   # scale_shape_manual(name="Lightness/Saturation", values = c(21, 22, 23, 24)) +
-#   scale_linetype_discrete(name = "Saturation")
-
-
-p
-
-ggsave('exp2_full_design.pdf', dpi=300, height = 5, width=8,plot=p)
-
-```
-
-```{r}
-
-  hue_colors<-c('#fc0303','#f2eb0c','#00e357','#032cfc')
-  ratings_trial_grouped$lightsat<-paste(ratings_trial_grouped$lightness, ratings_trial_grouped$saturation, sep = "_")
-  ratings_trial_grouped$hue<- factor(ratings_trial_grouped$hue, levels = c("R","Y","G","B"))
-  
-  # 
-  p <- ratings_trial_grouped%>%group_by(concept,hue,shift)%>%summarize(mean_rating=mean(mean_rating))%>%ggplot( aes(x = hue, y = mean_rating, group = shift)) +
-    geom_line(size = 1) +
-  geom_point(aes( fill= shift) ,shape=21) +
-  facet_wrap(~concept, scales = "free_x", nrow=4) +
+  geom_line(aes(colour = factor(lightness_numeric, levels=c(1,-1)),
+                linetype = factor(saturation_numeric,levels=c(1,-1))),
+              size = .5) +
+  geom_point(aes(fill =light_sat_hue)) +
+  facet_grid(shift ~ concept, scales = "free",) +  # Changed from facet_wrap to facet_grid
   theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+       axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) 
-  # scale_fill_manual(values = hue_colors, guide="none") 
-
-
+  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
+  scale_colour_grey(name = "Lightness/Saturation", guide="none") +
+  scale_fill_manual(values = condition_colors, guide="none") +
+  scale_shape_manual(name="Lightness/Saturation", values = c(21, 22, 23, 24), guide= "none") +
+  scale_linetype_discrete(name = "Saturation", guide="none")+
+  theme_classic()+
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+    # Add spines for all facets
+    panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
+    strip.background = element_rect(colour = "black", fill = "white")  # Add background to facet labels
+  ) 
 p
-ggsave('exp2_hue.pdf', dpi=300, height = 8, width=3,plot=p)
+
+ggsave(paste0(plot_dir,'\exp2_facet_emotion_ratings.pdf'), dpi=300, height = 5, width=8,plot=p)
+
 ```
 
-```{r}
-  p <- ratings_trial_grouped%>%group_by(concept,lightness,shift)%>%summarize(mean_rating=mean(mean_rating))%>%ggplot( aes(x = lightness, y = mean_rating, group = shift)) +
-    geom_line(size = 1) +
-  geom_point(aes( fill= shift) ,shape=21) +
-  facet_wrap(~concept, scales = "free_x", nrow=4) +
-  theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-  labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) 
-  # scale_fill_manual(values = hue_colors, guide="none") 
-
-
-p
-ggsave('exp2_lightness.pdf', dpi=300, height = 8, width=3,plot=p)
-```
-
-```{r}
-  p <- ratings_trial_grouped%>%group_by(concept,saturation,shift)%>%summarize(mean_rating=mean(mean_rating))%>%ggplot( aes(x = saturation, y = mean_rating, group = shift)) +
-    geom_line(size = 1) +
-  geom_point(aes( fill= shift) ,shape=21) +
-  facet_wrap(~concept, scales = "free_x", nrow=4) +
-  theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-  labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) 
-  # scale_fill_manual(values = hue_colors, guide="none") 
-
-
-p
-ggsave('exp2_saturation.pdf', dpi=300, height = 8, width=3,plot=p)
-```
-
+### Linear Regression Models
 ```{r}
 d<- ratings_trial_grouped%>%filter(concept=='positive')
 m1<-lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric), data =d)
@@ -372,6 +333,7 @@ d<- ratings_trials_exp%>%filter(concept=='positive')
 m_positive<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
 tab_model(m_positive,p.val = "kr", show.df = TRUE,file='positive_lmer_results.html')
+summary(m_positive)
 ```
 
 ```{r}
@@ -381,6 +343,26 @@ d<- ratings_trials_exp%>%filter(concept=='negative')
 m_negative<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
 tab_model(m_negative,p.val = "kr", show.df = TRUE,file='negative_lmer_results.html')
+summary(m_negative)
+```
+
+```{r}
+d<- ratings_trials_exp%>%filter(concept=='calm')
+
+m_calm<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
+
+tab_model(m_calm,p.val = "kr", show.df = TRUE,file='calm_lmer_results.html')
+summary(m_calm)
+
+```
+
+```{r}
+d<- ratings_trials_exp%>%filter(concept=='startling')
+
+m_startling<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
+
+tab_model(m_startling,p.val = "kr", show.df = TRUE,file='startling_lmer_results.html')
+summary(m_startling)
 ```
 
 ```{r}
@@ -392,14 +374,125 @@ tab_model(m_calm,p.val = "kr", show.df = TRUE,file='calm_lmer_results.html')
 ```
 
 ```{r}
-d<- ratings_trials_exp%>%filter(concept=='startling')
 
-m_startling<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
-
-tab_model(m_startling,p.val = "kr", show.df = TRUE,file='startling_lmer_results.html')
 ```
 
 ```{r}
+for(this_concept in c('positive','negative','calm','startling')){
+  d<- ratings_trials_exp%>%filter(concept==this_concept)
+  # Process the data
+  d <- d %>%
+    mutate(
+      lightness_numeric = case_when(
+        lightness_numeric == -1 ~ "dark",
+        lightness_numeric == 1 ~ "light",
+        TRUE ~ as.character(lightness_numeric)
+      ),
+      saturation_numeric = case_when(
+        saturation_numeric == -1 ~ "unsaturated",
+        saturation_numeric == 1 ~ "saturated",
+        TRUE ~ as.character(saturation_numeric)
+      ),
+      shift_numeric = case_when(
+        shift_numeric == -1 ~ "darkshift",
+        shift_numeric == 1 ~ "lightshift",
+        TRUE ~ as.character(shift_numeric)
+      )
+    ) %>%
+    group_by(lightness_numeric, saturation_numeric, shift_numeric) %>%
+    summarize(
+      mean_rating = mean(response),
+      se_rating = sd(response) / sqrt(n())
+    )
+  
+  # Create the plot
+  p <- ggplot(d, aes(
+    x = factor(lightness_numeric, levels = c("dark", "light")),
+    y = mean_rating,
+    color = factor(shift_numeric, levels = c("darkshift", "lightshift")),
+    group = shift_numeric
+  )) +
+    geom_line(position = position_dodge(0.)) +
+    geom_point(size = 3, position = position_dodge(0.)) +
+    geom_errorbar(aes(
+      ymin = mean_rating - se_rating,
+      ymax = mean_rating + se_rating
+    ),
+    position = position_dodge(0.),
+    width = 0.2
+    ) +
+    facet_wrap(~factor(saturation_numeric, levels = c("unsaturated", "saturated"))) +
+    labs(
+      title = this_concept,
+      x = "Lightness",
+      y = "Mean Rating",
+      color = "Shift"
+    ) +
+  scale_y_continuous(limits = c(0, .8), expand = expansion(mult = c(0, .1))) +
+    theme_classic()
+  
+ggsave(
+    filename = paste0(plot_dir,"/", this_concept, ".pdf"),  # Correct string formatting for R
+    plot = p,
+    width = 8,  # Adjust width as needed
+    height = 6  # Adjust height as needed
+  )
+}
+# 
+# d<- ratings_trials_exp%>%filter(concept=='positive')
+# d %>%
+#   mutate(
+#     lightness_numeric = case_when(
+#       lightness_numeric == -1 ~ "dark",
+#       lightness_numeric == 1 ~ "light",
+#       TRUE ~ as.character(lightness_numeric)
+#     ),
+#     saturation_numeric = case_when(
+#       saturation_numeric == -1 ~ "unsaturated",
+#       saturation_numeric == 1 ~ "saturated",
+#       TRUE ~ as.character(saturation_numeric)
+#     ),
+#     shift_numeric = case_when(
+#       shift_numeric == -1 ~ "darkshift",
+#       shift_numeric == 1 ~ "lightshift",
+#       TRUE ~ as.character(shift_numeric)
+#     )
+#   ) %>%
+#   group_by(lightness_numeric, saturation_numeric, shift_numeric) %>%
+#   summarize(
+#     mean_rating = mean(response),
+#     se_rating = sd(response) / sqrt(n())
+#   ) %>%
+#   ggplot(aes(
+#     x = factor(lightness_numeric, levels = c("dark", "light")),
+#     y = mean_rating,
+#     color = factor(shift_numeric, levels = c("darkshift", "lightshift")),
+#     group = shift_numeric
+#   )) +
+#   geom_line(position = position_dodge(0.)) +
+#   geom_point(size = 3, position = position_dodge(0.)) +
+#   geom_errorbar(aes(
+#     ymin = mean_rating - se_rating,
+#     ymax = mean_rating + se_rating
+#   ),
+#   position = position_dodge(0.),
+#   width = 0.2
+#   ) +
+#   facet_wrap(~factor(saturation_numeric, levels = c("unsaturated", "saturated"))) +
+#   labs(
+#     title='Positive',
+#     x = "Lightness",
+#     y = "Mean Rating",
+#     color = "Shift"
+#   ) +
+#   theme_classic()
+
+
+
+```
+
+```{r}
+
 d<- ratings_trials_exp%>%filter(concept=='positive')
 d %>%
   mutate(
@@ -430,28 +523,24 @@ d %>%
     color = factor(shift_numeric, levels = c("darkshift", "lightshift")),
     group = shift_numeric
   )) +
-  geom_line(position = position_dodge(0.5)) +
-  geom_point(size = 3, position = position_dodge(0.5)) +
+  geom_line(position = position_dodge(0.)) +
+  geom_point(size = 3, position = position_dodge(0.)) +
   geom_errorbar(aes(
     ymin = mean_rating - se_rating,
     ymax = mean_rating + se_rating
   ),
-  position = position_dodge(0.5),
+  position = position_dodge(0.),
   width = 0.2
   ) +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
   facet_wrap(~factor(saturation_numeric, levels = c("unsaturated", "saturated"))) +
   labs(
-    title='Positive',
+    title='Calm',
     x = "Lightness",
     y = "Mean Rating",
     color = "Shift"
   ) +
-  theme_minimal()
+  theme_classic()
 
-
-
-```
-
-```{r}
 
 ```
