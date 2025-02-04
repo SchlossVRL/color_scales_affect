@@ -125,7 +125,9 @@ p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = lightsa
   geom_point(aes(shape = lightsat, fill = light_sat_hue), color = "black") +
   facet_wrap(~concept, scales = "free_x", nrow=4) +
   theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+         panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
+    strip.background = element_rect(colour = "black", fill = "white"))  # Add background to facet labels +
   labs(y = "Mean Rating") +
   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
   # For the lines: apply grey scale
@@ -338,7 +340,9 @@ p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rati
   geom_point(aes(shape = lightsat, fill = light_sat_hue), color = "black") +
   facet_wrap(~clustered_emotion, scales = "free_x", nrow=4) +
   theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+         panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
+    strip.background = element_rect(colour = "black", fill = "white"))  # Add background to facet labels +
   labs(y = "Mean Rating") +
   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
   # For the lines: apply grey scale
