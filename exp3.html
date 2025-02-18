@@ -97,8 +97,8 @@
 
         const taskTextExp = {
             positive_positive: "Which region (circle or square) shows <strong>more</strong> carbon storage?",
-            positive_negative: "Which region (circle or square) shows <strong>less</strong> carbon storage?",
-            negative_positive: "Which region (circle or square) shows <strong>more</strong> carbon storage?",
+            positive_negative: "Which region (circle or square) shows <strong>more</strong> carbon storage?",
+            negative_positive: "Which region (circle or square) shows <strong>less</strong> carbon storage?",
             negative_negative: "Which region (circle or square) shows <strong>less</strong> carbon storage?"
 
         };
@@ -170,10 +170,13 @@
                         // Try both square_ and circle_ patterns
                         let direction;
                         if (filename.includes('square_')) {
-                            direction = filename.split('square_')[1].split('.')[0];
+                            // direction = filename.split('square_')[1].split('.')[0];
+                            direction = 'right';
                         } else if (filename.includes('circle_')) {
-                            direction = filename.split('circle_')[1].split('.')[0];
+                            // direction = filename.split('circle_')[1].split('.')[0];
+                            direction = 'left';
                         }
+                        console.log(direction);
                         if (condition === 'positive_positive' || condition === 'positive_negative') {
                             return direction === 'right' ? 'arrowright' : 'arrowleft';
                         } else {
@@ -253,6 +256,8 @@
 
         // Create example trials
         const trial_stims = allTrialImages[condition];
+        // shuffle the trial stims
+        jsPsych.randomization.shuffle(trial_stims);
         const trials = trial_stims.map(createTrial);
         // const trials = [
         //     'images/exp3/B_L_S_11_square_left.png',
