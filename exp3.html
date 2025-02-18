@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Schloss Lab Experiment</title>
+    <!-- Load in the jspsych tools, plugins,and layout -->
+    <script src="jsPsych/jspsych.js"></script>
+
+    <script src="jsPsych/jspsych-image-slider-response_InstrMAS.js"></script>
+    <script src="jsPsych/plugin-image-slider-response.js"></script>
+    <script src="jsPsych/plugin-html-slider-response.js"></script>
+    <script src="jsPsych/jspsych-image-slider-responseKM.js"></script>
+    <script src="jsPsych/plugin-html-button-response.js"></script>
+    <script src="jsPsych/plugin-image-keyboard-response-exp3.js"></script>
+    <script src="jsPsych/plugin-html-button-response.js"></script>
+    <script src="jsPsych/plugin-html-keyboard-response.js"></script>
+    <script src="jsPsych/plugin-survey-html-form.js"></script>
+    <script src="jsPsych/plugin-survey-multi-select.js"></script>
+    <script src="jsPsych/plugin-survey-multi-choice.js"></script>
+    <script src="jsPsych/plugin-survey-likert.js"></script>
+    <script src="jsPsych/plugin-survey-text.js"></script>
+    <script src="jsPsych/plugin-fullscreen.js"></script>
+    <script src="jsPsych/plugin-preload.js"></script>
+    <script src="imagePaths.js"></script>
+    <script src="exp1_conditions.js"></script>
+    <link href="jsPsych/jspsych.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <!--------------------- Here is where the experiment is created ------------------------------------------->
+    <script>
+        // Set background color to gray //
+        // document.body.style.backgroundColor = "rgb(128,128,128)"
+        const jsPsych = initJsPsych({
+            on_finish: function () {
+                jsPsych.data.displayData();
+            }
+        });
+
+        // Shuffle questions
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+
+        // Survey questions
+        const scale = [
+            "Strongly disagree",
+            "Disagree",
+            "Somewhat disagree",
+            "Neither agree nor disagree",
+            "Somewhat agree",
+            "Agree",
+            "Strongly agree"
+        ];
+
+
+
+        // Make condition be sampled from a set of 4 options prompt_coloration
+        // it can be positive_positive, positive_negative, negative_positive, negative_negative
+        const condition = jsPsych.randomization.sampleWithoutReplacement([
+            'positive_positive',
+            'positive_negative',
+            'negative_positive',
+            'negative_negative'
+        ], 1)[0];
+
+        // Common text for all conditions
+        const baseText = `You may have heard discussions in the news or on social media about protecting the environment. One effort to protect the environment is to limit the amount of carbon dioxide in the atmosphere. Forests naturally help take carbon dioxide out of the atmosphere because trees need carbon to grow. Protecting forests so they can continue to remove carbon from the atmosphere is one way that we can help keep our planet healthy. The maps below show the carbon stored in forests from regions sampled around the world.`;
+
+        // Condition-specific text
+        const conditionText = {
+            positive_positive: "Recent reports on the ongoing efforts to increase forest carbon storage indicate that we are having great success. Many people are excited about the current progress.",
+            negative_positive: "Recent reports on the ongoing efforts to increase forest carbon storage indicate that we are facing serious difficulties. Many people are disappointed about the current difficulties.",
+            positive_negative: "Recent reports on the ongoing efforts to increase forest carbon storage indicate that we are having great success. Many people are excited about the current progress.",
+            negative_negative: "Recent reports on the ongoing efforts to increase forest carbon storage indicate that we are facing serious difficulties. Many people are disappointed about the current difficulties."
+
+        };
+
+        const taskText = {
+            positive_positive: "Your task is to report which region (circle or square) shows greater carbon storage.",
+            positive_negative: "Your task is to report which region (circle or square) shows greater carbon storage.",
+            negative_positive: "Your task is to report which region (circle or square) shows lesser carbon storage.",
+            negative_negative: "Your task is to report which region (circle or square) shows lesser carbon storage."
+        };
+
+        const taskTextExp = {
+            positive_positive: "Which region (circle or square) shows greater carbon storage?",
+            positive_negative: "Which region (circle or square) shows greater carbon storage?",
+            negative_positive: "Which region (circle or square) shows lesser carbon storage?",
+            negative_negative: "Which region (circle or square) shows lesser carbon storage?"
+
+        };
+
+        // Function to create the full instructions HTML
+        function createInstructionsHTML() {
+            return `
+            <div class="instructions" style="text-align: center; width: 900px; margin: 0 auto;">
+                 <p>${taskTextExp[condition]}</p>
+            </div>
+        `;
+        }
+
+
+        // Function to create Instruction Trial
+        function createInstructionTrial(condition) {
+            if (condition === 'positive_positive' || condition === 'negative_positive') {
+                example_image = 'images/exp3/examples_L.png';
+            } else {
+                example_image = 'images/exp3/examples_D.png';
+            }
+            return {
+                type: jsPsychHtmlButtonResponse,
+                stimulus: `
+               <div class="instructions" style="text-align: left; width: 900px; margin: 0 auto;">
+                    <p>${baseText}</p>
+                    <div style="text-align: center;">
+                        <img src=${example_image} style="width: 80%; height: auto;">
+                    </div>
+                    <p>${conditionText[condition]}</p>
+                    <p>In this experiment, you will see a set of maps showing the amount of carbon stored in a specific area. Each map will have two regions that are labeled, one with a circle mark (○) and one with square mark (□)</p>
+                    <p>${taskText[condition]}</p>
+                </div>`
+                ,
+                choices: ['Continue'],
+                data: {
+                    task: 'instructions'
+                }
+            };
+        }
+
+
+        // Example trial structure
+        function createTrial(imageFile) {
+            return {
+                type: jsPsychImageKeyboardResponse,
+                stimulus: imageFile,
+                stimulus_height: 350,
+
+                post_trial_gap: 100,
+                choices: ['ArrowLeft', 'ArrowRight'],
+                prompt: function () {
+                    return `
+                    <div class="trial-container">
+                        ${createInstructionsHTML()}
+                        <p class="response-prompt">Press left arrow for circle, right arrow for square</p>
+                        <p class="key-mapping" style="text-align: center; margin-top: 10px; font-size: 50px;">
+                             ← &nbsp;&nbsp;   → <br>
+                            ○  &nbsp;&nbsp;  □
+                        </p>
+
+                    </div>
+                `;
+                },
+                data: {
+                    condition: condition,
+                    image: imageFile,
+                    correct_response: function (filename, condition) {
+                        // Try both square_ and circle_ patterns
+                        let direction;
+                        if (filename.includes('square_')) {
+                            direction = filename.split('square_')[1].split('.')[0];
+                        } else if (filename.includes('circle_')) {
+                            direction = filename.split('circle_')[1].split('.')[0];
+                        }
+                        if (condition === 'positive_positive' || condition === 'positive_negative') {
+                            return direction === 'right' ? 'arrowright' : 'arrowleft';
+                        } else {
+                            return direction === 'right' ? 'arrowleft' : 'arrowright';
+                        }
+                        // return direction === 'right' ? 'arrowright' : 'arrowleft';
+                    }(imageFile, condition)
+                },
+                on_finish: function (data) {
+                    // Add logic to check if response was correct
+                    data.correct = data.response == data.correct_response;
+                }
+            };
+        }
+
+        const instruction_trial = createInstructionTrial(condition);
+        const allTrialImages = {
+            'positive_positive': [
+                'images/exp3/B_L_S_1_square_right.png',
+                'images/exp3/B_L_S_2_circle_right.png',
+                'images/exp3/B_L_S_3_square_left.png',
+                'images/exp3/B_L_S_4_circle_left.png',
+                'images/exp3/B_L_S_5_square_right.png',
+                'images/exp3/B_L_S_6_circle_right.png',
+                'images/exp3/B_L_S_7_square_left.png',
+                'images/exp3/B_L_S_8_circle_left.png',
+                'images/exp3/B_L_S_9_square_right.png',
+                'images/exp3/B_L_S_10_circle_right.png',
+                'images/exp3/B_L_S_11_square_left.png',
+                'images/exp3/B_L_S_12_circle_left.png',
+            ],
+            'negative_positive': [
+                'images/exp3/B_L_S_1_square_right.png',
+                'images/exp3/B_L_S_2_circle_right.png',
+                'images/exp3/B_L_S_3_square_left.png',
+                'images/exp3/B_L_S_4_circle_left.png',
+                'images/exp3/B_L_S_5_square_right.png',
+                'images/exp3/B_L_S_6_circle_right.png',
+                'images/exp3/B_L_S_7_square_left.png',
+                'images/exp3/B_L_S_8_circle_left.png',
+                'images/exp3/B_L_S_9_square_right.png',
+                'images/exp3/B_L_S_10_circle_right.png',
+                'images/exp3/B_L_S_11_square_left.png',
+                'images/exp3/B_L_S_12_circle_left.png',
+            ],
+            'positive_negative': [
+                'images/exp3/B_D_U_1_square_right.png',
+                'images/exp3/B_D_U_2_circle_right.png',
+                'images/exp3/B_D_U_3_square_left.png',
+                'images/exp3/B_D_U_4_circle_left.png',
+                'images/exp3/B_D_U_5_square_right.png',
+                'images/exp3/B_D_U_6_circle_right.png',
+                'images/exp3/B_D_U_7_square_left.png',
+                'images/exp3/B_D_U_8_circle_left.png',
+                'images/exp3/B_D_U_9_square_right.png',
+                'images/exp3/B_D_U_10_circle_right.png',
+                'images/exp3/B_D_U_11_square_left.png',
+                'images/exp3/B_D_U_12_circle_left.png',
+            ],
+
+            'negative_negative': [
+                'images/exp3/B_D_U_1_square_right.png',
+                'images/exp3/B_D_U_2_circle_right.png',
+                'images/exp3/B_D_U_3_square_left.png',
+                'images/exp3/B_D_U_4_circle_left.png',
+                'images/exp3/B_D_U_5_square_right.png',
+                'images/exp3/B_D_U_6_circle_right.png',
+                'images/exp3/B_D_U_7_square_left.png',
+                'images/exp3/B_D_U_8_circle_left.png',
+                'images/exp3/B_D_U_9_square_right.png',
+                'images/exp3/B_D_U_10_circle_right.png',
+                'images/exp3/B_D_U_11_square_left.png',
+                'images/exp3/B_D_U_12_circle_left.png',
+
+            ]
+        };
+
+        // Create example trials
+        const trial_stims = allTrialImages[condition];
+        const trials = trial_stims.map(createTrial);
+        // const trials = [
+        //     'images/exp3/B_L_S_11_square_left.png',
+        //     'images/exp3/B_D_U_2_circle_right.png',
+        //     'images/exp3/B_D_U_10_circle_right.png'
+        // ].map(createTrial);
+
+        // Preload images
+        const preload = {
+            type: jsPsychPreload,
+            images: trials.map(trial => trial.stimulus)
+        };
+
+        // Create timeline and run experiment
+        const timeline = [
+            preload,
+            instruction_trial,
+            ...trials
+        ];
+        // Add to timeline after your existing trials
+        // timeline.push(survey);
+
+        // Survey questions
+        // const questions = [
+        //     {
+        //         prompt: "More research funds should be devoted towards increasing carbon storage in forests",
+        //         labels: scale,
+        //         required: true
+        //     },
+        //     {
+        //         prompt: "People should do more research on how to improve carbon storage in forests",
+        //         labels: scale,
+        //         required: true
+        //     },
+        //     {
+        //         prompt: "Capturing carbon by planting trees is an effective approach towards environmental protection",
+        //         labels: scale,
+        //         required: true
+        //     },
+        //     {
+        //         prompt: "Increasing carbon storage in forests is a poor investment of research funds.",
+        //         labels: scale,
+        //         required: true
+        //     },
+        //     {
+        //         prompt: "People should shift their focus toward other ways to help the environment rather than carbon storage in forests",
+        //         labels: scale,
+        //         required: true
+        //     },
+        //     {
+        //         prompt: "Carbon capture in forests will not have a big enough impact to protect the environment",
+        //         labels: scale,
+        //         required: true
+        //     }
+        // ];
+
+        const climateQ1 = {
+            type: jsPsychSurveyLikert,
+            scale_width: 600,
+            questions: [
+                {
+                    prompt: "More research funds should be devoted towards increasing carbon storage in forests.",
+                    labels: scale,
+                    required: true
+                }
+            ],
+            data: {
+                question_idx: 'climate_q_1',
+            }
+        };
+
+        const climateQ2 = {
+            type: jsPsychSurveyLikert,
+            scale_width: 600,
+            questions: [
+                {
+                    prompt: "People should do more research on how to improve carbon storage in forests.",
+                    labels: scale,
+                    required: true
+                }
+            ],
+            data: {
+                question_idx: 'climate_q_2',
+            }
+        };
+
+        const climateQ3 = {
+            type: jsPsychSurveyLikert,
+            scale_width: 600,
+            questions: [
+                {
+                    prompt: "Capturing carbon by planting trees is an effective approach towards environmental protection.",
+                    labels: scale,
+                    required: true
+                }
+            ],
+            data: {
+                question_idx: 'climate_q_3',
+            }
+        };
+
+        const climateQ4 = {
+            type: jsPsychSurveyLikert,
+            scale_width: 600,
+            questions: [
+                {
+                    prompt: "Increasing carbon storage in forests is a poor investment of research funds.",
+                    labels: scale,
+                    required: true
+                }
+            ],
+            data: {
+                question_idx: 'climate_q_4',
+            }
+        };
+
+        const climateQ5 = {
+            type: jsPsychSurveyLikert,
+            scale_width: 600,
+            questions: [
+                {
+                    prompt: "People should shift their focus toward other ways to help the environment rather than carbon storage in forests.",
+                    labels: scale,
+                    required: true
+                }
+            ],
+            data: {
+                question_idx: 'climate_q_5',
+            }
+        };
+
+        const climateQ6 = {
+            type: jsPsychSurveyLikert,
+            scale_width: 600,
+            questions: [
+                {
+                    prompt: "Carbon capture in forests will not have a big enough impact to protect the environment.",
+                    labels: scale,
+                    required: true
+                }
+            ],
+            data: {
+                question_idx: 'climate_q_6',
+            }
+        };
+
+        allClimateQuestions = [climateQ1, climateQ2, climateQ3, climateQ4, climateQ5, climateQ6];
+        /// randomize the order using jspsych then push to timeline
+        allClimateQuestions = jsPsych.randomization.shuffle(allClimateQuestions);
+        timeline.push(...allClimateQuestions);
+
+
+        // Binary choice question
+        const climateChangeRealQ = {
+            type: jsPsychSurveyMultiChoice,
+            questions: [
+                {
+                    prompt: "Do you think human-caused climate change is happening?",
+                    options: ["Yes", "No"],
+                    required: true
+                }
+            ],
+            data: {
+                question_idx: 'climate_change_real',
+            }
+        };
+
+        // Worry question with Likert scale
+        const climateWorryQ = {
+            type: jsPsychSurveyLikert,
+            scale_width: 600,
+            questions: [
+                {
+                    prompt: "How worried are you about climate change?",
+                    labels: [
+                        "Not at all worried",
+                        "Slightly worried",
+                        "Somewhat worried",
+                        "Very worried",
+                        "Extremely worried"
+                    ],
+                    required: true
+                }
+            ],
+            data: {
+                question_idx: 'climate_worry',
+            }
+        };
+
+        // Add both to timeline after your previous survey
+        timeline.push(climateChangeRealQ);
+        timeline.push(climateWorryQ);
+
+        // Political Affiliation Question
+        var politicalAffiliation = {
+            scale_width: 400,
+            type: jsPsychSurveyLikert,
+            questions: [{
+                prompt: "Generally speaking, do you usually think of yourself as a Republican, a Democrat, an Independent, or what?",
+                labels: ["Democrat", "Republican", "Independent"],
+                required: true
+            }],
+            data: {
+                question_idx: 'political_affiliation_1'
+            }
+        };
+
+        // Strong Republican Question
+        var strongRepublican = {
+            scale_width: 400,
+            type: jsPsychSurveyLikert,
+            questions: [{
+                prompt: "Would you call yourself a strong Republican or a not very strong Republican?",
+                labels: ["Strong Republican", "Not Very Strong Republican"],
+                required: true
+            }],
+            data: {
+                question_idx: 'political_affiliation_2',
+                political_q_type: 'strong_republican'
+            }
+        };
+
+        // Strong Democrat Question
+        var strongDemocrat = {
+            scale_width: 400,
+            type: jsPsychSurveyLikert,
+            questions: [{
+                prompt: "Would you call yourself a strong Democrat or a not very strong Democrat?",
+                labels: ["Strong Democrat", "Not Very Strong Democrat"],
+                required: true
+            }],
+            data: {
+                question_idx: 'political_affiliation_2',
+                political_q_type: 'strong_democrat'
+            }
+        };
+
+        // Closer Party Question
+        var closerParty = {
+            scale_width: 400,
+            type: jsPsychSurveyLikert,
+            questions: [{
+                prompt: "Do you think of yourself as closer to the Republican or Democratic party?",
+                labels: ["Republican", "Democrat", "No Preference"],
+                required: true
+            }],
+            data: {
+                question_idx: 'political_affiliation_2',
+                political_q_type: 'independent'
+            }
+        };
+
+        // Create a conditional timeline
+        var conditionalQuestions = {
+            timeline: [strongRepublican],
+            conditional_function: function () {
+                var data = jsPsych.data.get().last(1).values()[0];
+                return data.response.Q0 === 1; // Index 1 corresponds to "Republican"
+            }
+        };
+
+        var conditionalQuestions2 = {
+            timeline: [strongDemocrat],
+            conditional_function: function () {
+                var data = jsPsych.data.get().last(1).values()[0];
+                return data.response.Q0 === 0; // Index 0 corresponds to "Democrat"
+            }
+        };
+
+        var conditionalQuestions3 = {
+            timeline: [closerParty],
+            conditional_function: function () {
+                var data = jsPsych.data.get().last(1).values()[0];
+                return data.response.Q0 === 2; // Index 2 corresponds to "Independent"
+            }
+        };
+
+        // Add everything to the main timeline
+        timeline.push(politicalAffiliation);
+        timeline.push(conditionalQuestions);
+        timeline.push(conditionalQuestions2);
+        timeline.push(conditionalQuestions3);
+
+
+
+        //run timeline
+        jsPsych.run(timeline);
+    </script>
+</body>
+
+</html> 
