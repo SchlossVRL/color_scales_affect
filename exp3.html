@@ -255,9 +255,9 @@
         };
 
         // Create example trials
-        const trial_stims = allTrialImages[condition];
+        let trial_stims = allTrialImages[condition];
         // shuffle the trial stims
-        jsPsych.randomization.shuffle(trial_stims);
+        trial_stims = jsPsych.randomization.sampleWithoutReplacement(trial_stims);
         const trials = trial_stims.map(createTrial);
         // const trials = [
         //     'images/exp3/B_L_S_11_square_left.png',
