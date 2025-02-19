@@ -56,10 +56,10 @@
 
         // condition can be it can be positive_positive, positive_negative, negative_positive, negative_negative
         let condition_num = await jsPsychPipe.getCondition("ybnmigNrFpsV");
-        if(condition_num == 0){
-            /// if condition num is 0 then randomly pick 1, 2, or 3 and assign it to condition_num
-            condition_num = Math.floor(Math.random() * 3) + 1;
-        }
+        // if(condition_num == 0){
+        //     /// if condition num is 0 then randomly pick 1, 2, or 3 and assign it to condition_num
+        //     condition_num = Math.floor(Math.random() * 3) + 1;
+        // }
         const condition = {
             0: 'positive_positive',
             1: 'positive_negative',
@@ -334,7 +334,7 @@
             scale_width: 600,
             questions: [
                 {
-                    prompt: "More research funds should be devoted towards increasing carbon storage in forests.",
+                    prompt: "More research funds should be spent on increasing carbon storage in forests.",
                     labels: scale,
                     required: true
                 }
@@ -350,7 +350,7 @@
             scale_width: 600,
             questions: [
                 {
-                    prompt: "People should do more research on how to improve carbon storage in forests.",
+                    prompt: "People should continue researching how to improve carbon storage in forests.",
                     labels: scale,
                     required: true
                 }
@@ -366,7 +366,7 @@
             scale_width: 600,
             questions: [
                 {
-                    prompt: "Capturing carbon by planting trees is an effective approach towards environmental protection.",
+                    prompt: "Carbon storage in forests is a good approach for protecting the environment.",
                     labels: scale,
                     required: true
                 }
@@ -382,7 +382,7 @@
             scale_width: 600,
             questions: [
                 {
-                    prompt: "Increasing carbon storage in forests is a poor investment of research funds.",
+                    prompt: "Funding for research on carbon storage in forests should be cut.",
                     labels: scale,
                     required: true
                 }
@@ -398,7 +398,7 @@
             scale_width: 600,
             questions: [
                 {
-                    prompt: "People should shift their focus toward other ways to help the environment rather than carbon storage in forests.",
+                    prompt: "Research on how to improve carbon storage in forests is a waste of time.",
                     labels: scale,
                     required: true
                 }
@@ -414,7 +414,7 @@
             scale_width: 600,
             questions: [
                 {
-                    prompt: "Carbon capture in forests will not have a big enough impact to protect the environment.",
+                    prompt: "Storing carbon by planting trees is a bad way to protect the environment.",
                     labels: scale,
                     required: true
                 }
