@@ -36,6 +36,7 @@
 
     <!--------------------- Here is where the experiment is created ------------------------------------------->
     <script>
+    async function createExperiment() {
 
         const jsPsych = initJsPsych({
         });
@@ -54,12 +55,12 @@
 
 
         // condition can be it can be positive_positive, positive_negative, negative_positive, negative_negative
-        const condition = jsPsych.randomization.sampleWithoutReplacement([
-            'positive_positive',
-            'positive_negative',
-            'negative_positive',
-            'negative_negative'
-        ], 1)[0];
+        const condition_num = await jsPsychPipe.getCondition("ybnmigNrFpsV");
+        const condition = {
+            0: 'positive_positive',
+            1: 'positive_negative',
+            2: 'negative_positive',
+            3: 'negative_negative'}[condition_num];
 
         // Common text for all conditions
         const baseText = `You may have heard discussions in the news or on social media about protecting the environment. One effort to protect the environment is to limit the amount of carbon dioxide in the atmosphere. Forests naturally help take carbon dioxide out of the atmosphere because trees need carbon to grow. Protecting forests so they can continue to remove carbon from the atmosphere is one way that we can help keep our planet healthy. The maps below show the carbon stored in forests from regions sampled around the world.`;
@@ -72,6 +73,16 @@
             negative_negative: "Recent reports on the ongoing efforts to increase forest carbon storage indicate that we are facing serious difficulties. Many people are disappointed about the current difficulties."
 
         };
+
+        const subject_id = jsPsych.randomization.randomID(10);
+        const workerId = jsPsych.data.getURLVariable('workerID')||subject_id;
+        const filename = `${subject_id}.csv`;
+        jsPsych.data.addProperties({
+                                subject_id: subject_id,
+                                condition_num: condition_num,
+                                condition: condition,
+                                workerId: workerId
+                            });
 
 
         // Function to create Instruction Trial
@@ -523,15 +534,15 @@
                 var responseValue = response.Q0;
                 if (responseValue === 0) {
                     jsPsych.addNodeToEndOfTimeline({
-                        timeline: [strongDemocrat,age_lang_demo, debrief ]
+                        timeline: [strongDemocrat,age_lang_demo, save_data, debrief ]
                     });
                 } else if (responseValue === 1) {
                     jsPsych.addNodeToEndOfTimeline({
-                        timeline: [strongRepublican, age_lang_demo, debrief]
+                        timeline: [strongRepublican, age_lang_demo, save_data, debrief]
                     });
                 } else if (responseValue === 2) {
                     jsPsych.addNodeToEndOfTimeline({
-                        timeline: [closerParty, age_lang_demo, debrief]
+                        timeline: [closerParty, age_lang_demo, save_data, debrief]
                     });
                 }
             }
@@ -553,10 +564,21 @@
                 `,
             post_trial_gap: 100,
         };
+        const save_data = {
+            type: jsPsychPipe,
+            action: "save",
+            experiment_id: "ybnmigNrFpsV",
+            filename: filename,
+            data_string: ()=>jsPsych.data.get().csv()
+            };
+
 
 
         //run timeline
         jsPsych.run(timeline);
+    }
+
+    createExperiment();
     </script>
 </body>
 
