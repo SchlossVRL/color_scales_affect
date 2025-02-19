@@ -151,11 +151,12 @@
                             direction = 'left';
                         }
                         console.log(direction);
-                        if (condition === 'positive_positive' || condition === 'positive_negative') {
-                            return direction === 'right' ? 'arrowright' : 'arrowleft';
-                        } else {
-                            return direction === 'right' ? 'arrowleft' : 'arrowright';
-                        } d
+                        return direction === 'right' ? 'arrowright' : 'arrowleft';
+                        // if (condition === 'positive_positive' || condition === 'positive_negative') {
+                        //     return direction === 'right' ? 'arrowright' : 'arrowleft';
+                        // } else {
+                        //     return direction === 'right' ? 'arrowleft' : 'arrowright';
+                        // } 
                     }(imageFile, condition)
                 },
                 on_finish: function (data) {
