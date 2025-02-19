@@ -55,7 +55,11 @@
 
 
         // condition can be it can be positive_positive, positive_negative, negative_positive, negative_negative
-        const condition_num = await jsPsychPipe.getCondition("ybnmigNrFpsV");
+        let condition_num = await jsPsychPipe.getCondition("ybnmigNrFpsV");
+        if(condition_num == 0){
+            /// if condition num is 0 then randomly pick 1, 2, or 3 and assign it to condition_num
+            condition_num = Math.floor(Math.random() * 3) + 1;
+        }
         const condition = {
             0: 'positive_positive',
             1: 'positive_negative',
