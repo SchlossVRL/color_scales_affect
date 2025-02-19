@@ -75,13 +75,15 @@
         };
 
         const subject_id = jsPsych.randomization.randomID(10);
-        const workerId = jsPsych.data.getURLVariable('workerID')||subject_id;
+        const workerId = jsPsych.data.getURLVariable('workerId')||subject_id;
+        const hitId = jsPsych.data.getURLVariable('hitId');
         const filename = `${subject_id}.csv`;
         jsPsych.data.addProperties({
                                 subject_id: subject_id,
                                 condition_num: condition_num,
                                 condition: condition,
-                                workerId: workerId
+                                workerId: workerId,
+                                hitId: hitId
                             });
 
 
