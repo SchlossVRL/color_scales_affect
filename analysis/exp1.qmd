@@ -65,17 +65,31 @@ ratings_trials_exp<- ratings_trials %>% filter(practiceTrial != 'true')
 ratings_trials_exp$response<- as.numeric(ratings_trials_exp$response)
 ratings_trials_exp$response<- (ratings_trials_exp$response + 200)/400
 
+
+ratings_trials_exp <- ratings_trials_exp %>%
+  mutate(clustered_emotion = case_when(
+    concept %in% c("positive", "exciting","playful") ~ "emotion1",
+    concept %in% c("calm", "trustworthy") ~ "emotion2",
+    concept %in% c("serious","negative","disturbing") ~ "emotion3",
+    TRUE ~ NA_character_  # Default case if none of the conditions match
+  ))
+
+
 ## check for within subject reliability
 ## TODO
 
 ### here we averagae over repetition
 ratings_trial_grouped_subject<- ratings_trials_exp %>% group_by(subject_id, hue, saturation, lightness,concept) %>%summarise(mean_rating = mean(response)) 
 
-
 ### here we average over subject
-ratings_trial_grouped<- ratings_trial_grouped_subject %>% group_by( hue, saturation, lightness,concept) %>%summarise(mean_rating = mean(mean_rating)) 
+ratings_trial_grouped<- ratings_trial_grouped_subject %>% group_by( hue, saturation, lightness,concept) %>%summarise(se_rating = sd(mean_rating)/sqrt(n()),mean_rating = mean(mean_rating) )
 
-ratings_trials_grouped_wide<-ratings_trial_grouped %>%
+ratings_trial_grouped_subject_clustered_emotions<- ratings_trials_exp %>% group_by(subject_id, hue, saturation, lightness,clustered_emotion) %>%summarise(mean_rating = mean(response)) 
+
+
+ratings_trial_grouped_clustered_emotions<-ratings_trial_grouped_subject_clustered_emotions%>%group_by( hue, saturation, lightness,clustered_emotion)%>%summarize(se_rating =sd(mean_rating)/sqrt(n()), mean_rating = mean(mean_rating))
+
+ratings_trials_grouped_wide<-ratings_trial_grouped%>%select(-se_rating) %>%
   pivot_wider(names_from = concept, values_from = mean_rating)
 
 ratings_trials_grouped_wide
@@ -107,10 +121,6 @@ ishihara_trials%>%group_by(subject_id)%>%summarize(mean_ishihara = mean(ishihara
 
 ```{r}
 
-```
-
-```{r}
-
 hue_colors<-c('#fc0303','#f2eb0c','#00e357','#032cfc')
 
 condition_colors = c("#005ddf","#00b3ff","#00588d","#3baeea","#00675b","#00c6b1","#005f5a","#00b9b0","#be004f","#ff31a3","#8d2449","#ef7f9c","#3f3c00","#beb600","#3e3b04","#bbb379")
@@ -119,26 +129,33 @@ ratings_trial_grouped$lightsat<-paste(ratings_trial_grouped$lightness, ratings_t
 ratings_trial_grouped$light_sat_hue<-paste(ratings_trial_grouped$lightsat, ratings_trial_grouped$hue, sep = "_")
 ratings_trial_grouped$hue<- factor(ratings_trial_grouped$hue, levels = c("R","Y","G","B"))
 ratings_trial_grouped$light_sat_hue<-factor(ratings_trial_grouped$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
+ratings_trial_grouped$concept<-factor(ratings_trial_grouped$concept, levels = c("playful", "positive","exciting","negative", "serious","disturbing","trustworthy","calm"))
 
 p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = lightsat)) +
-  geom_line(aes(colour = lightness,linetype = saturation),linewidth=.5) +
-  geom_point(aes(shape = lightsat, fill = light_sat_hue), color = "black") +
-  facet_wrap(~concept, scales = "free", nrow=4) + # Add background to facet labels 
+  geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
+  geom_line(aes(colour = lightness, linetype = saturation), linewidth = 0.5) +
+  geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
+                width = 0.2, color = "black", linewidth = 0.3) + 
+  geom_point(aes(shape = lightsat, fill = light_sat_hue), stroke=NA,size=2.5) +
+  
+  facet_wrap(~concept, scales = "free", nrow = 4, strip.position = "right") +  # Move facet labels to the left
   labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
   # For the lines: apply grey scale
-  # scale_colour_grey(name = "Lightness/Saturation") +
-  scale_colour_manual(name = "Lightness", values =c("D"='black', "L"='#bdbdbd'),guide="none") +
-  scale_linetype(guide="none")+
-  scale_fill_manual(values = condition_colors, guide="none") +
+  scale_colour_manual(name = "Lightness", values = c("D" = 'black', "L" = '#bdbdbd'), guide = "none") +
+  scale_linetype(guide = "none") +
+  scale_fill_manual(values = condition_colors, guide = "none") +
   # Use filled shapes for the points
-  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23),guide="none")+
-  theme(axis.title.x = element_blank(),
+  scale_shape_manual(name = "Lightness/Saturation", values = c("D_S" = 22, "L_S" = 21, "L_U" = 24, "D_U" = 23), guide = "none") +
+  theme_classic() +
+  theme(
+    axis.title.x = element_blank(),
     axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
-    # Add spines for all facets
-    panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
-    strip.background = element_rect(colour = "black", fill = "white"))+
-  theme_classic()
+    panel.border = element_rect(colour = "black", fill = NA, linewidth = .5),  # Add border around each facet
+    strip.background = element_rect(colour = "black", fill = "white"),  # Add background to facet labels
+    panel.spacing.y = unit(1, "lines"),  # Increase space between rows
+    strip.placement = "outside"  # Ensure strip labels are placed outside the plot area
+  )
 
 p
 ggsave(paste0(plot_dir,'/exp1_facet_emotion_ratings.pdf'), dpi=300, height = 8, width=5,plot=p)
@@ -317,44 +334,59 @@ ratings_trials_grouped_wide <- ratings_trials_grouped_wide %>%
 ```
 
 ```{r}
-ratings_trial_grouped
+ratings_trial_grouped_clustered_emotions$clustered_emotion<-factor(ratings_trial_grouped_clustered_emotions$clustered_emotion, levels = c("emotion1", "emotion3", "emotion2"))
 ```
 
 ```{r}
 
-ratings_trial_grouped <- ratings_trial_grouped %>%
-  mutate(clustered_emotion = case_when(
-    concept %in% c("positive", "exciting","playful") ~ "emotion1",
-    concept %in% c("calm", "trustworthy") ~ "emotion2",
-    concept %in% c("serious","negative","disturbing") ~ "emotion3",
-    TRUE ~ NA_character_  # Default case if none of the conditions match
-  ))
+# ratings_trial_grouped <- ratings_trial_grouped %>%
+#   mutate(clustered_emotion = case_when(
+#     concept %in% c("positive", "exciting","playful") ~ "emotion1",
+#     concept %in% c("calm", "trustworthy") ~ "emotion2",
+#     concept %in% c("serious","negative","disturbing") ~ "emotion3",
+#     TRUE ~ NA_character_  # Default case if none of the conditions match
+#   ))
 
-ratings_trial_grouped_clustered_emotions<-ratings_trial_grouped%>%group_by(clustered_emotion, hue, saturation, lightness, lightsat,light_sat_hue)%>%summarize(mean_rating = mean(mean_rating))
-
+# 
+# 
+# ratings_trial_grouped_clustered_emotions<-ratings_trial_grouped%>%group_by(clustered_emotion, hue, saturation, lightness, lightsat,light_sat_hue)%>%summarize(mean_rating = mean(mean_rating))
+ratings_trial_grouped_clustered_emotions$lightsat<-paste(ratings_trial_grouped_clustered_emotions$lightness, ratings_trial_grouped_clustered_emotions$saturation, sep = "_")
+ratings_trial_grouped_clustered_emotions$light_sat_hue<-paste(ratings_trial_grouped_clustered_emotions$lightsat, ratings_trial_grouped_clustered_emotions$hue, sep = "_")
+ratings_trial_grouped_clustered_emotions$hue<- factor(ratings_trial_grouped_clustered_emotions$hue, levels = c("R","Y","G","B"))
+ratings_trial_grouped_clustered_emotions$light_sat_hue<-factor(ratings_trial_grouped_clustered_emotions$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
 
 
 p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rating, group = lightsat)) +
+  geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
   geom_line(aes(colour = factor(lightness), 
                 linetype = factor(saturation)),  # Add linetype aesthetic
                 linewidth = .5) +
-  geom_point(aes(shape = lightsat, fill = light_sat_hue), color = "black") +
-  facet_wrap(~clustered_emotion, scales = "free_x", nrow=4) +
+  geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
+                width = 0.2, color = "black", linewidth = 0.3) +  # Adjust width and appearance of error bars
+  geom_point(aes(shape = lightsat, fill = light_sat_hue), stroke=NA,size=2.5) +
+  facet_wrap(~clustered_emotion, scales = "free_x", nrow = 4, strip.position = "right") +  # Move facet labels to the right
   theme(axis.title.x = element_blank(),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
-         panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
-    strip.background = element_rect(colour = "black", fill = "white"))+  # Add background to facet labels +
+        panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
+        strip.background = element_rect(colour = "black", fill = "white")) +  # Add background to facet labels
   labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
   # For the lines: apply grey scale
-  scale_colour_grey(name = "Lightness/Saturation", guide="none") +
+  scale_colour_grey(name = "Lightness/Saturation", guide = "none") +
   # For the points: apply custom colors
-  scale_fill_manual(values = condition_colors, guide="none",) +
+  scale_fill_manual(values = condition_colors, guide = "none") +
   # Add scale for line types
-  scale_linetype_discrete(name = "Saturation", guide="none")+
+  scale_linetype_discrete(name = "Saturation", guide = "none") +
   # Use filled shapes for the points
-  scale_shape_manual(name="Lightness/Saturation",values = c("D_S" = 22,  "L_S"= 21, "L_U" = 24,  "D_U"= 23), guide="none")+
-  theme_classic()
+  scale_shape_manual(name = "Lightness/Saturation", values = c("D_S" = 22, "L_S" = 21, "L_U" = 24, "D_U" = 23), guide = "none") +
+  theme_classic() +
+  theme(
+    axis.title.x = element_blank(),
+    panel.border = element_rect(colour = "black", fill = NA, linewidth = .5),  # Add border around each facet
+    strip.background = element_rect(colour = "black", fill = "white"),  # Add background to facet labels
+    panel.spacing.y = unit(1, "lines"),  # Increase space between rows
+    strip.placement = "outside"  # Ensure strip labels are placed outside the plot area
+  )
 
 p
 ggsave(paste0(plot_dir,'/exp1_facet_clustered_emotion_ratings.pdf'), dpi=300, height = 6, width=2.8,plot=p)
@@ -418,6 +450,58 @@ emotion3_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturat
 summary(emotion3_lm)
 
 ```
+
+## LMER Models
+
+```{r}
+ctrl <- lmerControl(optimizer="bobyqa", optCtrl=list(maxfun=5e5))
+
+ratings_trials_exp$RG_numeric<-case_when(
+  ratings_trials_exp$hue == 'R' ~ 1,
+  ratings_trials_exp$hue == 'G' ~ -1,
+  ratings_trials_exp$hue %in% c('B', 'Y') ~ 0,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
+
+ratings_trials_exp$BY_numeric<-case_when(
+  ratings_trials_exp$hue == 'B' ~ 1,
+  ratings_trials_exp$hue == 'Y' ~ -1,
+  ratings_trials_exp$hue %in% c('R', 'G') ~ 0,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
+
+ratings_trials_exp$lightness_numeric<-case_when(
+  ratings_trials_exp$lightness == 'L' ~ 1,
+  ratings_trials_exp$lightness == 'D' ~ -1,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
+
+ratings_trials_exp$saturation_numeric<-case_when(
+  ratings_trials_exp$saturation == 'S' ~ 1,
+  ratings_trials_exp$saturation == 'U' ~ -1,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
+
+
+emotion1_df<-ratings_trials_exp%>%filter(clustered_emotion=='emotion1')
+emotion2_df<-ratings_trials_exp%>%filter(clustered_emotion=='emotion2')
+emotion3_df<-ratings_trials_exp%>%filter(clustered_emotion=='emotion3')
+
+emotion1_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion1_df,control=ctrl)
+summary(emotion1_lmer)
+
+
+emotion2_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion2_df,control=ctrl)
+summary(emotion2_lmer)
+
+
+
+emotion3_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion3_df,control=ctrl)
+summary(emotion3_lmer)
+
+```
+
+
 
 ## Generating Shifted Maps
 

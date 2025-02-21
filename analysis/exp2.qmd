@@ -7,10 +7,6 @@ editor: visual
 ### Load packages
 
 ```{r}
-
-```
-
-```{r}
 # List of packages
 packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","sjPlot")
 
@@ -85,9 +81,9 @@ ratings_trial_grouped_subject<- ratings_trials_exp %>% group_by(subject_id, hue,
 
 
 ### here we average over subject
-ratings_trial_grouped<- ratings_trial_grouped_subject %>% group_by( hue, saturation, lightness,shift,concept) %>%summarise(mean_rating = mean(mean_rating)) 
+ratings_trial_grouped<- ratings_trial_grouped_subject %>% group_by( hue, saturation, lightness,shift,concept) %>%summarise(se_rating = sd(mean_rating)/sqrt(n()), mean_rating = mean(mean_rating)) 
 
-ratings_trials_grouped_wide<-ratings_trial_grouped %>%
+ratings_trials_grouped_wide<-ratings_trial_grouped %>%select(-se_rating)%>%
   pivot_wider(names_from = concept, values_from = mean_rating)
 
 ratings_trials_grouped_wide
@@ -230,36 +226,44 @@ ratings_trial_grouped$lightsat<-paste(ratings_trial_grouped$lightness, ratings_t
 ratings_trial_grouped$hue<- factor(ratings_trial_grouped$hue, levels = c("R","Y","G","B"))
 ratings_trial_grouped$light_sat_hue<-paste(ratings_trial_grouped$lightsat, ratings_trial_grouped$hue, sep = "_")
 ratings_trial_grouped$light_sat_hue<-factor(ratings_trial_grouped$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
+ratings_trial_grouped$shift<-factor(ratings_trial_grouped$shift, levels = c("lightshift","darkshift"))
+ratings_trial_grouped$concept<-factor(ratings_trial_grouped$concept, levels = c("positive","negative","calm","startling"))
 
-# 
-
-p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = interaction(lightsat, shift), shape = factor(shift))) +
-  geom_line(aes(colour = factor(lightness_numeric, levels=c(1,-1)),
-                linetype = factor(saturation_numeric,levels=c(1,-1))),
-              size = .5) +
-  geom_point(aes(fill =light_sat_hue)) +
-  facet_grid(shift ~ concept, scales = "free",) +  # Changed from facet_wrap to facet_grid
+p <- ggplot(ratings_trial_grouped, aes(x = hue, y = mean_rating, group = interaction(lightsat, shift), shape = factor(shift))) + 
+  geom_line(aes(colour = factor(lightness_numeric, levels = c(1, -1)),  
+                linetype = factor(saturation_numeric, levels = c(1, -1))),  
+            size = 0.5) +
+  geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
+                width = 0.2, color = "black", linewidth = 0.3) + 
+  geom_point(aes(shape = lightsat, fill = light_sat_hue), stroke=NA, size=2.5) +
+  geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
+  facet_grid(concept ~ shift, scales = "free") +  
   theme(axis.title.x = element_blank(),
-       axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
-  scale_colour_grey(name = "Lightness/Saturation", guide="none") +
-  scale_fill_manual(values = condition_colors, guide="none") +
-  scale_shape_manual(name="Lightness/Saturation", values = c(21, 22, 23, 24), guide= "none") +
-  scale_linetype_discrete(name = "Saturation", guide="none")+
-  theme_classic()+
+  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
+  scale_colour_grey(name = "Lightness/Saturation", guide = "none") +
+  scale_fill_manual(values = condition_colors, guide = "none") +
+  scale_shape_manual(name = "Lightness/Saturation", 
+                     values = c("D_S" = 22, "L_S" = 21, "L_U" = 24, "D_U" = 23), guide = "none") +
+  scale_linetype_discrete(name = "Saturation", guide = "none") +  
+  theme_classic() +
   theme(
     axis.title.x = element_blank(),
-    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
-    # Add spines for all facets
-    panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
-    strip.background = element_rect(colour = "black", fill = "white")  # Add background to facet labels
+    panel.border = element_rect(colour = "black", fill = NA, linewidth = .5),  # Add border around each facet
+    strip.background = element_rect(colour = "black", fill = "white"),  # Add background to facet labels
+    panel.spacing.y = unit(1, "lines")  # Increase space between rows
   ) 
-p
 
-ggsave(paste0(plot_dir,'\exp2_facet_emotion_ratings.pdf'), dpi=300, height = 5, width=8,plot=p)
+p
+ggsave(paste0(plot_dir,'/exp2_facet_emotion_ratings.pdf'), dpi=300, height = 8, width=5,plot=p)
 
 ```
+
+```{r}
+
+```
+
 
 ### Linear Regression Models
 ```{r}
