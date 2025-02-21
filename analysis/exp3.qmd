@@ -554,9 +554,8 @@ ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
                  group = color_condition,
                  color = color_condition))+
   facet_wrap(~prompt_condition, scales = "free")+
-  geom_ribbon(aes(ymin = mean_avg_score - sem_avg_score,
+  geom_errorbar(aes(ymin = mean_avg_score - sem_avg_score,
                   ymax = mean_avg_score + sem_avg_score),
-              alpha = 0.2,
               position = position_dodge(0.1)) +
   geom_line(position = position_dodge(0.1)) +
   geom_point(size = 3, position = position_dodge(0.1)) +
@@ -575,9 +574,8 @@ ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
                  group = color_condition,
                  color = color_condition))+
   facet_wrap(~prompt_condition, scales = "free")+
-  geom_ribbon(aes(ymin = mean_avg_score_f1 - sem_avg_score_f1,
+  geom_errorbar(aes(ymin = mean_avg_score_f1 - sem_avg_score_f1,
                   ymax = mean_avg_score_f1 + sem_avg_score_f1),
-              alpha = 0.2,
               position = position_dodge(0.1)) +
   geom_line(position = position_dodge(0.1)) +
   geom_point(size = 3, position = position_dodge(0.1)) +
@@ -596,9 +594,8 @@ ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
                  group = color_condition,
                  color = color_condition))+
   facet_wrap(~prompt_condition, scales = "free")+
-  geom_ribbon(aes(ymin = mean_avg_score_f2 - sem_avg_score_f2,
+  geom_errorbar(aes(ymin = mean_avg_score_f2 - sem_avg_score_f2,
                   ymax = mean_avg_score_f2 + sem_avg_score_f2),
-              alpha = 0.2,
               position = position_dodge(0.1)) +
   geom_line(position = position_dodge(0.1)) +
   geom_point(size = 3, position = position_dodge(0.1)) +
