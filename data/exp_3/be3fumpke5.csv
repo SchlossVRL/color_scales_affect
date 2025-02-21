@@ -1,0 +1,43 @@
+"success","timeout","failed_images","failed_audio","failed_video","trial_type","trial_index","time_elapsed","internal_node_id","subject_id","condition_num","condition","workerId","hitId","rt","response","question_order","stimulus","task","image","correct_response","correct","question_idx","political_q_type"
+"true","false","[]","[]","[]","preload","0","1052","0.0-0.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","","","","","","","","","",""
+"","","","","","survey-multi-select","1","7583","0.0-1.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","6527","{""Consent"":[""<strong>I consent</strong>""]}","[0]","","","","","","",""
+"","","","","","html-button-response","2","86965","0.0-2.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","79378","0","","
+               <div class=""instructions"" style=""text-align: left; width: 900px; margin: 0 auto;"">
+                    <p>You may have heard discussions in the news or on social media about protecting the environment. One effort to protect the environment is to limit the amount of carbon dioxide in the atmosphere. Forests naturally help take carbon dioxide out of the atmosphere because trees need carbon to grow. Protecting forests so they can continue to remove carbon from the atmosphere is one way that we can help keep our planet healthy. The maps below show the carbon stored in forests from regions sampled around the world.</p>
+                    <div style=""text-align: center;"">
+                        <img src=images/exp3/examples_D.png style=""width: 90%; height: auto;"">
+                    </div>
+                    <p>Recent reports on the ongoing efforts to increase forest carbon storage indicate that we are facing serious difficulties. Many people are disappointed about the current difficulties.</p>
+                    <p>In this experiment, you will see a set of maps showing the amount of carbon stored in specific areas. Each map will have two regions that will be labeled with square (□) marks.</p>
+                    <p>Your task is to report which of the two region shows more carbon storage using the left & right arrow keys.</p>
+                </div>","instructions","","","","",""
+"","","","","","image-keyboard-response","3","93348","0.0-3.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","6371","arrowright","","images/exp3/B_D_U_9_right.png","map_trial","images/exp3/B_D_U_9_right.png","arrowright","true","",""
+"","","","","","image-keyboard-response","4","94640","0.0-4.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","1187","arrowleft","","images/exp3/B_D_U_7_left.png","map_trial","images/exp3/B_D_U_7_left.png","arrowleft","true","",""
+"","","","","","image-keyboard-response","5","95800","0.0-5.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","1056","arrowleft","","images/exp3/B_D_U_8_left.png","map_trial","images/exp3/B_D_U_8_left.png","arrowleft","true","",""
+"","","","","","image-keyboard-response","6","96877","0.0-6.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","973","arrowleft","","images/exp3/B_D_U_12_left.png","map_trial","images/exp3/B_D_U_12_left.png","arrowleft","true","",""
+"","","","","","image-keyboard-response","7","97684","0.0-7.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","704","arrowright","","images/exp3/B_D_U_6_right.png","map_trial","images/exp3/B_D_U_6_right.png","arrowright","true","",""
+"","","","","","image-keyboard-response","8","98543","0.0-8.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","755","arrowright","","images/exp3/B_D_U_1_right.png","map_trial","images/exp3/B_D_U_1_right.png","arrowright","true","",""
+"","","","","","image-keyboard-response","9","99847","0.0-9.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","1200","arrowright","","images/exp3/B_D_U_5_right.png","map_trial","images/exp3/B_D_U_5_right.png","arrowright","true","",""
+"","","","","","image-keyboard-response","10","100729","0.0-10.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","779","arrowleft","","images/exp3/B_D_U_3_left.png","map_trial","images/exp3/B_D_U_3_left.png","arrowleft","true","",""
+"","","","","","image-keyboard-response","11","101582","0.0-11.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","749","arrowleft","","images/exp3/B_D_U_4_left.png","map_trial","images/exp3/B_D_U_4_left.png","arrowleft","true","",""
+"","","","","","image-keyboard-response","12","102343","0.0-12.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","657","arrowleft","","images/exp3/B_D_U_11_left.png","map_trial","images/exp3/B_D_U_11_left.png","arrowleft","true","",""
+"","","","","","image-keyboard-response","13","103342","0.0-13.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","895","arrowright","","images/exp3/B_D_U_10_right.png","map_trial","images/exp3/B_D_U_10_right.png","arrowright","true","",""
+"","","","","","image-keyboard-response","14","104132","0.0-14.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","686","arrowright","","images/exp3/B_D_U_2_right.png","map_trial","images/exp3/B_D_U_2_right.png","arrowright","true","",""
+"","","","","","html-button-response","15","109080","0.0-15.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","4846","0","","
+            <div class=""instructions"" style=""text-align: left; width:600px; margin: 0 auto;"">
+            <p>Great job! You have evaluated all the maps.</p>
+            <p>You will now be presented with a series of statements where you will be asked to indicate your level of agreement or disagreement.<br>                Following that, you will be asked to answer a few demographic questions.</p>
+            <p>Press 'Continue' when you are ready.</p>
+            </div>
+            ","","","","","",""
+"","","","","","survey-likert","16","113186","0.0-16.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","3988","{""Q0"":0}","[0]","","","","","","climate_q_5",""
+"","","","","","survey-likert","17","117923","0.0-17.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","4632","{""Q0"":0}","[0]","","","","","","climate_q_6",""
+"","","","","","survey-likert","18","120782","0.0-18.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","2756","{""Q0"":6}","[0]","","","","","","climate_q_1",""
+"","","","","","survey-likert","19","124628","0.0-19.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","3742","{""Q0"":0}","[0]","","","","","","climate_q_4",""
+"","","","","","survey-likert","20","128108","0.0-20.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","3378","{""Q0"":6}","[0]","","","","","","climate_q_2",""
+"","","","","","survey-likert","21","130944","0.0-21.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","2731","{""Q0"":6}","[0]","","","","","","climate_q_3",""
+"","","","","","survey-multi-choice","22","133599","0.0-22.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","2551","{""Q0"":""Yes""}","[0]","","","","","","climate_change_real",""
+"","","","","","survey-likert","23","135970","0.0-23.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","2267","{""Q0"":3}","[0]","","","","","","climate_worry",""
+"","","","","","survey-likert","24","138023","0.0-24.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","1949","{""Q0"":0}","[0]","","","","","","political_affiliation_1",""
+"","","","","","survey-likert","25","140175","0.0-25.0-0.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","2050","{""Q0"":0}","[0]","","","","","","political_affiliation_2","strong_democrat"
+"","","","","","survey-text","26","157724","0.0-25.0-1.0","be3fumpke5","3","negative_negative","AZ4MMVSAY9L3X","32PT7WK7DMQZDFWWTTDZQ9DVF3I3D3","17436","{""Age"":""40"",""Gender"":""Male"",""Race/ethnicity"":""White"",""Languages"":""English""}","","","","","","","",""
