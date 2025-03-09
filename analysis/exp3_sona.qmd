@@ -1,13 +1,14 @@
 ---
-title: "exp3"
+title: "exp3_sona"
 format: html
 editor: visual
 ---
 
 ```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","jsonlite","simr")
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","jsonlite")
 ```
+
 
 ```{r}
 
@@ -40,7 +41,7 @@ if (!dir.exists(plot_dir)) {
   dir.create(plot_dir)
 }
 
-data_dir <-paste0(analysis_dir,'/../data/exp_3_replication')
+data_dir <-paste0(analysis_dir,'/../data/exp_3_sona')
 data_files <-list.files(path = data_dir, full.names = TRUE, pattern="*.csv")
 print(paste0('we have data from ',length(data_files),' participants'))
 
@@ -277,8 +278,6 @@ print(fa_result$loadings, cutoff = 0.3)
 fa.diagram(fa_result)
 
 factor_scores <- factor.scores(climate_questions, fa_result)
-composite_scores$factor1 <- factor_scores$scores[,1]
-composite_scores$factor2 <- factor_scores$scores[,2]
 ```
 
 ```{r}
@@ -499,7 +498,7 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
   scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
   theme(legend.position = "top")+
-  ylim(c(3,6))
+  ylim(c(0,6))
 
 ```
 
@@ -619,6 +618,7 @@ ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
 
 ```
 
+
 ```{r}
 
 composite_scores_affil_grouped<- composite_scores%>%group_by(affiliation_coarse,color_condition, climate_worry)%>%
@@ -652,9 +652,12 @@ ggplot(composite_scores_affil_grouped, aes(x = climate_worry,
 
 ```
 
+
 ```{r}
 composite_scores_affil_grouped%>%group_by(affiliation_coarse, color_condition)%>%summarize(sample_size=sum(n))
 ```
+
+
 
 ```{r}
 ggplot(composite_scores, aes(x = climate_worry)) +
@@ -705,87 +708,4 @@ summary(m1_factor2)
 
 # cobj<-corr.test(composite_scores$affiliation_score_c, composite_scores$climate_worry_c)
 # cobj$r
-```
-
-```{r}
-m1_fa1<- lm(factor1 ~ color_condition_c*prompt_condition_c*climate_worry_c*affiliation_score_c, data = composite_scores)
-summary(m1_fa1)
-
-m1_fa2<- lm(factor2 ~ color_condition_c*prompt_condition_c*climate_worry_c*affiliation_score_c, data = composite_scores)
-summary(m1_fa2)
-```
-
-```{r}
-
-m2<- lm( climate_q_1 ~ color_condition_c*prompt_condition_c*climate_worry_c, data = composite_scores)
-summary(m2)
-
-m3<- lm(climate_q_2 ~ color_condition_c*prompt_condition_c*climate_worry_c, data = composite_scores)
-summary(m3)
-
-m4<- lm(climate_q_3 ~ color_condition_c*prompt_condition_c*climate_worry_c, data = composite_scores)
-summary(m4)
-
-m5<- lm(climate_q_4 ~ color_condition_c*prompt_condition_c*climate_worry_c, data = composite_scores)
-summary(m5)
-
-m6<- lm(climate_q_5 ~ color_condition_c*prompt_condition_c*climate_worry_c, data = composite_scores)
-summary(m6)
-
-m7<- lm(climate_q_6 ~ color_condition_c*prompt_condition_c*climate_worry_c, data = composite_scores)
-summary(m7)
-
-```
-
-```{r}
-
-   
-summary(m1_factor1)
-
-
-power_sim <- powerSim(m1_factor, test = fixed("color_condition_c:affiliation_score_c", method="f"), nsim = 100)
-print(power_sim)
-
-
-extended_data <- extend(m1_factor1, along = "subject_id", n = 500)
-
-power_sim_extended <- powerSim(extended_data, test = fixed("color_condition_c:climate_worry_c"), nsim = 1000)
-
-# Print the power estimate
-print(power_sim_extended)
-
-sample_sizes<-numeric()
-powers<-numeric()
-
-for (i in seq(100, 800, by = 50)) {
-extended_data <- extend(m1_factor2, along = "subject_id", n = i)
-power_sim_extended <- powerSim(extended_data, test = fixed("color_condition_c:affiliation_score_c"), nsim = 1000)
-
-sample_sizes <- c(sample_sizes, i)
-powers <- c(powers, (power_sim_extended$x)/10)  # Save numeric power value
-}
-power_analysis_df<- data.frame(sample_sizes,powers)
-power_analysis_df$sample_sizes<-as.numeric(power_analysis_df$sample_sizes)
-power_analysis_df$powers<-as.numeric(power_analysis_df$powers)
-ggplot(power_analysis_df, aes(x = sample_sizes, y = powers)) +
-  geom_point()+
-  geom_line() +
-  labs(title = "Power Analysis",
-       x = "Sample Size",
-       y = "Power") +
-  geom_hline(yintercept = 90, linetype = "dashed", color = "red") +
-  ylim(0,100)
-
-```
-
-```{r}
-library(simr)
-pc2 <- powerCurve(extended_data, test = fixed("color_condition_c:affiliation_score_c"), sim=extended_data,along="subject_id", breaks = c(100,200,300,400,500,600,700))
-
-print(pc2)
-plot(pc2)
-```
-
-```{r}
-
 ```

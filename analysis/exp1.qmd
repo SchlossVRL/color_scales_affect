@@ -2,9 +2,7 @@
 
 ```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot")
-
-
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot",'pheatmap','RColorBrewer')
 ```
 
 ```{r}
@@ -163,6 +161,33 @@ ggsave(paste0(plot_dir,'/exp1_facet_emotion_ratings.pdf'), dpi=300, height = 8, 
 ```
 
 ```{r}
+calm_ratings<- ratings_trial_grouped%>%filter(concept=='calm')
+calm_ratings<- calm_ratings%>%group_by(lightness, saturation)%>%summarize( se_rating = sd(mean_rating)/sqrt(n()),mean_rating = mean(mean_rating))
+calm_ratings$lightness<-factor(calm_ratings$lightness, levels = c("L","D"))
+
+p<- ggplot(calm_ratings, aes(x = lightness, y = mean_rating, group = saturation)) +
+  geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
+  geom_line(aes(linetype = saturation), linewidth = 0.5) +
+  geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
+                width = 0.2, color = "black", linewidth = 0.3) + 
+  geom_point( stroke=NA,size=2.5) +
+  labs(y = "Mean Rating") +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
+  scale_linetype() +
+  # Use filled shapes for the points
+  theme_classic() +
+  labs(title = "Mean Calm Ratings Exp1 (lightness x saturation)")
+
+p
+
+ggsave(paste0(plot_dir,'/exp1_calm_ratings.pdf'), dpi=300, height = 5, width=6,plot=p)
+
+
+```
+
+
+
+```{r}
 
 pc_object_emotions<-  prcomp(t(ratings_trials_grouped_wide[,-c(1,2,3)]),
              center = TRUE,
@@ -230,15 +255,111 @@ df_transposed <- ratings_trials_grouped_wide %>%
 correlation_matrix<-cor(df_transposed[,-c(1,2,3)])
 
 
-ggcorrplot(correlation_matrix, title = 'correlation between each emotion',
-           ggtheme = ggplot2::theme_gray, 
-           hc.order = TRUE)
-ggsave(paste0(plot_dir,'/exp1_emotion_correlations.pdf'),
-       height=6,
-       width=6,
-       units = "in",
-       dpi = 300)
+# ggcorrplot(correlation_matrix, title = 'correlation between each emotion',
+#            ggtheme = ggplot2::theme_gray, 
+#            hc.order = TRUE)
+# ggsave(paste0(plot_dir,'/exp1_emotion_correlations.pdf'),
+#        height=6,
+#        width=6,
+#        units = "in",
+#        dpi = 300)
+# 
 
+cmap = colorRampPalette(rev(brewer.pal(11, "RdGy")))(100)
+  
+my_colors<- c(
+  '#892c4f', 
+  '#ab355e', 
+  '#ca4571', 
+  '#e26087', 
+  '#ef7f9c', 
+  '#f39db1', 
+  '#f4bbc8', 
+  '#f9dae4', 
+  '#fffcff',
+  
+  '#c7ffff',
+  '#97e8ff',
+  '#46d3ff',
+  '#00c3ff',
+  '#00b3ff',
+  '#00a1ff',
+  '#008aff',
+  '#0074fe',
+  '#005ed8'
+)
+# my_palette <- colorRampPalette(my_colors)
+
+# Create a color palette that interpolates between these 5 colors
+cmap <- colorRampPalette(my_colors)(18)
+# 
+# pheatmap(correlation_matrix,
+#          main = "Correlation Matrix with Clustering",
+#          color = cmap,
+#              fontsize = 15,
+#          border_color = "white",
+#          display_numbers = T,
+#          number_format = "%.2f",
+#          number_color = "white",
+#          fontsize_number = 12,
+#          # cutree_rows =3,
+#          # cutree_cols=3,
+#          # clustering_distance_rows = "correlation",
+#          # clustering_distance_cols = "correlation",
+#          clustering_method =NA,
+#          treeheight_row=60,
+#          treeheight_col=60,
+#      
+#          # Set the breaks to ensure color scale spans from -1 to 1
+#          breaks = seq(-1, 1, length.out = length(cmap) + 1),
+#          
+#          # Configure legend ticks
+#          legend_breaks = c(-1, -0.5, 0, 0.5, 1),
+#          legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
+#          filename="test_cor_matrix_w_hclust.pdf")
+
+
+callback = function(hc, mat){
+    sv = svd(t(mat))$v[,1]
+    dend = reorder(as.dendrogram(hc), wts = sv)
+    as.hclust(dend)
+}
+
+
+pheatmap(correlation_matrix,
+         main = "Experiment 1 Correlation Matrix",
+         color = cmap,
+         fontsize = 15,
+         border_color = "white",
+         display_numbers = TRUE,
+         number_format = "%.2f",
+         number_color = "white",
+         fontsize_number = 12,
+         
+         # Keep clustering on
+         cluster_rows = TRUE,
+         cluster_cols = TRUE,
+         
+         # Specify clustering parameters
+         clustering_distance_rows = "correlation",
+         clustering_distance_cols = "correlation",
+         clustering_method = "complete",  # Changed from NA to "complete"
+         
+         # Set tree heights to 0 to hide dendrograms
+         treeheight_row = 0,
+         treeheight_col = 0,
+         
+         # Set the breaks to ensure color scale spans from -1 to 1
+         breaks = seq(-1, 1, length.out = length(cmap) + 1),
+         
+         # Configure legend ticks
+         legend_breaks = c(-1, -0.5, 0, 0.5, 1),
+         legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
+         clustering_callback = callback,
+         
+          filename = paste0(plot_dir,"/exp1_cormat.pdf")
+         
+         )
 ```
 
 ```{r}
@@ -312,19 +433,52 @@ ggsave(paste0(plot_dir,'/exp1_colored_map_PCA.pdf'), plot = p, dpi = 300, height
 ```
 
 ```{r}
+pc_object_maps$x
+tmp<-as.data.frame(pc_object_maps$x)
+tmp
+tmp$hue<-ratings_trials_grouped_wide$hue
+tmp$lightness<-ratings_trials_grouped_wide$lightness
+tmp$saturation<-ratings_trials_grouped_wide$saturation
+write.csv(tmp, file="../data/exp1_map_pca_loadings.csv")
+write.csv(ratings_trials_grouped_wide, file="../data/exp1_mean_ratings.csv")
 
-### bizarre issues with markdown rendering. need to fix
-
-clusters <- stats::hclust(stats::dist(t(ratings_trials_grouped_wide[,4:ncol(ratings_trials_grouped_wide)])))
+tmp$PC1<- -1*tmp$PC1
 
 
-plot(clusters)
 
+tmp$RG_numeric<-case_when(
+  tmp$hue == 'R' ~ 1,
+  tmp$hue == 'G' ~ -1,
+  tmp$hue %in% c('B', 'Y') ~ 0,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
 
-  
+tmp$BY_numeric<-case_when(
+  tmp$hue == 'B' ~ 1,
+  tmp$hue == 'Y' ~ -1,
+  tmp$hue %in% c('R', 'G') ~ 0,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
 
+tmp$lightness_numeric<-case_when(
+  tmp$lightness == 'L' ~ 1,
+  tmp$lightness == 'D' ~ -1,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
 
+tmp$saturation_numeric<-case_when(
+  tmp$saturation == 'S' ~ 1,
+  tmp$saturation == 'U' ~ -1,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
+
+pc1_lm <- lm(PC1~ (RG_numeric + BY_numeric + lightness_numeric + saturation_numeric), data =tmp)
+summary(pc1_lm)
+
+pc2_lm <- lm(PC2~ (RG_numeric + BY_numeric + lightness_numeric + saturation_numeric), data =tmp)
+summary(pc2_lm)
 ```
+
 
 ```{r}
 ratings_trials_grouped_wide <- ratings_trials_grouped_wide %>%
