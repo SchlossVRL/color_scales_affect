@@ -286,7 +286,24 @@ ggsave('corplot_10_16.pdf',
 ```
 
 ```{r}
+
+
+exp0_pc_scores<-as.data.frame(pc$x)
+
+
+emotion_vars <- ratings_trials_grouped_wide[, c("calm", "disturbing", "exciting", "negative", "playful", "positive", "serious", "trustworthy")]
+pc_vars <- exp0_pc_scores[, c("PC1", "PC2")]
+# Calculate correlation matrix
+cormat_emotion_x_pc <- cor(pc_vars,emotion_vars, method = "pearson")
+
+# View the full correlation matrix
+
+pheatmap(cormat_emotion_x_pc, display_numbers = T, fontsize = 20,number_color = 'darkgoldenrod2', treeheight_col = 0, treeheight_row = 0, color = cmap, main="Gray Maps PC correlations")
+```
+
+```{r}
 View(cor_df_sorted)
+
 ```
 
 ```{r}
@@ -313,16 +330,19 @@ plot_df<- plot_df%>%filter(annot%in%c('33','41','23','12','02','27','26','05','2
 
 ggplot(plot_df, aes(x = PC1, y = PC2)) +
   geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
-  geom_text(aes(label = annot), vjust = -1, hjust = 1, size = 5, color='cyan') +  # Annotate with filenames
-  theme_grey() +
-  theme(axis.title = element_blank(),  # Optional: hide axis labels
-        axis.text = element_blank(),
-        axis.ticks = element_blank())
-
-
-
+  geom_text(aes(label = annot), vjust = 0, hjust = 1, size = 4, color='goldenrod') +  # Annotate with filenames
+ labs(
+      title = "Gray Maps PCA",
+      x = "PC1",
+      y = "PC2",
+      
+    ) +
+  theme_classic()+
+  theme(axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        plot.title = element_text(size = 15))
 # ggsave('pcaplot_gray_maps_1_2_all_maps_10_16.png', height=13, width=13,units = "in", dpi = 300)
-ggsave('pcaplot_gray_maps_1_2_sub_maps_10_16.png', height=13, width=13,units = "in", dpi = 300)
+ggsave('pcaplot_gray_maps_1_2_sub_maps_10_16.png', height=7, width=7,units = "in", dpi = 300)
 
 ```
 
