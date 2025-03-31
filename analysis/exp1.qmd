@@ -2,9 +2,7 @@
 
 ```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot")
-
-
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot",'pheatmap','RColorBrewer')
 ```
 
 ```{r}
@@ -163,6 +161,33 @@ ggsave(paste0(plot_dir,'/exp1_facet_emotion_ratings.pdf'), dpi=300, height = 8, 
 ```
 
 ```{r}
+calm_ratings<- ratings_trial_grouped%>%filter(concept=='calm')
+calm_ratings<- calm_ratings%>%group_by(lightness, saturation)%>%summarize( se_rating = sd(mean_rating)/sqrt(n()),mean_rating = mean(mean_rating))
+calm_ratings$lightness<-factor(calm_ratings$lightness, levels = c("L","D"))
+
+p<- ggplot(calm_ratings, aes(x = lightness, y = mean_rating, group = saturation)) +
+  geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
+  geom_line(aes(linetype = saturation), linewidth = 0.5) +
+  geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
+                width = 0.2, color = "black", linewidth = 0.3) + 
+  geom_point( stroke=NA,size=2.5) +
+  labs(y = "Mean Rating") +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
+  scale_linetype() +
+  # Use filled shapes for the points
+  theme_classic() +
+  labs(title = "Mean Calm Ratings Exp1 (lightness x saturation)")
+
+p
+
+ggsave(paste0(plot_dir,'/exp1_calm_ratings.pdf'), dpi=300, height = 5, width=6,plot=p)
+
+
+```
+
+
+
+```{r}
 
 pc_object_emotions<-  prcomp(t(ratings_trials_grouped_wide[,-c(1,2,3)]),
              center = TRUE,
@@ -230,15 +255,111 @@ df_transposed <- ratings_trials_grouped_wide %>%
 correlation_matrix<-cor(df_transposed[,-c(1,2,3)])
 
 
-ggcorrplot(correlation_matrix, title = 'correlation between each emotion',
-           ggtheme = ggplot2::theme_gray, 
-           hc.order = TRUE)
-ggsave(paste0(plot_dir,'/exp1_emotion_correlations.pdf'),
-       height=6,
-       width=6,
-       units = "in",
-       dpi = 300)
+# ggcorrplot(correlation_matrix, title = 'correlation between each emotion',
+#            ggtheme = ggplot2::theme_gray, 
+#            hc.order = TRUE)
+# ggsave(paste0(plot_dir,'/exp1_emotion_correlations.pdf'),
+#        height=6,
+#        width=6,
+#        units = "in",
+#        dpi = 300)
+# 
 
+cmap = colorRampPalette(rev(brewer.pal(11, "RdGy")))(100)
+  
+my_colors<- c(
+  '#892c4f', 
+  '#ab355e', 
+  '#ca4571', 
+  '#e26087', 
+  '#ef7f9c', 
+  '#f39db1', 
+  '#f4bbc8', 
+  '#f9dae4', 
+  '#fffcff',
+  
+  '#c7ffff',
+  '#97e8ff',
+  '#46d3ff',
+  '#00c3ff',
+  '#00b3ff',
+  '#00a1ff',
+  '#008aff',
+  '#0074fe',
+  '#005ed8'
+)
+# my_palette <- colorRampPalette(my_colors)
+
+# Create a color palette that interpolates between these 5 colors
+cmap <- colorRampPalette(my_colors)(18)
+# 
+# pheatmap(correlation_matrix,
+#          main = "Correlation Matrix with Clustering",
+#          color = cmap,
+#              fontsize = 15,
+#          border_color = "white",
+#          display_numbers = T,
+#          number_format = "%.2f",
+#          number_color = "white",
+#          fontsize_number = 12,
+#          # cutree_rows =3,
+#          # cutree_cols=3,
+#          # clustering_distance_rows = "correlation",
+#          # clustering_distance_cols = "correlation",
+#          clustering_method =NA,
+#          treeheight_row=60,
+#          treeheight_col=60,
+#      
+#          # Set the breaks to ensure color scale spans from -1 to 1
+#          breaks = seq(-1, 1, length.out = length(cmap) + 1),
+#          
+#          # Configure legend ticks
+#          legend_breaks = c(-1, -0.5, 0, 0.5, 1),
+#          legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
+#          filename="test_cor_matrix_w_hclust.pdf")
+
+
+callback = function(hc, mat){
+    sv = svd(t(mat))$v[,1]
+    dend = reorder(as.dendrogram(hc), wts = sv)
+    as.hclust(dend)
+}
+
+
+pheatmap(correlation_matrix,
+         main = "Experiment 1 Correlation Matrix",
+         color = cmap,
+         fontsize = 15,
+         border_color = "white",
+         display_numbers = TRUE,
+         number_format = "%.2f",
+         number_color = "white",
+         fontsize_number = 12,
+         
+         # Keep clustering on
+         cluster_rows = TRUE,
+         cluster_cols = TRUE,
+         
+         # Specify clustering parameters
+         clustering_distance_rows = "correlation",
+         clustering_distance_cols = "correlation",
+         clustering_method = "complete",  # Changed from NA to "complete"
+         
+         # Set tree heights to 0 to hide dendrograms
+         treeheight_row = 0,
+         treeheight_col = 0,
+         
+         # Set the breaks to ensure color scale spans from -1 to 1
+         breaks = seq(-1, 1, length.out = length(cmap) + 1),
+         
+         # Configure legend ticks
+         legend_breaks = c(-1, -0.5, 0, 0.5, 1),
+         legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
+         clustering_callback = callback,
+         
+          filename = paste0(plot_dir,"/exp1_cormat.pdf")
+         
+         )
 ```
 
 ```{r}
@@ -250,14 +371,14 @@ plot_df <- data.frame(
 )
 rownames(plot_df)<- seq(1,8)
 
-p <- ggplot(plot_df, aes(x = PC2, y = PC1)) + 
+p <- ggplot(plot_df, aes(x = PC1, y = PC2)) + 
   geom_point(color = 'black') +
   geom_text(aes(label = emotion), vjust = 1, hjust = 1, size = 5, color = 'black') +  # Annotate with filenames
   geom_hline(yintercept = 0, linetype = "dashed", color = "red") +  # Horizontal line at y=0
   geom_vline(xintercept = 0, linetype = "dashed", color = "red") +  # Vertical line at x=
   scale_y_continuous(limits = c(-6, 6)) +
   scale_x_continuous(limits = c(-6, 6))+
-  labs(x = "PC2", y="PC1")+
+  labs(x = "PC1", y="PC2")+
   theme_classic()+
   theme(axis.text.x = element_text(size = 15),
         axis.text.y = element_text(size = 15) )
@@ -291,7 +412,7 @@ plot_df <- data.frame(
 rownames(plot_df)<- seq(1,16)
 plot_df$image<- sapply(plot_df$map,load_image_path)
 
-p <- ggplot(plot_df, aes(x = PC2, y = PC1)) + 
+p <- ggplot(plot_df, aes(x = PC1, y = PC2)) + 
   geom_point(color = 'black') +
   # geom_text(aes(label = map), vjust = 1, hjust = 1, size = 5, color = 'black') +  # Annotate with filenames
    geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
@@ -312,19 +433,52 @@ ggsave(paste0(plot_dir,'/exp1_colored_map_PCA.pdf'), plot = p, dpi = 300, height
 ```
 
 ```{r}
+pc_object_maps$x
+tmp<-as.data.frame(pc_object_maps$x)
+tmp
+tmp$hue<-ratings_trials_grouped_wide$hue
+tmp$lightness<-ratings_trials_grouped_wide$lightness
+tmp$saturation<-ratings_trials_grouped_wide$saturation
+write.csv(tmp, file="../data/exp1_map_pca_loadings.csv")
+write.csv(ratings_trials_grouped_wide, file="../data/exp1_mean_ratings.csv")
 
-### bizarre issues with markdown rendering. need to fix
-
-clusters <- stats::hclust(stats::dist(t(ratings_trials_grouped_wide[,4:ncol(ratings_trials_grouped_wide)])))
+tmp$PC1<- -1*tmp$PC1
 
 
-plot(clusters)
 
+tmp$RG_numeric<-case_when(
+  tmp$hue == 'R' ~ 1,
+  tmp$hue == 'G' ~ -1,
+  tmp$hue %in% c('B', 'Y') ~ 0,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
 
-  
+tmp$BY_numeric<-case_when(
+  tmp$hue == 'B' ~ -1,
+  tmp$hue == 'Y' ~ 1,
+  tmp$hue %in% c('R', 'G') ~ 0,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
 
+tmp$lightness_numeric<-case_when(
+  tmp$lightness == 'L' ~ 1,
+  tmp$lightness == 'D' ~ -1,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
 
+tmp$saturation_numeric<-case_when(
+  tmp$saturation == 'S' ~ 1,
+  tmp$saturation == 'U' ~ -1,
+  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+)
+
+pc1_lm <- lm(PC1~ (RG_numeric + BY_numeric + lightness_numeric + saturation_numeric), data =tmp)
+summary(pc1_lm)
+
+pc2_lm <- lm(PC2~ (RG_numeric + BY_numeric + lightness_numeric + saturation_numeric), data =tmp)
+summary(pc2_lm)
 ```
+
 
 ```{r}
 ratings_trials_grouped_wide <- ratings_trials_grouped_wide %>%
@@ -335,6 +489,10 @@ ratings_trials_grouped_wide <- ratings_trials_grouped_wide %>%
 
 ```{r}
 ratings_trial_grouped_clustered_emotions$clustered_emotion<-factor(ratings_trial_grouped_clustered_emotions$clustered_emotion, levels = c("emotion1", "emotion3", "emotion2"))
+```
+
+```{r}
+ratings_trials_grouped_wide
 ```
 
 ```{r}
@@ -350,87 +508,87 @@ ratings_trial_grouped_clustered_emotions$clustered_emotion<-factor(ratings_trial
 # 
 # 
 # ratings_trial_grouped_clustered_emotions<-ratings_trial_grouped%>%group_by(clustered_emotion, hue, saturation, lightness, lightsat,light_sat_hue)%>%summarize(mean_rating = mean(mean_rating))
-ratings_trial_grouped_clustered_emotions$lightsat<-paste(ratings_trial_grouped_clustered_emotions$lightness, ratings_trial_grouped_clustered_emotions$saturation, sep = "_")
-ratings_trial_grouped_clustered_emotions$light_sat_hue<-paste(ratings_trial_grouped_clustered_emotions$lightsat, ratings_trial_grouped_clustered_emotions$hue, sep = "_")
-ratings_trial_grouped_clustered_emotions$hue<- factor(ratings_trial_grouped_clustered_emotions$hue, levels = c("R","Y","G","B"))
-ratings_trial_grouped_clustered_emotions$light_sat_hue<-factor(ratings_trial_grouped_clustered_emotions$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
-
-
-p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rating, group = lightsat)) +
-  geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
-  geom_line(aes(colour = factor(lightness), 
-                linetype = factor(saturation)),  # Add linetype aesthetic
-                linewidth = .5) +
-  geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
-                width = 0.2, color = "black", linewidth = 0.3) +  # Adjust width and appearance of error bars
-  geom_point(aes(shape = lightsat, fill = light_sat_hue), stroke=NA,size=2.5) +
-  facet_wrap(~clustered_emotion, scales = "free_x", nrow = 4, strip.position = "right") +  # Move facet labels to the right
-  theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
-        panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
-        strip.background = element_rect(colour = "black", fill = "white")) +  # Add background to facet labels
-  labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
-  # For the lines: apply grey scale
-  scale_colour_grey(name = "Lightness/Saturation", guide = "none") +
-  # For the points: apply custom colors
-  scale_fill_manual(values = condition_colors, guide = "none") +
-  # Add scale for line types
-  scale_linetype_discrete(name = "Saturation", guide = "none") +
-  # Use filled shapes for the points
-  scale_shape_manual(name = "Lightness/Saturation", values = c("D_S" = 22, "L_S" = 21, "L_U" = 24, "D_U" = 23), guide = "none") +
-  theme_classic() +
-  theme(
-    axis.title.x = element_blank(),
-    panel.border = element_rect(colour = "black", fill = NA, linewidth = .5),  # Add border around each facet
-    strip.background = element_rect(colour = "black", fill = "white"),  # Add background to facet labels
-    panel.spacing.y = unit(1, "lines"),  # Increase space between rows
-    strip.placement = "outside"  # Ensure strip labels are placed outside the plot area
-  )
-
-p
-ggsave(paste0(plot_dir,'/exp1_facet_clustered_emotion_ratings.pdf'), dpi=300, height = 6, width=2.8,plot=p)
-
-```
-
-```{r}
-em1_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion1')%>%pull(mean_rating)
-em3_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion3')%>%pull(mean_rating)
-em2_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion2')%>%pull(mean_rating)
-
-cor(em1_mean_ratings,em3_mean_ratings)
-cor(em1_mean_ratings,em2_mean_ratings)
-cor(em3_mean_ratings,em2_mean_ratings)
+# ratings_trial_grouped_clustered_emotions$lightsat<-paste(ratings_trial_grouped_clustered_emotions$lightness, ratings_trial_grouped_clustered_emotions$saturation, sep = "_")
+# ratings_trial_grouped_clustered_emotions$light_sat_hue<-paste(ratings_trial_grouped_clustered_emotions$lightsat, ratings_trial_grouped_clustered_emotions$hue, sep = "_")
+# ratings_trial_grouped_clustered_emotions$hue<- factor(ratings_trial_grouped_clustered_emotions$hue, levels = c("R","Y","G","B"))
+# ratings_trial_grouped_clustered_emotions$light_sat_hue<-factor(ratings_trial_grouped_clustered_emotions$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
+# 
+# 
+# p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rating, group = lightsat)) +
+#   geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
+#   geom_line(aes(colour = factor(lightness), 
+#                 linetype = factor(saturation)),  # Add linetype aesthetic
+#                 linewidth = .5) +
+#   geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
+#                 width = 0.2, color = "black", linewidth = 0.3) +  # Adjust width and appearance of error bars
+#   geom_point(aes(shape = lightsat, fill = light_sat_hue), stroke=NA,size=2.5) +
+#   facet_wrap(~clustered_emotion, scales = "free_x", nrow = 4, strip.position = "right") +  # Move facet labels to the right
+#   theme(axis.title.x = element_blank(),
+#         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+#         panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
+#         strip.background = element_rect(colour = "black", fill = "white")) +  # Add background to facet labels
+#   labs(y = "Mean Rating") +
+#   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
+#   # For the lines: apply grey scale
+#   scale_colour_grey(name = "Lightness/Saturation", guide = "none") +
+#   # For the points: apply custom colors
+#   scale_fill_manual(values = condition_colors, guide = "none") +
+#   # Add scale for line types
+#   scale_linetype_discrete(name = "Saturation", guide = "none") +
+#   # Use filled shapes for the points
+#   scale_shape_manual(name = "Lightness/Saturation", values = c("D_S" = 22, "L_S" = 21, "L_U" = 24, "D_U" = 23), guide = "none") +
+#   theme_classic() +
+#   theme(
+#     axis.title.x = element_blank(),
+#     panel.border = element_rect(colour = "black", fill = NA, linewidth = .5),  # Add border around each facet
+#     strip.background = element_rect(colour = "black", fill = "white"),  # Add background to facet labels
+#     panel.spacing.y = unit(1, "lines"),  # Increase space between rows
+#     strip.placement = "outside"  # Ensure strip labels are placed outside the plot area
+#   )
+# 
+# p
+# ggsave(paste0(plot_dir,'/exp1_facet_clustered_emotion_ratings.pdf'), dpi=300, height = 6, width=2.8,plot=p)
 
 ```
 
 ```{r}
-ratings_trial_grouped_clustered_emotions <- 
-  ratings_trial_grouped_clustered_emotions %>% 
-  mutate(
-    saturation_numeric = case_when(
-      saturation == 'S' ~ 1,
-      saturation == 'U' ~ -1,
-      TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-    ),
-    lightness_numeric = case_when(
-      lightness == 'L' ~ 1,
-      lightness == 'D' ~ -1,
-      TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-    ),
-    RG_numeric = case_when(
-      hue == 'R' ~ 1,
-      hue == 'G' ~ -1,
-      hue %in% c('B', 'Y') ~ 0,
-      TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-    ),
-    BY_numeric = case_when(
-      hue == 'B' ~ 1,
-      hue == 'Y' ~ -1,
-      hue %in% c('R', 'G') ~ 0,
-      TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-    )
-  )
+# em1_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion1')%>%pull(mean_rating)
+# em3_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion3')%>%pull(mean_rating)
+# em2_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion2')%>%pull(mean_rating)
+# 
+# cor(em1_mean_ratings,em3_mean_ratings)
+# cor(em1_mean_ratings,em2_mean_ratings)
+# cor(em3_mean_ratings,em2_mean_ratings)
+
+```
+
+```{r}
+# ratings_trial_grouped_clustered_emotions <- 
+#   ratings_trial_grouped_clustered_emotions %>% 
+#   mutate(
+#     saturation_numeric = case_when(
+#       saturation == 'S' ~ 1,
+#       saturation == 'U' ~ -1,
+#       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+#     ),
+#     lightness_numeric = case_when(
+#       lightness == 'L' ~ 1,
+#       lightness == 'D' ~ -1,
+#       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+#     ),
+#     RG_numeric = case_when(
+#       hue == 'R' ~ 1,
+#       hue == 'G' ~ -1,
+#       hue %in% c('B', 'Y') ~ 0,
+#       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+#     ),
+#     BY_numeric = case_when(
+#       hue == 'B' ~ 1,
+#       hue == 'Y' ~ -1,
+#       hue %in% c('R', 'G') ~ 0,
+#       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+#     )
+#   )
 
 
 emotion1_df_grouped<-ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion1')
@@ -454,6 +612,71 @@ summary(emotion3_lm)
 ## LMER Models
 
 ```{r}
+generate_lmer_latex_table <- function(model, model_name = "Model", caption = "Results from Linear Mixed Effects Model", label = "tab:lmer_results") {
+  # Extract model summary
+  model_summary <- summary(model)
+  fixed_effects <- model_summary$coefficients
+  
+  # Extract values
+  predictors <- rownames(fixed_effects)
+  beta_values <- fixed_effects[, "Estimate"]
+  se_values <- fixed_effects[, "Std. Error"]
+  t_values <- fixed_effects[, "t value"]
+  
+  # Calculate p-values (since lmer doesn't provide them directly)
+  p_values <- 2 * (1 - pnorm(abs(t_values)))
+  
+  # Format values
+  formatted_beta <- sprintf("%.3f", beta_values)
+  formatted_se <- sprintf("%.3f", se_values)
+  formatted_t <- sprintf("%.2f", t_values)
+  
+  # Format p-values according to requirements
+  formatted_p <- sapply(p_values, function(p) {
+    if (p < 0.001) return("$<$ .001")
+    else if (p < 0.01) return("$<$ .01")
+    else if (p < 0.05) return(sprintf("%.3f", p))
+    else return(sprintf("%.3f", p))
+  })
+  
+  # Create LaTeX table header
+  latex_table <- c(
+    "\\begin{table*}[ht]",
+    "\\centering",
+    paste0("\\caption{", caption, "}"),
+    "\\begin{tabular}{llcccc}",
+    "\\hline",
+    "\\textbf{Model} & \\textbf{Predictor} & \\boldsymbol{$\\beta$} & \\textbf{SE} & \\boldsymbol{$t$} & \\boldsymbol{$p$} \\\\",
+    "\\hline"
+  )
+  
+  # Create table rows
+  for (i in 1:length(predictors)) {
+    if (i == 1) {
+      row <- paste0(model_name, " & ", predictors[i], " & ", 
+                   formatted_beta[i], " & ", formatted_se[i], " & ", 
+                   formatted_t[i], " & ", formatted_p[i], " \\\\")
+    } else {
+      row <- paste0(" & ", predictors[i], " & ", 
+                   formatted_beta[i], " & ", formatted_se[i], " & ", 
+                   formatted_t[i], " & ", formatted_p[i], " \\\\")
+    }
+    latex_table <- c(latex_table, row)
+  }
+  
+  # Close table
+  latex_table <- c(latex_table, "\\hline", "\\end{tabular}", 
+                  paste0("\\label{", label, "}"), "\\end{table*}")
+  
+  # Combine into a single string
+  latex_code <- paste(latex_table, collapse = "\n")
+  
+  return(latex_code)
+}
+```
+
+
+```{r}
 ctrl <- lmerControl(optimizer="bobyqa", optCtrl=list(maxfun=5e5))
 
 ratings_trials_exp$RG_numeric<-case_when(
@@ -464,8 +687,8 @@ ratings_trials_exp$RG_numeric<-case_when(
 )
 
 ratings_trials_exp$BY_numeric<-case_when(
-  ratings_trials_exp$hue == 'B' ~ 1,
-  ratings_trials_exp$hue == 'Y' ~ -1,
+  ratings_trials_exp$hue == 'B' ~ -1,
+  ratings_trials_exp$hue == 'Y' ~ 1,
   ratings_trials_exp$hue %in% c('R', 'G') ~ 0,
   TRUE ~ NA_real_  # Use NA_real_ for numeric NA
 )
@@ -482,22 +705,67 @@ ratings_trials_exp$saturation_numeric<-case_when(
   TRUE ~ NA_real_  # Use NA_real_ for numeric NA
 )
 
+ratings_trials_exp
 
 emotion1_df<-ratings_trials_exp%>%filter(clustered_emotion=='emotion1')
 emotion2_df<-ratings_trials_exp%>%filter(clustered_emotion=='emotion2')
 emotion3_df<-ratings_trials_exp%>%filter(clustered_emotion=='emotion3')
 
-emotion1_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion1_df,control=ctrl)
-summary(emotion1_lmer)
+trustworthy_df <- ratings_trials_exp %>% filter(concept == 'trustworthy')
+exciting_df <- ratings_trials_exp %>% filter(concept == 'exciting')
+playful_df <- ratings_trials_exp %>% filter(concept == 'playful')
+negative_df <- ratings_trials_exp %>% filter(concept == 'negative')
+serious_df <- ratings_trials_exp %>% filter(concept == 'serious')
+positive_df <- ratings_trials_exp %>% filter(concept == 'positive')
+calm_df <- ratings_trials_exp %>% filter(concept == 'calm')
+disturbing_df <- ratings_trials_exp %>% filter(concept == 'disturbing')
+
+tw_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =trustworthy_df,control=ctrl)
+summary(tw_lmer)
+cat(generate_lmer_latex_table(tw_lmer, model_name = "Trustworthy"))
+
+excite_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =exciting_df,control=ctrl)
+summary(excite_lmer)
+cat(generate_lmer_latex_table(excite_lmer, model_name = "Exciting"))
+
+playful_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =playful_df,control=ctrl)
+summary(playful_lmer)
+cat(generate_lmer_latex_table(playful_lmer, model_name = "Playful"))
+
+negative_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =negative_df,control=ctrl)
+summary(negative_lmer)
+cat(generate_lmer_latex_table(negative_lmer, model_name = "Negative"))
+
+serious_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =serious_df,control=ctrl)
+summary(serious_lmer)
+cat(generate_lmer_latex_table(serious_lmer, model_name = "Serious"))
+
+positive_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =positive_df,control=ctrl)
+summary(positive_lmer)
+cat(generate_lmer_latex_table(positive_lmer, model_name = "Positive"))
+
+calm_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =calm_df,control=ctrl)
+summary(calm_lmer)
+cat(generate_lmer_latex_table(calm_lmer, model_name = "Calm"))
+
+disturbing_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =disturbing_df,control=ctrl)
+summary(disturbing_lmer)
+cat(generate_lmer_latex_table(disturbing_lmer, model_name = "Disturbing"))
 
 
-emotion2_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion2_df,control=ctrl)
-summary(emotion2_lmer)
 
 
-
-emotion3_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion3_df,control=ctrl)
-summary(emotion3_lmer)
+# emotion1_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion1_df,control=ctrl)
+# summary(emotion1_lmer)
+# 
+# 
+# emotion2_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion2_df,control=ctrl)
+# summary(emotion2_lmer)
+# 
+# 
+# 
+# emotion3_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion3_df,control=ctrl)
+# summary(emotion3_lmer)
 
 ```
 

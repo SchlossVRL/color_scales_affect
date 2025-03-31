@@ -6,7 +6,7 @@ editor: visual
 
 ```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","jsonlite")
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","jsonlite","simr")
 ```
 
 ```{r}
@@ -40,7 +40,7 @@ if (!dir.exists(plot_dir)) {
   dir.create(plot_dir)
 }
 
-data_dir <-paste0(analysis_dir,'/../data/exp_3')
+data_dir <-paste0(analysis_dir,'/../data/exp_3_replication')
 data_files <-list.files(path = data_dir, full.names = TRUE, pattern="*.csv")
 print(paste0('we have data from ',length(data_files),' participants'))
 
@@ -124,7 +124,6 @@ valid_ids<-map_trials%>%group_by(subject_id)%>%summarize(mean_acc = mean(correct
 
 ```
 
-
 ```{r}
 climate_q_trials<- experiment_data_raw %>% filter(question_idx%in%c('climate_q_1', 'climate_q_2', 'climate_q_3', 'climate_q_4', 'climate_q_5', 'climate_q_6','climate_change_real','climate_worry'))%>%filter(subject_id%in%valid_ids$subject_id)
 
@@ -152,7 +151,7 @@ composite_scores <- climate_q_trials %>%
   ) %>%
   # Calculate composite score
   mutate(composite_score = climate_q_1 + climate_q_2 + climate_q_3 + 
-                          climate_q_4 + climate_q_5 + climate_q_6, avg_climate_score = composite_score/6, 
+                          climate_q_4 + climate_q_5 +climate_q_6 , avg_climate_score = composite_score/6, 
          avg_climate_score_f1 = (climate_q_1 + climate_q_2 + climate_q_3)/3,
          avg_climate_score_f2 = (climate_q_4 + climate_q_5 + climate_q_6)/3) 
 ### sort the columns to be climate_q_1, climate_q_2, climate_q_3, climate_q_4, climate_q_5, climate_q_6, composite_score
@@ -167,9 +166,6 @@ composite_scores$color_condition <- sapply(composite_scores$condition, function(
 composite_scores$affiliation_score<-affiliation_dict[as.character(composite_scores$subject_id)]
 
 ```
-
-
-
 
 ```{r}
 
@@ -281,8 +277,9 @@ print(fa_result$loadings, cutoff = 0.3)
 fa.diagram(fa_result)
 
 factor_scores <- factor.scores(climate_questions, fa_result)
+composite_scores$factor1 <- factor_scores$scores[,1]
+composite_scores$factor2 <- factor_scores$scores[,2]
 ```
-
 
 ```{r}
 cor_matrix <- cor(climate_questions)
@@ -300,7 +297,6 @@ corrplot(cor_matrix,
 
 round(cor_matrix, 2)
 ```
-
 
 ```{r}
 ggplot(composite_scores_grouped, aes(x = prompt_condition,
@@ -322,7 +318,7 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
   scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
   theme(legend.position = "top") +
-  ylim(c(3,6))
+  ylim(c(0,6))
 
 
 ggplot(composite_scores_grouped, aes(x = prompt_condition,
@@ -344,7 +340,7 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
   scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
   theme(legend.position = "top") +
-  ylim(c(3,6))
+  ylim(c(0,6))
 
 
 ggplot(composite_scores_grouped, aes(x = prompt_condition,
@@ -366,7 +362,7 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
   scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
   theme(legend.position = "top") +
-  ylim(c(3,6))
+  ylim(c(0,6))
 
 
 ggplot(composite_scores_grouped, aes(x = prompt_condition,
@@ -388,7 +384,7 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
   scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
   theme(legend.position = "top") +
-  ylim(c(3,6))
+  ylim(c(0,6))
 
 
 ggplot(composite_scores_grouped, aes(x = prompt_condition,
@@ -410,7 +406,7 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
   scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
   theme(legend.position = "top") +
-  ylim(c(3,6))
+  ylim(c(0,6))
 
 
 ggplot(composite_scores_grouped, aes(x = prompt_condition,
@@ -436,12 +432,10 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
 
 ```
 
-
 ```{r}
 
 
 ```
-
 
 ```{r}
 ggplot(composite_scores_grouped, aes(x = prompt_condition,
@@ -462,9 +456,8 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
   scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
   theme(legend.position = "top")+
-  ylim(c(3,6))
+  ylim(c(0,6))
 ```
-
 
 ```{r}
 
@@ -510,8 +503,6 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
 
 ```
 
-
-
 ```{r}
 
 ggplot(composite_scores_grouped, aes(x = prompt_condition,
@@ -533,85 +524,7 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
                                "positive" = "#00b3ff")) +
   theme(legend.position = "top")
 
-```
 
-```{r}
-
-composite_scores_affil_grouped<- composite_scores%>%group_by(affiliation_score,color_condition, prompt_condition)%>%
-  summarize(
-    n=n(),
-    mean_avg_score = mean(avg_climate_score),
-    sem_avg_score = sd(avg_climate_score)/sqrt(n),
-    mean_avg_score_f1 = mean(avg_climate_score_f1),
-    sem_avg_score_f1 = sd(avg_climate_score_f1)/sqrt(n),
-    mean_avg_score_f2 = mean(avg_climate_score_f2),
-    sem_avg_score_f2 = sd(avg_climate_score_f2)/sqrt(n),
-  )
-
-
-ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
-                 y = mean_avg_score,
-                 group = color_condition,
-                 color = color_condition))+
-  facet_wrap(~prompt_condition, scales = "free")+
-  geom_errorbar(aes(ymin = mean_avg_score - sem_avg_score,
-                  ymax = mean_avg_score + sem_avg_score),
-              position = position_dodge(0.1)) +
-  geom_line(position = position_dodge(0.1)) +
-  geom_point(size = 3, position = position_dodge(0.1)) +
-  theme_classic() +
-  labs(x = "Affiliation",
-       y = "Mean Climate Score",
-       color = "Color Condition") +
- scale_color_manual(values = c("negative" = "#00588d",
-                               "positive" = "#00b3ff")) +
-  theme(legend.position = "top")+
-  ylim(c(0,6))
-
-
-ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
-                 y = mean_avg_score_f1,
-                 group = color_condition,
-                 color = color_condition))+
-  facet_wrap(~prompt_condition, scales = "free")+
-  geom_errorbar(aes(ymin = mean_avg_score_f1 - sem_avg_score_f1,
-                  ymax = mean_avg_score_f1 + sem_avg_score_f1),
-              position = position_dodge(0.1)) +
-  geom_line(position = position_dodge(0.1)) +
-  geom_point(size = 3, position = position_dodge(0.1)) +
-  theme_classic() +
-  labs(x = "Affiliation",
-       y = "Mean Climate Score (factor 1)",
-       color = "Color Condition") +
- scale_color_manual(values = c("negative" = "#00588d",
-                               "positive" = "#00b3ff")) +
-  theme(legend.position = "top")+
-  ylim(c(0,6))
-
-
-ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
-                 y = mean_avg_score_f2,
-                 group = color_condition,
-                 color = color_condition))+
-  facet_wrap(~prompt_condition, scales = "free")+
-  geom_errorbar(aes(ymin = mean_avg_score_f2 - sem_avg_score_f2,
-                  ymax = mean_avg_score_f2 + sem_avg_score_f2),
-              position = position_dodge(0.1)) +
-  geom_line(position = position_dodge(0.1)) +
-  geom_point(size = 3, position = position_dodge(0.1)) +
-  theme_classic() +
-  labs(x = "Affiliation",
-       y = "Mean Climate Score (factor 2)",
-       color = "Color Condition") +
- scale_color_manual(values = c("negative" = "#00588d",
-                               "positive" = "#00b3ff")) +
-  theme(legend.position = "top")+
-  ylim(c(0,6))
-
-```
-
-
-```{r}
 ggplot(composite_scores_grouped, aes(x = prompt_condition,
                  y = mean_PC2,
                  group = color_condition,
@@ -630,6 +543,123 @@ ggplot(composite_scores_grouped, aes(x = prompt_condition,
  scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
   theme(legend.position = "top")
+
+```
+
+```{r}
+
+composite_scores_affil_grouped<- composite_scores%>%group_by(affiliation_score,color_condition)%>%
+  summarize(
+    n=n(),
+    mean_avg_score = mean(avg_climate_score),
+    sem_avg_score = sd(avg_climate_score)/sqrt(n),
+    mean_avg_score_f1 = mean(avg_climate_score_f1),
+    sem_avg_score_f1 = sd(avg_climate_score_f1)/sqrt(n),
+    mean_avg_score_f2 = mean(avg_climate_score_f2),
+    sem_avg_score_f2 = sd(avg_climate_score_f2)/sqrt(n),
+  )
+
+
+ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
+                 y = mean_avg_score,
+                 group = color_condition,
+                 color = color_condition))+
+
+  # facet_wrap(~climate_worry, scales = "free")+
+
+  geom_errorbar(aes(ymin = mean_avg_score - sem_avg_score,
+                  ymax = mean_avg_score + sem_avg_score),
+              position = position_dodge(0.1)) +
+  geom_line(position = position_dodge(0.1)) +
+  geom_point(size = 3, position = position_dodge(0.1)) +
+  theme_classic() +
+  labs(x = "Affiliation",
+       y = "Mean Climate Score",
+       color = "Color Condition") +
+ scale_color_manual(values = c("negative" = "#00588d",
+                               "positive" = "#00b3ff")) +
+
+  theme(legend.position = "top")+ylim(c(0,6))
+
+
+ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
+                 y = mean_avg_score_f1,
+                 group = color_condition,
+                 color = color_condition))+
+
+  # facet_wrap(~climate_worry, scales = "free")+
+
+  geom_errorbar(aes(ymin = mean_avg_score_f1 - sem_avg_score_f1,
+                  ymax = mean_avg_score_f1 + sem_avg_score_f1),
+              position = position_dodge(0.1)) +
+  geom_line(position = position_dodge(0.1)) +
+  geom_point(size = 3, position = position_dodge(0.1)) +
+  theme_classic() +
+  labs(x = "Affiliation",
+       y = "Mean Climate Score (factor 1)",
+       color = "Color Condition") +
+ scale_color_manual(values = c("negative" = "#00588d",
+                               "positive" = "#00b3ff")) +
+
+  theme(legend.position = "top")+ylim(c(0,6))
+
+
+
+ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
+                 y = mean_avg_score_f2,
+                 group = color_condition,
+                 color = color_condition))+
+  facet_wrap(~climate_worry, scales = "free")+
+  geom_errorbar(aes(ymin = mean_avg_score_f2 - sem_avg_score_f2,
+                  ymax = mean_avg_score_f2 + sem_avg_score_f2),
+              position = position_dodge(0.1)) +
+  geom_line(position = position_dodge(0.1)) +
+  geom_point(size = 3, position = position_dodge(0.1)) +
+  theme_classic() +
+  labs(x = "Affiliation",
+       y = "Mean Climate Score (factor 2)",
+       color = "Color Condition") +
+ scale_color_manual(values = c("negative" = "#00588d",
+                               "positive" = "#00b3ff")) +
+  theme(legend.position = "top")+ylim(c(0,6))
+
+```
+
+```{r}
+
+composite_scores_affil_grouped<- composite_scores%>%group_by(affiliation_coarse,color_condition, climate_worry)%>%
+  summarize(
+    n=n(),
+    mean_avg_score = mean(avg_climate_score),
+    sem_avg_score = sd(avg_climate_score)/sqrt(n),
+    mean_avg_score_f1 = mean(avg_climate_score_f1),
+    sem_avg_score_f1 = sd(avg_climate_score_f1)/sqrt(n),
+    mean_avg_score_f2 = mean(avg_climate_score_f2),
+    sem_avg_score_f2 = sd(avg_climate_score_f2)/sqrt(n),
+  )
+
+ggplot(composite_scores_affil_grouped, aes(x = climate_worry,
+                 y = mean_avg_score,
+                 group = color_condition,
+                 color = color_condition))+
+  facet_wrap(~affiliation_coarse, scales = "free")+
+  geom_errorbar(aes(ymin = mean_avg_score - sem_avg_score,
+                  ymax = mean_avg_score + sem_avg_score),
+              position = position_dodge(0.1)) +
+  geom_line(position = position_dodge(0.1)) +
+  geom_point(size = 3, position = position_dodge(0.1)) +
+  theme_classic() +
+  labs(x = "Climate Worry",
+       y = "Mean Climate Score",
+       color = "Color Condition") +
+ scale_color_manual(values = c("negative" = "#00588d",
+                               "positive" = "#00b3ff")) +
+  theme(legend.position = "top")+ylim(c(0,6))
+
+```
+
+```{r}
+composite_scores_affil_grouped%>%group_by(affiliation_coarse, color_condition)%>%summarize(sample_size=sum(n))
 ```
 
 ```{r}
@@ -648,25 +678,29 @@ ggplot(composite_scores, aes(x = affiliation_score)) +
   theme_minimal()
 ```
 
-
 ```{r}
 
 composite_scores$prompt_condition <- sapply(composite_scores$condition, function(x) {strsplit(x, '_')[[1]][1]})
 composite_scores$color_condition <- sapply(composite_scores$condition, function(x) {strsplit(x, '_')[[1]][2]})
 
 composite_scores$color_condition_c<- case_when(
-  composite_scores$color_condition == 'positive' ~ 1,
-  composite_scores$color_condition == 'negative' ~ -1
+  composite_scores$color_condition == 'positive' ~ .5,
+  composite_scores$color_condition == 'negative' ~ -.5
 )
 composite_scores$prompt_condition_c<- case_when(
-  composite_scores$prompt_condition == 'positive' ~ 1,
-  composite_scores$prompt_condition == 'negative' ~ -1
+  composite_scores$prompt_condition == 'positive' ~ .5,
+  composite_scores$prompt_condition == 'negative' ~ -.5
+)
+
+composite_scores$climate_change_real_c<- case_when(
+  composite_scores$climate_change_real == 1 ~ .5,
+  composite_scores$climate_change_real == 0 ~ -.5
 )
 
 composite_scores$climate_worry_c<-as.numeric(composite_scores$climate_worry)-mean(as.numeric(composite_scores$climate_worry))
 composite_scores$affiliation_score_c<-as.numeric(composite_scores$affiliation_score)-mean(as.numeric(composite_scores$affiliation_score))
 
-m1<- lm(avg_climate_score ~ color_condition_c*prompt_condition_c*affiliation_score_c, data = composite_scores)
+m1<- lm(avg_climate_score ~ color_condition_c*prompt_condition_c*affiliation_score_c*climate_worry_c, data = composite_scores)
 summary(m1)
 
 m1_factor1<- lm(avg_climate_score_f1 ~ color_condition_c*prompt_condition_c*climate_worry_c*affiliation_score_c, data = composite_scores)
@@ -677,6 +711,14 @@ summary(m1_factor2)
 
 # cobj<-corr.test(composite_scores$affiliation_score_c, composite_scores$climate_worry_c)
 # cobj$r
+```
+
+```{r}
+m1_fa1<- lm(factor1 ~ color_condition_c*prompt_condition_c*climate_worry_c*affiliation_score_c, data = composite_scores)
+summary(m1_fa1)
+
+m1_fa2<- lm(factor2 ~ color_condition_c*prompt_condition_c*climate_worry_c*affiliation_score_c, data = composite_scores)
+summary(m1_fa2)
 ```
 
 ```{r}
@@ -701,4 +743,55 @@ summary(m7)
 
 ```
 
+```{r}
 
+   
+summary(m1_factor1)
+
+
+power_sim <- powerSim(m1_factor, test = fixed("color_condition_c:affiliation_score_c", method="f"), nsim = 100)
+print(power_sim)
+
+
+extended_data <- extend(m1_factor1, along = "subject_id", n = 500)
+
+power_sim_extended <- powerSim(extended_data, test = fixed("color_condition_c:climate_worry_c"), nsim = 1000)
+
+# Print the power estimate
+print(power_sim_extended)
+
+sample_sizes<-numeric()
+powers<-numeric()
+
+for (i in seq(100, 800, by = 50)) {
+extended_data <- extend(m1_factor2, along = "subject_id", n = i)
+power_sim_extended <- powerSim(extended_data, test = fixed("color_condition_c:affiliation_score_c"), nsim = 1000)
+
+sample_sizes <- c(sample_sizes, i)
+powers <- c(powers, (power_sim_extended$x)/10)  # Save numeric power value
+}
+power_analysis_df<- data.frame(sample_sizes,powers)
+power_analysis_df$sample_sizes<-as.numeric(power_analysis_df$sample_sizes)
+power_analysis_df$powers<-as.numeric(power_analysis_df$powers)
+ggplot(power_analysis_df, aes(x = sample_sizes, y = powers)) +
+  geom_point()+
+  geom_line() +
+  labs(title = "Power Analysis",
+       x = "Sample Size",
+       y = "Power") +
+  geom_hline(yintercept = 90, linetype = "dashed", color = "red") +
+  ylim(0,100)
+
+```
+
+```{r}
+library(simr)
+pc2 <- powerCurve(extended_data, test = fixed("color_condition_c:affiliation_score_c"), sim=extended_data,along="subject_id", breaks = c(100,200,300,400,500,600,700))
+
+print(pc2)
+plot(pc2)
+```
+
+```{r}
+
+```

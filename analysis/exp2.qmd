@@ -8,7 +8,7 @@ editor: visual
 
 ```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","sjPlot")
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","sjPlot","pheatmap")
 
 
 ```
@@ -57,8 +57,8 @@ df_list <- lapply(data_files, read.csv)
 
 experiment_data_raw<- bind_rows(df_list)
 
-### these are the ids for which we have 3 subjects per condition, so we exclude the last person
-exclude_sub_ids<- c()
+
+exclude_sub_ids<- c('n8vzc2ow1u')
 
 
 ratings_trials<- experiment_data_raw %>% filter(trial_type== 'html-slider-response')
@@ -96,7 +96,105 @@ print(subject_counts)
 
 ```
 
-### 
+```{r}
+# check for color vision
+ishihara_trials <-experiment_data_raw %>% filter(trial_type== 'survey-html-form')%>%filter(!subject_id%in%exclude_sub_ids)
+### for the ishihara_trials get the values from the 'response' column it will have strings like "{\"number\":\"45\"}"  which i want you to convert to 45 by extracting the number and making it a number and then compare it to correct_response for the same row. Make a new column called 'correct'
+
+ishihara_trials <- ishihara_trials %>%
+  mutate(
+    extracted_number = as.numeric(str_extract(response, "\\d+")),  # Extract the number and convert to numeric
+    ishihara_correct = (extracted_number == correct_response)               # Compare to correct_response
+  )
+
+ishihara_trials%>%group_by(subject_id)%>%summarize(mean_ishihara = mean(ishihara_correct))
+```
+
+```{r}
+hue_colors<-c('#fc0303','#f2eb0c','#00e357','#032cfc',"white")
+
+condition_colors = c("#005ddf","#00b3ff","#00588d","#3baeea","#00675b","#00c6b1","#005f5a","#00b9b0","#be004f","#ff31a3","#8d2449","#ef7f9c","#3f3c00","#beb600","#3e3b04","#bbb379")
+
+```
+
+### Correlation Matrix
+
+```{r}
+df_transposed <- ratings_trials_grouped_wide %>%
+  pivot_longer(cols = -c(hue,saturation, lightness, shift), names_to = "variable", values_to = "value") %>%
+  pivot_wider(names_from = variable, values_from = value)
+
+correlation_matrix<-cor(df_transposed[,-c(1,2,3,4)])
+
+ 
+my_colors<- c(
+  '#892c4f', 
+  '#ab355e', 
+  '#ca4571', 
+  '#e26087', 
+  '#ef7f9c', 
+  '#f39db1', 
+  '#f4bbc8', 
+  '#f9dae4', 
+  '#fffcff',
+  
+  '#c7ffff',
+  '#97e8ff',
+  '#46d3ff',
+  '#00c3ff',
+  '#00b3ff',
+  '#00a1ff',
+  '#008aff',
+  '#0074fe',
+  '#005ed8'
+)
+cmap <- colorRampPalette(my_colors)(18)
+
+
+
+callback = function(hc, mat){
+    sv = svd(t(mat))$v[,1]
+    dend = reorder(as.dendrogram(hc), wts = sv)
+    as.hclust(dend)
+}
+
+
+pheatmap(correlation_matrix,
+         main = "Experiment 2 Correlation Matrix",
+         color = cmap,
+         fontsize = 15,
+         border_color = "white",
+         display_numbers = TRUE,
+         number_format = "%.2f",
+         number_color = "black",
+         fontsize_number = 12,
+         
+         # Keep clustering on
+         cluster_rows = TRUE,
+         cluster_cols = TRUE,
+         
+         # Specify clustering parameters
+         clustering_distance_rows = "correlation",
+         clustering_distance_cols = "correlation",
+         clustering_method = "complete",  # Changed from NA to "complete"
+         
+         # Set tree heights to 0 to hide dendrograms
+         treeheight_row = 0,
+         treeheight_col = 0,
+         
+         # Set the breaks to ensure color scale spans from -1 to 1
+         breaks = seq(-1, 1, length.out = length(cmap) + 1),
+         
+         # Configure legend ticks
+         legend_breaks = c(-1, -0.5, 0, 0.5, 1),
+         legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
+         clustering_callback = callback,
+         
+         filename = paste0(plot_dir,"/exp2_cormat.pdf")
+         
+         )
+
+```
 
 ```{r}
 
@@ -145,34 +243,120 @@ load_image_path<-function(path){
   return(fname)
 }
 
+extract_map_cscale<- function(map){
+  conditions <- strsplit(map, "_")[[1]]
+  cscale <- paste0(conditions[1:3], collapse = "")
+  return(cscale)
+  
+}
+
+extract_map_shift<-function(map){
+  conditions<-strsplit(map, "_")[[1]]
+  shift<-conditions[4]
+  return(shift)
+}
 
 plot_df <- data.frame(
-  PC1 = pc_object_maps$x[, 1],
-  PC2 = pc_object_maps$x[, 2],
+  PC1 = -pc_object_maps$x[, 1],
+  PC2 = -pc_object_maps$x[, 2],
   PC3 = pc_object_maps$x[, 3],
   map = paste(ratings_trials_grouped_wide$hue,ratings_trials_grouped_wide$lightness, ratings_trials_grouped_wide$saturation,ratings_trials_grouped_wide$shift, sep = "_")
 )
 rownames(plot_df)<- seq(1,32)
 plot_df$image<- sapply(plot_df$map,load_image_path)
+plot_df$map_cscale<- sapply(plot_df$map,extract_map_cscale)
 
-p <- ggplot(plot_df, aes(x = PC2, y = PC1)) + 
-  geom_point(color = 'black') +
-  # geom_text(aes(label = map), vjust = 1, hjust = 1, size = 5, color = 'black') +  # Annotate with filenames
-   geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
-  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +  # Horizontal line at y=0
-  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +  # Vertical line at x=
-  scale_y_continuous(limits = c(-6, 6)) +
-  scale_x_continuous(limits = c(-6, 6))+
-  labs(x = "PC1", y="PC2")+
-  theme_classic()+
-  theme(axis.text.x = element_text(size = 15),
-        axis.text.y = element_text(size = 15) )
+plot_df$map_cscale<-factor(plot_df$map_cscale, levels=  c("BDS", "BLS", "BDU", "BLU", "GDS", "GLS", "GDU", "GLU", "RDS", "RLS", "RDU", "RLU", "YDS", "YLS", "YDU", "YLU"))
+plot_df$shift<-sapply(plot_df$map, extract_map_shift)
+# 
+# p <- ggplot(plot_df, aes(x = PC2, y = PC1)) + 
+#   geom_point(color = 'black') +
+#   # geom_text(aes(label = map), vjust = 1, hjust = 1, size = 5, color = 'black') +  # Annotate with filenames
+#    geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
+#   geom_hline(yintercept = 0, linetype = "dashed", color = "red") +  # Horizontal line at y=0
+#   geom_vline(xintercept = 0, linetype = "dashed", color = "red") +  # Vertical line at x=
+#   scale_y_continuous(limits = c(-6, 6)) +
+#   scale_x_continuous(limits = c(-6, 6))+
+#   labs(x = "PC2", y="PC1")+
+#   theme_classic()+
+#   theme(axis.text.x = element_text(size = 15),
+#         axis.text.y = element_text(size = 15) )
 
   
+p <- ggplot(plot_df, aes(x = PC2, y = PC1)) + 
+  # Add lines connecting points with the same map_cscale
+  geom_line(aes(group = map_cscale), size = 0.8, alpha = 0.7) +
+  
+  # Original elements from your plot
+  geom_point(color = 'black') +
+  geom_image(aes(image = image), size = 0.05) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  scale_y_continuous(limits = c(-4, 4)) +
+  scale_x_continuous(limits = c(-4, 4)) +
+  labs(x = "PC2", y = "PC1") +
+  theme_classic() +
+  theme(axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15))
+   
 
-p
 
-ggsave(paste0(plot_dir,'exp2_colored_map_PCA.pdf'), dpi=300, height = 7, width=7,plot=p)
+sq_size=0.14
+p <- ggplot(plot_df, aes(x = PC2, y = PC1)) + 
+   geom_line(aes(group = map_cscale, color=map_cscale), size = 0.6, alpha = 0.7) +
+  # Add lines connecting points with the same map_cscale
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  # For lightshift: Create dashed square outlines using geom_path
+  geom_rect(data = subset(plot_df, shift == "lightshift"), 
+            aes(xmin = PC2 - sq_size, xmax = PC2 + sq_size, 
+                ymin = PC1 - sq_size, ymax = PC1 + sq_size),
+            fill = NA, color = "black", linetype = "dotted", size = 0.4) +
+  # For darkshift: Create solid square outlines using geom_rect
+  geom_rect(data = subset(plot_df, shift == "darkshift"), 
+            aes(xmin = PC2 - sq_size, xmax = PC2 + sq_size, 
+                ymin = PC1 - sq_size, ymax = PC1 + sq_size),
+            fill = NA, color = "black", linetype = "solid", size = 0.5) +
+            
+  # Original elements from your plot
+  geom_point(color = 'black', size = 2) +
+  geom_image(aes(image = image), size = 0.03) +
+  
+  scale_y_continuous(limits = c(-4, 4)) +
+  scale_x_continuous(limits = c(-4, 4)) +
+  scale_color_manual(guide = "none", values=condition_colors)+
+                       # c("BDS","BLS","BDU","BLU","RDS","RLS","RDU","RLU", "GDS","GLS","GDU","GLU","YDS","YLS","YDU","YLU",))+
+  labs(x = "PC2", y = "PC1") +
+  theme_classic() +
+  theme(axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15))
+
+# p
+
+ggsave(paste0(plot_dir,'/exp2_colored_map_PCA.pdf'), dpi=300, height = 7, width=7,plot=p)
+```
+
+```{r}
+pc_object_maps$x
+
+exp2_pc_scores<-as.data.frame(pc_object_maps$x)
+exp2_pc_scores$hue<-ratings_trials_grouped_wide$hue
+exp2_pc_scores$lightness<-ratings_trials_grouped_wide$lightness
+exp2_pc_scores$saturation<-ratings_trials_grouped_wide$saturation
+exp2_pc_scores$shift <-ratings_trials_grouped_wide$shift
+exp2_pc_scores$PC1<--1*exp2_pc_scores$PC1
+exp2_pc_scores$PC2<--1*exp2_pc_scores$PC2
+
+
+emotion_vars <- ratings_trials_grouped_wide[, c("calm", "negative", "positive", "startling")]
+pc_vars <- exp2_pc_scores[, c("PC1", "PC2")]
+# Calculate correlation matrix
+cormat_emotion_x_pc <- cor(pc_vars,emotion_vars, method = "pearson")
+cormat_emotion_x_pc
+# View the full correlation matrix
+print(cormat_emotion_x_pc)
+pheatmap(cormat_emotion_x_pc, display_numbers = T, fontsize = 20,number_color = 'white', treeheight_col = 0, treeheight_row = 0, color = cmap, filename = paste0(plot_dir,'/exp2_pc_emotion_cors.pdf'))
+
 ```
 
 ```{r}
@@ -218,9 +402,6 @@ ratings_trial_grouped
 
   
 
-hue_colors<-c('#fc0303','#f2eb0c','#00e357','#032cfc',"white")
-
-condition_colors = c("#005ddf","#00b3ff","#00588d","#3baeea","#00675b","#00c6b1","#005f5a","#00b9b0","#be004f","#ff31a3","#8d2449","#ef7f9c","#3f3c00","#beb600","#3e3b04","#bbb379")
 
 ratings_trial_grouped$lightsat<-paste(ratings_trial_grouped$lightness, ratings_trial_grouped$saturation, sep = "_")
 ratings_trial_grouped$hue<- factor(ratings_trial_grouped$hue, levels = c("R","Y","G","B"))
@@ -262,10 +443,64 @@ ggsave(paste0(plot_dir,'/exp2_facet_emotion_ratings.pdf'), dpi=300, height = 8, 
 
 ```{r}
 
+calm_ratings<- ratings_trial_grouped%>%filter(concept=='calm')
+calm_ratings_sl<- calm_ratings%>%group_by(shift, lightness)%>%summarize( se_rating = sd(mean_rating)/sqrt(n()),mean_rating = mean(mean_rating))
+
+calm_ratings_ss<- calm_ratings%>%group_by(shift, saturation)%>%summarize( se_rating = sd(mean_rating)/sqrt(n()),mean_rating = mean(mean_rating))
+
+
+
+calm_ratings_sl$lightness<-factor(calm_ratings_sl$lightness, levels = c("L","D"))
+calm_ratings_sl$shift<- factor(calm_ratings_sl$shift, levels = c("lightshift","darkshift"))
+calm_ratings_ss$shift<- factor(calm_ratings_ss$shift, levels = c("lightshift","darkshift"))
+calm_ratings_ss$saturation<-factor(calm_ratings_ss$saturation, levels=c("U","S"))
+
+p<- ggplot(calm_ratings_sl, aes(x = shift, y = mean_rating, group = lightness)) +
+  geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
+  geom_line(aes(color = lightness), linewidth = 0.5) +
+  geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
+                width = 0.2, color = "black", linewidth = 0.3) + 
+  geom_point( stroke=NA,size=2.5, aes(color=lightness)) +
+  labs(y = "Mean Rating") +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
+  scale_linetype() +
+  # Use filled shapes for the points
+  theme_classic() +
+  labs(title = "Mean Calm Ratings Exp2 (Shift x Lightness)") +
+ scale_color_manual(
+    name = "Lightness",
+    values = c("L" = "lightgrey","D" = "black"),
+    labels = c("Light", "Dark")
+  )
+p
+
+ggsave(paste0(plot_dir,'/exp2_calm_shift_lightness_ratings.pdf'), dpi=300, height = 5, width=6,plot=p)
+
+
+
+p<- ggplot(calm_ratings_ss, aes(x = shift, y = mean_rating, group = saturation)) +
+  geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
+  geom_line(aes(linetype = saturation), linewidth = 0.5) +
+  geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
+                width = 0.2, color = "black", linewidth = 0.3) + 
+  geom_point( stroke=NA,size=2.5) +
+  labs(y = "Mean Rating") +
+  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
+  scale_linetype() +
+  # Use filled shapes for the points
+  theme_classic() +
+  labs(title = "Mean Calm Ratings Exp2 (Shift x Saturation)") +
+  scale_linetype_manual(name="Saturation",values=c("S"='solid',"U"='dashed'),labels=c('unsaturated','saturated'))
+p
+
+ggsave(paste0(plot_dir,'/exp2_calm_shift_saturation_ratings.pdf'), dpi=300, height = 5, width=6,plot=p)
+
+
+
 ```
 
-
 ### Linear Regression Models
+
 ```{r}
 d<- ratings_trial_grouped%>%filter(concept=='positive')
 m1<-lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric), data =d)
@@ -293,8 +528,6 @@ summary(m1)
 ## Mixed Effects Models
 
 ```{r}
-
-
 
 ratings_trials_exp <- 
   ratings_trials_exp %>% 
@@ -336,7 +569,7 @@ ctrl <- lmerControl(optimizer="bobyqa", optCtrl=list(maxfun=5e5))
 d<- ratings_trials_exp%>%filter(concept=='positive')
 m_positive<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
-tab_model(m_positive,p.val = "kr", show.df = TRUE,file='positive_lmer_results.html')
+# tab_model(m_positive,p.val = "kr", show.df = TRUE,file='positive_lmer_results.html')
 summary(m_positive)
 ```
 
@@ -346,7 +579,7 @@ d<- ratings_trials_exp%>%filter(concept=='negative')
 
 m_negative<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
-tab_model(m_negative,p.val = "kr", show.df = TRUE,file='negative_lmer_results.html')
+# tab_model(m_negative,p.val = "kr", show.df = TRUE,file='negative_lmer_results.html')
 summary(m_negative)
 ```
 
@@ -355,7 +588,7 @@ d<- ratings_trials_exp%>%filter(concept=='calm')
 
 m_calm<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
-tab_model(m_calm,p.val = "kr", show.df = TRUE,file='calm_lmer_results.html')
+# tab_model(m_calm,p.val = "kr", show.df = TRUE,file='calm_lmer_results.html')
 summary(m_calm)
 
 ```
@@ -365,7 +598,7 @@ d<- ratings_trials_exp%>%filter(concept=='startling')
 
 m_startling<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
-tab_model(m_startling,p.val = "kr", show.df = TRUE,file='startling_lmer_results.html')
+# tab_model(m_startling,p.val = "kr", show.df = TRUE,file='startling_lmer_results.html')
 summary(m_startling)
 ```
 
@@ -377,8 +610,7 @@ m_calm<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_num
 tab_model(m_calm,p.val = "kr", show.df = TRUE,file='calm_lmer_results.html')
 ```
 
-```{r}
-
+```{}
 ```
 
 ```{r}
@@ -496,55 +728,55 @@ ggsave(
 ```
 
 ```{r}
-
-d<- ratings_trials_exp%>%filter(concept=='positive')
-d %>%
-  mutate(
-    lightness_numeric = case_when(
-      lightness_numeric == -1 ~ "dark",
-      lightness_numeric == 1 ~ "light",
-      TRUE ~ as.character(lightness_numeric)
-    ),
-    saturation_numeric = case_when(
-      saturation_numeric == -1 ~ "unsaturated",
-      saturation_numeric == 1 ~ "saturated",
-      TRUE ~ as.character(saturation_numeric)
-    ),
-    shift_numeric = case_when(
-      shift_numeric == -1 ~ "darkshift",
-      shift_numeric == 1 ~ "lightshift",
-      TRUE ~ as.character(shift_numeric)
-    )
-  ) %>%
-  group_by(lightness_numeric, saturation_numeric, shift_numeric) %>%
-  summarize(
-    mean_rating = mean(response),
-    se_rating = sd(response) / sqrt(n())
-  ) %>%
-  ggplot(aes(
-    x = factor(lightness_numeric, levels = c("dark", "light")),
-    y = mean_rating,
-    color = factor(shift_numeric, levels = c("darkshift", "lightshift")),
-    group = shift_numeric
-  )) +
-  geom_line(position = position_dodge(0.)) +
-  geom_point(size = 3, position = position_dodge(0.)) +
-  geom_errorbar(aes(
-    ymin = mean_rating - se_rating,
-    ymax = mean_rating + se_rating
-  ),
-  position = position_dodge(0.),
-  width = 0.2
-  ) +
-  scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
-  facet_wrap(~factor(saturation_numeric, levels = c("unsaturated", "saturated"))) +
-  labs(
-    title='Calm',
-    x = "Lightness",
-    y = "Mean Rating",
-    color = "Shift"
-  ) +
-  theme_classic()
+# 
+# d<- ratings_trials_exp%>%filter(concept=='positive')
+# d %>%
+#   mutate(
+#     lightness_numeric = case_when(
+#       lightness_numeric == -1 ~ "dark",
+#       lightness_numeric == 1 ~ "light",
+#       TRUE ~ as.character(lightness_numeric)
+#     ),
+#     saturation_numeric = case_when(
+#       saturation_numeric == -1 ~ "unsaturated",
+#       saturation_numeric == 1 ~ "saturated",
+#       TRUE ~ as.character(saturation_numeric)
+#     ),
+#     shift_numeric = case_when(
+#       shift_numeric == -1 ~ "darkshift",
+#       shift_numeric == 1 ~ "lightshift",
+#       TRUE ~ as.character(shift_numeric)
+#     )
+#   ) %>%
+#   group_by(lightness_numeric, saturation_numeric, shift_numeric) %>%
+#   summarize(
+#     mean_rating = mean(response),
+#     se_rating = sd(response) / sqrt(n())
+#   ) %>%
+#   ggplot(aes(
+#     x = factor(lightness_numeric, levels = c("dark", "light")),
+#     y = mean_rating,
+#     color = factor(shift_numeric, levels = c("darkshift", "lightshift")),
+#     group = shift_numeric
+#   )) +
+#   geom_line(position = position_dodge(0.)) +
+#   geom_point(size = 3, position = position_dodge(0.)) +
+#   geom_errorbar(aes(
+#     ymin = mean_rating - se_rating,
+#     ymax = mean_rating + se_rating
+#   ),
+#   position = position_dodge(0.),
+#   width = 0.2
+#   ) +
+#   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, .1))) +
+#   facet_wrap(~factor(saturation_numeric, levels = c("unsaturated", "saturated"))) +
+#   labs(
+#     title='Calm',
+#     x = "Lightness",
+#     y = "Mean Rating",
+#     color = "Shift"
+#   ) +
+#   theme_classic()
 
 
 ```
