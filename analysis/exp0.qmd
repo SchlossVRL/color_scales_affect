@@ -1,0 +1,627 @@
+---
+title: "color_scales_affect"
+format: html
+editor: visual
+---
+
+### Load packages
+
+```{r}
+# List of packages
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot")
+
+
+```
+
+```{r}
+
+install_and_load_packages <- function(packages) {
+  for(package in packages) {
+    if(!require(package, character.only = TRUE)) {
+      install.packages(package, dependencies = TRUE)
+      library(package, character.only = TRUE)
+    }
+  }
+}
+
+# Call the function with the list of packages
+install_and_load_packages(packages)
+
+```
+
+## Gray Maps
+
+### Preprocessing
+
+```{r}
+analysis_dir<- getwd()
+
+
+data_dir <-paste0(analysis_dir,'/../data/gray_maps')
+### if data_dir doesn't exist create it
+if (!dir.exists(data_dir)) {
+  dir.create(data_dir)
+}
+
+plot_dir <- paste0(analysis_dir,'/../plots')
+### if plot_dir doesn't exist create it
+if (!dir.exists(plot_dir)) {
+  dir.create(plot_dir)
+}
+
+data_files <-list.files(path = data_dir, full.names = TRUE, pattern="*.csv")
+data_files
+
+df_list <- lapply(data_files, read.csv)
+
+experiment_data_raw<- bind_rows(df_list)
+
+ratings_trials<- experiment_data_raw %>% filter(trial_type== 'html-slider-response')
+
+ratings_trials_exp<- ratings_trials %>% filter(practiceTrial != 'true')
+
+nrow(ratings_trials_exp)
+
+ratings_trials_exp$response<- as.numeric(ratings_trials_exp$response)
+ratings_trials_exp$response<- (ratings_trials_exp$response + 200)/400
+ratings_trial_grouped<- ratings_trials_exp %>% group_by(image_path, concept) %>%summarise(mean_rating = mean(response)) 
+
+
+ratings_trials_grouped_wide<-ratings_trial_grouped %>%
+  pivot_wider(names_from = concept, values_from = mean_rating)
+
+ratings_trials_grouped_wide
+
+
+
+
+```
+
+### This bit below checks for the consistency of ratings across different sample sizes to help us determine the number of participants
+
+```{r}
+concepts<- list()
+r_values<- list()
+iters<- list()
+sample_sizes<- list()
+unique_subject_ids <- unique(ratings_trials_exp$subject_id)
+for(sample_size in c(10,20,30,40,50,60,80)){
+  for(iter in 1:20){
+  sample1_ids<-sample(unique_subject_ids, size = sample_size, replace = TRUE)
+  sample2_ids<-sample(unique_subject_ids, size = sample_size, replace = TRUE)
+  
+  sample1<- ratings_trials_exp%>%filter(subject_id%in%sample1_ids)
+  sample2<- ratings_trials_exp%>%filter(subject_id%in%sample2_ids)
+  
+  sample1_grouped<- sample1 %>% group_by(image_path, concept) %>%summarise(mean_rating = mean(response)) 
+  sample1_grouped_wide<-sample1_grouped %>%
+    pivot_wider(names_from = concept, values_from = mean_rating)
+  
+  
+    sample2_grouped<- sample2 %>% group_by(image_path, concept) %>%summarise(mean_rating = mean(response)) 
+  sample2_grouped_wide<-sample2_grouped %>%
+    pivot_wider(names_from = concept, values_from = mean_rating)
+  
+  r_value<- cor(unlist(sample2_grouped_wide[,-1]), unlist(sample1_grouped_wide[,-1]))
+  r_values<- append(r_values, r_value)
+  sample_sizes<- append(sample_sizes, sample_size)
+  iters<- append(iters, iter)
+
+  }
+}
+
+
+
+sim_df <- data.frame(cbind(unlist(iters), unlist(sample_sizes), unlist(r_values)))
+colnames(sim_df)<-c('iters','sample_sizes','r_values')
+sim_df$r_values<- as.numeric(sim_df$r_values)
+mean_sim_df <- sim_df %>%
+  group_by(sample_sizes) %>%
+  summarize(mean_r_values = mean(r_values), .groups = 'drop')
+
+ggplot(mean_sim_df, aes(x = sample_sizes, y = mean_r_values)) +
+  geom_line() +
+  geom_point() +  # Optional: to show points on the lines
+  labs(title = "Mean R-values by Concept and Sample Size",
+       x = "Sample Sizes",
+       y = "Mean R-values",
+       color = "Concept") 
+
+```
+
+Looks like around 50 should give us the enough stability in associations
+
+### PCA analysis
+
+```{r}
+pc <- prcomp(ratings_trials_grouped_wide[,-1],
+             center = TRUE,
+            scale. = TRUE)
+attributes(pc)
+print(pc)
+
+summary(pc)
+# Extract the cumulative proportion of variance explained
+cumulative_variance <- cumsum(summary(pc)$importance[2, 1:6])
+
+# Create a data frame for plotting
+variance_df <- data.frame(
+  Component = 1:6,
+  CumulativeVariance = cumulative_variance
+)
+
+
+# Create the plot
+# Create the plot with all x-axis ticks
+ggplot(variance_df, aes(x = Component, y = CumulativeVariance)) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(breaks = 1:6) +
+  labs(title = "Cumulative Proportion of Variance Explained",
+       x = "Principal Component",
+       y = "Cumulative Proportion of Variance") +
+  theme_minimal()
+```
+
+```{r}
+
+# Extract the eigenvalues (squared singular values)
+eigenvalues <- pc$sdev
+
+# Create a data frame for plotting the first 6 eigenvalues
+eigenvalues_df <- data.frame(
+  Component = 1:6,
+  Eigenvalue = eigenvalues[1:6]
+)
+
+# Create the plot
+ggplot(eigenvalues_df, aes(x = Component, y = Eigenvalue)) +
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(breaks = 1:6) +
+  labs(title = "singular value of the First 6 Principal Components",
+       x = "Principal Component",
+       y = "Singular Value") +
+  theme_minimal()
+```
+
+For selecting best maps, compute correlation matrix and for each map compute the mean correlation and pick the 16 with the highest means
+
+```{r}
+
+### add a new column with just the map number
+ratings_trials_grouped_wide$annot<- sapply(ratings_trials_grouped_wide$image_path, function(x){return(strsplit(x, split="_")[[1]][2])})
+ratings_trials_grouped_wide$annot<- sapply(ratings_trials_grouped_wide$annot, function(x){return(strsplit(x, split=".png")[[1]][1])})
+
+### oct 16 exlusions
+# rtgw<- ratings_trials_grouped_wide%>%filter(!annot%in%c('25','19','14','40','01','35','09','39','18','31','29','21','43','24','38','06','34'
+# ))
+
+### Mar 29 additions
+rtgw_sub<- ratings_trials_grouped_wide%>%filter(!annot%in%c('21','29','18','31','39','38','06','34','24','43','14','01','35','32','40','09','19','25'
+))
+rtgw_sub <- rtgw_sub %>%ungroup()%>% select(-image_path)
+
+df_transposed_sub <- rtgw_sub %>%
+  pivot_longer(cols = -annot, names_to = "variable", values_to = "value") %>%
+  pivot_wider(names_from = annot, values_from = value)
+
+df_transposed_sub <- column_to_rownames(df_transposed_sub, var = "variable")
+
+
+
+rtgw_full <- ratings_trials_grouped_wide %>%ungroup()%>%select(-c(image_path))
+df_transposed_full <- rtgw_full %>%
+  pivot_longer(cols = -annot, names_to = "variable", values_to = "value") %>%
+  pivot_wider(names_from = annot, values_from = value)
+
+df_transposed_full <- column_to_rownames(df_transposed_full, var = "variable")
+
+
+
+```
+
+```{r}
+
+
+my_colors<- c(
+  '#892c4f', 
+  '#ab355e', 
+  '#ca4571', 
+  '#e26087', 
+  '#ef7f9c', 
+  '#f39db1', 
+  '#f4bbc8', 
+  '#f9dae4', 
+  '#fffcff',
+  
+  '#c7ffff',
+  '#97e8ff',
+  '#46d3ff',
+  '#00c3ff',
+  '#00b3ff',
+  '#00a1ff',
+  '#008aff',
+  '#0074fe',
+  '#005ed8'
+)
+cmap <- colorRampPalette(my_colors)(18)
+
+correlation_matrix_full<-cor(df_transposed_full)
+
+cell_size <- 10
+pheatmap(correlation_matrix_full,
+         # main = "Map x Map Correlation Matrix",
+         color = cmap,
+         fontsize = 8,
+         border_color = "white",
+         display_numbers = FALSE,
+         number_format = "%.2f",
+         number_color = "white",
+         fontsize_number = 12,
+         
+         # Keep clustering on
+         cluster_rows = TRUE,
+         cluster_cols = TRUE,
+         
+         # Specify clustering parameters
+         clustering_distance_rows = "correlation",
+         clustering_distance_cols = "correlation",
+         clustering_method = "complete",  # Changed from NA to "complete"
+         
+         # Set tree heights to 0 to hide dendrograms
+         treeheight_row = 0,
+         treeheight_col = 0,
+         
+         # Set the breaks to ensure color scale spans from -1 to 1
+         breaks = seq(-1, 1, length.out = length(cmap) + 1),
+         
+         # Configure legend ticks
+         legend_breaks = c(-1, -0.5, 0, 0.5, 1),
+         legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
+         # clustering_callback = callback,
+          cellwidth = cell_size,
+          cellheight = cell_size,
+         
+          filename = paste0(plot_dir,"/exp0_maps_cormat.pdf")
+         
+         )
+
+
+
+correlation_matrix_sub<-cor(df_transposed_sub)
+
+min_cors<- numeric()
+mean_cors<-numeric()
+filenames<- list()
+
+for(i in 1:nrow(correlation_matrix_sub)){
+  this_min_cor<- min(correlation_matrix_sub[i,])
+  this_mean_cor<- mean(correlation_matrix_sub[i,])
+  this_filename<- rownames(correlation_matrix_sub)[i]
+  
+  min_cors<- append(min_cors,this_min_cor)
+  mean_cors<- append(mean_cors,this_mean_cor)
+  filenames<- append(filenames, this_filename)
+  
+  
+}
+
+
+cor_df<- data.frame(cbind(filenames, min_cors,mean_cors))
+cor_df$min_cors<- as.numeric(cor_df$min_cors)
+cor_df$mean_cors<- as.numeric(cor_df$mean_cors)
+cor_df_sorted <- cor_df %>% arrange(desc(mean_cors))
+
+write.csv(correlation_matrix, file = "correlation_matrix_tmp.csv", row.names = TRUE)
+
+### maps sorted in terms of most cohesive to least cohesive
+sorted_maps<-unlist(cor_df_sorted$filenames) 
+correlation_matrix_sub<- correlation_matrix[sorted_maps,sorted_maps]
+correlation_matrix <- correlation_matrix[sorted_maps,sorted_maps]
+
+
+cell_size <- 15  # Size in points for each cell (adjust as needed)
+pheatmap(correlation_matrix,
+         # main = "Map x Map Correlation Matrix",
+         color = cmap,
+         fontsize = 12,
+         border_color = "white",
+         display_numbers = FALSE,
+         number_format = "%.2f",
+         number_color = "white",
+         fontsize_number = 12,
+         
+         # Keep clustering on
+         cluster_rows = FALSE,
+         cluster_cols = FALSE,
+         
+         # Specify clustering parameters
+         clustering_distance_rows = "correlation",
+         clustering_distance_cols = "correlation",
+         clustering_method = "complete",  # Changed from NA to "complete"
+         
+         # Set tree heights to 0 to hide dendrograms
+         treeheight_row = 0,
+         treeheight_col = 0,
+         
+         # Set the breaks to ensure color scale spans from -1 to 1
+         breaks = seq(-1, 1, length.out = length(cmap) + 1),
+         
+         # Configure legend ticks
+         legend_breaks = c(-1, -0.5, 0, 0.5, 1),
+         legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
+         # clustering_callback = callback,
+         
+         # Critical parameters for square cells
+          cellwidth = cell_size,
+          cellheight = cell_size,
+                 
+          filename = paste0(plot_dir,"/exp0_maps_cormat_sub.pdf")
+         
+         )
+
+```
+
+```{r}
+
+df_transposed <- ratings_trials_grouped_wide %>%
+  pivot_longer(cols = -c(image_path,annot), names_to = "variable", values_to = "value") %>%
+  pivot_wider(names_from = variable, values_from = value)
+
+correlation_matrix<-cor(df_transposed[,-c(1,2)])
+
+
+pheatmap(correlation_matrix,
+         main = "Gray Maps Correlation Matrix",
+         color = cmap,
+         fontsize = 15,
+         border_color = "white",
+         display_numbers = TRUE,
+         number_format = "%.2f",
+         number_color = "white",
+         fontsize_number = 12,
+         
+         # Keep clustering on
+         cluster_rows = TRUE,
+         cluster_cols = TRUE,
+         
+         # Specify clustering parameters
+         clustering_distance_rows = "correlation",
+         clustering_distance_cols = "correlation",
+         clustering_method = "complete",  # Changed from NA to "complete"
+         
+         # Set tree heights to 0 to hide dendrograms
+         treeheight_row = 0,
+         treeheight_col = 0,
+         
+         # Set the breaks to ensure color scale spans from -1 to 1
+         breaks = seq(-1, 1, length.out = length(cmap) + 1),
+         
+         # Configure legend ticks
+         legend_breaks = c(-1, -0.5, 0, 0.5, 1),
+         legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
+         # clustering_callback = callback,
+         
+          filename = paste0(plot_dir,"/exp0_cormat.pdf")
+         
+         )
+```
+
+```{r}
+
+
+exp0_pc_scores<-as.data.frame(pc$x)
+
+# Create a new data frame with only the filtered rows
+exp0_pc_scores <- exp0_pc_scores[c('33','41','23','12','2','27','26','5','28','13','30','10','37','15','44','7'), ]
+
+
+emotion_vars <- ratings_trials_grouped_wide[, c("calm", "disturbing", "exciting", "negative", "playful", "positive", "serious", "trustworthy")]
+emotion_vars <- emotion_vars[c('33','41','23','12','2','27','26','5','28','13','30','10','37','15','44','7'),]
+pc_vars <- exp0_pc_scores[, c("PC1", "PC2")]
+# Calculate correlation matrix
+cormat_emotion_x_pc <- cor(pc_vars,emotion_vars, method = "pearson")
+
+# View the full correlation matrix
+
+pheatmap(cormat_emotion_x_pc, 
+         display_numbers = T, 
+         fontsize = 20,
+         number_color = 'darkgoldenrod2', 
+         treeheight_col = 0, 
+         treeheight_row = 0, 
+         color = cmap,
+         # main="Gray Maps PC correlations",
+         filename = paste0(plot_dir,"/exp0_pc_emotion_cors.pdf")
+         )
+```
+
+
+
+
+```{r}
+plot_df <- ratings_trials_grouped_wide %>% ungroup() %>%
+  pivot_longer(
+    cols = -c(annot,image_path),  # All columns except 'annot'
+    names_to = "emotion",
+    values_to = "value"
+  ) %>%
+  # Convert annot to factor to maintain order
+  mutate(
+    annot = factor(annot, levels = unique(annot)),
+    # Create a color variable based on whether annot is in special_annots
+    color_group = ifelse(annot %in% c('33','41','23','12','02','27','26','05','28','13','30','10','37','15','44','07'), "special", "regular")
+  )
+
+
+plot_df_sorted <- plot_df %>%
+  group_by(emotion) %>%
+  arrange(emotion, desc(value)) %>%
+  mutate(rank = row_number()) %>%
+  select(emotion, annot, rank,value,color_group) 
+
+# Create the plot with independently sorted bars
+ggplot(plot_df_sorted, aes(x = rank, y = value, fill = color_group)) +
+  geom_col() +
+  facet_wrap(~ emotion, ncol = 2, scales = "free_x") +  # Use free_x scales
+  scale_fill_manual(values = c("regular" = "gray", "special" = "black")) +
+  scale_y_continuous(limits = c(0, 1), expand = c(0, 0),breaks = seq(0, 1, by = 0.5)) +
+  theme_minimal() +
+  theme(
+    # axis.text.x = element_text(angle = 0, hjust = 1, vjust = 0.5, size = 8),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(size = 8),
+    strip.text = element_text(face = "bold"),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.position = "none"  # Remove the legend
+  ) +
+  labs(
+    x = "Maps",
+    y = "Mean Rating",
+    # title = "Emotion Scores by Map"
+  )
+
+ggsave(paste0(plot_dir, '/exp0_hillplots_sub.pdf'), height = 3, width = 2.5, units = "in", dpi = 300)
+
+#############
+
+# 
+# 
+# plot_df_sorted <- plot_df %>%
+#   group_by(annot) %>%
+#   arrange(annot, desc(value)) %>%
+#   mutate(rank = row_number()) %>%
+#   select(emotion, annot, rank,value,color_group) 
+# plot_df_sorted$annot <- factor(plot_df_sorted$annot, levels = sorted_maps)
+# 
+# # Create the plot with independently sorted bars
+# ggplot(plot_df_sorted, aes(x = rank, y = value, fill = emotion)) +
+#   geom_col() +
+#   facet_wrap(~ annot, ncol = 4, scales = "free_x") +  # Use free_x scales
+#   scale_fill_manual(values = c("calm" = "cornsilk", "angry" = "darkred", "serious" = "goldenrod","disturbing"="darkgreen","negative"= "darkorange4","playful"="cyan2", "positive"= "chartreuse", "trustworthy"="darkorchid1" )) +
+#   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
+#   theme_minimal() +
+#   theme(
+#     axis.text.x = element_text(angle = 0, hjust = 1, vjust = 0.5, size = 8),
+#     strip.text = element_text(face = "bold"),
+#     panel.grid.major.x = element_blank(),
+#     panel.grid.minor = element_blank(),
+#     # legend.position = "none"  # Remove the legend
+#   ) +
+#   labs(
+#     x = "Emotion",
+#     y = "Score",
+#     title = "Emotion Scores by Map"
+#   )
+# ggsave(paste0(plot_dir, '/exp0_hillplots_sub.pdf'), height = 8, width = 6, units = "in", dpi = 300)
+```
+
+```{r}
+
+
+load_image_path<-function(path){
+  return(paste0(analysis_dir,'/../',path))
+}
+image_paths<- sapply(ratings_trials_grouped_wide$image_path,load_image_path)
+plot_df <- data.frame(
+  PC1 = pc$x[, 1],
+  PC2 = pc$x[, 2],
+  PC3 = pc$x[, 3],
+  image = image_paths,
+  filename = sapply(ratings_trials_grouped_wide$image_path, function(x){return(strsplit(x,split = '/')[[1]][2])})  # Add filenames for annotation
+)
+
+plot_df$annot<- sapply(plot_df$filename, function(x){return(strsplit(x, split="_")[[1]][2])})
+plot_df$annot<- sapply(plot_df$annot, function(x){return(strsplit(x, split=".png")[[1]][1])})
+
+# # oct 16 subsets
+# plot_df<- plot_df%>%filter(annot%in%c('33','41','23','12','02','27','26','05','28','13','30','10','37','15','44','07'))
+
+# Define the list of maps that should have red outlines
+highlighted_maps <- c('33', '41', '23', '12', '02', '27', '26', '05', '28', '13', '30', '10', '37', '15', '44', '07')
+sq_size=0.25
+ggplot(plot_df, aes(x = PC1, y = PC2)) +
+  geom_hline(yintercept = 0, linetype = "solid", color = "lightgray") +
+  geom_vline(xintercept = 0, linetype = "solid", color = "lightgray") +
+  # Add images for all points
+  geom_image(aes(image = image), size = 0.04) +
+  
+  # Add red outlines for highlighted maps
+  
+  geom_rect(data = subset(plot_df, annot %in% highlighted_maps),  # Filter to only include highlighted maps, 
+            aes(xmin = PC1 - sq_size, xmax = PC1 + sq_size, 
+                ymin = PC2 - sq_size, ymax = PC2 + sq_size),
+            fill = NA, color = "red", linetype = "solid", size = 0.3) +
+
+  # Add text annotations
+  # geom_text(aes(label = annot), vjust = 0, hjust = 1, size = 4, color = 'goldenrod') +
+  
+  labs(x = "PC1", y = "PC2") +
+  
+
+  
+  theme_classic() +
+  
+  scale_y_continuous(limits = c(-6.5, 6.5), breaks = seq(-6.5, 6.5, by = 2), expand = c(0, 0)) +
+  scale_x_continuous(limits = c(-6.5, 6.5), breaks = seq(-6.5, 6.5, by = 2), expand = c(0, 0)) +
+  
+  theme(axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        plot.title = element_text(size = 15),
+        axis.text.x = element_text(size = 15),
+        axis.text.y = element_text(size = 15))
+
+ggsave(paste0(plot_dir, '/exp0_map_PCA.pdf'), height = 6, width = 6, units = "in", dpi = 300)
+
+```
+
+```{r}
+
+ggplot(plot_df, aes(x = PC2, y = PC3)) +
+  geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
+  geom_text(aes(label = annot), vjust = -1, hjust = 1, size = 5, color='cyan') +  # Annotate with filenames
+  theme_grey() +
+  theme(axis.title = element_blank(),  # Optional: hide axis labels
+        axis.text = element_blank(),
+        axis.ticks = element_blank())
+
+# ggsave('pcaplot_gray_maps_2_3_10_16.png', height=13, width=13,units = "in", dpi = 300)
+ggsave('pcaplot_gray_maps_2_3_sub_maps_10_16.png', height=13, width=13,units = "in", dpi = 300)
+```
+
+```{r}
+
+ggplot(plot_df, aes(x = PC1, y = PC3)) +
+  geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
+  geom_text(aes(label = annot), vjust = -1, hjust = 1, size = 5, color='cyan') +  # Annotate with filenames
+  theme_grey() +
+  theme(axis.title = element_blank(),  # Optional: hide axis labels
+        axis.text = element_blank(),
+        axis.ticks = element_blank())
+
+ggsave('pcaplot_gray_maps_1_3_10_16.png', height=13, width=13,units = "in", dpi = 300)
+```
+
+```{r}
+
+# Step 1: Extract the order of the `concept` values in the first facet
+first_facet <- ratings_trial_grouped %>% filter(annot == '02')  # Assuming '02' is the first facet
+ordered_concepts <- first_facet %>% arrange(desc(mean_rating)) %>% pull(concept)
+
+# Step 2: Apply this order to the entire dataset
+ratings_trial_grouped$concept <- factor(ratings_trial_grouped$concept, levels = ordered_concepts)
+
+# Step 3: Plot the data using the ordered `concept` values
+p <- ggplot(ratings_trial_grouped, aes(x = concept, y = mean_rating)) +
+  geom_bar(stat='identity') +
+  facet_wrap(~annot, scales = "free_x", ncol = 4) +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(y = "Mean Rating") +
+  scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, .1)))
+
+p
+ggsave('subset_map_ratings.png', plot = p, dpi = 300, height = 10, width = 13)
+```
