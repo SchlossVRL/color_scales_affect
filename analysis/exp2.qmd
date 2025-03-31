@@ -610,7 +610,7 @@ m_calm<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_num
 tab_model(m_calm,p.val = "kr", show.df = TRUE,file='calm_lmer_results.html')
 ```
 
-```{}
+```         
 ```
 
 ```{r}
