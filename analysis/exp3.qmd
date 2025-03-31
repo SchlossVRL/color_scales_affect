@@ -564,7 +564,9 @@ ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
                  y = mean_avg_score,
                  group = color_condition,
                  color = color_condition))+
+
   # facet_wrap(~climate_worry, scales = "free")+
+
   geom_errorbar(aes(ymin = mean_avg_score - sem_avg_score,
                   ymax = mean_avg_score + sem_avg_score),
               position = position_dodge(0.1)) +
@@ -576,15 +578,17 @@ ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
        color = "Color Condition") +
  scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
-  theme(legend.position = "top")+ylim(c(0,6))
 
+  theme(legend.position = "top")+ylim(c(0,6))
 
 
 ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
                  y = mean_avg_score_f1,
                  group = color_condition,
                  color = color_condition))+
+
   # facet_wrap(~climate_worry, scales = "free")+
+
   geom_errorbar(aes(ymin = mean_avg_score_f1 - sem_avg_score_f1,
                   ymax = mean_avg_score_f1 + sem_avg_score_f1),
               position = position_dodge(0.1)) +
@@ -596,7 +600,9 @@ ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
        color = "Color Condition") +
  scale_color_manual(values = c("negative" = "#00588d",
                                "positive" = "#00b3ff")) +
+
   theme(legend.position = "top")+ylim(c(0,6))
+
 
 
 ggplot(composite_scores_affil_grouped, aes(x = affiliation_score,
