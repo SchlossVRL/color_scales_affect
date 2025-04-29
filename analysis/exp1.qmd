@@ -292,32 +292,6 @@ my_colors<- c(
 
 # Create a color palette that interpolates between these 5 colors
 cmap <- colorRampPalette(my_colors)(18)
-# 
-# pheatmap(correlation_matrix,
-#          main = "Correlation Matrix with Clustering",
-#          color = cmap,
-#              fontsize = 15,
-#          border_color = "white",
-#          display_numbers = T,
-#          number_format = "%.2f",
-#          number_color = "white",
-#          fontsize_number = 12,
-#          # cutree_rows =3,
-#          # cutree_cols=3,
-#          # clustering_distance_rows = "correlation",
-#          # clustering_distance_cols = "correlation",
-#          clustering_method =NA,
-#          treeheight_row=60,
-#          treeheight_col=60,
-#      
-#          # Set the breaks to ensure color scale spans from -1 to 1
-#          breaks = seq(-1, 1, length.out = length(cmap) + 1),
-#          
-#          # Configure legend ticks
-#          legend_breaks = c(-1, -0.5, 0, 0.5, 1),
-#          legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
-#          filename="test_cor_matrix_w_hclust.pdf")
-
 
 callback = function(hc, mat){
     sv = svd(t(mat))$v[,1]
@@ -494,102 +468,7 @@ ratings_trial_grouped_clustered_emotions$clustered_emotion<-factor(ratings_trial
 ```{r}
 ratings_trials_grouped_wide
 ```
-
 ```{r}
-
-# ratings_trial_grouped <- ratings_trial_grouped %>%
-#   mutate(clustered_emotion = case_when(
-#     concept %in% c("positive", "exciting","playful") ~ "emotion1",
-#     concept %in% c("calm", "trustworthy") ~ "emotion2",
-#     concept %in% c("serious","negative","disturbing") ~ "emotion3",
-#     TRUE ~ NA_character_  # Default case if none of the conditions match
-#   ))
-
-# 
-# 
-# ratings_trial_grouped_clustered_emotions<-ratings_trial_grouped%>%group_by(clustered_emotion, hue, saturation, lightness, lightsat,light_sat_hue)%>%summarize(mean_rating = mean(mean_rating))
-# ratings_trial_grouped_clustered_emotions$lightsat<-paste(ratings_trial_grouped_clustered_emotions$lightness, ratings_trial_grouped_clustered_emotions$saturation, sep = "_")
-# ratings_trial_grouped_clustered_emotions$light_sat_hue<-paste(ratings_trial_grouped_clustered_emotions$lightsat, ratings_trial_grouped_clustered_emotions$hue, sep = "_")
-# ratings_trial_grouped_clustered_emotions$hue<- factor(ratings_trial_grouped_clustered_emotions$hue, levels = c("R","Y","G","B"))
-# ratings_trial_grouped_clustered_emotions$light_sat_hue<-factor(ratings_trial_grouped_clustered_emotions$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
-# 
-# 
-# p <- ggplot(ratings_trial_grouped_clustered_emotions, aes(x = hue, y = mean_rating, group = lightsat)) +
-#   geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
-#   geom_line(aes(colour = factor(lightness), 
-#                 linetype = factor(saturation)),  # Add linetype aesthetic
-#                 linewidth = .5) +
-#   geom_errorbar(aes(ymin = mean_rating - se_rating, ymax = mean_rating + se_rating),  # Add error bars
-#                 width = 0.2, color = "black", linewidth = 0.3) +  # Adjust width and appearance of error bars
-#   geom_point(aes(shape = lightsat, fill = light_sat_hue), stroke=NA,size=2.5) +
-#   facet_wrap(~clustered_emotion, scales = "free_x", nrow = 4, strip.position = "right") +  # Move facet labels to the right
-#   theme(axis.title.x = element_blank(),
-#         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
-#         panel.border = element_rect(colour = "black", fill = NA, linewidth = 1),  # Add border around each facet
-#         strip.background = element_rect(colour = "black", fill = "white")) +  # Add background to facet labels
-#   labs(y = "Mean Rating") +
-#   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
-#   # For the lines: apply grey scale
-#   scale_colour_grey(name = "Lightness/Saturation", guide = "none") +
-#   # For the points: apply custom colors
-#   scale_fill_manual(values = condition_colors, guide = "none") +
-#   # Add scale for line types
-#   scale_linetype_discrete(name = "Saturation", guide = "none") +
-#   # Use filled shapes for the points
-#   scale_shape_manual(name = "Lightness/Saturation", values = c("D_S" = 22, "L_S" = 21, "L_U" = 24, "D_U" = 23), guide = "none") +
-#   theme_classic() +
-#   theme(
-#     axis.title.x = element_blank(),
-#     panel.border = element_rect(colour = "black", fill = NA, linewidth = .5),  # Add border around each facet
-#     strip.background = element_rect(colour = "black", fill = "white"),  # Add background to facet labels
-#     panel.spacing.y = unit(1, "lines"),  # Increase space between rows
-#     strip.placement = "outside"  # Ensure strip labels are placed outside the plot area
-#   )
-# 
-# p
-# ggsave(paste0(plot_dir,'/exp1_facet_clustered_emotion_ratings.pdf'), dpi=300, height = 6, width=2.8,plot=p)
-
-```
-
-```{r}
-# em1_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion1')%>%pull(mean_rating)
-# em3_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion3')%>%pull(mean_rating)
-# em2_mean_ratings <- ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion2')%>%pull(mean_rating)
-# 
-# cor(em1_mean_ratings,em3_mean_ratings)
-# cor(em1_mean_ratings,em2_mean_ratings)
-# cor(em3_mean_ratings,em2_mean_ratings)
-
-```
-
-```{r}
-# ratings_trial_grouped_clustered_emotions <- 
-#   ratings_trial_grouped_clustered_emotions %>% 
-#   mutate(
-#     saturation_numeric = case_when(
-#       saturation == 'S' ~ 1,
-#       saturation == 'U' ~ -1,
-#       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-#     ),
-#     lightness_numeric = case_when(
-#       lightness == 'L' ~ 1,
-#       lightness == 'D' ~ -1,
-#       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-#     ),
-#     RG_numeric = case_when(
-#       hue == 'R' ~ 1,
-#       hue == 'G' ~ -1,
-#       hue %in% c('B', 'Y') ~ 0,
-#       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-#     ),
-#     BY_numeric = case_when(
-#       hue == 'B' ~ 1,
-#       hue == 'Y' ~ -1,
-#       hue %in% c('R', 'G') ~ 0,
-#       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-#     )
-#   )
-
 
 emotion1_df_grouped<-ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion1')
 emotion2_df_grouped<-ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion2')
@@ -752,21 +631,6 @@ disturbing_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*satu
 summary(disturbing_lmer)
 cat(generate_lmer_latex_table(disturbing_lmer, model_name = "Disturbing"))
 
-
-
-
-# emotion1_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion1_df,control=ctrl)
-# summary(emotion1_lmer)
-# 
-# 
-# emotion2_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion2_df,control=ctrl)
-# summary(emotion2_lmer)
-# 
-# 
-# 
-# emotion3_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =emotion3_df,control=ctrl)
-# summary(emotion3_lmer)
-
 ```
 
 
@@ -774,15 +638,6 @@ cat(generate_lmer_latex_table(disturbing_lmer, model_name = "Disturbing"))
 ## Generating Shifted Maps
 
 ```{r}
-shift_to_zero <- function(x, power = 4) {
-  x^power  # Values > 0.5 drop more quickly towards 0
-}
-
-shift_to_one <- function(x, power = 4) {
-  # 1 - (1-x)^power  # Values < 0.5 rise more quickly towards 1
-  x^(1/power)
-}
-
 
 # Function to skew towards left endpoint (a)
 skew_left <- function(x, a = 0, b = 1, power = 4) {
@@ -818,7 +673,7 @@ library(data.table)
 
 # input table of map values (one row per map)
 map_df <- fread(file = '../data/map_values_V2.csv', header = F, data.table = F)
-color.scale.hex <- c('#eb7cb3', '#da578f', '#cf2975', '#c80062', '#be004f', '#ad003d', '#92002b', '#73001c', '#55000a')
+color.scale.hex <- c('#eb7cb3', '#da578f', '#cf2975', '#c80062', '#be004f', '#ad003d', '#92002b', '#73001c', '#55000a') ### adjust this based on which scale is being used
 
 
 map_df_vals <- map_df[,2:ncol(map_df)]
@@ -845,143 +700,3 @@ data.table::fwrite(map_df_vals_darkshift,'../data/map_values_V2_darkshift.csv')
 
 ```
 
-```{r}
-
-
-power = 10
-
-# Plot the matrix
-# image(mrt, main = "Matrix Plot", xlab = "Columns", ylab = "Rows")
-
-
-# 
-# tmp<-runif(1000000,0,1)
-# tmp <- rep(.25, 250000)
-# tmp <- c(tmp, rep(.75, 250000), rep(.5, 250000), rep(1, 250000))
-# mrt <- matrix(tmp, nrow = 1000, ncol = 1000, byrow = FALSE)
-
- mrt <- (mrt-min(mrt))/(max(mrt)-min(mrt))
- mrt <- (lapply(mrt, function(x) ifelse(x == 1, x-0.01, x)))
- mrt <- unlist(lapply(mrt, function(x) ifelse(x == 0, x+0.01, x)))
- 
- mrt<- matrix(mrt, nrow = 1000, ncol = 1000, byrow = FALSE)
-
-
-
-# Flatten the matrix into a vector
-matrix_values <- as.vector(mrt)
-
-
-# Create a histogram of the matrix's values
-hist(matrix_values, main = "Histogram of Matrix Values", xlab = "Values", ylab = "Frequency", col = "blue",breaks = seq(from=0, to=1, by =.1))
-
-png(filename = 'base.png', width = 1000, height = 1000, units = 'px')
-par(mar = c(0, 0, 0, 0))
-image(mrt, axes = F, asp = 1, useRaster = T, col = color.scale.hex)
-dev.off()
-
-
-
-
-# mrt_exp <- exp(mrt/10)
-mrt_exp<-skew_left(mrt,power=power)
-# mrt_exp<- (mrt_exp-min(mrt_exp))/(max(mrt_exp)-min(mrt_exp))
-
-# mrt_exp <- exp(mrt/10)
-
-# mrt_exp <-10^mrt
-
-# Flatten the matrix into a vector
-matrix_values <- as.vector(mrt_exp)
-
-# Create a histogram of the matrix's values
-hist(matrix_values, main = paste0("Histogram of Dark Shift Values @ ",power), xlab = "Values", ylab = "Frequency", col = "blue",breaks = seq(from=0, to=1, by=.1))
-
-
-
-
-# Plot the matrix
-image(mrt_exp, main = "Matrix Plot", xlab = "Columns", ylab = "Rows" )
-
-
-png(filename = paste0('lightshift_power',power,'.png'), width = 1000, height = 1000, units = 'px')
-par(mar = c(0, 0, 0, 0))
-image(mrt_exp, axes = F, asp = 1, useRaster = T, col = color.scale.hex)
-dev.off()
-
-
-# mrt_adj <- unlist(lapply(mrt, function(x) ifelse(x == 0, 0.000000000001, x)))
-# mrt_adj<- matrix(mrt_adj, nrow = 1000, ncol = 1000, byrow = FALSE)
-
-
-mrt_log<- skew_right(mrt,power=power)
-# mrt_log <- log(mrt_adj/100)
-# mrt_log<- (mrt_log-min(mrt_log))/(max(mrt_log)-min(mrt_log))
-# mrt_log <- log(mrt/10)
-
-
-matrix_values <- as.vector(mrt_log)
-
-# Create a histogram of the matrix's values
-hist(matrix_values, main = paste0("Histogram of Light Shift Values @ ", power), xlab = "Values", ylab = "Frequency", col = "blue",breaks = seq(from=0, to=1, by=.1))
-
-# Plot the matrix
-image(mrt_exp, main = "Matrix Plot", xlab = "Columns", ylab = "Rows" )
-
-
-
-
-png(filename = paste0('darkshift_power',power,'.png'), width = 1000, height = 1000, units = 'px')
-par(mar = c(0, 0, 0, 0))
-image(mrt_log, axes = F, asp = 1, useRaster = T, col = color.scale.hex)
-dev.off()
-
-```
-
-```{r}
-library(tidyverse)
-# Function to create and transform uniform distributions
-create_skewed_distributions <- function(n = 1000, a = 0, b = 1, power = 2) {
-  # Generate uniform distribution
-  uniform_dist <- runif(n, a, b)
-  
-  # Transform to skew towards a (left)
-  left_skewed <- (uniform_dist - a)^power / (b - a)^(power-1) + a
-  
-  # Transform to skew towards b (right)
-  right_skewed <- b - ((b - uniform_dist)^power / (b - a)^(power-1))
-  
-  # Create data frame for plotting
-  plot_data <- data.frame(
-    value = c(uniform_dist, left_skewed, right_skewed),
-    distribution = factor(rep(c("Uniform", "Skewed towards a", "Skewed towards b"), 
-                            each = n))
-  )
-  
-  return(plot_data)
-}
-
-# Generate data
-set.seed(123)
-plot_data <- create_skewed_distributions(n = 10000, a = 0, b = 1, power = 3)
-
-# Create density plots
-ggplot(plot_data, aes(x = value, fill = distribution)) +
-  geom_density(alpha = 0.5) +
-  theme_minimal() +
-  labs(title = "Comparison of Original and Transformed Distributions",
-       x = "Value",
-       y = "Density") +
-  scale_fill_manual(values = c("grey", "blue", "red")) +
-  theme(legend.position = "bottom")
-
-# Create histograms
-ggplot(plot_data, aes(x = value, fill = distribution)) +
-  geom_histogram(position = "identity", alpha = 0.5, bins = 50) +
-  theme_minimal() +
-  labs(title = "Histogram of Original and Transformed Distributions",
-       x = "Value",
-       y = "Count") +
-  scale_fill_manual(values = c("grey", "blue", "red")) +
-  theme(legend.position = "bottom")
-```

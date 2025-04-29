@@ -221,6 +221,8 @@ df_transposed_full <- column_to_rownames(df_transposed_full, var = "variable")
 
 ```
 
+
+
 ```{r}
 
 
@@ -313,16 +315,16 @@ cor_df$min_cors<- as.numeric(cor_df$min_cors)
 cor_df$mean_cors<- as.numeric(cor_df$mean_cors)
 cor_df_sorted <- cor_df %>% arrange(desc(mean_cors))
 
-write.csv(correlation_matrix, file = "correlation_matrix_tmp.csv", row.names = TRUE)
+write.csv(correlation_matrix_sub, file = "correlation_matrix_tmp.csv", row.names = TRUE)
 
 ### maps sorted in terms of most cohesive to least cohesive
 sorted_maps<-unlist(cor_df_sorted$filenames) 
-correlation_matrix_sub<- correlation_matrix[sorted_maps,sorted_maps]
+correlation_matrix_sub<- correlation_matrix_sub[sorted_maps,sorted_maps]
 correlation_matrix <- correlation_matrix[sorted_maps,sorted_maps]
 
 
 cell_size <- 15  # Size in points for each cell (adjust as needed)
-pheatmap(correlation_matrix,
+pheatmap(correlation_matrix_sub,
          # main = "Map x Map Correlation Matrix",
          color = cmap,
          fontsize = 12,
@@ -363,51 +365,7 @@ pheatmap(correlation_matrix,
 
 ```
 
-```{r}
-
-df_transposed <- ratings_trials_grouped_wide %>%
-  pivot_longer(cols = -c(image_path,annot), names_to = "variable", values_to = "value") %>%
-  pivot_wider(names_from = variable, values_from = value)
-
-correlation_matrix<-cor(df_transposed[,-c(1,2)])
-
-
-pheatmap(correlation_matrix,
-         main = "Gray Maps Correlation Matrix",
-         color = cmap,
-         fontsize = 15,
-         border_color = "white",
-         display_numbers = TRUE,
-         number_format = "%.2f",
-         number_color = "white",
-         fontsize_number = 12,
-         
-         # Keep clustering on
-         cluster_rows = TRUE,
-         cluster_cols = TRUE,
-         
-         # Specify clustering parameters
-         clustering_distance_rows = "correlation",
-         clustering_distance_cols = "correlation",
-         clustering_method = "complete",  # Changed from NA to "complete"
-         
-         # Set tree heights to 0 to hide dendrograms
-         treeheight_row = 0,
-         treeheight_col = 0,
-         
-         # Set the breaks to ensure color scale spans from -1 to 1
-         breaks = seq(-1, 1, length.out = length(cmap) + 1),
-         
-         # Configure legend ticks
-         legend_breaks = c(-1, -0.5, 0, 0.5, 1),
-         legend_labels = c("-1", "-0.5", "0", "0.5", "1"),
-         # clustering_callback = callback,
-         
-          filename = paste0(plot_dir,"/exp0_cormat.pdf")
-         
-         )
-```
-
+## plot the corelation matrices
 ```{r}
 
 
@@ -437,9 +395,7 @@ pheatmap(cormat_emotion_x_pc,
          )
 ```
 
-
-
-
+## plot the associations for each map with each emotion
 ```{r}
 plot_df <- ratings_trials_grouped_wide %>% ungroup() %>%
   pivot_longer(
@@ -484,39 +440,8 @@ ggplot(plot_df_sorted, aes(x = rank, y = value, fill = color_group)) +
   )
 
 ggsave(paste0(plot_dir, '/exp0_hillplots_sub.pdf'), height = 3, width = 2.5, units = "in", dpi = 300)
-
-#############
-
-# 
-# 
-# plot_df_sorted <- plot_df %>%
-#   group_by(annot) %>%
-#   arrange(annot, desc(value)) %>%
-#   mutate(rank = row_number()) %>%
-#   select(emotion, annot, rank,value,color_group) 
-# plot_df_sorted$annot <- factor(plot_df_sorted$annot, levels = sorted_maps)
-# 
-# # Create the plot with independently sorted bars
-# ggplot(plot_df_sorted, aes(x = rank, y = value, fill = emotion)) +
-#   geom_col() +
-#   facet_wrap(~ annot, ncol = 4, scales = "free_x") +  # Use free_x scales
-#   scale_fill_manual(values = c("calm" = "cornsilk", "angry" = "darkred", "serious" = "goldenrod","disturbing"="darkgreen","negative"= "darkorange4","playful"="cyan2", "positive"= "chartreuse", "trustworthy"="darkorchid1" )) +
-#   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
-#   theme_minimal() +
-#   theme(
-#     axis.text.x = element_text(angle = 0, hjust = 1, vjust = 0.5, size = 8),
-#     strip.text = element_text(face = "bold"),
-#     panel.grid.major.x = element_blank(),
-#     panel.grid.minor = element_blank(),
-#     # legend.position = "none"  # Remove the legend
-#   ) +
-#   labs(
-#     x = "Emotion",
-#     y = "Score",
-#     title = "Emotion Scores by Map"
-#   )
-# ggsave(paste0(plot_dir, '/exp0_hillplots_sub.pdf'), height = 8, width = 6, units = "in", dpi = 300)
 ```
+### PCA plot of the maps
 
 ```{r}
 
@@ -577,51 +502,3 @@ ggsave(paste0(plot_dir, '/exp0_map_PCA.pdf'), height = 6, width = 6, units = "in
 
 ```
 
-```{r}
-
-ggplot(plot_df, aes(x = PC2, y = PC3)) +
-  geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
-  geom_text(aes(label = annot), vjust = -1, hjust = 1, size = 5, color='cyan') +  # Annotate with filenames
-  theme_grey() +
-  theme(axis.title = element_blank(),  # Optional: hide axis labels
-        axis.text = element_blank(),
-        axis.ticks = element_blank())
-
-# ggsave('pcaplot_gray_maps_2_3_10_16.png', height=13, width=13,units = "in", dpi = 300)
-ggsave('pcaplot_gray_maps_2_3_sub_maps_10_16.png', height=13, width=13,units = "in", dpi = 300)
-```
-
-```{r}
-
-ggplot(plot_df, aes(x = PC1, y = PC3)) +
-  geom_image(aes(image = image), size = 0.05) +  # Adjust size as needed
-  geom_text(aes(label = annot), vjust = -1, hjust = 1, size = 5, color='cyan') +  # Annotate with filenames
-  theme_grey() +
-  theme(axis.title = element_blank(),  # Optional: hide axis labels
-        axis.text = element_blank(),
-        axis.ticks = element_blank())
-
-ggsave('pcaplot_gray_maps_1_3_10_16.png', height=13, width=13,units = "in", dpi = 300)
-```
-
-```{r}
-
-# Step 1: Extract the order of the `concept` values in the first facet
-first_facet <- ratings_trial_grouped %>% filter(annot == '02')  # Assuming '02' is the first facet
-ordered_concepts <- first_facet %>% arrange(desc(mean_rating)) %>% pull(concept)
-
-# Step 2: Apply this order to the entire dataset
-ratings_trial_grouped$concept <- factor(ratings_trial_grouped$concept, levels = ordered_concepts)
-
-# Step 3: Plot the data using the ordered `concept` values
-p <- ggplot(ratings_trial_grouped, aes(x = concept, y = mean_rating)) +
-  geom_bar(stat='identity') +
-  facet_wrap(~annot, scales = "free_x", ncol = 4) +
-  theme(axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-  labs(y = "Mean Rating") +
-  scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, .1)))
-
-p
-ggsave('subset_map_ratings.png', plot = p, dpi = 300, height = 10, width = 13)
-```
