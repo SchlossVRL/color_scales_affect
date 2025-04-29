@@ -1,4 +1,6 @@
-# color_scales_affect
+# Affective Color Scales for Colormap Data Visualizations
+
+### Halle Braun, Kushin Mukherjee, Seth R. Gorelik, and Karen B. Schloss
 
 This repository contains the experiment data and analyses for `Affective Color Scales for Colormap Data Visualizations'.
 
