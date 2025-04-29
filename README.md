@@ -11,6 +11,6 @@ Raw participant data for each study can be found in the `data` directory. \
 Raster images for each of the maps used across all experiments can be found in the `images` directory.
 
 The analysis notebooks will generate all the figures reported in the paper, but for convenience we have already rendered the raw plots, which can be found in the `plots` directory. \
-Helper scripts in the `scripts` directory were used to generate metadata files for condition assingment.
+Helper scripts in the `scripts` directory were used to generate metadata files for condition assingment and generate the original map images.
 
 Please direct any questions about this repository to [Kushin Mukherjee](kushinm11@gmail.com)
