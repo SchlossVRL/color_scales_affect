@@ -8,7 +8,7 @@ editor: visual
 
 ```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","sjPlot","pheatmap")
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot","sjPlot","pheatmap","MuMIn")
 
 
 ```
@@ -78,6 +78,17 @@ ratings_trials_exp$response<- (ratings_trials_exp$response + 200)/400
 
 ### here we averagae over repetition
 ratings_trial_grouped_subject<- ratings_trials_exp %>% group_by(subject_id, hue, saturation, lightness,concept,shift) %>%summarise(mean_rating = mean(response)) 
+
+
+ratings_trials_exp_image<- read_csv(paste0(data_dir,'/../ratings_trials_exp_2_image_statistics.csv')) ### contains average image color statistics
+
+### scale the new predictors
+
+ratings_trials_exp_image$image_L_scaled <- scale(ratings_trials_exp_image$image_L)
+ratings_trials_exp_image$image_a_scaled <- scale(ratings_trials_exp_image$image_a)
+ratings_trials_exp_image$image_b_scaled <- scale(ratings_trials_exp_image$image_b)
+ratings_trials_exp_image$image_c_scaled <- scale(ratings_trials_exp_image$image_c)
+
 
 
 ### here we average over subject
@@ -324,7 +335,7 @@ ggsave(paste0(plot_dir,'/exp2_colored_map_PCA.pdf'), dpi=300, height = 7, width=
 ```
 
 ```{r}
-pc_object_maps$x
+
 
 exp2_pc_scores<-as.data.frame(pc_object_maps$x)
 exp2_pc_scores$hue<-ratings_trials_grouped_wide$hue
@@ -344,6 +355,28 @@ cormat_emotion_x_pc
 print(cormat_emotion_x_pc)
 pheatmap(cormat_emotion_x_pc, display_numbers = T, fontsize = 20,number_color = 'white', treeheight_col = 0, treeheight_row = 0, color = cmap, filename = paste0(plot_dir,'/exp2_pc_emotion_cors.pdf'))
 
+```
+
+```{r}
+
+# ratings_trials_exp_image%>%group_by(hue, saturation, lightness, shift)%>%slice(1) %>%ungroup()%>%group_by(hue, saturation, lightness)%>%summarize(image_a=mean(image_a), image_b = mean(image_b), image_c = mean(image_c), image_L=mean(image_L))
+
+map_coords <- ratings_trials_exp_image%>%group_by(hue, saturation, lightness, shift)%>%slice(1)%>%ungroup()
+map_coords<- map_coords[c('hue', 'saturation', 'lightness', 'shift','image_a','image_b','image_c','image_L')]
+join_key <- c("hue", "saturation", "lightness", "shift")
+exp2_pc_scores <- left_join(exp2_pc_scores, map_coords, by = join_key)
+
+exp2_pc_scores$L_scaled <- scale(exp2_pc_scores$image_L)
+exp2_pc_scores$a_scaled <- scale(exp2_pc_scores$image_a)
+exp2_pc_scores$b_scaled <- scale(exp2_pc_scores$image_b)
+exp2_pc_scores$C_scaled <- scale(exp2_pc_scores$image_c)
+
+
+pc1_lm <- lm(PC1~ (a_scaled + b_scaled + L_scaled + C_scaled), data =exp2_pc_scores)
+summary(pc1_lm)
+
+pc2_lm <- lm(PC2~ (a_scaled + b_scaled + L_scaled + C_scaled), data =exp2_pc_scores)
+summary(pc2_lm)
 ```
 
 ```{r}
@@ -382,12 +415,7 @@ ratings_trial_grouped <-
 ```
 
 ```{r}
-ratings_trial_grouped
-```
 
-```{r}
-
-  
 
 
 ratings_trial_grouped$lightsat<-paste(ratings_trial_grouped$lightness, ratings_trial_grouped$saturation, sep = "_")
@@ -515,7 +543,71 @@ summary(m1)
 ## Mixed Effects Models
 
 ```{r}
+generate_lmer_latex_table <- function(model, model_name = "Model", caption = "Results from Linear Mixed Effects Model", label = "tab:lmer_results") {
+  # Extract model summary
+  model_summary <- summary(model)
+  fixed_effects <- model_summary$coefficients
+  
+  # Extract values
+  predictors <- rownames(fixed_effects)
+  beta_values <- fixed_effects[, "Estimate"]
+  se_values <- fixed_effects[, "Std. Error"]
+  t_values <- fixed_effects[, "t value"]
+  
+  # Calculate p-values (since lmer doesn't provide them directly)
+  p_values <- 2 * (1 - pnorm(abs(t_values)))
+  
+  # Format values
+  formatted_beta <- sprintf("%.3f", beta_values)
+  formatted_se <- sprintf("%.3f", se_values)
+  formatted_t <- sprintf("%.2f", t_values)
+  
+  # Format p-values according to requirements
+  formatted_p <- sapply(p_values, function(p) {
+    # if (p < 0.001) return("$<$ .001")
+    # else if (p < 0.01) return("$<$ .01")
+    # else if (p < 0.05) return(sprintf("%.3f", p))
+    # else 
+      return(sprintf("%.4f", p))
+  })
+  
+  # Create LaTeX table header
+  latex_table <- c(
+    "\\begin{table*}[ht]",
+    "\\centering",
+    paste0("\\caption{", caption, "}"),
+    "\\begin{tabular}{llcccc}",
+    "\\hline",
+    "\\textbf{Model} & \\textbf{Predictor} & \\boldsymbol{$\\beta$} & \\textbf{SE} & \\boldsymbol{$t$} & \\boldsymbol{$p$} \\\\",
+    "\\hline"
+  )
+  
+  # Create table rows
+  for (i in 1:length(predictors)) {
+    if (i == 1) {
+      row <- paste0(model_name, " & ", predictors[i], " & ", 
+                   formatted_beta[i], " & ", formatted_se[i], " & ", 
+                   formatted_t[i], " & ", formatted_p[i], " \\\\")
+    } else {
+      row <- paste0(" & ", predictors[i], " & ", 
+                   formatted_beta[i], " & ", formatted_se[i], " & ", 
+                   formatted_t[i], " & ", formatted_p[i], " \\\\")
+    }
+    latex_table <- c(latex_table, row)
+  }
+  
+  # Close table
+  latex_table <- c(latex_table, "\\hline", "\\end{tabular}", 
+                  paste0("\\label{", label, "}"), "\\end{table*}")
+  
+  # Combine into a single string
+  latex_code <- paste(latex_table, collapse = "\n")
+  
+  return(latex_code)
+}
+```
 
+```{r}
 ratings_trials_exp <- 
   ratings_trials_exp %>% 
   mutate(
@@ -547,6 +639,18 @@ ratings_trials_exp <-
       TRUE ~ NA_real_  # Use NA_real_ for numeric NA
     ),
   )
+
+
+color_scales_mean_colorimetric<- read_csv(paste0(data_dir,'/../color_scales_mean_colorimetric.csv'),col_select = -c(1))
+join_key <- c("hue", "lightness", "saturation")
+
+ratings_trials_exp<- left_join(ratings_trials_exp, color_scales_mean_colorimetric, by = join_key)
+ratings_trials_exp$L_scaled <- scale(ratings_trials_exp$L_lab)
+ratings_trials_exp$a_scaled <- scale(ratings_trials_exp$a_lab)
+ratings_trials_exp$b_scaled <- scale(ratings_trials_exp$b_lab)
+ratings_trials_exp$C_scaled <- scale(ratings_trials_exp$C_lch)
+
+write.csv(ratings_trials_exp, paste0(data_dir,'/../ratings_trials_exp_2.csv'), row.names = FALSE)
 ```
 
 ```{r}
@@ -594,10 +698,101 @@ d<- ratings_trials_exp%>%filter(concept=='calm')
 
 m_calm<-lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric*shift_numeric) + (RG_numeric+BY_numeric+lightness_numeric+saturation_numeric+shift_numeric||subject_id), data =d, control=ctrl)
 
-tab_model(m_calm,p.val = "kr", show.df = TRUE,file='calm_lmer_results.html')
+# tab_model(m_calm,p.val = "kr", show.df = TRUE,file='calm_lmer_results.html')
 ```
 
-```         
+### color space regression models
+
+```{r}
+
+positive_df <- ratings_trials_exp %>% filter(concept == 'positive')
+negative_df <- ratings_trials_exp %>% filter(concept == 'negative')
+startling_df <- ratings_trials_exp %>% filter(concept == 'startling')
+calm_df <- ratings_trials_exp %>% filter(concept == 'calm')
+
+positive_lmer<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled*shift_numeric)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =positive_df,control=ctrl)
+summary(positive_lmer)
+cat(generate_lmer_latex_table(positive_lmer, model_name = "Positive"))
+
+negative_lmer<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled*shift_numeric)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =negative_df,control=ctrl)
+summary(negative_lmer)
+cat(generate_lmer_latex_table(negative_lmer, model_name = "Negative"))
+
+startling_lmer<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled*shift_numeric)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id),data =startling_df,control=ctrl)
+summary(startling_lmer)
+cat(generate_lmer_latex_table(startling_lmer, model_name = "Startling"))
+
+calm_lmer<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled*shift_numeric)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id),data =calm_df,control=ctrl)
+summary(calm_lmer)
+cat(generate_lmer_latex_table(calm_lmer, model_name = "Calm"))
+
+```
+
+### EXP 2 - Color Space Regression Models with map color coordinates
+
+```{r}
+
+
+positive_df <- ratings_trials_exp_image %>% filter(concept == 'positive')
+negative_df <- ratings_trials_exp_image %>% filter(concept == 'negative')
+startling_df <- ratings_trials_exp_image %>% filter(concept == 'startling')
+calm_df <- ratings_trials_exp_image %>% filter(concept == 'calm')
+
+positive_lmer_scales<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =positive_df,control=ctrl,REML = FALSE)
+positive_lmer_images<- lmer(response~ (image_a_scaled+image_b_scaled)*(image_L_scaled*image_c_scaled)+(image_a_scaled+image_b_scaled+image_L_scaled+image_c_scaled||subject_id), data =positive_df,control=ctrl,REML = FALSE)
+
+
+negative_lmer_scales<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =negative_df,control=ctrl,REML = FALSE)
+negative_lmer_images<- lmer(response~ (image_a_scaled+image_b_scaled)*(image_L_scaled*image_c_scaled)+(image_a_scaled+image_b_scaled+image_L_scaled+image_c_scaled||subject_id), data =negative_df,control=ctrl,REML = FALSE)
+
+
+startling_lmer_scales<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id),data =startling_df,control=ctrl,REML = FALSE)
+startling_lmer_images<- lmer(response~ (image_a_scaled+image_b_scaled)*(image_L_scaled*image_c_scaled)+(image_a_scaled+image_b_scaled+image_L_scaled+image_c_scaled||subject_id),data =startling_df,control=ctrl,REML = FALSE)
+
+
+calm_lmer_scales<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id),data =calm_df,control=ctrl,REML = FALSE)
+calm_lmer_images<- lmer(response~ (image_a_scaled+image_b_scaled)*(image_L_scaled*image_c_scaled)+(image_a_scaled+image_b_scaled+image_L_scaled+image_c_scaled||subject_id),data =calm_df,control=ctrl,REML = FALSE)
+
+
+```
+
+###model comparisons
+
+```{r}
+AIC(positive_lmer_scales, positive_lmer_images)
+BIC(positive_lmer_scales, positive_lmer_images)
+r.squaredGLMM(positive_lmer_scales)
+r.squaredGLMM(positive_lmer_images)
+
+AIC(negative_lmer_scales, negative_lmer_images)
+BIC(negative_lmer_scales, negative_lmer_images)
+r.squaredGLMM(negative_lmer_scales)
+r.squaredGLMM(negative_lmer_images)
+
+AIC(startling_lmer_scales, startling_lmer_images)
+BIC(startling_lmer_scales, startling_lmer_images)
+r.squaredGLMM(startling_lmer_scales)
+r.squaredGLMM(startling_lmer_images)
+
+AIC(calm_lmer_scales, calm_lmer_images)
+BIC(calm_lmer_scales, calm_lmer_images)
+r.squaredGLMM(calm_lmer_scales)
+r.squaredGLMM(calm_lmer_images)
+
+```
+
+```{r}
+
+cat(generate_lmer_latex_table(positive_lmer_scales, model_name = "Positive Color Scales"))
+cat(generate_lmer_latex_table(negative_lmer_scales, model_name = "Negative Color Scales"))
+cat(generate_lmer_latex_table(startling_lmer_scales, model_name = "Startling Color Scales"))
+cat(generate_lmer_latex_table(calm_lmer_scales, model_name = "Calm Color Scales"))
+
+
+cat(generate_lmer_latex_table(positive_lmer_images, model_name = "Positive Color Maps"))
+cat(generate_lmer_latex_table(negative_lmer_images, model_name = "Negative Color Maps"))
+cat(generate_lmer_latex_table(startling_lmer_images, model_name = "Startling Color Maps"))
+cat(generate_lmer_latex_table(calm_lmer_images, model_name = "Calm Color Maps"))
 ```
 
 ```{r}

@@ -2,7 +2,7 @@
 
 ```{r}
 # List of packages
-packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot",'pheatmap','RColorBrewer')
+packages <- c("corrr", "ggplot2", "lme4", "lmerTest", "FactoMineR", "grid","png","cowplot","magick", "ggimage","dplyr","tidyverse","ggcorrplot",'pheatmap','RColorBrewer','colorspace','MuMIn')
 ```
 
 ```{r}
@@ -48,6 +48,12 @@ df_list <- lapply(data_files, read.csv)
 exclude_sub_ids<- c('r57soqz0pg', 'ov4c0zd1oe', 'pttv2mynsh')
 experiment_data_raw<- bind_rows(df_list)
 experiment_data_raw<-experiment_data_raw%>%filter(!subject_id%in%exclude_sub_ids)
+
+### load in the color scale coordinates
+
+color_scales_mean_colorimetric<- read_csv(paste0(data_dir,'/../color_scales_mean_colorimetric.csv'),col_select = -c(1))
+join_key <- c("hue", "lightness", "saturation")
+
 
 ### these are the ids for which we have 3 subjects per condition, so we exclude the last person
 
@@ -418,38 +424,42 @@ write.csv(ratings_trials_grouped_wide, file="../data/exp1_mean_ratings.csv")
 
 tmp$PC1<- -1*tmp$PC1
 
+tmp<- left_join(tmp, color_scales_mean_colorimetric, by = join_key)
+tmp$L_scaled <- scale(tmp$L_lab)
+tmp$a_scaled <- scale(tmp$a_lab)
+tmp$b_scaled <- scale(tmp$b_lab)
+tmp$C_scaled <- scale(tmp$C_lch)
+# 
+# tmp$RG_numeric<-case_when(
+#   tmp$hue == 'R' ~ 1,
+#   tmp$hue == 'G' ~ -1,
+#   tmp$hue %in% c('B', 'Y') ~ 0,
+#   TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+# )
+# 
+# tmp$BY_numeric<-case_when(
+#   tmp$hue == 'B' ~ -1,
+#   tmp$hue == 'Y' ~ 1,
+#   tmp$hue %in% c('R', 'G') ~ 0,
+#   TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+# )
+# 
+# tmp$lightness_numeric<-case_when(
+#   tmp$lightness == 'L' ~ 1,
+#   tmp$lightness == 'D' ~ -1,
+#   TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+# )
+# 
+# tmp$saturation_numeric<-case_when(
+#   tmp$saturation == 'S' ~ 1,
+#   tmp$saturation == 'U' ~ -1,
+#   TRUE ~ NA_real_  # Use NA_real_ for numeric NA
+# )
 
-
-tmp$RG_numeric<-case_when(
-  tmp$hue == 'R' ~ 1,
-  tmp$hue == 'G' ~ -1,
-  tmp$hue %in% c('B', 'Y') ~ 0,
-  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-)
-
-tmp$BY_numeric<-case_when(
-  tmp$hue == 'B' ~ -1,
-  tmp$hue == 'Y' ~ 1,
-  tmp$hue %in% c('R', 'G') ~ 0,
-  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-)
-
-tmp$lightness_numeric<-case_when(
-  tmp$lightness == 'L' ~ 1,
-  tmp$lightness == 'D' ~ -1,
-  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-)
-
-tmp$saturation_numeric<-case_when(
-  tmp$saturation == 'S' ~ 1,
-  tmp$saturation == 'U' ~ -1,
-  TRUE ~ NA_real_  # Use NA_real_ for numeric NA
-)
-
-pc1_lm <- lm(PC1~ (RG_numeric + BY_numeric + lightness_numeric + saturation_numeric), data =tmp)
+pc1_lm <- lm(PC1~ (a_scaled + b_scaled + L_scaled + C_scaled), data =tmp)
 summary(pc1_lm)
 
-pc2_lm <- lm(PC2~ (RG_numeric + BY_numeric + lightness_numeric + saturation_numeric), data =tmp)
+pc2_lm <- lm(PC2~ (a_scaled + b_scaled + L_scaled + C_scaled), data =tmp)
 summary(pc2_lm)
 ```
 
@@ -466,25 +476,22 @@ ratings_trial_grouped_clustered_emotions$clustered_emotion<-factor(ratings_trial
 ```
 
 ```{r}
-ratings_trials_grouped_wide
-```
-```{r}
 
 emotion1_df_grouped<-ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion1')
 emotion2_df_grouped<-ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion2')
 emotion3_df_grouped<-ratings_trial_grouped_clustered_emotions%>%filter(clustered_emotion=='emotion3')
 
-emotion1_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric), data =emotion1_df_grouped )
-summary(emotion1_lm)
-
-
-emotion2_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric), data =emotion2_df_grouped )
-summary(emotion2_lm)
-
-
-
-emotion3_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric), data =emotion3_df_grouped )
-summary(emotion3_lm)
+# emotion1_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric), data =emotion1_df_grouped )
+# summary(emotion1_lm)
+# 
+# 
+# emotion2_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric), data =emotion2_df_grouped )
+# summary(emotion2_lm)
+# 
+# 
+# 
+# emotion3_lm<- lm(mean_rating~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric), data =emotion3_df_grouped )
+# summary(emotion3_lm)
 
 ```
 
@@ -492,6 +499,10 @@ summary(emotion3_lm)
 
 ```{r}
 generate_lmer_latex_table <- function(model, model_name = "Model", caption = "Results from Linear Mixed Effects Model", label = "tab:lmer_results") {
+  
+  # This function assumes the 'lmerTest' package is loaded,
+  # as it is required to calculate and extract degrees of freedom.
+  
   # Extract model summary
   model_summary <- summary(model)
   fixed_effects <- model_summary$coefficients
@@ -500,52 +511,83 @@ generate_lmer_latex_table <- function(model, model_name = "Model", caption = "Re
   predictors <- rownames(fixed_effects)
   beta_values <- fixed_effects[, "Estimate"]
   se_values <- fixed_effects[, "Std. Error"]
+  df_values <- fixed_effects[, "df"] # Extract degrees of freedom
   t_values <- fixed_effects[, "t value"]
-  
-  # Calculate p-values (since lmer doesn't provide them directly)
-  p_values <- 2 * (1 - pnorm(abs(t_values)))
+  p_values <- fixed_effects[, "Pr(>|t|)"] # Use p-values from lmerTest
   
   # Format values
   formatted_beta <- sprintf("%.3f", beta_values)
   formatted_se <- sprintf("%.3f", se_values)
   formatted_t <- sprintf("%.2f", t_values)
   
-  # Format p-values according to requirements
-  formatted_p <- sapply(p_values, function(p) {
-    if (p < 0.001) return("$<$ .001")
-    else if (p < 0.01) return("$<$ .01")
-    else if (p < 0.05) return(sprintf("%.3f", p))
-    else return(sprintf("%.3f", p))
+  # Format degrees of freedom in scientific notation like the example
+  formatted_df <- sapply(df_values, function(df) {
+    # Use formatC to get scientific notation e.g., "5.19e+01"
+    scinote <- formatC(df, format = "e", digits = 2)
+    # Split the string at 'e'
+    parts <- strsplit(scinote, "e")[[1]]
+    base <- parts[1]
+    # Convert exponent to integer to remove leading zeros (e.g., +01 -> 1)
+    exponent <- as.integer(parts[2])
+    # Create the LaTeX string
+    return(paste0(base, " $\\times 10^{", exponent, "}$"))
   })
   
-  # Create LaTeX table header
+  # Format p-values
+  formatted_p <- sapply(p_values, function(p) {
+    if (p < 0.0001) {
+      return("0.0000") # As in the example for p < 0.00005
+    } else {
+      return(sprintf("%.4f", p))
+    }
+  })
+  
+  # Create LaTeX table header using the 'longtable' environment
   latex_table <- c(
-    "\\begin{table*}[ht]",
-    "\\centering",
-    paste0("\\caption{", caption, "}"),
-    "\\begin{tabular}{llcccc}",
+    "{\\small",
+    "\\begin{longtable}{llccccc}",
+    paste0("\\caption{", caption, "} \\label{", label, "} \\\\"),
+    "",
     "\\hline",
-    "\\textbf{Model} & \\textbf{Predictor} & \\boldsymbol{$\\beta$} & \\textbf{SE} & \\boldsymbol{$t$} & \\boldsymbol{$p$} \\\\",
-    "\\hline"
+    "\\textbf{Model} & \\textbf{Predictor} & \\boldsymbol{$\\beta$} & \\textbf{SE} & \\boldsymbol{$df$} & \\boldsymbol{$t$} & \\boldsymbol{$p$} \\\\",
+    "\\hline",
+    "\\endfirsthead",
+    "",
+    "\\multicolumn{7}{c}{{\\tablename\\ \\thetable{} -- continued from previous page}} \\\\",
+    "\\hline",
+    "\\textbf{Model} & \\textbf{Predictor} & \\boldsymbol{$\\beta$} & \\textbf{SE} & \\boldsymbol{$df$} & \\boldsymbol{$t$} & \\boldsymbol{$p$} \\\\",
+    "\\hline",
+    "\\endhead",
+    "",
+    "\\hline",
+    "\\multicolumn{7}{r}{{Continued on next page}} \\\\",
+    "\\endfoot",
+    "",
+    "\\hline",
+    "\\endlastfoot"
   )
   
   # Create table rows
   for (i in 1:length(predictors)) {
-    if (i == 1) {
-      row <- paste0(model_name, " & ", predictors[i], " & ", 
-                   formatted_beta[i], " & ", formatted_se[i], " & ", 
-                   formatted_t[i], " & ", formatted_p[i], " \\\\")
-    } else {
-      row <- paste0(" & ", predictors[i], " & ", 
-                   formatted_beta[i], " & ", formatted_se[i], " & ", 
-                   formatted_t[i], " & ", formatted_p[i], " \\\\")
-    }
+    # The first row includes the model name
+    model_col <- if (i == 1) model_name else ""
+    
+    row <- paste(
+      model_col,
+      predictors[i],
+      formatted_beta[i],
+      formatted_se[i],
+      formatted_df[i],
+      formatted_t[i],
+      formatted_p[i],
+      sep = " & ",
+      end = " \\\\"
+    )
     latex_table <- c(latex_table, row)
   }
   
   # Close table
-  latex_table <- c(latex_table, "\\hline", "\\end{tabular}", 
-                  paste0("\\label{", label, "}"), "\\end{table*}")
+  latex_table <- c(latex_table, "\\end{longtable}}")
   
   # Combine into a single string
   latex_code <- paste(latex_table, collapse = "\n")
@@ -556,7 +598,6 @@ generate_lmer_latex_table <- function(model, model_name = "Model", caption = "Re
 
 
 ```{r}
-ctrl <- lmerControl(optimizer="bobyqa", optCtrl=list(maxfun=5e5))
 
 ratings_trials_exp$RG_numeric<-case_when(
   ratings_trials_exp$hue == 'R' ~ 1,
@@ -584,7 +625,73 @@ ratings_trials_exp$saturation_numeric<-case_when(
   TRUE ~ NA_real_  # Use NA_real_ for numeric NA
 )
 
-ratings_trials_exp
+
+ratings_trials_exp<- left_join(ratings_trials_exp, color_scales_mean_colorimetric, by = join_key)
+ratings_trials_exp$L_scaled <- scale(ratings_trials_exp$L_lab)
+ratings_trials_exp$a_scaled <- scale(ratings_trials_exp$a_lab)
+ratings_trials_exp$b_scaled <- scale(ratings_trials_exp$b_lab)
+ratings_trials_exp$C_scaled <- scale(ratings_trials_exp$C_lch)
+
+```
+
+### color scale plots
+```{r}
+color_scale_plot_df<-ratings_trials_exp%>%select(hue,saturation,lightness,L_lab, a_lab, b_lab, C_lch)
+color_scale_plot_grouped<- pivot_longer(
+  color_scale_plot_df,
+  cols = c(L_lab, C_lch, a_lab, b_lab),
+  names_to = "color_space_dim",
+  values_to = "value"
+  )%>%group_by(hue, saturation, lightness, color_space_dim) %>%summarize(mean_value = mean(value), .groups = 'drop')
+
+
+
+hue_colors<-c('#fc0303','#f2eb0c','#00e357','#032cfc')
+
+condition_colors = c("#005ddf","#00b3ff","#00588d","#3baeea","#00675b","#00c6b1","#005f5a","#00b9b0","#be004f","#ff31a3","#8d2449","#ef7f9c","#3f3c00","#beb600","#3e3b04","#bbb379")
+
+color_scale_plot_grouped$lightsat<-paste(color_scale_plot_grouped$lightness, color_scale_plot_grouped$saturation, sep = "_")
+color_scale_plot_grouped$light_sat_hue<-paste(color_scale_plot_grouped$lightsat, color_scale_plot_grouped$hue, sep = "_")
+color_scale_plot_grouped$hue<- factor(color_scale_plot_grouped$hue, levels = c("R","Y","G","B"))
+color_scale_plot_grouped$light_sat_hue<-factor(color_scale_plot_grouped$light_sat_hue, levels= c("D_S_B", "L_S_B", "D_U_B", "L_U_B", "D_S_G", "L_S_G", "D_U_G", "L_U_G", "D_S_R", "L_S_R", "D_U_R", "L_U_R", "D_S_Y", "L_S_Y", "D_U_Y", "L_U_Y"))
+
+
+limit_data <- data.frame(
+  color_space_dim = c("L_lab", "L_lab", "C_lch", "C_lch", "a_lab", "a_lab", "b_lab", "b_lab"),
+  y_limit = c(0, 100, 0, 75, -75, 75, -80, 80)
+)
+
+p <- ggplot(color_scale_plot_grouped, aes(x = hue, y = mean_value)) +
+  # geom_hline(yintercept = c(0.25, 0.5, 0.75), linetype = "solid", color = "gray70", size = 0.3) +  # Add horizontal lines
+  geom_line(aes(colour = lightness, linetype = saturation, group = lightsat), linewidth = 0.5) +
+  # geom_errorbar(aes(ymin = mean_value - se_rating, ymax = mean_rating + se_rating),  # Add error bars
+  #               width = 0.2, color = "black", linewidth = 0.3) + 
+  geom_point(aes(shape = lightsat, fill = light_sat_hue, group = lightsat), stroke=NA,size=2.5) +
+  geom_blank(data = limit_data, aes(y = y_limit,group = NULL, hue=NULL, x=NULL)) +
+  facet_wrap(~color_space_dim, scales = "free_y", nrow = 4, strip.position = "right") +  # Move facet labels to the left
+  labs(y = "Mean Value") +
+  scale_y_continuous( expand = expansion(mult = c(0, 0))) +  # Set y-axis limits exactly from 0 to 1
+  # For the lines: apply grey scale
+  scale_colour_manual(name = "Lightness", values = c("D" = 'black', "L" = '#bdbdbd'), guide = "none") +
+  scale_linetype(guide = "none") +
+  scale_fill_manual(values = condition_colors, guide = "none") +
+  # Use filled shapes for the points
+  scale_shape_manual(name = "Lightness/Saturation", values = c("D_S" = 22, "L_S" = 21, "L_U" = 24, "D_U" = 23), guide = "none") +
+  theme_classic() +
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text( hjust = 1, vjust = 0.5),
+    panel.border = element_rect(colour = "black", fill = NA, linewidth = .5),  # Add border around each facet
+    strip.background = element_rect(colour = "black", fill = "white"),  # Add background to facet labels
+    panel.spacing.y = unit(1, "lines"),  # Increase space between rows
+    strip.placement = "outside"  # Ensure strip labels are placed outside the plot area
+  )
+p
+ggsave(paste0(plot_dir,'/exp1_color_scales_dimension_values.pdf'), dpi=300, height = 8, width=5,plot=p)
+
+```
+
+```{r}
 
 emotion1_df<-ratings_trials_exp%>%filter(clustered_emotion=='emotion1')
 emotion2_df<-ratings_trials_exp%>%filter(clustered_emotion=='emotion2')
@@ -599,6 +706,8 @@ positive_df <- ratings_trials_exp %>% filter(concept == 'positive')
 calm_df <- ratings_trials_exp %>% filter(concept == 'calm')
 disturbing_df <- ratings_trials_exp %>% filter(concept == 'disturbing')
 
+
+ctrl <- lmerControl(optimizer="bobyqa", optCtrl=list(maxfun=5e5))
 tw_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*saturation_numeric)+(RG_numeric+BY_numeric+lightness_numeric+saturation_numeric||subject_id), data =trustworthy_df,control=ctrl)
 summary(tw_lmer)
 cat(generate_lmer_latex_table(tw_lmer, model_name = "Trustworthy"))
@@ -631,8 +740,93 @@ disturbing_lmer<- lmer(response~ (RG_numeric+BY_numeric)*(lightness_numeric*satu
 summary(disturbing_lmer)
 cat(generate_lmer_latex_table(disturbing_lmer, model_name = "Disturbing"))
 
+r.squaredGLMM(disturbing_lmer)
+
 ```
 
+### Color space regressions
+```{r}
+
+tw_colorspace_lmer<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =trustworthy_df, control=ctrl)
+summary(tw_colorspace_lmer)
+
+
+excite_colorspace_lmer<-lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data=exciting_df, control=ctrl)
+summary(excite_colorspace_lmer)
+
+
+
+playful_colorspace_lmer<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =playful_df,control=ctrl)
+summary(playful_colorspace_lmer)
+
+negative_colorspace_lmer<-  lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =negative_df,control=ctrl)
+summary(negative_colorspace_lmer)
+
+
+serious_colorspace_lmer<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =serious_df,control=ctrl)
+summary(serious_colorspace_lmer)
+
+
+
+positive_colorspace_lmer<-  lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =positive_df,control=ctrl)
+summary(positive_colorspace_lmer)
+
+
+calm_colorspace_lmer<- lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =calm_df,control=ctrl)
+summary(calm_colorspace_lmer)
+
+
+disturbing_colorspace_lmer<-  lmer(response~ (a_scaled+b_scaled)*(L_scaled*C_scaled)+(a_scaled+b_scaled+L_scaled+C_scaled||subject_id), data =disturbing_df,control=ctrl)
+summary(disturbing_colorspace_lmer)
+
+
+
+cat(generate_lmer_latex_table(positive_colorspace_lmer, model_name = "Positive"))
+cat(generate_lmer_latex_table(excite_colorspace_lmer, model_name = "Exciting"))
+cat(generate_lmer_latex_table(playful_colorspace_lmer, model_name = "Playful"))
+cat(generate_lmer_latex_table(negative_colorspace_lmer, model_name = "Negative"))
+cat(generate_lmer_latex_table(disturbing_colorspace_lmer, model_name = "Disturbing"))
+cat(generate_lmer_latex_table(serious_colorspace_lmer, model_name = "Serious"))
+cat(generate_lmer_latex_table(calm_colorspace_lmer, model_name = "Calm"))
+cat(generate_lmer_latex_table(tw_colorspace_lmer, model_name = "Trustworthy"))
+```
+
+
+```{r}
+
+
+library(readr)
+
+# 2. Store the data as a multi-line character string.
+color_data_string <- "hue lightness saturation color_1 color_2 color_3 color_4 color_5 color_6 color_7 color_8 color_9
+R L S #ffdaff #ffb6eb #ff91cf #ff68b8 #ff31a3 #ff008e #ff0078 #de0065 #bb0056
+R D S #eb7cb3 #da578f #cf2975 #c80062 #be004f #ad003d #92002b #73001c #55000a
+R L U #fffcff #f9dae4 #f4bbc8 #f39db1 #ef7f9c #e26087 #ca4571 #ab355e #892c4f
+R D U #a59fad #9b8089 #96626f #93455b #8d2449 #7f0037 #680024 #4c0014 #340000
+Y L S #ffff8d #f9ed6b #e5da48 #d0c81b #beb600 #aca500 #9a9500 #8a8500 #7b7600
+Y D S #857c00 #6f6c00 #5c5b00 #4c4c00 #3f3c00 #352e00 #2f2000 #2b1400 #250100
+Y L U #fffef3 #f0ebd2 #ddd8b3 #ccc695 #bbb379 #aca25e #9c9245 #8d832c #7f7413
+Y D U #7f7a70 #6d6953 #5d5939 #4d4920 #3e3b04 #312d00 #281f00 #211300 #1a0000
+G L S #83fff3 #15ffe2 #00ead0 #00d8c0 #00c6b1 #00b19d #009786 #007f6f #006856
+G D S #00b896 #009f87 #008a77 #007969 #00675b #00524a #003f36 #003221 #002809
+G L U #f7fff3 #c7eae2 #93d7d0 #54c8c0 #00b9b0 #00a59c #008e85 #00766e #005f55
+G D U #9aa496 #6d8e87 #397c77 #006e68 #005f5a #004c49 #003835 #002821 #001a09
+B L S #c7ffff #97e8ff #46d3ff #00c3ff #00b3ff #00a1ff #008aff #0074fe #005ed8
+B D S #62a6f9 #108cee #007ae6 #006ce4 #005ddf #004dd4 #003abc #00299d #00197b
+B L U #feffff #dae3f5 #afceef #7dbeee #3baeea #009bdf #0085c8 #006ea9 #005987
+B D U #a0a1a2 #7f8898 #567592 #156691 #00588d #004783 #00336e #002253 #001035
+"
+
+# 3. Read the string data into a dataframe using readr.
+# read_table is designed for whitespace-separated columns and is very robust.
+color_df <- read_table(color_data_string)
+
+head(color_df)
+
+write.csv(color_df,paste0("/Users/kushinm/Documents/Github/color_scales_affect/data/color_scales_hex.csv"))
+
+
+```
 
 
 ## Generating Shifted Maps
@@ -695,6 +889,8 @@ colnames(map_df_vals_darkshift)[1] <- "V1"
 
 data.table::fwrite(map_df_vals_lightshift,'../data/map_values_V2_lightshift.csv')
 data.table::fwrite(map_df_vals_darkshift,'../data/map_values_V2_darkshift.csv')
+
+
 
 
 
