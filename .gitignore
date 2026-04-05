@@ -1,3 +1,7 @@
 .DS_Store
 .RData
 .Rhistory
+
+# Large data files kept local only
+data/map_values_V2_darkshift.csv
+data/map_values_V2_lightshift.csv
